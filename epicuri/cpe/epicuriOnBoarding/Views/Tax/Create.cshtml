@@ -1,0 +1,53 @@
+﻿@model epicuri.Core.DatabaseModel.TaxType
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Tax Types</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>TaxType</legend>
+
+       
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.CountryId, "Country *")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("CountryId", String.Empty)
+            @Html.ValidationMessageFor(model => model.CountryId)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Name, "Name *")
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Name)
+            @Html.ValidationMessageFor(model => model.Name)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Rate, "Rate (%) *")
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Rate)
+            @Html.ValidationMessageFor(model => model.Rate)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

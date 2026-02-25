@@ -1,0 +1,112 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>@ViewBag.Title - Epicuri Management Portal</title>
+        <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+        <meta name="viewport" content="width=device-width" />
+        @Styles.Render("~/Content/css")
+        @Styles.Render("~/Content/jquery.timepicker.css")
+        @Scripts.Render("~/bundles/modernizr")
+        <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css" />
+  
+    </head>
+    <body>
+        <header>
+            <div class="content-wrapper">
+                <div class="float-left">
+                    <p class="site-title">@Html.ActionLink("epicuri", "Index", "Home")</p>
+                </div>
+                <div class="float-right">
+                    <section id="login">
+                        @Html.Partial("_LoginPartial")
+                    </section>
+                    <nav>
+                        <ul id="menu">
+                            <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                            @if (Request.IsAuthenticated)
+                            {
+                            <li>@Html.ActionLink("Restaurants", "Index", "Restaurant")</li>
+                            <li>@Html.ActionLink("Countries", "Index", "Country")</li>
+                            <li>@Html.ActionLink("Cuisines", "Index", "Category")</li>
+                            <li>@Html.ActionLink("Defaults", "Index", "Default")</li>
+                            <li>@Html.ActionLink("Tax Types", "Index", "Tax")</li>
+                            <li>@Html.ActionLink("Adj. Types", "Index", "AdjustmentType")</li>
+                            <li>@Html.ActionLink("Users", "List", "Account")</li>
+                            <li>@Html.ActionLink("Reset Pass.", "Index", "PasswordReset")</li>
+                            }
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </header>
+        <div id="body">
+            @RenderSection("featured", required: false)
+            <section class="content-wrapper main-content clear-fix">
+                <p class="message-success">@ViewBag.StatusMessage</p>
+                @RenderBody()
+            </section>
+        </div>
+        <footer>
+            <div class="content-wrapper">
+                <div class="float-left">
+                    <p>&copy; @DateTime.UtcNow.Year - Epicuri</p>
+                </div>
+            </div>
+        </footer>
+
+        @Scripts.Render("~/bundles/jquery")
+        @RenderSection("scripts", required: false)
+
+        @Scripts.Render("~/Content/jquery.timepicker.min.js")
+        <script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
+   <script>
+       $(function () {
+           $("#Date").datepicker({
+               dateFormat: "dd/mm/yy",
+               minDate: 0
+           }
+           );
+
+           $("#EndDate").datepicker({
+               dateFormat: "dd/mm/yy",
+               minDate: 0
+           }
+           );
+
+           $("#StartTime").timepicker(
+               { 'timeFormat': 'H:i', 'scrollDefaultNow': true }
+           
+           );
+
+           $("#LocalTime").timepicker(
+               { 'timeFormat': 'H:i', 'scrollDefaultNow': true }
+
+           );
+
+
+           $("#EndTime").timepicker(
+               { 'timeFormat': 'H:i', 'scrollDefaultNow': true }
+           );
+       });
+
+       $(function () {
+           $.validator.addMethod('date',
+           function (value, element) {
+               if (this.optional(element)) {
+                   return true;
+               }
+               var ok = true;
+               try {
+                   $.datepicker.parseDate('dd/mm/yy', value);
+               }
+               catch (err) {
+                   ok = false;
+               }
+               return ok;
+           });
+           $(".datefield").datepicker({ dateFormat: 'dd/mm/yy', changeYear: true });
+       });
+  </script>
+    </body>
+</html>

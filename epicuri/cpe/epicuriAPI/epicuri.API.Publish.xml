@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<publishData>
+  <publishProfile publishUrl="https://ats2.mobiledynamix.biz:8172/msdeploy.axd" deleteExistingFiles="False" ftpAnonymousLogin="False" ftpPassiveMode="True" msdeploySite="thinktouchsee.com (epicuri)/client2" msdeploySiteID="" msdeployRemoteSitePhysicalPath="" msdeployAllowUntrustedCertificate="True" msdeploySkipExtraFilesOnServer="True" msdeployMarkAsApp="False" profileName="Profile1" publishMethod="MSDeploy" replaceMatchingFiles="True" userName="james" savePWD="True" userPWD="AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAymWo6p52QkC1Pw+457cqQgAAAAACAAAAAAAQZgAAAAEAACAAAABl3zEXBdO6TD/aOSODOxaPpgiX1oHEmdA0Ico+LAuXkQAAAAAOgAAAAAIAACAAAAAu2K2xtoVeedTS/q35vjhnMXfnZCaRPg4yPqzjC4uuKSAAAACuqN1pN1kEPmhYT9WoSLW89ItrdknnMAj7e6ur/16bjUAAAAAsZGqM2gp1Nt/vb7pO0AopEBbpmijw5JsCL1uKfppH0V/O1nRGU/Yu7oXqWhK5fjKWAPlBwnnQr//sN7eK6uqa" SelectedForPublish="True" />
+</publishData>

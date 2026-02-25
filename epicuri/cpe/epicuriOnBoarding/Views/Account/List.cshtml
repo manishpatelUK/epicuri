@@ -1,0 +1,29 @@
+﻿@model List<epicuriOnBoarding.Models.UserProfile>
+
+@{
+    ViewBag.Title = "Users";
+}
+
+<h2>Users</h2>
+<p></p>
+@Html.ActionLink("Create", "Register")
+<h3>UserName</h3>
+
+<table>
+
+@foreach (var user in Model)
+{
+    <tr>
+    <td>
+        @Html.Label(user.UserName)
+    </td>
+    <td>
+        @Html.ActionLink("Change Password", "Manage", new { id = user.UserName })
+        @Html.ActionLink("Delete", "Delete", new { id = user.UserName })
+    </td>
+    </tr>
+}
+
+</table>
+<br />
+<h3></h3>

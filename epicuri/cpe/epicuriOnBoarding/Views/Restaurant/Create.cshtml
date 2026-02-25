@@ -1,0 +1,254 @@
+﻿@using epicuriOnBoarding.Models
+
+@model epicuri.Core.DatabaseModel.Restaurant
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+<script>
+    function lookup() {
+        if (document.getElementById('Address_PostCode').value.length == 0) {
+            alert('You must first enter a postcode');
+        }
+        else {
+            window.open("/Geo/Lookup/" + document.getElementById('Address_PostCode').value, "Lookup", 'width=420,height=400,location=no,toolbar=no,resizable=no,menubar=no');
+        }
+    }
+</script>
+@using (Html.BeginForm(null,null,FormMethod.Post, new {enctype="multipart/form-data"})) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Restaurant</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Name, "Name *")
+        </div>
+        <div class="editor-field">
+
+            @Html.EditorFor(model => model.Name)
+            @Html.ValidationMessageFor(model => model.Name)
+        </div>
+
+        <!--
+        <div class="editor-label">
+            @Html.LabelFor(model=> model.HeadOffice)
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("RestaurantId", String.Empty)
+            @Html.ValidationMessageFor(model => model.RestaurantId)
+        </div>
+        -->
+
+        <div class="editor-label">
+            @Html.LabelFor(model=> model.Address)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Address.Street) Street *
+            @Html.ValidationMessageFor(model => model.Address.Street)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Address.Town) 
+            @Html.ValidationMessageFor(model => model.Address.Town)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Address.City) City *
+            @Html.ValidationMessageFor(model => model.Address.City)
+        </div>
+        <div class="editor-field">
+            
+            @Html.EditorFor(model => model.Address.PostCode) Post Code *
+            @Html.ValidationMessageFor(model => model.Address.PostCode)
+        </div>
+        
+        <div class="editor-label">
+            @Html.LabelFor(model => model.CountryId, "Country *")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("CountryId", String.Empty)
+            @Html.ValidationMessageFor(model => model.CountryId)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.CountryId, "IANA Timezone *")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("IANATimezone", String.Empty)
+            @Html.ValidationMessageFor(model => model.IANATimezone)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model=> model.PublicEmailAddress)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.PublicEmailAddress)
+            @Html.ValidationMessageFor(model => model.PublicEmailAddress)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model=> model.PhoneNumber)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.PhoneNumber) Phone Number *
+            @Html.ValidationMessageFor(model => model.PhoneNumber)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model=> model.PhoneNumber2) 
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.PhoneNumber2)
+            @Html.ValidationMessageFor(model => model.PhoneNumber2)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model=> model.Website)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Website)
+            @Html.ValidationMessageFor(model => model.Website)
+        </div>
+
+        <div class="editor-label">
+            Receipt Image (288px)
+        </div>
+        <div class="editor-field">
+            <input type="file" name="image" />
+        </div>
+
+
+        <div class="editor-label">
+            @Html.LabelFor(model=> model.ReceiptFooter)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ReceiptFooter)
+            @Html.ValidationMessageFor(model => model.ReceiptFooter)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ReceiptType)
+        </div>
+        <div class="editor-field">
+            @Html.DropDownListFor(model => model.ReceiptType, Enum.GetValues(typeof(epicuri.Core.DatabaseModel.Enums.ReceiptType)).Cast<epicuri.Core.DatabaseModel.Enums.ReceiptType>().Select(v => new SelectListItem
+               {
+                   Text = v.ToString(),
+                   Value = ((int)v).ToString()
+               }))
+
+            @Html.ValidationMessageFor(model => model.ReceiptType)
+
+        </div>
+
+         <div class="editor-label">
+            @Html.LabelFor(model=> model.VATNumber)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.VATNumber)
+            @Html.ValidationMessageFor(model => model.VATNumber)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.CategoryId, "Cuisine *")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("CategoryId", String.Empty)
+            @Html.ValidationMessageFor(model => model.CategoryId)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Description, "Description *")
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Description)
+            @Html.ValidationMessageFor(model => model.Description)
+        </div>
+
+    <div class="editor-label">
+        @Html.LabelFor(model => model.TakeawayOffered, "Takeaway Service")
+    </div>
+    <div class="editor-field">
+        @Html.DropDownListFor(model => model.TakeawayOffered, Enum.GetValues(typeof(TakeAwayServiceEnum.TakeAwayService)).Cast<TakeAwayServiceEnum.TakeAwayService>().Select(v => new SelectListItem
+           {
+               Text = v.ToString().Replace("_", " "),
+               Value = ((int)v).ToString()
+           }))
+        @Html.ValidationMessageFor(model => model.TakeawayOffered)
+    </div>
+
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ISOCurrency, "Currency *")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("ISOCurrency", String.Empty)
+            @Html.ValidationMessageFor(model => model.ISOCurrency)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model=> model.Position.Latitude, "Latitude *")
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Position.Latitude)
+            @Html.ValidationMessageFor(model => model.Position.Latitude)
+            <a href="javascript:void(0)" onclick="lookup()">Find using Postcode</a>
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model=> model.Position.Longitude, "Longitude *")
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Position.Longitude)
+            @Html.ValidationMessageFor(model => model.Position.Longitude)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.MewsIntegration, "Mews Integration")
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.MewsIntegration)
+            @Html.ValidationMessageFor(model => model.MewsAccessToken)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.MewsAccessToken, "Mews Access Token")
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.MewsAccessToken)
+            @Html.ValidationMessageFor(model => model.MewsAccessToken)
+        </div>
+
+
+
+         <div class="editor-label">
+            @Html.LabelFor(model => model.Enabled, "Enabled For Diner")
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Enabled)
+            @Html.ValidationMessageFor(model => model.Enabled)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.EnabledForWaiter,  "Enabled For Waiter")
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.EnabledForWaiter)
+            @Html.ValidationMessageFor(model => model.EnabledForWaiter)
+        </div>
+
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

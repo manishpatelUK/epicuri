@@ -1,0 +1,33 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2, user-scalable=yes" />
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="~/Content/css/bootstrap.min.css" />
+    @Scripts.Render("~/bundles/modernizr")
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+</head>
+<body>
+<div id="masthead">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-7">
+                <h1>
+                    <img src="~/Content/logo.jpg" alt="Epicuri Management Portal" />
+                </h1>
+            </div>
+        </div>
+    </div>
+</div>
+    @RenderBody()
+
+    
+    @RenderSection("scripts", required: false)
+</body>
+</html>

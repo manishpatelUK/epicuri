@@ -1,0 +1,63 @@
+﻿@model epicuri.CPE.Models.AuthPayload
+@{
+    
+    Layout = "~/Views/Portal.cshtml";
+
+}
+
+@using (Html.BeginForm())
+{
+<div id="loginModal" class=" show" tabindex="-1"  aria-hidden="true">
+  <div class="modal-dialog">
+  <div class="modal-content">
+      <div class="modal-header">
+          <h1 class="text-center">Login to Epicuri</h1>
+      </div>
+      <div class="modal-body">
+          <form class="form col-md-12 center-block">
+            <div class="form-group">
+              
+              @Html.TextBoxFor(model => model.RestaurantId, new { @class = "form-control input-lg", placeholder = "Restaurant Id", value="" })
+              <br />
+              @Html.TextBoxFor(model => model.Username, new { @class = "form-control input-lg", placeholder = "Username" })
+              <br />
+              @Html.PasswordFor(model => model.Password, new { @class = "form-control input-lg", placeholder = "Password" })
+            </div>
+            <div class="form-group">
+           
+            </div>
+            <div class="form-group">
+              <button class="btn btn-primary btn-lg btn-block" type="submit">Sign In</button>
+             
+            </div>
+          </form>
+      </div>
+      <div class="modal-footer">
+         	
+      </div>
+  </div>
+  </div>
+</div>
+        
+}
+        <script type='text/javascript' src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+
+        <script type='text/javascript' src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+
+
+
+
+
+        
+        <!-- JavaScript jQuery code from Bootply.com editor -->
+        
+        <script type='text/javascript'>
+
+            $(document).ready(function () {
+
+
+
+            });
+        
+        </script>

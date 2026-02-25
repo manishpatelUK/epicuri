@@ -1,0 +1,56 @@
+﻿@model epicuriOnBoarding.Models.SettingsViewModel
+@{
+    ViewBag.Title = "Settings";
+}
+
+<h2>Settings</h2>
+@using (Html.BeginForm())
+{
+    <table>
+        <tr>
+            <th>
+                Default
+            </th>
+            <th>
+                Description
+            </th>
+            <th>
+                Unit of Measure
+            </th>
+            <th>
+                Original Value
+            </th>
+            <th>
+                Changed Value
+            </th>
+        </tr>
+        @foreach (var item in Model.Settings)
+        {
+            <tr>
+                <td>
+                    @item.Key
+                </td>
+                <td>
+                    @item.Value.GetSettingDescription()
+                </td>
+                <td>
+                    @item.Value.GetMeasure()
+                </td>
+                <td>
+                    @item.Value.GetDefault()
+                </td>
+                <td>
+                    <div class="editor-field">
+                        @Html.EditorFor(m=>m.Settings[item.Key].Value)
+                    </div>
+                </td>
+            </tr>
+        }  
+    </table>
+    
+    @Html.EditorForModel()
+    
+    <p>
+        <input type="submit" value="Save" />
+    </p>
+}

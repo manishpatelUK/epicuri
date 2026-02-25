@@ -1,0 +1,1 @@
+UPDATE [dbo].[DefaultSettings] SET [Measure] = 'Decimal' WHERE [Key] = 'DefaultTipPercentage'

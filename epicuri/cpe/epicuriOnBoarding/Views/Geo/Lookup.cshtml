@@ -1,0 +1,68 @@
+﻿@model Tuple<double, double>
+
+@{
+    Layout = null;
+    ViewBag.Title = "Index";
+}
+
+
+@if (Model.Item1 == 0 && Model.Item2 == 0)
+{
+    <h2>Not Found</h2>
+}
+else
+{
+    <h2>Estimated Position</h2>
+    <strong>Latitude:</strong> <span id="latbox">@Model.Item1</span>
+    <strong>Longitude:</strong> <span id="lngbox">@Model.Item2</span>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+    <script>
+        var map;
+        function initialize() {
+            window.opener.document.getElementById('Position_Latitude').value = '@Model.Item1';
+            window.opener.document.getElementById('Position_Longitude').value = '@Model.Item2';
+
+            var mapOptions = {
+                zoom: 16,
+                center: new google.maps.LatLng(@Model.Item1, @Model.Item2),
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            };
+            map = new google.maps.Map(document.getElementById('map_canvas'),
+            mapOptions);
+
+            var myLatlng = new google.maps.LatLng(@Model.Item1,@Model.Item2);
+
+              var marker = new google.maps.Marker({
+                  position: myLatlng,
+                  map: map,
+                  title:"Estimated Position",
+                  draggable:true
+              });
+
+              google.maps.event.addListener(marker, 'dragend', function (event) {
+              
+                span = document.getElementById("latbox");
+                while( span.firstChild ) {
+                span.removeChild( span.firstChild );
+                }
+                span.appendChild( document.createTextNode(this.getPosition().lat()) );
+                window.opener.document.getElementById('Position_Latitude').value = this.getPosition().lat().toFixed(6);
+
+                span = document.getElementById("lngbox");
+                while( span.firstChild ) {
+                span.removeChild( span.firstChild );
+                }
+                span.appendChild( document.createTextNode(this.getPosition().lng()) );
+                window.opener.document.getElementById('Position_Longitude').value = this.getPosition().lng().toFixed(6);
+     });
+        }
+
+
+
+
+        google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+    <div id="map_canvas" style="width:400px; height:250px"></div>
+    <p>drag the marker to update lat/long</p>
+}
+

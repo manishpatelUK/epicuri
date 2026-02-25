@@ -1,0 +1,132 @@
+﻿@model IEnumerable<epicuri.Core.DatabaseModel.Session>
+@{
+    Layout = null;
+    
+}
+
+@functions{
+    epicuri.Core.DatabaseModel.TakeAwaySession CastTakeaway(epicuri.Core.DatabaseModel.Session session)
+    {
+        if (session.GetType() == typeof(epicuri.Core.DatabaseModel.TakeAwaySession))
+        {
+            return (epicuri.Core.DatabaseModel.TakeAwaySession)session;
+        }
+        return null;
+
+    }
+
+    epicuri.Core.DatabaseModel.SeatedSession CastSeated(epicuri.Core.DatabaseModel.Session session)
+    {
+        if (session.GetType() == typeof(epicuri.Core.DatabaseModel.SeatedSession))
+        {
+            return (epicuri.Core.DatabaseModel.SeatedSession)session;
+        }
+        return null;
+
+    }
+    
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Kitchen View</title>
+    <meta http-equiv="refresh" content="10">
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/Kitchen.css")
+
+</head>
+<body>
+    <div id="body" class="sessions">
+        @foreach (var session in Model.Where(s => s.Orders.Count(o => !o.Completed.HasValue) > 0))
+        {
+            if (session.Orders.Any(s => session.Restaurant.Batches.Where(b => b.Id == s.BatchId).First().PrinterId == ViewBag.Id))
+            {
+            
+            <div class="session">
+                
+                @if (session.GetType() == typeof(epicuri.Core.DatabaseModel.TakeAwaySession))
+                {
+                    <div class="session-name">
+                        Takeaway @session.Id
+                    </div>
+                    <em>Expected: @CastTakeaway(session).ExpectedTime</em>
+                }
+                else if (session.GetType() == typeof(epicuri.Core.DatabaseModel.SeatedSession))
+                {
+                    <div class="session-name">
+                        Table(s): 
+                            @if (CastSeated(session).Tables != null) {
+                                foreach (var table in CastSeated(session).Tables) {
+                                    @table.Name
+                                }
+                            }
+                    </div>
+                    <em>Started: @session.StartTime</em>
+                }
+                else
+                {
+                    <div class="session-name">
+                        Session @session.Id
+                    </div>
+                    <em>Started: @session.StartTime</em>
+                }
+
+                <div class="session-courses">
+                    @foreach (var course in session.Orders.GroupBy(o => o.Course).OrderBy(c => c.Key.Ordering))
+                    {
+                        <div class="session-course">
+                            <!--<a href="javascript:void(0)" class="session-set-done">Set Done</a>-->
+                            <div class="course-name">@course.Key.Name</div>
+                            <div class="session-orders">
+                            @foreach (var order in session.Orders.Where(s => s.CourseId == course.Key.Id))
+                            {
+                                if (session.Restaurant.Batches.Where(b => b.Id == order.BatchId).First().PrinterId == ViewBag.Id)
+                                {
+                                    <div class="session-order">
+                                    @if (!order.Completed.HasValue)
+                                    {
+                                    
+                                            <strong>@order.MenuItem.Name</strong>
+                                    
+                                            <div class="session-order-notes">
+                                                @order.Note
+                                            </div>
+                                            <ul class="session-order-modifiers">
+                                                @foreach (var modifier in order.Modifiers)
+                                                {
+                                                    <li>@modifier.ModifierValue</li>
+                                        
+                                                }
+                                            </ul>
+                                            @Html.ActionLink("Mark Done", "MarkDone", new { id = order.Id, Auth = ViewData["auth"] }, new { @class = "order-set-done" });
+                                    }
+                                    else
+                                    {
+                                    
+                                            <strong><del>@order.MenuItem.Name</del></strong>
+                                    
+                                    }
+                                    </div>
+                                }
+                            }
+                            </div>
+                        </div>
+                    
+                    
+                    }
+                </div>
+
+                @Html.ActionLink("Mark All Done", "MarkAllDone", new { id = session.Id, Auth = ViewData["auth"] }, new { @class = "order-set-done" })
+            </div>
+            }
+        }
+        
+       
+    </div>
+
+ 
+</body>
+</html>

@@ -1,0 +1,16 @@
+﻿@{
+    ViewBag.Title = "Associate";
+}
+
+@using (Html.BeginForm()) {
+<h2>Associate a Notification</h2>
+<div class="editor-label">
+   Notification
+</div>
+<div class="editor-field">
+    @Html.DropDownList("Notifications")
+</div>
+<p>
+    <input type="submit" value="Associate" />
+</p>
+    }

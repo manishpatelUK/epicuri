@@ -1,0 +1,30 @@
+﻿@model epicuri.Core.DatabaseModel.TaxType
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Tax</h2>
+
+<fieldset>
+    <legend>TaxType</legend>
+
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Rate)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Rate)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

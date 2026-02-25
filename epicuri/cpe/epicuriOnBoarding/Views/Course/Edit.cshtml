@@ -1,0 +1,47 @@
+﻿@model epicuri.Core.DatabaseModel.Course
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Course</legend>
+
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Name, "Name *")
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Name)
+            @Html.ValidationMessageFor(model => model.Name)
+        </div>
+
+        <input type="hidden" value="@Model.ServiceId" name="ServiceId" />
+        <input type="hidden" value="@Model.RestaurantId" name="RestaurantId" />
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Ordering, "Ordering *")
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Ordering)
+            @Html.ValidationMessageFor(model => model.Ordering)
+        </div>
+
+       
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+@Html.ActionLink("Back to List", "Courses", new {controller="Service", id=ViewBag.ServiceId})
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

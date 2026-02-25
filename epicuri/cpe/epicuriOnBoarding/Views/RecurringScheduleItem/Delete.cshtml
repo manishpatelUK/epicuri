@@ -1,0 +1,46 @@
+﻿@model epicuri.Core.DatabaseModel.RecurringScheduleItem
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>RecurringScheduleItem</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.InitialDelay)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.InitialDelay)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Period)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Period)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Comment)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Comment)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ServiceId)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ServiceId)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Delete" />
+     @Html.ActionLink("Back to List", "Recurring", new { controller = "Service", id = ViewBag.ServiceId })
+    </p>
+}

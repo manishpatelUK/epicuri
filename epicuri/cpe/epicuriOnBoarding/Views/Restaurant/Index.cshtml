@@ -1,0 +1,103 @@
+﻿@model epicuriOnBoarding.Models.PaginatedList<epicuri.Core.DatabaseModel.Restaurant>
+
+@{
+    ViewBag.Title = "Restaurants";
+}
+
+<h2>Restaurants</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            Id
+        </th>
+        <th>
+            Enabled For Diner
+        </th>
+        <th>
+            Enabled For Waiter
+        </th>
+        <th>
+            Restaurant
+        </th>
+        <th>
+            City
+        </th>
+        <th>
+            Country
+        </th>
+        <th>
+            Cuisine
+        </th>
+  <!--      <th>
+            Parent
+        </th>
+      -->
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+    
+        <td>
+            @Html.DisplayFor(modelItem => item.Id)
+        </td>
+        <td>
+            @if(item.Enabled){
+            <p>Yes</p>
+            } else {
+                <p>No</p>
+            }
+        </td>
+        <td>
+            @if(item.EnabledForWaiter){
+            <p>Yes</p>
+            } else {
+                <p>No</p>
+            }
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Address.City)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Country.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Category.Name)
+        </td>
+<!--
+        <td>
+            @Html.DisplayFor(modelItem => item.HeadOffice.Name)
+        </td>
+    -->
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Floors", "Floors", new { id = item.Id }) |
+            @Html.ActionLink("Staff", "Staff", new { id = item.Id }) |
+            @Html.ActionLink("Services", "Services", new { id = item.Id }) |
+            @Html.ActionLink("Notifications", "Notifications", new { id = item.Id }) |
+            @Html.ActionLink("Printers", "Printers", new { id = item.Id }) |
+            @Html.ActionLink("Blackouts", "Blackouts", new { id = item.Id }) |
+            @Html.ActionLink("Defaults", "Settings", new { id = item.Id }) |
+            @Html.ActionLink("Clear Orders", "ClearOrders", new { id = item.Id })
+            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+        </td>
+    </tr>
+}
+
+</table>
+
+@if (Model.HasPreviousPage)
+{
+    @Html.ActionLink("<< Previous Page", "Index", new { page=(Model.PageIndex-1) }) 
+}
+@if (Model.HasNextPage)
+{
+    @Html.ActionLink("Next Page >>", "Index", new { page = (Model.PageIndex + 1) })
+}

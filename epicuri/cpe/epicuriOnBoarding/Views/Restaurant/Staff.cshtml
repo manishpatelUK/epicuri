@@ -1,0 +1,50 @@
+﻿@model IEnumerable<epicuriOnBoarding.Models.Staff>
+
+@{
+    ViewBag.Title = "Staff";
+}
+
+<h2>Staff</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create", new { id = ViewBag.Id,controller="Staff" })
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Username)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Pin)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Manager)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Username)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Pin)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Manager)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new {controller="Staff",  id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { controller = "Staff", id = item.Id })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,98 @@
+﻿@model epicuriOnBoarding.Models.PaginatedList<epicuri.Core.DatabaseModel.Archive>
+
+@{
+    ViewBag.Title = "Archives";
+}
+
+<h2>Archives</h2>
+
+<table>
+    <tr>
+        <th>
+            Id
+        </th>
+        <th>
+            Verb
+        </th>
+        <th>
+            Action
+        </th>
+        <th>
+            DateTime
+        </th>
+        <th>
+            IP
+        </th>
+        <th>
+            Controller
+        </th>
+        <th>
+            Staff
+        </th>
+        <th>
+            Restaurant
+        </th>
+        <th>
+            LocalIP
+        </th>
+        <th>
+            MAC
+        </th>
+        <th>
+            SSID
+        </th>
+        <!--      <th>
+                  Parent
+              </th>
+            -->
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Verb)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Action)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IP)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Controller)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.StaffId)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.RestaurantId)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.LocalIP)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.DeviceId)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.SSID)
+            </td>
+
+        </tr>
+    }
+
+</table>

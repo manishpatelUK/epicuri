@@ -1,0 +1,47 @@
+﻿@model IEnumerable<epicuri.Core.DatabaseModel.Notification>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Assigned Notification Types</h2>
+
+<p>
+    @Html.ActionLink("Associate new Notification", "Associate", new { id = ViewBag.RecurringScheduleItemId })
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Text)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Target)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Restaurant.Name)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Text)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Target)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Restaurant.Name)
+        </td>
+        <td>
+            @Html.ActionLink("Remove Association", "Remove", new {id=ViewBag.RecurringScheduleItemId, notification  = item.Id })
+        </td>
+    </tr>
+}
+
+</table>
+
+<p>
+    @Html.ActionLink("Back to List", "Recurring", new { controller = "Service", id = ViewBag.ServiceId })
+</p>

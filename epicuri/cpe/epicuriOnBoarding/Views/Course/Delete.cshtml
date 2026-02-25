@@ -1,0 +1,45 @@
+﻿@model epicuri.Core.DatabaseModel.Course
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>Course</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.RestaurantId)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.RestaurantId)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Ordering)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Ordering)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ServiceId)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ServiceId)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Delete" />
+    </p>
+}

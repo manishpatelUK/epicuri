@@ -1,0 +1,48 @@
+﻿@model epicuri.Core.DatabaseModel.RecurringScheduleItem
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>RecurringScheduleItem</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.InitialDelay, "Initial Delay *")
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.InitialDelay)
+            @Html.ValidationMessageFor(model => model.InitialDelay) seconds
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Period, "Period *")
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Period)
+            @Html.ValidationMessageFor(model => model.Period)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Comment,"Internal Comment *")
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Comment)
+            @Html.ValidationMessageFor(model => model.Comment)
+        </div>
+        <input type="hidden" value="@ViewBag.ServiceId" name="ServiceId" />
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+@Html.ActionLink("Back to List", "Recurring", new { controller = "Service", id = ViewBag.ServiceId })
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

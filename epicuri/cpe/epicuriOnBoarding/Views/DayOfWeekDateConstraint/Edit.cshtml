@@ -1,0 +1,82 @@
+﻿@model epicuri.Core.DatabaseModel.DayOfWeekConstraint
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit Day of Week Blackout</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>DayOfWeekConstraint</legend>
+
+        @Html.HiddenFor(model => model.Id)
+
+        @Html.HiddenFor(model => model.RestaurantId, "RestaurantId")
+        <br />
+        <div class="editor-label">
+            Takeaway or Reservation
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.TargetSession)
+            @Html.ValidationMessageFor(model => model.TargetSession) (ticked = takeaway, unticked = reservation)
+        </div>
+
+        <br />
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.DayOfWeek)
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("DayOfWeek")
+            @Html.ValidationMessageFor(model => model.DayOfWeek)
+        </div>
+
+        
+
+        <br />
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.StartTime)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.StartTime)
+            @Html.ValidationMessageFor(model => model.StartTime)
+        </div>
+        <!--
+        <div class="editor-label">
+            @Html.LabelFor(model => model.EndTime)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.EndTime)
+            @Html.ValidationMessageFor(model => model.EndTime)
+        </div>
+            -->
+        <h4>Blackout Duration:</h4>
+        <br />
+        <div class="editor-field">
+
+            @Html.DropDownList("BlackoutHours")
+            @Html.ValidationMessageFor(model => model.BlackoutHours) Hours
+        </div>
+
+        <div class="editor-field">
+              @Html.DropDownList("BlackoutMinutes")
+            @Html.ValidationMessageFor(model => model.BlackoutHours) Minutes
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+     @Html.ActionLink("Back to List", "Blackouts", new{controller="Restaurant",id=Model.RestaurantId})
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,331 @@
+﻿@model epicuri.CPE.Models.KitchenViewModel
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@Model.PrinterName - Pending Orders</title>
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/Kitchen.css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    <script type="text/javascript" src="~/Content/js/knockout-3.1.0.js"></script>
+    <script type="text/javascript">
+
+    var self
+    function SessionsViewModel() {
+        self = this;
+        self.sessions = ko.observableArray([]);
+        setInterval( function() {getSessions(self)},20000 )
+        getSessions(self);
+
+
+    }
+
+    function getSessions(self) {
+        $.ajax({
+            url: './api/OpenOrder',
+            type: 'GET',
+            beforeSend:function(req) {
+                req.setRequestHeader("X-Epicuri-API-Version","@epicuri.CPE.Filter.ResponseVersionAttribute.CurrentVersion")
+            },
+            data: {printer:@Model.Printer},
+            dataType: 'json',
+            success: function(data) {
+
+                var mappedSessions = $.map(data, function(item) {
+                    return new Ticket(item);
+                });
+
+                self.sessions(mappedSessions);
+
+
+            },
+            beforeSend: setHeader
+        });
+
+
+    }
+
+    function Ticket(data) {
+
+        this.Summary = ko.observable(data.Summary);
+        this.AdditionalInfo = ko.observable(data.AdditionalInfo);
+        this.AdditionalInfo2 = ko.observable(data.AdditionalInfo2);
+        this.Courses = ko.observableArray($.map(data.Courses,function(course) {
+            return new Course(course);
+        }));
+        this.AllComplete = ko.observable(data.AllComplete);
+        this.NotAllComplete = ko.observable(!data.AllComplete);
+        this.IsNotAdHocAndAllComplete = (!data.IsAdHoc && data.AllComplete);
+        this.ConfirmationState = ko.observable(true);
+        this.NotConfirmationState = ko.observable(false);
+        this.ActionPending = ko.observable(false);
+
+
+        this.OrderIds = ko.observableArray(data.OrderIds);
+        this.ticketOnClick = function() {
+            this.NotConfirmationState(true);
+            this.ConfirmationState(false);
+        }
+
+
+
+        this.noOnClick = function() {
+            this.NotConfirmationState(false);
+            this.ConfirmationState(true);
+
+        };
+
+        this.yesOnClick = function() {
+            
+            this.NotConfirmationState(false);
+            this.ConfirmationState(true);
+
+            if(this.ActionPending()==false){
+                this.ActionPending(true);
+                var url;
+                var action;
+                if(this.AllComplete()) {
+                    action = "reopen"
+                    url = './api/OpenOrder/Open?Printer=' + @Model.Printer;
+
+                } else {
+                    action = ""
+                    url = './api/OpenOrder/Close?Printer=' + @Model.Printer;
+
+                }
+                $.ajax({
+                    url: url,
+                    type: 'POST',
+                    beforeSend:function(req) {
+                        req.setRequestHeader("X-Epicuri-API-Version","@epicuri.CPE.Filter.ResponseVersionAttribute.CurrentVersion")
+                    },
+                    dataType: 'json',
+                    data: {"ids":this.OrderIds(),'method':action,'printer': @Model.Printer},
+                    success: function(data) {
+                        var mappedSessions = $.map(data, function(item) {
+                            return new Ticket(item);
+                        });
+                        self.sessions(mappedSessions);
+
+                    },
+                    beforeSend: setHeader
+                });
+            }
+        };
+
+    }
+
+
+    function Course(course) {
+        this.Name = ko.observable(course.Name);
+        this.Orders = ko.observableArray($.map(course.Orders,function(order) {
+            return new Order(order);
+        }));
+
+
+    }
+
+
+
+    function Order(order) {
+        this.Id = ko.observable(order.Id);
+        this.Name = ko.observable(order.MenuItem.Name);
+
+        this.Configurations = ko.observableArray($.map(order.Configurations,function(config) {
+            return new OrderConfiguration(config,order.MenuItem.Name,false);
+        }));
+        this.CompleteConfigurations = ko.observableArray($.map(order.CompleteConfigurations,function(config) {
+            return new OrderConfiguration(config,order.MenuItem.Name,true);
+        }));
+
+
+
+    }
+
+    function OrderConfiguration(config,name,complete) {
+
+        this.ConfirmationState = ko.observable(true);
+        this.NotConfirmationState = ko.observable(false);
+        this.Name = ko.observable(name);
+        this.Note = ko.observable(config.Note);
+        this.Count = ko.observable(config.Count);
+        this.OrderIds = config.OrderIds;
+        this.ActionPending = ko.observable(false);
+        this.Options = ko.observableArray($.map(config.Options,function (option) {
+            return new Option(option);
+        }));
+
+        this.sessionOnClick = function() {
+            this.NotConfirmationState(true);
+            this.ConfirmationState(false);
+        }
+
+        this.noOnClick = function() {
+            this.NotConfirmationState(false);
+            this.ConfirmationState(true);
+
+        };
+
+        this.yesOnClick = function() {
+
+            this.NotConfirmationState(false);
+            this.ConfirmationState(true);
+
+            if(this.ActionPending()==false){
+                this.ActionPending(true);
+                var url;
+                var action;
+
+
+                if(complete) {
+                    action = "reopen"
+                    url = './api/OpenOrder/Open?Printer=' + @Model.Printer;
+
+                } else {
+                    action = ""
+                    url = './api/OpenOrder/Close?Printer=' + @Model.Printer;
+
+                }
+                $.ajax({
+                    url: url,
+                    type: 'POST',
+                    dataType: 'json',
+                    beforeSend:function(req) {
+                        req.setRequestHeader("X-Epicuri-API-Version","@epicuri.CPE.Filter.ResponseVersionAttribute.CurrentVersion")
+                    },
+                    data: {"ids":this.OrderIds,'method':action},
+                    success: function(data) {
+                        var mappedSessions = $.map(data, function(item) {
+                            return new Ticket(item);
+                        });
+                        self.sessions(mappedSessions);
+
+                    },
+                    beforeSend: setHeader
+                });
+                }
+
+            }
+        }
+
+        function Option(option) {
+            this.Option = option;
+        }
+
+
+
+        function setHeader(xhr) {
+            xhr.setRequestHeader('Authorization', "Basic @ViewData["auth"]");
+    }
+
+    $(document).ready(function () {
+        $.ajaxSetup({
+            beforeSend: function(req) {
+                req.setRequestHeader('X-Epicuri-API-Version', '@epicuri.CPE.Filter.ResponseVersionAttribute.CurrentVersion');
+            },
+            headers: {"X-Epicuri-API-Version":"@epicuri.CPE.Filter.ResponseVersionAttribute.CurrentVersion"}
+            
+        });
+        ko.applyBindings(new SessionsViewModel());
+    });
+    </script>
+</head>
+<body>
+    <div class="sessions" data-bind="foreach: sessions">
+        <div class="session" data-bind="css:{sessionalldone:AllComplete}">
+            <div class="session-fixed">
+                <div class="session-name" data-bind="text: Summary">
+                </div>
+                <span data-bind="text:AdditionalInfo"></span><br />
+                <small><span data-bind="text:AdditionalInfo2"></span></small>
+            </div>
+            <div class="session-courses" data-bind="foreach: Courses">
+                <div class="session-course">
+                    <div class="course-name" data-bind="text:Name">
+                    </div>
+                    <div class="session-orders" data-bind="foreach: Orders">
+                        <div data-bind="foreach: Configurations">
+                            <div class="session-order" data-bind="visible:NotConfirmationState">
+                                <strong>Mark as done? </strong>
+                                <div>
+                                    <div class="button button-action" data-bind="click:yesOnClick">
+                                        Yes
+                                    </div>
+                                    <div class="button button-cancel" data-bind="click:noOnClick">
+                                        No
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="session-order order-set-done" data-bind="css:{pending:ActionPending}, visible:ConfirmationState, click:sessionOnClick">
+                                <strong data-bind="text: Count"></strong>x <strong data-bind="text: Name"></strong>
+                                <div class="session-order-notes" data-bind="text: Note">
+                                </div>
+                                <ul class="session-order-modifiers" data-bind="foreach: Options">
+                                    <li data-bind="text: Option"></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="session-orders" data-bind="foreach: Orders">
+                        <div data-bind="foreach: CompleteConfigurations">
+                            <div class="session-order" data-bind="visible:NotConfirmationState">
+                                <strong>Undo marking done? </strong>
+                                <div>
+                                    <div class="button button-action" data-bind="click:yesOnClick">
+                                        Yes
+                                    </div>
+                                    <div class="button button-cancel" data-bind="click:noOnClick">
+                                        No
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="session-order session-order-done order-set-done" style="text-decoration: line-through" data-bind="css:{pending:ActionPending}, visible:ConfirmationState, click:sessionOnClick">
+                                <strong data-bind="text: Count"></strong>x <strong data-bind="text: Name"></strong>
+                                <div class="session-order-notes" data-bind="text: Note">
+                                </div>
+                                <ul class="session-order-modifiers" data-bind="foreach: Options">
+                                    <li data-bind="text: Option"></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div data-bind="visible:NotAllComplete">
+                <div class="session-set-done-all" data-bind="visible:ConfirmationState,click:ticketOnClick,css:{pending:ActionPending}">
+                    Mark All Done
+                </div>
+                <div class="session-order" data-bind="visible:NotConfirmationState">
+                    <strong>Mark all items as done? </strong>
+                    <div>
+                        <div class="button button-action" data-bind="click:yesOnClick">
+                            Yes
+                        </div>
+                        <div class="button button-cancel" data-bind="click:noOnClick">
+                            No
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div data-bind="visible:AllComplete">
+                <div class="session-set-done-all" data-bind="visible:ConfirmationState,click:ticketOnClick,css:{pending:ActionPending}">
+                    Unmark All Done
+                </div>
+                <div class="session-order" data-bind="visible:NotConfirmationState">
+                    <strong>Unmark all items? </strong>
+                    <div>
+                        <div class="button button-action" data-bind="click:yesOnClick">
+                            Yes
+                        </div>
+                        <div class="button button-cancel" data-bind="click:noOnClick">
+                            No
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

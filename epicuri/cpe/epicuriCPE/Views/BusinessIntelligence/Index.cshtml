@@ -1,0 +1,339 @@
+﻿@model epicuri.CPE.Models.BusinessIntelligence
+
+
+@{
+    
+    Layout = "~/Views/PortalBI.cshtml";
+
+}
+
+   @Styles.Render("~/Content/BI.css")
+    <!--meta http-equiv="refresh" content="10"-->
+ 
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+        google.load('visualization', '1.0', { 'packages': ['corechart'] });
+        google.setOnLoadCallback(drawChart);
+
+
+
+        function drawChart() {
+
+            // Panel 1 data
+            var data = google.visualization.arrayToDataTable([
+            ['Day', 'Seated', 'Collected', 'Deliveries'],
+            @foreach (var dataRow in Model.Panel1)
+            {
+                <text>
+                    ['@dataRow.Key', @dataRow.Value["seated"], @dataRow.Value["collected"], @dataRow.Value["deliveries"]],
+                </text>
+            }
+            ]);
+
+              
+            var options = {
+                legend: { position: 'bottom' }
+            };
+
+            var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
+            chart.draw(data, options);
+
+            // Panel 3 data
+            var data2 = google.visualization.arrayToDataTable([
+            ['Day', 'Food Items', 'Non Food Items'],
+            @foreach (var dataRow in Model.Panel3)
+            {
+                <text>
+                    ['@dataRow.Key', @dataRow.Value["food"], @dataRow.Value["drink"]],
+                </text>
+            }
+            ]);
+
+
+            var options2 = {
+                'isStacked': true,
+                legend: { position: 'bottom' }
+            };
+
+            var chart = new google.visualization.ColumnChart(document.getElementById('chart_div_contributions'));
+            chart.draw(data2, options2);
+        }
+
+    </script>
+
+    <div class="container">
+
+        @if(Model.showFilters)
+        {
+        <table style="margin-top: 2em; margin-left: auto; margin-right: auto;">
+            <tr>
+                <td style="padding-left: 2em">
+                    @using (Html.BeginForm("Index", "BusinessIntelligence", new { Period = 0, WebView = true }))
+                    {
+                        
+                        if(Model.week == true)
+                        {
+                             <input type="submit" value="Week" name="Week" style="background-color: orange; width: 100px; height: 50px" />
+                        }
+                        else
+                        {
+                             <input type="submit" value="Week" name="Week" style="width: 100px; height: 50px"/>
+                        }
+                    }
+                </td>
+                <td style="padding-left: 2em">
+                    @using (Html.BeginForm("Index", "BusinessIntelligence", new { Period = 1, WebView = true }))
+                    {
+                        if (Model.month == true)
+                        {
+                             <input type="submit" value="Month" name="Month" style="background-color: orange; width: 100px; height: 50px" />
+                        }
+                        else
+                        {
+                             <input type="submit" value="Month" name="Month" style="width: 100px; height: 50px"/>
+                        }
+                    }
+                </td>
+                <td style="padding-left: 2em">
+                    @using (Html.BeginForm("Index", "BusinessIntelligence", new { Period = 2, WebView = true }))
+                    {
+                        if(Model.threeMonths == true)
+                        {
+                             <input type="submit" value="Three Months" name="Three Months" style="background-color: orange; width: 100px; height: 50px" />
+                        }
+                        else
+                        {
+                             <input type="submit" value="Three Months" name="Three Months" style="width: 100px; height: 50px" />
+                        }
+                    }
+                </td>
+                <td style="padding-left: 2em">
+                    @using (Html.BeginForm("Index", "BusinessIntelligence", new { Period = 3, WebView = true }))
+                    {
+                        if(Model.year == true)
+                        {
+                             <input type="submit" value="Year" name="Year" style="background-color: orange; width: 100px; height: 50px" />
+                        }
+                        else
+                        {
+                             <input type="submit" value="Year" name="Year" style="width: 100px; height: 50px" />
+                        }
+                    }
+                </td>
+                <td style="padding-left: 2em">
+                    @using (Html.BeginForm("Index", "BusinessIntelligence", new { Period = 4, WebView = true }))
+                    {
+                        if(Model.forever == true)
+                        {
+                             <input type="submit" value="Forever" name="Forever" style="background-color: orange; width: 100px; height: 50px" />
+                        }
+                        else
+                        {
+                             <input type="submit" value="Forever" name="Forever" style="width: 100px; height: 50px" />
+                        }
+                    }
+                </td>
+            </tr>
+        </table>
+        } else {
+            
+            if(Model.fromWebView)
+            {
+                <h3>@Model.filteredBy</h3>
+            }
+        <table class="frame">
+            <tr>
+                <td colspan="2">
+                    <!-- Panel 1 -->
+                    <h3>Average # of Sessions</h3>
+                <!--    <table>
+                        <thead>
+                            <tr>
+                                <td></td>
+                                <td>Average # Seated</td>
+                                <td>Average # Collections</td>
+                                <td>Average # Deliveries</td>
+                            </tr>
+                        </thead>
+                        @foreach (var dataRow in Model.Panel1)
+                        {
+                            <tr>
+                                <td>@dataRow.Key</td>
+                                <td>@dataRow.Value["seated"]</td>
+                                <td>@dataRow.Value["collected"]</td>
+                                <td>@dataRow.Value["deliveries"]</td>
+                            </tr>
+                        }
+                        
+                    </table> -->
+                    <div id="chart_div"></div>
+                    <hr />
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 50%">
+                    <!-- Panel 2 -->
+                    <h3>Top Food Items</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <td style="text-align: center; font-weight:bold;">Name</td>
+                                <td style="text-align: center; font-weight:bold; padding-left: 3em;">#&nbsp;Ordered</td>
+                            </tr>
+                        </thead>
+                        @foreach (var dataRow in Model.Panel2["food"])
+                        {
+                            <tr>
+                                <td style="text-align: center;">@dataRow.Key.Name</td>
+                                <td style="text-align: center; padding-left: 3em;">@dataRow.Value</td>
+                            </tr>
+                        }
+
+                    </table>
+                  </td>
+                    <td style="width: 50%">
+                    <h3>Top Drink Items</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <td style="text-align: center; font-weight:bold;">Name</td>
+                                <td style="text-align: center; font-weight:bold; padding-left: 3em;">#&nbsp;Ordered</td>
+                            </tr>
+                        </thead>
+                        @foreach (var dataRow in Model.Panel2["drink"])
+                        {
+                            <tr>
+                                <td style="text-align: center;">@dataRow.Key.Name</td>
+                                <td style="text-align: center; padding-left: 3em;">@dataRow.Value</td>
+                            </tr>
+                        }
+
+                    </table>
+                    
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2"><hr /></td>
+            </tr>
+            <tr>
+                
+                <td colspan="2">
+                    <!-- Panel 3 -->
+                    <h3>Average # of Items Ordered</h3>
+   <!--                 <table>
+                        <thead>
+                            <tr>
+                                <td>Day</td>
+                                <td>Average £ contribution from food items</td>
+                                <td>Average £ contribution from non food items</td>
+                            </tr>
+                        </thead>
+                        @foreach (var dataRow in Model.Panel3)
+                        {
+                            <tr>
+                                <td>@dataRow.Key</td>
+                                <td>@dataRow.Value["food"]</td>
+                                <td>@dataRow.Value["drink"]</td>
+                            </tr>
+                        }
+                    </table>  --> 
+                    <div id="chart_div_contributions"></div>
+                    <hr />
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <h3>Self Service Summary</h3>
+                </td>
+                </tr>
+            <tr>
+                <td>
+                    <table class="table-c">
+                        <tr>
+                            <td>Epicuri has helped you capture</td>
+                        </tr>
+                        <tr>
+                            <td><h1>@Model.Panel4["Menu Items via Self Service"]</h1></td>
+                        </tr>
+                        <tr>
+                            <td>Items via seated self service</td>
+                        </tr>
+                    </table>
+                </td>
+                <td>
+         
+                    <table class="table-c">
+                        <tr>
+                            <td>Epicuri has helped diners reserve</td>
+                        </tr>
+                        <tr>
+                            <td><h1>@Model.Panel4["No. of Reservations"]</h1></td>
+                        </tr>
+                        <tr>
+                            <td>tables at your restaurant</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <table class="table-c">
+                        <tr>
+                            <td>Epicuri has helped you serve</td>
+                        </tr>
+                        <tr>
+                            <td><h1>@Model.Panel4["Takeaways/Delivery Orders"]</h1></td>
+                        </tr>
+                        <tr>
+                            <td>Takeaways booked via self service</td>
+                        </tr>
+                    </table>
+                </td>
+                <td>
+                    <table class="table-c">
+                        <tr>
+                            <td>Epicuri has help you book</td>
+                        </tr>
+                        <tr>
+                            <td><h1>@Model.Panel4["Revenue via Self Service"].ToString("0.00") @Model.restaurant.ISOCurrency</h1></td>
+                        </tr>
+                        <tr>
+                            <td>in revenue via self service</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+
+            <!--
+
+            <tr class="spaceUnder">
+                <td colspan="2">
+                    <h3>Summary Information</h3>
+                    <table>
+                    <thead>
+                         
+                            @foreach (var dataRow in Model.Panel4)
+                            {
+                                <tr>
+                                    <td>@dataRow.Key</td>
+                                    @if (dataRow.Key.Equals("Revenue via Self Service"))
+                                    {
+                                        <td>@dataRow.Value.ToString("0.00") @Model.restaurant.ISOCurrency</td>
+                                    }
+                                    else
+                                    {
+                                        <td>@dataRow.Value</td>
+                                    }
+                                </tr>
+                            }
+                            
+                        </thead>
+                        </table>
+                </td>
+            </tr>
+
+                -->
+        </table>
+            }
+    </div>

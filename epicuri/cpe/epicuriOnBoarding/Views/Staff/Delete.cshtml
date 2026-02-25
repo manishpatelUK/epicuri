@@ -1,0 +1,14 @@
+﻿@model epicuriOnBoarding.Models.Staff
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete '@Html.DisplayFor(model => model.Name)'?</h3>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Delete" />
+    </p>
+}

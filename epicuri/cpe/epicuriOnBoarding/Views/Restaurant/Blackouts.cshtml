@@ -1,0 +1,173 @@
+﻿@model epicuriOnBoarding.Models.BlackoutsViewModel
+
+@{
+    ViewBag.Title = "Blackouts";
+}
+
+<p>
+    @Html.ActionLink("Create New Absolute Date Blackout", "Create", new { controller = "AbsoluteDateConstraint", id = Model.RestaurantId }) - @Html.ActionLink("Create New Day Of Week Blackout", "Create", new { controller = "DayOfWeekDateConstraint", id = Model.RestaurantId })
+</p> 
+<h1>Takeaway Blackouts</h1>
+Absolute dates = specific day to disable takeaways (such as Christmas Day), whereas a day of week specifies that every tuesday, the takewaway wll be closed.<br />
+Absolute Dates are in local time
+<h2>Absolute Date</h2>
+
+<table>
+@if (Model.AbsoluteTakeaway.Count > 0)
+{
+    <tr>
+       <!-- <th>
+            For
+        </th> -->
+        <th>
+             Start Date
+        </th>
+        <th>
+            Start Time
+        </th>
+        <th>
+             Blackout Duration
+        </th>
+        <th></th>
+    </tr>
+}
+@foreach (var item in Model.AbsoluteTakeaway) {
+    <tr>
+       <!-- <td>
+            @(item.TargetSession ? "Takeaway" : "Reservation")
+        </td> -->
+        <td>
+            @Html.DisplayFor(modelItem => item.DateString)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LocalTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BlackoutHours)hrs @Html.DisplayFor(modelItem => item.BlackoutMinutes)mins
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new {controller="AbsoluteDateConstraint", id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { controller = "AbsoluteDateConstraint", id = item.Id })
+        </td>
+    </tr>
+}
+</table>
+
+<h2>Day Of Week</h2>
+
+
+<table>
+@if (Model.DayOfWeekTakeaway.Count > 0)
+{
+    <tr>
+        <th>
+            Day
+        </th>
+        <th>
+            Start Time
+        </th>
+        <th>
+             Blackout Duration
+        </th>
+        <th></th>
+    </tr>
+}
+@foreach (var item in Model.DayOfWeekTakeaway) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Day)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StartTime)
+        </td>
+         <td>
+            @Html.DisplayFor(modelItem => item.BlackoutHours)hrs @Html.DisplayFor(modelItem => item.BlackoutMinutes)mins
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { controller = "DayOfWeekDateConstraint", id = item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { controller = "DayOfWeekDateConstraint", id = item.Id })
+        </td>
+    </tr>
+}
+</table>
+
+<h1>Reservation Blackouts</h1>
+Absolute dates = specific day to disable reservations (such as Christmas Day), whereas a day of week specifies that every tuesday, the restaurant will not accept reservations.
+<h2>Absolute</h2>
+<table>
+@if (Model.AbsoluteReservation.Count > 0)
+{
+    <tr>
+        <th>
+             Start Date
+        </th>
+        <th>
+            Start Time
+        </th>
+        <th>
+             Blackout Duration
+        </th>
+        <th></th>
+    </tr>
+}
+@foreach (var item in Model.AbsoluteReservation) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateString)
+        </td>
+       <!-- <td>
+            @(item.TargetSession ? "Takeaway" : "Reservation")
+        </td> -->
+        <td>
+            @Html.DisplayFor(modelItem => item.LocalTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BlackoutHours)hrs @Html.DisplayFor(modelItem => item.BlackoutMinutes)mins
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new {controller="AbsoluteDateConstraint", id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { controller = "AbsoluteDateConstraint", id = item.Id })
+        </td>
+    </tr>
+}
+</table>
+
+<h2>Day Of Week</h2>
+
+<table>
+@if (Model.DayOfWeekReservation.Count > 0)
+{
+    <tr>
+        <th>
+            Day
+        </th>
+        <th>
+            Start Time
+        </th>
+        <th>
+             Blackout Duration
+        </th>
+        <th></th>
+    </tr>
+}
+@foreach (var item in Model.DayOfWeekReservation){
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Day)
+        </td>
+        <!-- <td>
+            @(item.TargetSession ? "Takeaway" : "Reservation")
+        </td> -->
+        <td>
+            @Html.DisplayFor(modelItem => item.StartTime)
+        </td>
+         <td>
+            @Html.DisplayFor(modelItem => item.BlackoutHours)hrs @Html.DisplayFor(modelItem => item.BlackoutMinutes)mins
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { controller = "DayOfWeekDateConstraint", id = item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { controller = "DayOfWeekDateConstraint", id = item.Id })
+        </td>
+    </tr>
+}
+</table>

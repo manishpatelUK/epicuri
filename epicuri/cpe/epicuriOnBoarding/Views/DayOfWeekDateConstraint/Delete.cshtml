@@ -1,0 +1,53 @@
+﻿@model epicuri.Core.DatabaseModel.DayOfWeekConstraint
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>DayOfWeekConstraint</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.DayOfWeek)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Day)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Restaurant.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Restaurant.Name)
+    </div>
+
+    <div class="display-label">
+         Takeaway or Reservation
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TargetSession) 
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.StartTime)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.StartTime)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.EndTime)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.EndTime)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Blackouts", new{controller="Restaurant",id=Model.RestaurantId})
+    </p>
+}

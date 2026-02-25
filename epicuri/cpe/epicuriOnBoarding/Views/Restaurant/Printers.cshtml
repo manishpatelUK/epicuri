@@ -1,0 +1,51 @@
+﻿@model IEnumerable<epicuri.Core.DatabaseModel.Printer>
+@{
+    ViewBag.Title = "Printers";
+
+}
+
+<h2>Printers for Restaurant @ViewData["name"]</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create", "Printer", new { id = ViewData["id"] }, null)
+</p>
+<table>
+    <tr>
+        <th>
+            Printer Name
+        </th>
+        <th>
+            IP
+        </th>
+        <th>
+            Type
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IP)
+        </td>
+        <td>
+            @if (item.IP != null)
+            {
+                <span>Physical</span>
+            }
+            else
+            {
+                <span>Logical</span>
+            }
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", "Printer", new { id = item.Id }, null) |
+            @Html.ActionLink("Delete", "Delete", "Printer", new { id = item.Id }, null)
+        </td>
+    </tr>
+}
+
+</table>

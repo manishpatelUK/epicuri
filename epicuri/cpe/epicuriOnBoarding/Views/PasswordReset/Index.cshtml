@@ -1,0 +1,23 @@
+﻿@model epicuriOnBoarding.Models.EmailPasswordResetModel
+@{
+    ViewBag.Title = "Change Password";
+}
+
+<h2>Reset password for given email address</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary()
+
+    <fieldset>
+        <legend>Change password for given email address</legend>
+        <ol>
+            <li>
+                @Html.LabelFor(m => m.emailAddress)
+                @Html.EditorFor(m => m.emailAddress)
+            </li>
+        </ol>
+        <input type="submit" value="Reset Password" />
+    </fieldset>
+    <p class="message-success">@ViewBag.StatusMessage</p>
+}
+       

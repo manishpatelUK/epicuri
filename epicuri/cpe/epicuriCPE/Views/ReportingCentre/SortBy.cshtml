@@ -1,0 +1,33 @@
+﻿@model epicuri.CPE.Models.Reporting.CsvReport
+
+<div class="row">
+
+    <div class="col-sm-12 col-md-12 col-lg-12 col-xs-12">
+        <h3>Sort</h3>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-3 col-md-3 col-lg-3 col-xs-12">
+        <label for="sortby">Sort by</label>
+    </div>
+    <div class="col-sm-9 col-md-9 col-lg-9 col-xs-12">
+        <select id="sortby" name="sortby">
+            @foreach (var field in Model.FieldNames())
+            {
+                <option value="@field">@field</option>
+            }
+        </select>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-sm-3 col-md-3 col-lg-3 col-xs-12">
+        <label for="desc">Sort descending</label>
+    </div>
+    <div class="col-sm-9 col-md-9 col-lg-9 col-xs-12">
+        <input type="checkbox" id="desc" name="desc" />
+
+    </div>
+</div>

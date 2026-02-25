@@ -1,0 +1,83 @@
+﻿@model IEnumerable<epicuri.Core.DatabaseModel.Service>
+
+@{
+    ViewBag.Title = "Services";
+}
+
+<h2>Services</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create", new { controller = "Service", id= ViewBag.RestaurantId })
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ServiceName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Notes)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DefaultMenu.MenuName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Updated)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Active)
+        </th>
+        <!--
+        <th>
+            @Html.DisplayNameFor(model => model.IsTakeaway)
+        </th>
+            -->
+        <th>
+            @Html.DisplayNameFor(model => model.SelfServiceMenu.MenuName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ServiceName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Notes)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DefaultMenu.MenuName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Updated)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Active)
+        </td>
+        <!--
+        <td>
+            @Html.DisplayFor(modelItem => item.IsTakeaway)
+        </td>
+            -->
+        <td>
+            @Html.DisplayFor(modelItem => item.SelfServiceMenu.MenuName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id,controller="Service" }) |
+            @Html.ActionLink("Courses", "Courses", new { id = item.Id, controller = "Service" }) |
+            @Html.ActionLink("Schedule", "Schedule", new { id=item.Id,controller="Service" }) |
+            @Html.ActionLink("Recurring Items", "Recurring", new { id=item.Id,controller="Service" }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id, controller="Service" })
+        </td>
+    </tr>
+}
+
+</table>
+
+<br />
+<!--
+<p>
+<i>To ensure data integrity, services cannot be deleted. mark as inactive to disable them.</i>
+</p>
+    -->
+@Html.ActionLink("Back to List", "Index")

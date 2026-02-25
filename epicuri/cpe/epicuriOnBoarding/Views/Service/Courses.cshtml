@@ -1,0 +1,112 @@
+﻿@model IEnumerable<epicuri.Core.DatabaseModel.Course>
+
+@{
+    ViewBag.Title = "Courses";
+}
+
+<h2>Courses</h2>
+<p><i><strong>
+    Drag and drop courses to reorder them
+    </strong>
+    <br />
+    (Note: Courses will be re-ordered from 1, changes will be saved to the database)
+</i>
+</p>
+
+
+<p>
+    @Html.ActionLink("Create New", "Create", new { id = ViewBag.ServiceId,controller="Course" })
+</p>
+<table id="OrderingTable" class="grid">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <!--<th>
+            @Html.DisplayNameFor(model => model.RestaurantId)
+        </th>-->
+        <th>
+            @Html.DisplayNameFor(model => model.Ordering)
+        </th>
+        <!--<th>
+            @Html.DisplayNameFor(model => model.ServiceId)
+        </th>-->
+        <th></th>
+    </tr>
+    <tbody>
+    <tr>
+        <td>
+            <i>Name of the Course</i>
+        </td>
+        <!--<td>
+            <i>Restaurant Id Number</i>
+        </td>-->
+        <td>
+            <i>Order in which the courses are displayed on the printout (for Kitchen)</i>
+        </td>
+        <!--<td>
+            <i>Id of the service which this course is associated to</i>
+        </td>-->
+        <th></th>
+    </tr>
+        </tbody>
+
+@foreach (var item in Model) {
+    <tr id=@Html.DisplayFor(modelItem => item.Id)>
+        <!--<td>
+            @Html.DisplayFor(modelItem => item.Id)
+        </td>-->
+        <!--<td>
+            @Html.DisplayFor(modelItem => item.ServiceId)
+        </td>-->
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        <!--</td>
+          @Html.DisplayFor(modelItem => item.RestaurantId)
+        </td>-->
+        <td class="ordering">
+            @Html.DisplayFor(modelItem => item.Ordering)
+        </td>
+        <!--<td>
+            @Html.DisplayFor(modelItem => item.ServiceId)
+        </td>-->
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id, controller="Course" }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.Id, controller = "Course" })
+        </td>
+    </tr>
+}
+
+</table>
+<br />
+@Html.ActionLink("Back to Services", "Services", new{controller="Restaurant", id=ViewBag.RestaurantId})
+
+@section Scripts {
+    <script type="text/javascript" src="~/Scripts/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/jquery-ui-1.10.2.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function()
+        {
+            $('#OrderingTable tbody').sortable({
+                stop: updateIndex
+            }).disableSelection();
+        });
+
+        var updateIndex = function (e, ui) {
+            $('td.ordering', ui.item.parent()).each(function (i) {
+                $(this).html(i + 1);
+                myData = {
+                    orderIndex: $(this).html(),
+                    itemId: $(this).parent('tr').attr('id')
+                }
+                $.ajax({
+                    url: '/Service/OrderingUpdate',
+                    data: {
+                        orderIndex: $(this).html(),
+                        itemId: $(this).parent('tr').attr('id')
+                    }
+                });
+            });
+        };
+    </script>
+}

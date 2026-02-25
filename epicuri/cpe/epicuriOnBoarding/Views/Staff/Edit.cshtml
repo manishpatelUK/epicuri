@@ -1,0 +1,69 @@
+﻿@model epicuriOnBoarding.Models.Staff
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Staff</legend>
+
+        @Html.HiddenFor(model => model.Id)
+
+        
+      
+        @Html.HiddenFor(model => model.RestaurantId)
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Name, "Name *")
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Name)
+            @Html.ValidationMessageFor(model => model.Name)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Username, "Username *")
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Username)
+            @Html.ValidationMessageFor(model => model.Username)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Pin, "Pin *")
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.Pin, new { maxLength = "4" })
+            @Html.ValidationMessageFor(model => model.Pin)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Manager)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Manager)
+            @Html.ValidationMessageFor(model => model.Manager)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Password)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Password) (leave blank for unchanged)
+            @Html.ValidationMessageFor(model => model.Password)
+
+        </div>
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

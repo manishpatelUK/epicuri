@@ -1,0 +1,50 @@
+﻿@model epicuri.Core.DatabaseModel.Restaurant
+
+@{
+    ViewBag.Title = Model.Name;
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Restaurant</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Category.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Category.Name)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Description)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Description)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ISOCurrency)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ISOCurrency)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Country.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Country.Name)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id=Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,25 @@
+﻿@model IEnumerable<epicuri.CPE.Models.Printer>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Select Printer - Kitchen View</title>
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/Kitchen.css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+</head>
+<body>
+    <div style="background-color:#FFF; color:#333; margin:auto; marin-top:10px; border-radius:10px; width:400px;">
+        <h3 style="padding:20px;">Select Printer</h3>
+        <ul style="margin:0;padding:0">
+            @foreach (var printer in Model)
+            {
+                <li style="padding:0; margin:0; list-style:none; border-top:1px solid #ccc;">
+                    <div style="padding:20px;"><a style="text-decoration:none" href="~/Kitchen?Printer=@printer.Id">@printer.Name</a></div>
+                </li>
+            }
+        </ul>
+    </div>
+</body>
+</html>

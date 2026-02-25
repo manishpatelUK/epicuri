@@ -1,0 +1,21 @@
+﻿@model IEnumerable<epicuri.CPE.Models.Reporting.CsvReport>
+
+@{
+    ViewBag.Title = "Report Centre";
+    Layout = "~/Views/Portal.cshtml";
+}
+
+<div class="container">
+    <h1>Reporting Centre</h1>
+    @foreach (var st in Model)
+    {
+        <div class="row">
+
+            <div class="col-sm-12 col-md-12 col-lg-12 col-xs-12">
+                <h3><a href="~/ReportingCentre/CreateReport/@st.Name.Replace(" ","")">@st.DisplayName</a></h3>
+                <p>@st.Desc</p>
+            </div>
+        </div>
+    }
+
+</div>

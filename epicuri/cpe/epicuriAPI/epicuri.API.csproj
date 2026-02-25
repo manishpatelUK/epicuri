@@ -1,0 +1,329 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7E0765EA-7BB0-48E9-9AAF-B99B8EE3EC92}</ProjectGuid>
+    <ProjectTypeGuids>{E3E379DF-F4C6-4180-9B81-6769533ABE47};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>epicuri.API</RootNamespace>
+    <AssemblyName>epicuriAPI</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\net40\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="protobuf-net">
+      <HintPath>..\packages\protobuf-net.2.0.0.668\lib\net40\protobuf-net.dll</HintPath>
+    </Reference>
+    <Reference Include="Redslide.HttpLib, Version=1.0.6.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\epicuri.Core.Social\bin\Debug\Redslide.HttpLib.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Http.WebHost, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.4.0.30506.0\lib\net40\System.Web.Http.WebHost.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Net.Http.2.0.20710.0\lib\net40\System.Net.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.4.0.20710.0\lib\net40\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Net.Http.2.0.20710.0\lib\net40\System.Net.Http.WebRequest.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.4.0.20710.0\lib\net40\System.Web.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.4.0.20710.0\lib\net40\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.2.0.20710.0\lib\net40\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="TimeZoneNames">
+      <HintPath>..\packages\TimeZoneNames.1.2.0\lib\portable-net40+sl50+win+wpa81+wp80+Xamarin.iOS10+MonoAndroid10+MonoTouch10\TimeZoneNames.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\epicuriCPE\Filter\ResponseVersionAttribute.cs">
+      <Link>Filters\ResponseVersionAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\epicuriCPE\Models\Acknowledgement.cs">
+      <Link>Models\CPE\Acknowledgement.cs</Link>
+    </Compile>
+    <Compile Include="..\epicuriCPE\Models\AdhocNotification.cs">
+      <Link>Models\CPE\AdhocNotification.cs</Link>
+    </Compile>
+    <Compile Include="..\epicuriCPE\Models\Adjustment.cs">
+      <Link>Models\CPE\Adjustment.cs</Link>
+    </Compile>
+    <Compile Include="..\epicuriCPE\Models\AdjustmentType.cs">
+      <Link>Models\CPE\AdjustmentType.cs</Link>
+    </Compile>
+    <Compile Include="..\epicuriCPE\Models\Course.cs">
+      <Link>Models\Course.cs</Link>
+    </Compile>
+    <Compile Include="..\epicuriCPE\Models\Customer.cs">
+      <Link>Models\Customer.cs</Link>
+    </Compile>
+    <Compile Include="..\epicuriCPE\Models\DataModel.cs">
+      <Link>Models\DataModel.cs</Link>
+    </Compile>
+    <Compile Include="..\epicuriCPE\Models\DietaryPreference.cs">
+      <Link>Models\DietaryPreference.cs</Link>
+    </Compile>
+    <Compile Include="..\epicuriCPE\Models\Diner.cs">
+      <Link>Models\Diner.cs</Link>
+    </Compile>
+    <Compile Include="..\epicuriCPE\Models\MenuCategory.cs">
+      <Link>Models\MenuCategory.cs</Link>
+    </Compile>
+    <Compile Include="..\epicuriCPE\Models\MenuGroup.cs">
+      <Link>Models\MenuGroup.cs</Link>
+    </Compile>
+    <Compile Include="..\epicuriCPE\Models\MenuItem.cs">
+      <Link>Models\MenuItem.cs</Link>
+    </Compile>
+    <Compile Include="..\epicuriCPE\Models\MenuTag.cs">
+      <Link>Models\MenuTag.cs</Link>
+    </Compile>
+    <Compile Include="..\epicuriCPE\Models\MewsAdjustment.cs">
+      <Link>Models\MewsAdjustment.cs</Link>
+    </Compile>
+    <Compile Include="..\epicuriCPE\Models\Modifier.cs">
+      <Link>Models\Modifier.cs</Link>
+    </Compile>
+    <Compile Include="..\epicuriCPE\Models\ModifierGroup.cs">
+      <Link>Models\ModifierGroup.cs</Link>
+    </Compile>
+    <Compile Include="..\epicuriCPE\Models\Notification.cs">
+      <Link>Models\CPE\Notification.cs</Link>
+    </Compile>
+    <Compile Include="..\epicuriCPE\Models\Order.cs">
+      <Link>Models\CPE\Order.cs</Link>
+    </Compile>
+    <Compile Include="..\epicuriCPE\Models\OrderPayload.cs">
+      <Link>Models\CPE\OrderPayload.cs</Link>
+    </Compile>
+    <Compile Include="..\epicuriCPE\Models\RecurringScheduleItem.cs">
+      <Link>Models\CPE\RecurringScheduleItem.cs</Link>
+    </Compile>
+    <Compile Include="..\epicuriCPE\Models\ScheduleItem.cs">
+      <Link>Models\CPE\ScheduleItem.cs</Link>
+    </Compile>
+    <Compile Include="..\epicuriCPE\Models\SeatedSession.cs">
+      <Link>Models\SeatedSession.cs</Link>
+    </Compile>
+    <Compile Include="..\epicuriCPE\Models\Session.cs">
+      <Link>Models\CPE\Session.cs</Link>
+    </Compile>
+    <Compile Include="..\epicuriCPE\Models\SessionValueModification.cs">
+      <Link>Models\CPE\SessionValueModification.cs</Link>
+    </Compile>
+    <Compile Include="..\epicuriCPE\Models\SessionValueModificationWithChange.cs">
+      <Link>Models\CPE\SessionValueModificationWithChange.cs</Link>
+    </Compile>
+    <Compile Include="..\epicuriCPE\Models\SimpleMenu.cs">
+      <Link>Models\SimpleMenu.cs</Link>
+    </Compile>
+    <Compile Include="..\epicuriCPE\Models\Staff.cs">
+      <Link>Models\CPE\Staff.cs</Link>
+    </Compile>
+    <Compile Include="..\epicuriCPE\Models\Table.cs">
+      <Link>Models\Table.cs</Link>
+    </Compile>
+    <Compile Include="..\epicuriCPE\Models\TakeawaySession.cs">
+      <Link>Models\TakeawaySession.cs</Link>
+    </Compile>
+    <Compile Include="..\epicuriCPE\Models\VoidReasonPayload.cs">
+      <Link>Models\VoidReasonPayload.cs</Link>
+    </Compile>
+    <Compile Include="Controllers\AuthenticationController.cs" />
+    <Compile Include="Controllers\CategoryController.cs" />
+    <Compile Include="Controllers\CheckinController.cs" />
+    <Compile Include="Controllers\CourseController.cs" />
+    <Compile Include="Controllers\FullMenuController.cs" />
+    <Compile Include="Controllers\MenuController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Models\AuthProvider.cs" />
+    <Compile Include="Models\dbCustomer.cs" />
+    <Compile Include="Models\DeliveryCostPayload.cs" />
+    <Compile Include="Models\NamedAuthToken.cs" />
+    <Compile Include="Controllers\OrderController.cs" />
+    <Compile Include="Controllers\ReservationController.cs" />
+    <Compile Include="Controllers\RestaurantController.cs" />
+    <Compile Include="Controllers\SessionController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AuthPayload.cs" />
+    <Compile Include="Models\CheckIn.cs" />
+    <Compile Include="Models\APICustomer.cs" />
+    <Compile Include="Models\Menu.cs" />
+    <Compile Include="Models\Order.cs" />
+    <Compile Include="Models\Reservation.cs" />
+    <Compile Include="Models\Session.cs" />
+    <Compile Include="Models\TakeawayOrder.cs" />
+    <Compile Include="Models\PositionSquare.cs" />
+    <Compile Include="Models\Restaurant.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Support\EpicuriApi.cs" />
+    <Compile Include="Support\Salt.cs" />
+    <Compile Include="Support\String.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Content Include="Global.asax" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\epicuri.Core.Social\epicuri.Core.Social.csproj">
+      <Project>{C6E78B6F-5FA8-4FBB-AEFA-3B7B5612B811}</Project>
+      <Name>epicuri.Core.Social</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\epicuriCore\epicuri.Core.csproj">
+      <Project>{CFED060B-AA50-413F-AA3C-4044F46239BF}</Project>
+      <Name>epicuri.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\PublishProfiles\Profile1.pubxml" />
+    <None Include="Properties\PublishProfiles\Web Deploy.pubxml" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>49597</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:49597/client</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

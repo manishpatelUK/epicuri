@@ -1,0 +1,96 @@
+﻿@model epicuri.Core.DatabaseModel.DayOfWeekConstraint
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create Day Of Week Blackout</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>DayOfWeekConstraint</legend>
+        <br />
+        
+        <div class ="editor-label">
+            Takeaway
+        </div>
+        <div class =" editor-field">
+            @Html.CheckBox("isTakeaway", false)
+            <input type="hidden" name="isTakeaway" value ="false" />
+        </div>
+
+        <div class ="editor-label">
+            Reservation
+        </div>
+        <div class =" editor-field">
+            @Html.CheckBox("isReservation", false)
+            <input type="hidden" name="isReservation" value ="false" />
+        </div>
+
+        <br />
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.DayOfWeek)
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("DayOfWeek")
+            @Html.ValidationMessageFor(model => model.DayOfWeek)
+        </div>
+        <input type="hidden" name="RestaurantId" value="@ViewBag.RestaurantId" />
+        
+
+
+        <!--
+        <div class="editor-label">
+            Takeaway or Reservation?
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.TargetSession)
+            @Html.ValidationMessageFor(model => model.TargetSession) (ticked = takeaway, unticked = reservation)
+        </div>
+            -->
+
+       
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.StartTime)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.StartTime)
+            @Html.ValidationMessageFor(model => model.StartTime) (HH:MM in 24h format)
+        </div>
+        <!--
+        <div class="editor-label">
+            @Html.LabelFor(model => model.EndTime)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.EndTime)
+            @Html.ValidationMessageFor(model => model.EndTime) (HH:MM in 24h format)
+        </div>
+            -->
+         <h4>Blackout Duration:</h4>
+        <br />
+        <div class="editor-field">
+         @Html.DropDownListFor(model => model.BlackoutHours, new SelectList(ViewBag.BlackoutHours as System.Collections.IEnumerable, "Text", "value"))
+            @Html.ValidationMessageFor(model => model.BlackoutHours) Hours
+        </div>
+
+        <div class="editor-field">
+              @Html.DropDownListFor(model => model.BlackoutMinutes, new SelectList(ViewBag.BlackoutMinutes as System.Collections.IEnumerable, "Text", "value"))
+        @Html.ValidationMessageFor(model => model.BlackoutMinutes) Minutes
+        </div>
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Blackouts", new{controller="Restaurant",id=ViewBag.RestaurantId})
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

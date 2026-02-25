@@ -1,0 +1,42 @@
+﻿@model epicuri.Core.DatabaseModel.Notification
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Notification</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Text)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Text)
+            @Html.ValidationMessageFor(model => model.Text)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Target)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.Target, new { @Value = "waiter/action" })
+            @Html.ValidationMessageFor(model => model.Target) default: waiter/action
+        </div>
+
+        <input type="hidden" name="RestaurantId" value="@ViewBag.RestaurantId" />
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

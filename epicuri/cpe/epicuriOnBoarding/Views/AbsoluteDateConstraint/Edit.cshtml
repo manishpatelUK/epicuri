@@ -1,0 +1,73 @@
+﻿@model epicuri.Core.DatabaseModel.AbsoluteDateConstraint
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit Absolute Blackout</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>AbsoluteDateConstraint</legend>
+
+        @Html.HiddenFor(model => model.RestaurantId, "RestaurantId")
+        <br />
+        <div class="editor-label">
+            Takeaway or Reservation?
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.TargetSession)
+            @Html.ValidationMessageFor(model => model.TargetSession) (ticked = takeaway, unticked = reservation)
+        </div>
+
+        
+
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Date, " Start Date *")
+        </div>
+        <div class="editor-field">
+        <input type="text" name="Date" id="Date" value="@Model.DateString" />
+            @Html.ValidationMessageFor(model => model.Date) DD/MM/YYYY
+        </div> 
+
+        @Html.HiddenFor(model => model.Id)
+        
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.StartTime, "Start Time (local) *")
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.StartTime)
+            @Html.ValidationMessageFor(model => model.StartTime)
+        </div>
+
+        <h4>Blackout Duration:</h4>
+        <br />
+        <div class="editor-field">
+
+            @Html.DropDownList("BlackoutHours")
+            @Html.ValidationMessageFor(model => model.BlackoutHours) Hours
+        </div>
+
+        <div class="editor-field">
+              @Html.DropDownList("BlackoutMinutes")
+            @Html.ValidationMessageFor(model => model.BlackoutHours) Minutes
+        </div>
+        <br />
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Blackouts", new{controller="Restaurant",id=Model.RestaurantId})
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

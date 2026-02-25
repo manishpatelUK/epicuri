@@ -1,0 +1,24 @@
+﻿@model epicuri.CPE.Models.Reporting.CsvReport
+@{
+    ViewBag.Title = "Create Report";
+    Layout = "~/Views/Portal.cshtml";
+}
+
+
+<div class="container">
+    <h2>Create Report: @Model.DisplayName</h2>
+    <p>@Model.Desc</p>
+    <form method="post">
+        @foreach (var option in Model.ConfigurationOptions())
+        {
+          
+            <div style="padding-bottom:20px;">
+                @{
+        Html.RenderPartial(option.View, Model);
+                }
+            </div>
+            
+        }
+        <input type="submit" value="Generate Report" />
+    </form>
+</div>

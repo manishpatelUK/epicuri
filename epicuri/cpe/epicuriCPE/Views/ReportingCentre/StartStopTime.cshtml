@@ -1,0 +1,35 @@
+﻿<script>
+    $(function () {
+        $("#starttime").datepicker({
+            dateFormat: "yy-mm-dd"
+        });
+        $("#endtime").datepicker({
+            dateFormat: "yy-mm-dd"
+        });
+    });
+</script>
+
+<div class="row">
+
+    <div class="col-sm-12 col-md-12 col-lg-12 col-xs-12">
+        <h3>Start/End Time</h3>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-sm-3 col-md-3 col-lg-3 col-xs-12">
+        <label for="starttime">Report Start Time</label>
+    </div>
+    <div class="col-sm-9 col-md-9 col-lg-9 col-xs-12">
+        <input id="starttime" name="starttime" type="datetime" />
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-3 col-md-3 col-lg-3 col-xs-12">
+        <label for="endtime">Report End Date</label>
+    </div>
+    <div class="col-sm-9 col-md-9 col-lg-9 col-xs-12">
+        <input id="endtime" name="endtime" type="datetime" /> (up to and including this date)<br /><small>Leave blank for all data.</small>
+    </div>
+</div>

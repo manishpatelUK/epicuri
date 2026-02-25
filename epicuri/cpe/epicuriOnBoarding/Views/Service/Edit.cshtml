@@ -1,0 +1,87 @@
+﻿@model epicuri.Core.DatabaseModel.Service
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Service</legend>
+
+        @Html.HiddenFor(model => model.Id)
+
+        <input value="@Model.RestaurantId" type="hidden" name="RestaurantId" />
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ServiceName, "ServiceName *")
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ServiceName)
+            @Html.ValidationMessageFor(model => model.ServiceName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Notes, "Notes *")
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Notes)
+            @Html.ValidationMessageFor(model => model.Notes)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.MenuId, "DefaultMenu *")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("MenuId", String.Empty)
+            @Html.ValidationMessageFor(model => model.MenuId)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Updated)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.Updated, new { disabled = "disabled", @readonly = "readonly" })
+            @Html.ValidationMessageFor(model => model.Updated)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Active)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Active)
+            @Html.ValidationMessageFor(model => model.Active)
+        </div>
+
+        <!--
+        <div class="editor-label">
+            @Html.LabelFor(model => model.IsTakeaway)
+        </div>
+        
+        <div class="editor-field">
+            @Html.EditorFor(model => model.IsTakeaway)
+            @Html.ValidationMessageFor(model => model.IsTakeaway)
+        </div>
+        -->
+        <div class="editor-label">
+            @Html.LabelFor(model => model.MenuId1, "SelfServiceMenu")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("MenuId1", String.Empty)
+            @Html.ValidationMessageFor(model => model.MenuId1)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+        @Html.ActionLink("Back to List", "Services", new{controller="Restaurant", id=ViewBag.RestaurantId})
+    </fieldset>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+

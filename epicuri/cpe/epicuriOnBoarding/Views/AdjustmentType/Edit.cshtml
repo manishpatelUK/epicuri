@@ -1,0 +1,50 @@
+﻿@model epicuri.Core.DatabaseModel.AdjustmentType
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>AdjustmentType</legend>
+
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Name)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Name)
+            @Html.ValidationMessageFor(model => model.Name)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Type)
+        </div>
+        <div class="editor-field">
+            @Html.DropDownListFor(model => model.Type, Enum.GetValues(typeof(epicuri.Core.DatabaseModel.Enums.AdjustmentTypeType)).Cast<epicuri.Core.DatabaseModel.Enums.AdjustmentTypeType>().Select(v => new SelectListItem
+               {
+                   Text = v.ToString(),
+                   Value = ((int)v).ToString()
+               }))
+                
+            @Html.ValidationMessageFor(model => model.Type)
+        </div>
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

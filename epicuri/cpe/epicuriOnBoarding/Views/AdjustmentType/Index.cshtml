@@ -1,0 +1,42 @@
+﻿@model IEnumerable<epicuri.Core.DatabaseModel.AdjustmentType>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Type)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model.OrderBy(mdl => mdl.Type).ThenBy(mdl => mdl.Name)) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @((epicuri.Core.DatabaseModel.Enums.AdjustmentTypeType)item.Type)
+        </td>
+        <td>
+            @if (item.Id > 0) { 
+                @Html.ActionLink("Edit", "Edit", new { id=item.Id }) 
+                
+                @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            }
+            
+        </td>
+    </tr>
+}
+
+</table>

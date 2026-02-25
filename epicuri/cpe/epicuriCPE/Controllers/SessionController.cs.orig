@@ -1,0 +1,1578 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net;
+using System.Net.Http;
+using System.Web.Http;
+using epicuri.Core.DatabaseModel;
+using epicuri.Core;
+
+namespace epicuri.CPE.Controllers
+{
+    public class SessionController : Models.EpicuriApiController
+    {
+        [ActionName("All")]
+        public HttpResponseMessage GetActive()
+        {
+            try
+            {
+                Authenticate();
+            }
+            catch (Exception e)
+            {
+                HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.Unauthorized, e);
+                response.Headers.Add("WWW-Authenticate", string.Format("Basic realm=\"{0}\"", "Epicuri"));
+                return response;
+            }
+
+
+            /*
+             * Get sessions and takeaways separately, makes everything easier when adding these to the list
+             */
+
+
+
+            DateTime takeawayWindow = DateTime.UtcNow.AddMinutes(epicuri.Core.Settings.Setting<int>(Restaurant.Id, "TakeawayMinimumTime"));
+
+
+            var sessions = from sess in this.Restaurant.Sessions.OfType<epicuri.Core.DatabaseModel.SeatedSession>()
+                           where sess.ClosedTime == null
+                           select new Models.SeatedSession(sess);
+            var takeaways = from sess in this.Restaurant.Sessions.OfType<epicuri.Core.DatabaseModel.TakeAwaySession>()
+                            where sess.ClosedTime == null
+                            && sess.Rejected == false
+                            && sess.Deleted == false
+                            && sess.Accepted == true
+                            && sess.ExpectedTime < takeawayWindow
+                            select new Models.TakeawaySession(sess);
+
+            List<Models.Session> outp = new List<Models.Session>();
+            foreach (Models.Session s in sessions)
+            {
+                outp.Add(s);
+            }
+            foreach (Models.Session s in takeaways)
+            {
+                outp.Add(s);
+            }
+
+            return Request.CreateResponse(HttpStatusCode.OK, outp);
+        }
+
+<<<<<<< HEAD
+        /// <summary>
+        /// This method takes a session Id and update party as input, and updates the party with the new information before changing the session to no longer be Ad-Hoc.
+        /// </summary>
+        /// <param name="partyUpdateAndSessionId">The combined Session id and Update Party Info</param>
+        /// <returns>HttpResponseMessage</returns>
+
+        [HttpPost]
+        [ActionName("ConvertAdHocToTab")]
+        public HttpResponseMessage ConvertAdHocToTab(Models.PartyUpdateAndSessionId partyUpdateAndSessionId)
+        {
+            IEnumerable<Session> sessions;
+
+            sessions = from sess in db.Sessions
+                       where sess.Id == partyUpdateAndSessionId.SessionId
+                       select sess;
+
+            // Check the session exists
+            if (sessions.FirstOrDefault() == null)
+            {
+                return Request.CreateResponse(HttpStatusCode.NotFound, new Exception("Session not found"));
+            }
+
+            Core.DatabaseModel.Session session = sessions.FirstOrDefault();
+
+            // Check it is a seated session (not a takeaway)
+            if (session.GetType() == typeof(SeatedSession))
+            {
+                SeatedSession seatedSession = (SeatedSession)session;
+                
+                // Check it's AdHoc, bail otherwise
+                if (seatedSession.IsAdHoc)
+                {
+                    
+                    // Get all party associated with session (should only be 1)
+                    var parties = from party in db.Parties
+                                  where party.Session.Id == session.Id
+                                  select party;
+
+                    Party sessionParty = parties.FirstOrDefault();
+
+                    // Get the updated party info from the request body
+                    Models.WaitingParty partyUpdate = partyUpdateAndSessionId.PartyUpdate;
+
+                    // Check the new service exists
+                    IEnumerable<Service> services = from service in db.Services
+                                   where service.Id == partyUpdate.ServiceId
+                                   select service;
+
+                    if (!services.Any(s => (s.Id == partyUpdate.ServiceId) &&
+                                          (s.RestaurantId == seatedSession.Restaurant.Id))){
+
+                        return Request.CreateResponse(HttpStatusCode.NotFound, new Exception("Service not found"));
+                    }
+
+                    // Set the new party/session parameters if this all passes
+                    seatedSession.IsAdHoc = false;
+                    sessionParty.NumberOfPeople = partyUpdate.NumberOfPeople;
+                    seatedSession.ServiceId = partyUpdate.ServiceId;
+                    sessionParty.Name = partyUpdate.Name;
+
+                    db.SaveChanges();
+
+                    // Create a JSON model to return
+                    Models.Session sessionModel = new Models.SeatedSession(seatedSession);
+
+                    return Request.CreateResponse(HttpStatusCode.Accepted, sessionModel);
+                }
+            }
+
+            return Request.CreateResponse(HttpStatusCode.BadRequest, new Exception("Session Not Adhoc"));
+        }
+
+        /// <summary>
+        /// Returns Sessions and Takeaways that have a ClosedTime, but are not CashedUp (paid for)
+        /// </summary>
+        /// <returns>HttpResponseMessage of the session</returns>
+
+        [HttpGet]
+        [ActionName("NotInCashup")]
+=======
+        [HttpGet]
+        [ActionName ("NotInCashup")]
+>>>>>>> release/cpe/1.5.0
+        public HttpResponseMessage GetNotInCashup()
+        {
+            try
+            {
+                Authenticate();
+            }
+            catch (Exception e)
+            {
+                HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.Unauthorized, e);
+                response.Headers.Add("WWW-Authenticate", string.Format("Basic realm=\"{0}\"", "Epicuri"));
+                return response;
+            }
+
+
+            /*
+             * Get sessions and takeaways separately, makes everything easier when adding these to the list
+             */
+            var sessions = from sess in this.Restaurant.Sessions.OfType<epicuri.Core.DatabaseModel.SeatedSession>()
+<<<<<<< HEAD
+                           where sess.ClosedTime != null && sess.CashUpDay == null
+
+=======
+                           where sess.ClosedTime !=null && sess.CashUpDay ==null
+    
+>>>>>>> release/cpe/1.5.0
+                           select new Models.SeatedSession(sess);
+            var takeaways = from sess in this.Restaurant.Sessions.OfType<epicuri.Core.DatabaseModel.TakeAwaySession>()
+                            where sess.ClosedTime != null && sess.CashUpDay == null
+                            && sess.Rejected == false
+                            && sess.Deleted == false
+                            && sess.Accepted == true
+<<<<<<< HEAD
+
+                            select new Models.TakeawaySession(sess);
+
+            var outp = sessions.Cast<Models.Session>().Union(takeaways.Cast<Models.Session>()).OrderByDescending(s => s.ClosedTime);
+=======
+                            
+                            select new Models.TakeawaySession(sess);
+
+            var outp = sessions.Cast<Models.Session>().Union(takeaways.Cast< Models.Session>()).OrderByDescending(s => s.ClosedTime);
+>>>>>>> release/cpe/1.5.0
+
+            return Request.CreateResponse(HttpStatusCode.OK, outp);
+        }
+
+        [HttpPut]
+        [ActionName("Accept")]
+        public HttpResponseMessage PutAccept(int id)
+        {
+            try
+            {
+                Authenticate();
+            }
+            catch (Exception e)
+            {
+                HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.Unauthorized, e);
+                response.Headers.Add("WWW-Authenticate", string.Format("Basic realm=\"{0}\"", "Epicuri"));
+                return response;
+            }
+
+
+            IEnumerable<TakeAwaySession> sessions;
+
+            sessions = Restaurant.Sessions.OfType<TakeAwaySession>().Where(s => s.Id == id && s.Accepted == false);
+
+            if (sessions.FirstOrDefault() == null)
+            {
+                return Request.CreateResponse(HttpStatusCode.NotFound, new Exception("Session not found"));
+            }
+
+
+            Core.DatabaseModel.TakeAwaySession s1 = sessions.FirstOrDefault();
+
+
+            s1.Accepted = true;
+            db.SaveChanges();
+
+
+
+            return Request.CreateResponse(HttpStatusCode.OK, new Models.TakeawaySession(s1));
+        }
+
+        [HttpPut]
+        [ActionName("Reject")]
+        public HttpResponseMessage PutReject(int id, Models.RejectionPayload payload)
+        {
+            try
+            {
+                Authenticate();
+            }
+            catch (Exception e)
+            {
+                HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.Unauthorized, e);
+                response.Headers.Add("WWW-Authenticate", string.Format("Basic realm=\"{0}\"", "Epicuri"));
+                return response;
+            }
+
+
+            IEnumerable<TakeAwaySession> sessions;
+
+            sessions = Restaurant.Sessions.OfType<TakeAwaySession>().Where(s => s.Id == id && s.Accepted == false);
+
+            if (sessions.FirstOrDefault() == null)
+            {
+                return Request.CreateResponse(HttpStatusCode.NotFound, new Exception("Session not found"));
+            }
+
+
+            Core.DatabaseModel.TakeAwaySession s1 = sessions.FirstOrDefault();
+
+            s1.Rejected = true;
+            s1.RejectionNotice = payload.Notice;
+            db.SaveChanges();
+
+
+
+            return Request.CreateResponse(HttpStatusCode.NoContent);
+        }
+
+
+        [HttpPut]
+        [ActionName("RemoveFromReports")]
+        public HttpResponseMessage PutRemoveFromReports(int id)
+        {
+            try
+            {
+                Authenticate();
+            }
+            catch (Exception e)
+            {
+                HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.Unauthorized, e);
+                response.Headers.Add("WWW-Authenticate", string.Format("Basic realm=\"{0}\"", "Epicuri"));
+                return response;
+            }
+
+
+            var session = Restaurant.Sessions.FirstOrDefault(s => s.Id == id);
+
+            if (session == null)
+            {
+                return Request.CreateResponse(HttpStatusCode.NotFound, new Exception("Session not found"));
+            }
+
+            if (session.ClosedTime == null)
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest, new Exception("Session is still open"));
+            }
+
+
+            if (session.CashUpDay != null)
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest, new Exception("Session is in a cashup"));
+            }
+
+
+            if (session.RemoveFromReports)
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest, new Exception("Session is removed from reports"));
+            }
+
+            session.RemoveFromReports = true;
+
+            
+            db.SaveChanges();
+
+
+
+            return Request.CreateResponse(HttpStatusCode.NoContent);
+        }
+
+
+        [HttpGet]
+        public HttpResponseMessage GetSingle(int id)
+        {
+            try
+            {
+                Authenticate();
+            }
+            catch (Exception e)
+            {
+                HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.Unauthorized, e);
+                response.Headers.Add("WWW-Authenticate", string.Format("Basic realm=\"{0}\"", "Epicuri"));
+                return response;
+            }
+
+
+            IEnumerable<Session> sessions;
+
+            sessions = from sess in this.Restaurant.Sessions
+                       where sess.Id == id
+                       select sess;
+
+            if (sessions.FirstOrDefault() == null)
+            {
+                return Request.CreateResponse(HttpStatusCode.NotFound, new Exception("Session not found"));
+            }
+
+
+            Core.DatabaseModel.Session s1 = sessions.FirstOrDefault();
+            Models.Session session;
+            if (s1.GetType() == typeof(SeatedSession))
+            {
+                session = new Models.SeatedSession((SeatedSession)s1);
+            }
+            else
+            {
+                session = new Models.TakeawaySession((TakeAwaySession)s1);
+            }
+
+            var orders = this.Restaurant.Sessions.First(s => s.Id == id).Orders.Where(o => o.Deleted = false);
+
+            return Request.CreateResponse(HttpStatusCode.OK, session);
+        }
+
+        [HttpPut]
+        [ActionName("RequestBill")]
+        public HttpResponseMessage PutRequestBill(int id)
+        {
+            try
+            {
+                Authenticate();
+            }
+            catch (Exception e)
+            {
+                HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.Unauthorized, e);
+                response.Headers.Add("WWW-Authenticate", string.Format("Basic realm=\"{0}\"", "Epicuri"));
+                return response;
+            };
+
+
+            /*
+             * Try get the session from the database
+             */
+            Session sess = Restaurant.Sessions.OfType<Core.DatabaseModel.Session>().FirstOrDefault(s => s.Id == id);
+
+            if (sess == null)
+            {
+                return Request.CreateResponse(HttpStatusCode.NotFound, new Exception("Session Not Found"));
+            }
+
+            sess.RequestedBill = true;
+            db.SaveChanges();
+
+            if (sess.GetType() == typeof(Core.DatabaseModel.SeatedSession))
+            {
+
+                sess.AdhocNotifications.Add(new AdhocNotification
+                {
+                    Created = DateTime.UtcNow,
+                    Text = "Request Bill",
+                    Target = "waiter/action"
+
+                });
+
+                db.SaveChanges();
+            }
+            return Request.CreateResponse(HttpStatusCode.NoContent);
+        }
+
+        [HttpPut]
+        [ActionName("UnrequestBill")]
+        public HttpResponseMessage PutUnrequestBill(int id)
+        {
+            try
+            {
+                Authenticate();
+            }
+            catch (Exception e)
+            {
+                HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.Unauthorized, e);
+                response.Headers.Add("WWW-Authenticate", string.Format("Basic realm=\"{0}\"", "Epicuri"));
+                return response;
+            };
+
+
+            /*
+             * Try get the session from the database
+             */
+            Session sess = Restaurant.Sessions.OfType<Core.DatabaseModel.Session>().FirstOrDefault(s => s.Id == id);
+
+            if (sess == null)
+            {
+                return Request.CreateResponse(HttpStatusCode.NotFound, new Exception("Session Not Found"));
+            }
+
+            sess.RequestedBill = false;
+
+            /* Commented due to relationship error - decision to leave any adhoc notifications in place for removal by waiter
+            var adhoc = sess.AdhocNotifications.FirstOrDefault(s => s.Text == "Request Bill");
+
+            if (adhoc != null)
+                sess.AdhocNotifications.Remove(adhoc);
+            */
+            db.SaveChanges();
+
+            return Request.CreateResponse(HttpStatusCode.NoContent);
+        }
+
+
+        [HttpPut]
+        [ActionName("Void")]
+        public HttpResponseMessage PutVoid(int id, Models.VoidReasonPayload voidreason)
+        {
+            try
+            {
+                Authenticate();
+            }
+            catch (Exception e)
+            {
+                HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.Unauthorized, e);
+                response.Headers.Add("WWW-Authenticate", string.Format("Basic realm=\"{0}\"", "Epicuri"));
+                return response;
+            };
+
+            var session = Restaurant.Sessions.SingleOrDefault(s => s.Id == id);
+            if (session == null)
+            {
+                return Request.CreateResponse(HttpStatusCode.NotFound, new Exception("Session not found"));
+            }
+
+            if (session.ClosedTime == null)
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest, new Exception("Session must be closed"));
+            }
+
+            if (session.RemoveFromReports == true)
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest, new Exception("Session is already voided"));
+            }
+
+            session.RemoveFromReports = true;
+
+            string reason = null;
+            if (voidreason != null)
+            {
+                if (!string.IsNullOrWhiteSpace(voidreason.Reason))
+                {
+                    reason = voidreason.Reason;
+                }
+            }
+
+            session.VoidReasons.Add(new VoidReason
+            {
+                StaffId = this.Staff.Id,
+                VoidTime = DateTime.UtcNow,
+                Reason = reason,
+                SessionId = session.Id
+            });
+            
+
+            db.SaveChanges();
+
+            return Request.CreateResponse(HttpStatusCode.OK, Models.Session.Factory(session));
+        }
+
+
+        [HttpPut]
+        [ActionName("Unvoid")]
+        public HttpResponseMessage PutUnvoid(int id)
+        {
+            try
+            {
+                Authenticate();
+            }
+            catch (Exception e)
+            {
+                HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.Unauthorized, e);
+                response.Headers.Add("WWW-Authenticate", string.Format("Basic realm=\"{0}\"", "Epicuri"));
+                return response;
+            };
+
+            var session = Restaurant.Sessions.SingleOrDefault(s => s.Id == id);
+            if (session == null)
+            {
+                return Request.CreateResponse(HttpStatusCode.NotFound, new Exception("Session not found"));
+            }
+
+            if (session.ClosedTime == null)
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest, new Exception("Session must be closed"));
+            }
+
+            if (session.RemoveFromReports == false)
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest, new Exception("Session is not a void session"));
+            }
+
+            session.RemoveFromReports = false;
+            db.SaveChanges();
+
+            return Request.CreateResponse(HttpStatusCode.OK, Models.Session.Factory(session));
+        }
+
+
+
+        [HttpPut]
+        [ActionName("Open")]
+        public HttpResponseMessage PutOpen(int id) 
+        {
+            try
+            {
+                Authenticate();
+            }
+            catch (Exception e)
+            {
+                HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.Unauthorized, e);
+                response.Headers.Add("WWW-Authenticate", string.Format("Basic realm=\"{0}\"", "Epicuri"));
+                return response;
+            };
+
+            var session = Restaurant.Sessions.SingleOrDefault(s=>s.Id == id);
+            if(session == null) {
+                return Request.CreateResponse(HttpStatusCode.NotFound, new Exception("Session not found"));
+            }
+
+            if(session.ClosedTime == null) {
+                return Request.CreateResponse(HttpStatusCode.BadRequest, new Exception("Session is already open"));
+            }
+
+            if(session.CashUpDay != null) {
+                return Request.CreateResponse(HttpStatusCode.BadRequest, new Exception("Session cannot be re-opened. Locked for reporting"));
+            }
+
+           
+            if(session.GetType() == typeof(Core.DatabaseModel.SeatedSession)) {
+                var clear = false;
+
+                //Check all tables on session to see if in use
+                foreach (Table tab in ((Core.DatabaseModel.SeatedSession)session).Tables)
+                {
+                    if (db.Sessions.OfType<SeatedSession>().Any(sess => !sess.ClosedTime.HasValue && sess.Tables.Any(t => t.Id == tab.Id)))
+                    {
+                        clear = true;
+                    }
+                }
+
+                //Clear the tables if one is in use
+                if (clear)
+                {
+                    ((Core.DatabaseModel.SeatedSession)session).Tables.Clear();
+                }
+            }
+
+
+            session.ClosedTime = null;
+            session.Paid = false;
+
+            db.SaveChanges();
+
+            return Request.CreateResponse(HttpStatusCode.OK, Models.Session.Factory(session));
+        }
+
+        [HttpPut]
+        [ActionName("PayBill")]
+        public HttpResponseMessage PutPayBill(int id)
+        {
+            try
+            {
+                Authenticate();
+            }
+            catch (Exception e)
+            {
+                HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.Unauthorized, e);
+                response.Headers.Add("WWW-Authenticate", string.Format("Basic realm=\"{0}\"", "Epicuri"));
+                return response;
+            }
+
+
+            var session = Restaurant.Sessions.FirstOrDefault(s => s.Id == id);
+
+            if (session == null)
+            {
+                return Request.CreateResponse(HttpStatusCode.NotFound, new Exception("Session not found"));
+            }
+
+            Models.Session cpeSession = new Models.Session(session);
+
+            if (cpeSession.RemainingTotal > 0)
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest, new Exception(cpeSession.RemainingTotal + " still to be paid"));
+            }
+
+            session.Paid = true;
+
+            if (session.GetType() == typeof(SeatedSession))
+            {
+                 session.ClosedTime = DateTime.UtcNow;
+            }
+
+            //Models.SeatedSession cpeSeatedSession = new Models.SeatedSession(session);
+
+            
+
+            db.SaveChanges();
+
+            return Request.CreateResponse(HttpStatusCode.NoContent);
+        }
+
+        [HttpPut]
+        [ActionName("Close")]
+        public HttpResponseMessage PutClose(int id, Models.CloseSessionOptions opts)
+        {
+            try
+            {
+                Authenticate();
+            }
+            catch (Exception e)
+            {
+                HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.Unauthorized, e);
+                response.Headers.Add("WWW-Authenticate", string.Format("Basic realm=\"{0}\"", "Epicuri"));
+                return response;
+            }
+
+            epicuri.Core.DatabaseModel.Session originalSession;
+            try
+            {
+                originalSession = db.Sessions.Single(res => res.Id == id && res.ClosedTime == null);
+            }
+            catch (Exception)
+            {
+                return Request.CreateResponse(HttpStatusCode.NotFound, new Exception("Session cannot be found"));
+            }
+
+            if (originalSession == null)
+            {
+                return Request.CreateResponse(HttpStatusCode.NotFound, new Exception("Session party is null"));
+            }
+
+
+            originalSession.ClosedTime = DateTime.UtcNow;
+
+            db.SaveChanges();
+
+            bool blackmark = false;
+            if (opts != null)
+            {
+                if (opts.GiveBlackMark)
+                {
+                    blackmark = true;
+
+                }
+            }
+
+
+            if (blackmark)
+            {
+                /*
+                 * Add a black mark to each diner
+                 */
+                if (originalSession.GetType() == typeof(SeatedSession))
+                {
+                    foreach (Diner d in ((SeatedSession)originalSession).Diners)
+                    {
+                        if (d.Customer != null)
+                        {
+                            d.Customer.BlackMarks.Add(new BlackMark
+                            {
+                                Added = DateTime.UtcNow,
+                                Reason = "Bad session",
+                                Expires = DateTime.UtcNow.AddDays(30)
+
+                            });
+
+                        }
+                    }
+                }
+                else
+                {
+                    if (((TakeAwaySession)originalSession).Diner.Customer != null)
+                    {
+                        ((TakeAwaySession)originalSession).Diner.Customer.BlackMarks.Add(new BlackMark
+                        {
+                            Added = DateTime.UtcNow,
+                            Reason = "Bad session",
+                            Expires = DateTime.UtcNow.AddDays(30)
+                        });
+                    }
+                }
+            }
+            else
+            {
+                /*
+                 * Expire the oldest black mark 
+                 */
+
+                if (originalSession.GetType() == typeof(SeatedSession))
+                {
+                    foreach (Diner d in ((SeatedSession)originalSession).Diners)
+                    {
+                        if (d.Customer != null)
+                        {
+                            if (d.Customer.BlackMarks.Where(b => b.Expires >= DateTime.UtcNow).OrderBy(b => b.Added).FirstOrDefault() != null)
+                            {
+                                d.Customer.BlackMarks.Where(b => b.Expires >= DateTime.UtcNow).OrderBy(b => b.Added).FirstOrDefault().Expires = DateTime.UtcNow;
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    if (((TakeAwaySession)originalSession).Diner.Customer != null)
+                    {
+                        if (((TakeAwaySession)originalSession).Diner.Customer.BlackMarks.Where(b => b.Expires >= DateTime.UtcNow).OrderBy(b => b.Added).FirstOrDefault() != null)
+                        {
+                            ((TakeAwaySession)originalSession).Diner.Customer.BlackMarks.Where(b => b.Expires >= DateTime.UtcNow).OrderBy(b => b.Added).FirstOrDefault().Expires = DateTime.UtcNow;
+                        }
+                    }
+                }
+            }
+            db.SaveChanges();
+
+
+            return Request.CreateResponse(HttpStatusCode.OK);
+
+        }
+
+
+        [HttpPost]
+        [ActionName("FromParty")]
+        public HttpResponseMessage PostFromParty(int id, Models.SessionPayload newSessionInfo)
+        {
+            try
+            {
+                Authenticate();
+            }
+            catch (Exception e)
+            {
+                HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.Unauthorized, e);
+                response.Headers.Add("WWW-Authenticate", string.Format("Basic realm=\"{0}\"", "Epicuri"));
+                return response;
+            };
+
+            epicuri.Core.DatabaseModel.Party originalParty;
+
+            try
+            {
+                originalParty = db.Parties.Single(res => res.Id == id && res.Deleted == false);
+
+                if (originalParty.Session != null)
+                {
+                    return Request.CreateResponse(HttpStatusCode.Conflict, new Exception("Party is already assigned to a session."));
+                }
+
+
+
+            }
+            catch (Exception)
+            {
+                return Request.CreateResponse(HttpStatusCode.NotFound, new Exception("Party cannot be found"));
+            }
+
+            if (originalParty == null)
+            {
+                return Request.CreateResponse(HttpStatusCode.NotFound, new Exception("Original party is null"));
+            }
+
+            if (originalParty.RestaurantId != Restaurant.Id)
+            {
+                return Request.CreateResponse(HttpStatusCode.Forbidden, new Exception("Cannot modifiy session from another restaurant"));
+            }
+
+            if (!ModelState.IsValid)
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest, new Exception("Model State Invalid."));
+            }
+
+
+
+            /*
+             * Check that the party exists and belongs to this restaurant
+             */
+            try { 
+                var session = CreateSession(db,Restaurant, originalParty,newSessionInfo);
+
+                db.SaveChanges();
+
+                return Request.CreateResponse(HttpStatusCode.Created, session);
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest,  ex);
+            }
+            
+
+        }
+
+        public static Models.SeatedSession CreateSession(epicuriContainer db, Restaurant Restaurant, Party originalParty, Models.SessionPayload newSessionInfo)
+        {
+
+            /*
+             * Check that Service exists for the restaurant
+             */
+            if (Restaurant.Services.Count(ser => ser.Id == newSessionInfo.ServiceId) == 0 && !newSessionInfo.IsAdHoc)
+            {
+                throw new Exception("Service Not Found");
+            }
+
+            if (newSessionInfo.Tables.Count() > 0 && newSessionInfo.IsAdHoc)
+            {
+                throw new Exception("Session cannot be AdHoc and Have a table.");
+            }
+
+            /*
+             * Check if tables are available
+             */
+            if (newSessionInfo.Tables != null && newSessionInfo.Tables.Count() > 0)
+            {
+                foreach (int tableId in newSessionInfo.Tables)
+                {
+                    /*
+                     * Check table exists
+                     */
+                    try
+                    {
+                        Table table = Restaurant.Tables.Single(tab => tab.Id == tableId);
+
+                        /*
+                         * Check table in use
+                         */
+                        if (db.Sessions.OfType<SeatedSession>().Count(sess => !sess.ClosedTime.HasValue && sess.Tables.Count(tab => tab.Id == tableId) > 0) > 0)
+                        {
+                            throw new Exception("Table already in use");
+                        }
+
+
+
+                    }
+                    catch(InvalidOperationException )
+                    {
+                        throw new Exception("Table not found");
+                    }
+
+
+                }
+            }
+
+            /*
+             * Create a new session and add it to the database
+             */
+
+            var Services = db.Services.Where(ser => ser.Id == newSessionInfo.ServiceId);
+            Service currentService;
+
+            // If there is no service for the given Id, and the new Session is AdHoc, create an AdHoc Service for the restaurant if it does not exist
+            // This allows for searching by Service, and provides a neat solution to requiring a service for all Orders
+
+            if ((Services == null || Services.Count() == 0) && newSessionInfo.IsAdHoc)
+            {
+
+                // Check for AdHoc session for the restaurant
+
+                const String adHocString = "AdHocService";
+
+                var adHocServices = db.Services.Where(ser => String.Equals(ser.ServiceName, adHocString) && ser.RestaurantId == Restaurant.Id);
+
+                if ((adHocServices == null || adHocServices.Count() == 0)){
+                    Models.Service adHocServiceModel = new Models.Service
+                    {
+                        MenuId = 2,
+                        MenuName = "AdHoc",
+                        ServiceName = adHocString,
+                        Notes = "This session is used purely for AdHoc Orders"
+                    };
+
+                    currentService = adHocServiceModel.ToService();
+                    currentService.RestaurantId = Restaurant.Id;
+                    Restaurant.Services.Add(currentService);
+
+                    db.SaveChanges();
+                }
+                else
+                {
+                    currentService = adHocServices.First();
+                }
+
+            }
+            else
+            {
+                currentService = Services.First();
+            }
+
+            // Otherwise it should throw an error here if the service is invalid and the session is not AdHoc
+            epicuri.Core.DatabaseModel.Session session = new epicuri.Core.DatabaseModel.SeatedSession
+            {
+                Party = originalParty,
+                RestaurantId = originalParty.RestaurantId,
+                StartTime = DateTime.UtcNow,
+                ChairData = "",
+                Service = currentService,
+                PrimaryCustomer = originalParty.LeadCustomer != null ? originalParty.LeadCustomer : null,     //Check if null 
+                InstantiatedFromId = originalParty.InstantiatedFromId,
+                IsAdHoc = newSessionInfo.IsAdHoc
+            };
+
+
+            foreach (int tableId in newSessionInfo.Tables)
+            {
+                /*
+                 * Check table exists
+                 */
+                Table table = db.Tables.Single(tab => tab.Id == tableId && tab.RestaurantId == Restaurant.Id);
+                ((SeatedSession)session).Tables.Add(table);
+
+            }
+            db.AddToSessions(session);
+
+
+            /*
+             * Create a new diner for the table if not AdHoc
+             */
+            Diner dinerTable = new Diner
+            {
+                IsTable = true,
+                Customer = null,
+            };
+
+            ((SeatedSession)session).Diners.Add(dinerTable);
+
+
+            /*
+             * Create a new diner for each person
+             */
+            for (int i = 0; i < originalParty.NumberOfPeople; i++)
+            {
+                Diner diner = new Diner
+                {
+                    IsTable = false,
+                    Customer = null,
+                    SeatedSessionId = session.Id
+                };
+
+
+                /*
+                 * If there's a lead customer, link it to the first customer in the session
+                 */
+                if (i == 0 && originalParty.LeadCustomer != null)
+                {
+                    diner.CustomerId = originalParty.LeadCustomer.Id;
+
+                    DateTime min = DateTime.UtcNow.AddMinutes(-Settings.Setting<double>(Restaurant.Id, "CheckinExpirationTime"));
+                    CheckIn c = db.CheckIns.Where(ci => ci.Time > min && ci.Restaurant.Id == Restaurant.Id).OrderByDescending(ch => ch.Time).FirstOrDefault();
+                    if (c != null)
+                    {
+                        c.Diner = diner;
+                       
+
+                    }
+                }
+
+                ((SeatedSession)session).Diners.Add(diner);
+            }
+
+            IEnumerable<Reservation> reservations;
+
+            reservations = db.Parties.OfType<Reservation>().Where(p => p.Id == originalParty.Id && p.Deleted == false);
+
+            if (reservations.FirstOrDefault() != null)
+            {
+                Core.DatabaseModel.Reservation reservation = reservations.FirstOrDefault();
+
+                if (!reservation.Accepted)
+                {
+                    reservation.Accepted = true;
+                }
+            }
+            db.SaveChanges();
+
+            return new Models.SeatedSession((SeatedSession)session);
+        }
+        
+
+        [HttpPut]
+        [ActionName("Reopen")]
+        public HttpResponseMessage PutReopen(int id)
+        {
+            try
+            {
+                Authenticate();
+            }
+            catch (Exception e)
+            {
+                HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.Unauthorized, e);
+                response.Headers.Add("WWW-Authenticate", string.Format("Basic realm=\"{0}\"", "Epicuri"));
+                return response;
+            }
+
+
+
+            epicuri.Core.DatabaseModel.Session originalSession;
+            try
+            {
+                originalSession = db.Sessions.Single(res => res.Id == id && res.ClosedTime != null);
+            }
+            catch (Exception)
+            {
+                return Request.CreateResponse(HttpStatusCode.NotFound, new Exception("Closed session cannot be found"));
+            }
+
+            if (originalSession == null)
+            {
+                return Request.CreateResponse(HttpStatusCode.NotFound, new Exception("Closed session cannot be found"));
+            }
+
+
+
+            originalSession.ClosedTime = null;
+
+
+            db.SaveChanges();
+
+
+            return Request.CreateResponse(HttpStatusCode.OK);
+
+        }
+
+        [HttpPut]
+        [ActionName("Chairs")]
+        public HttpResponseMessage PutChairs(int id, Models.ChairPayload newChairs)
+        {
+            try
+            {
+                Authenticate();
+            }
+            catch (Exception e)
+            {
+                HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.Unauthorized, e);
+                response.Headers.Add("WWW-Authenticate", string.Format("Basic realm=\"{0}\"", "Epicuri"));
+                return response;
+            }
+
+            /*
+             * Check that the party exists and belongs to this restaurant
+             */
+            epicuri.Core.DatabaseModel.SeatedSession originalSession;
+            try
+            {
+                originalSession = db.Sessions.OfType<SeatedSession>().Single(res => res.Id == id && res.ClosedTime == null);
+
+
+            }
+            catch (Exception)
+            {
+                return Request.CreateResponse(HttpStatusCode.NotFound, new Exception("Session cannot be found"));
+            }
+
+            if (originalSession == null)
+            {
+                return Request.CreateResponse(HttpStatusCode.NotFound, new Exception("Session party is null"));
+            }
+
+
+            if (string.IsNullOrWhiteSpace(newChairs.ChairData))
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest, new Exception("Chair string is null"));
+            }
+            originalSession.ChairData = newChairs.ChairData;
+
+            db.SaveChanges();
+            return Request.CreateResponse(HttpStatusCode.NoContent);
+        }
+
+
+        [HttpPut]
+        [ActionName("PriceOffset")]
+        public HttpResponseMessage PutPriceOffset(int id, Models.PriceOffsetPayload price)
+        {
+            try
+            {
+                Authenticate();
+            }
+            catch (Exception e)
+            {
+                HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.Unauthorized, e);
+                response.Headers.Add("WWW-Authenticate", string.Format("Basic realm=\"{0}\"", "Epicuri"));
+                return response;
+            }
+
+            /*
+             * Check that the party exists and belongs to this restaurant
+             */
+            epicuri.Core.DatabaseModel.Session originalSession;
+
+            originalSession = db.Sessions.FirstOrDefault(res => res.Id == id && res.ClosedTime == null);
+
+            if (originalSession == null)
+            {
+                return Request.CreateResponse(HttpStatusCode.NotFound, new Exception("Session party is null"));
+            }
+
+            if (originalSession.PercentageOffset == 0)
+            {
+                originalSession.PriceOffset = price.Offset;
+                db.SaveChanges();
+            }
+            else
+            {
+                return Request.CreateResponse(HttpStatusCode.MethodNotAllowed, new Exception("Percentage Offset already set"));
+            }
+
+            return Request.CreateResponse(HttpStatusCode.NoContent);
+        }
+
+        [HttpPut]
+        [ActionName("PercentageOffset")]
+        public HttpResponseMessage PutPercentageOffset(int id, Models.PercentageOffsetPayload percentage)
+        {
+            try
+            {
+                Authenticate();
+            }
+            catch (Exception e)
+            {
+                HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.Unauthorized, e);
+                response.Headers.Add("WWW-Authenticate", string.Format("Basic realm=\"{0}\"", "Epicuri"));
+                return response;
+            }
+
+            /*
+             * Check that the party exists and belongs to this restaurant
+             */
+            epicuri.Core.DatabaseModel.Session originalSession;
+
+            originalSession = db.Sessions.FirstOrDefault(res => res.Id == id && res.ClosedTime == null);
+
+            if (originalSession == null)
+            {
+                return Request.CreateResponse(HttpStatusCode.NotFound, new Exception("Session party is null"));
+            }
+
+            if (originalSession.PriceOffset == 0)
+            {
+                if (percentage.Offset > 100)
+                {
+                    return Request.CreateResponse(HttpStatusCode.MethodNotAllowed, new Exception("Percentage Offset may not be > 100"));
+                }
+                originalSession.PercentageOffset = percentage.Offset;
+                db.SaveChanges();
+            }
+            else
+            {
+                return Request.CreateResponse(HttpStatusCode.MethodNotAllowed, new Exception("Price Offset already set"));
+            }
+
+            return Request.CreateResponse(HttpStatusCode.NoContent);
+        }
+
+        [HttpPut]
+        [ActionName("AlterTip")]
+        public HttpResponseMessage PutAlterTip(int id, Models.TipPayload tip)
+        {
+            try
+            {
+                Authenticate();
+            }
+            catch (Exception e)
+            {
+                HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.Unauthorized, e);
+                response.Headers.Add("WWW-Authenticate", string.Format("Basic realm=\"{0}\"", "Epicuri"));
+                return response;
+            }
+
+            /*
+             * Check that the party exists and belongs to this restaurant
+             */
+            epicuri.Core.DatabaseModel.SeatedSession originalSession;
+
+            originalSession = db.Sessions.OfType<SeatedSession>().FirstOrDefault(res => res.Id == id && res.ClosedTime == null);
+
+            if (originalSession == null)
+            {
+                return Request.CreateResponse(HttpStatusCode.NotFound, new Exception("Session party is null"));
+            }
+
+            if (tip.Tip < 0)
+            {
+                originalSession.TipTotal = null;
+            }
+            else
+            {
+                originalSession.TipTotal = tip.Tip;
+            }
+
+            db.SaveChanges();
+
+            return Request.CreateResponse(HttpStatusCode.NoContent);
+        }
+
+
+        [HttpPut]
+        [ActionName("SetTip")]
+        public HttpResponseMessage PutTip(int id, Models.TipPayload price)
+        {
+            try
+            {
+                Authenticate();
+            }
+            catch (Exception e)
+            {
+                HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.Unauthorized, e);
+                response.Headers.Add("WWW-Authenticate", string.Format("Basic realm=\"{0}\"", "Epicuri"));
+                return response;
+            }
+
+
+
+            /*
+             * Check that the party exists and belongs to this restaurant
+             */
+            epicuri.Core.DatabaseModel.SeatedSession originalSession;
+            try
+            {
+                originalSession = db.Sessions.OfType<SeatedSession>().Single(res => res.Id == id && res.ClosedTime == null);
+
+
+            }
+            catch (Exception)
+            {
+                return Request.CreateResponse(HttpStatusCode.NotFound, new Exception("Session cannot be found"));
+            }
+
+            if (originalSession == null)
+            {
+                return Request.CreateResponse(HttpStatusCode.NotFound, new Exception("Session party is null"));
+            }
+
+
+            if (price.Tip < 0)
+            {
+                originalSession.TipTotal = null;
+            }
+            else
+            {
+                originalSession.TipTotal = price.Tip;
+            }
+
+            db.SaveChanges();
+
+            return Request.CreateResponse(HttpStatusCode.NoContent);
+        }
+
+
+
+
+        [HttpPut]
+        [ActionName("Delay")]
+        public HttpResponseMessage PutDelay(int id, Models.DelayPayload delay)
+        {
+            try
+            {
+                Authenticate();
+            }
+            catch (Exception e)
+            {
+                HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.Unauthorized, e);
+                response.Headers.Add("WWW-Authenticate", string.Format("Basic realm=\"{0}\"", "Epicuri"));
+                return response;
+            }
+
+            /*
+             * Check that the party exists and belongs to this restaurant
+             */
+            epicuri.Core.DatabaseModel.SeatedSession originalSession;
+            try
+            {
+                originalSession = db.Sessions.OfType<SeatedSession>().Single(res => res.Id == id && res.ClosedTime == null);
+
+
+            }
+            catch (Exception)
+            {
+                return Request.CreateResponse(HttpStatusCode.NotFound, new Exception("Session cannot be found"));
+            }
+
+            if (originalSession == null)
+            {
+                return Request.CreateResponse(HttpStatusCode.NotFound, new Exception("Session party is null"));
+            }
+
+
+
+            originalSession.Delay = delay.Delay;
+
+            db.SaveChanges();
+
+            return Request.CreateResponse(HttpStatusCode.NoContent);
+        }
+
+        [HttpPut]
+        [ActionName("Tables")]
+        public HttpResponseMessage PutTables(int id, Models.TablePayload newTables)
+        {
+            try
+            {
+                Authenticate();
+            }
+            catch (Exception e)
+            {
+                HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.Unauthorized, e);
+                response.Headers.Add("WWW-Authenticate", string.Format("Basic realm=\"{0}\"", "Epicuri"));
+                return response;
+            }
+
+            /*
+             * Check that the party exists and belongs to this restaurant
+             */
+            epicuri.Core.DatabaseModel.Session originalSession;
+            try
+            {
+                originalSession = db.Sessions.OfType<SeatedSession>().Single(res => res.Id == id && res.ClosedTime == null);
+
+
+            }
+            catch (Exception)
+            {
+                return Request.CreateResponse(HttpStatusCode.NotFound, new Exception("Session cannot be found"));
+            }
+
+            if (originalSession == null)
+            {
+                return Request.CreateResponse(HttpStatusCode.NotFound, new Exception("Session party is null"));
+            }
+
+            if (originalSession.RestaurantId != Restaurant.Id)
+            {
+                return Request.CreateResponse(HttpStatusCode.Forbidden, new Exception("Cannot modifiy session from another restaurant"));
+            }
+
+            if (!ModelState.IsValid)
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest, new Exception("Model State Invalid."));
+            }
+
+            // Update session start to now that a table has been assigned (mainy for scheduled item 
+            if (((SeatedSession)originalSession).Tables.Count() == 0)
+            {
+                originalSession.StartTime = DateTime.UtcNow;
+            }
+
+            ((SeatedSession)originalSession).Tables.Clear();
+            /*
+             * Check that tables are available
+             */
+            if (newTables.Tables.Count() > 0)
+            {
+                foreach (int tableId in newTables.Tables)
+                {
+                    /*
+                     * Check table exists
+                     */
+                    try
+                    {
+                        Table table = db.Tables.Single(tab => tab.Id == tableId && tab.RestaurantId == Restaurant.Id);
+
+                        /*
+                         * Check table in use
+                         */
+                        if (db.Sessions.OfType<SeatedSession>().Count(sess => !sess.ClosedTime.HasValue && sess.Id != originalSession.Id && sess.Tables.Count(tab => tab.Id == tableId) > 0) > 0)
+                        {
+                            return Request.CreateResponse(HttpStatusCode.Conflict, new Exception("Table already in use"));
+                        }
+
+
+                        /*
+                         * Add table to the session
+                         */
+                        ((SeatedSession)originalSession).Tables.Add(table);
+
+                    }
+                    catch
+                    {
+                        return Request.CreateResponse(HttpStatusCode.NotFound, new Exception("Table not found"));
+                    }
+
+
+                }
+            }
+
+
+
+            db.SaveChanges();
+            return Request.CreateResponse(HttpStatusCode.Created);
+        }
+
+        [HttpPost]
+        public HttpResponseMessage PostAcknowledge(int id, Models.Acknowledgement ack)
+        {
+
+            try
+            {
+                Authenticate();
+            }
+            catch (Exception e)
+            {
+                HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.Unauthorized, e);
+                response.Headers.Add("WWW-Authenticate", string.Format("Basic realm=\"{0}\"", "Epicuri"));
+                return response;
+            }
+            /*
+             * Check that the party exists and belongs to this restaurant
+             */
+            epicuri.Core.DatabaseModel.Session originalSession;
+            try
+            {
+                originalSession = db.Sessions.OfType<SeatedSession>().Single(res => res.Id == id && res.ClosedTime == null);
+
+
+            }
+            catch (Exception)
+            {
+                return Request.CreateResponse(HttpStatusCode.NotFound, new Exception("Session cannot be found"));
+            }
+
+            if (originalSession == null)
+            {
+                return Request.CreateResponse(HttpStatusCode.NotFound, new Exception("Session party is null"));
+            }
+
+            if (originalSession.RestaurantId != Restaurant.Id)
+            {
+                return Request.CreateResponse(HttpStatusCode.Forbidden, new Exception("Cannot modifiy session from another restaurant"));
+            }
+
+            if (!ModelState.IsValid)
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest, new Exception("Model State Invalid."));
+            }
+
+            Notification not = db.Notifications.Where(n => n.Id == ack.Notification).FirstOrDefault();
+            if (not == null)
+            {
+                return Request.CreateResponse(HttpStatusCode.NotFound, new Exception("Notification cannot be found"));
+            }
+
+
+            originalSession.NotificationAcks.Add(new NotificationAck
+            {
+                Time = DateTime.UtcNow,
+                NotificationId = ack.Notification,
+                SessionId = originalSession.Id,
+
+
+            });
+
+            db.SaveChanges();
+            return Request.CreateResponse(HttpStatusCode.OK);
+
+
+        }
+
+
+        [HttpPost]
+        public HttpResponseMessage PostAcknowledgeAdhoc(int id, Models.Acknowledgement ack)
+        {
+            try
+            {
+                Authenticate();
+            }
+            catch (Exception e)
+            {
+                HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.Unauthorized, e);
+                response.Headers.Add("WWW-Authenticate", string.Format("Basic realm=\"{0}\"", "Epicuri"));
+                return response;
+            }
+
+            /*
+             * Check that the party exists and belongs to this restaurant
+             */
+            epicuri.Core.DatabaseModel.Session originalSession;
+            try
+            {
+                originalSession = db.Sessions.Single(res => res.Id == id && res.ClosedTime == null);
+
+
+            }
+            catch (Exception)
+            {
+                return Request.CreateResponse(HttpStatusCode.NotFound, new Exception("Session cannot be found"));
+            }
+
+            if (originalSession == null)
+            {
+                return Request.CreateResponse(HttpStatusCode.NotFound, new Exception("Session party is null"));
+            }
+
+            if (originalSession.RestaurantId != Restaurant.Id)
+            {
+                return Request.CreateResponse(HttpStatusCode.Forbidden, new Exception("Cannot modifiy session from another restaurant"));
+            }
+
+            if (!ModelState.IsValid)
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest, new Exception("Model State Invalid."));
+            }
+
+            Notification not = db.Notifications.Where(n => n.Id == ack.Notification).FirstOrDefault();
+            if (not == null)
+            {
+                return Request.CreateResponse(HttpStatusCode.NotFound, new Exception("Notification cannot be found"));
+            }
+
+            try
+            {
+
+                originalSession.AdhocNotifications.Single(a => a.Id == id).AdhocNotificationAcks.Add(new AdhocNotificationAck
+                {
+                    Time = DateTime.UtcNow,
+
+                });
+
+                db.SaveChanges();
+                return Request.CreateResponse(HttpStatusCode.OK);
+            }
+            catch
+            {
+                return Request.CreateResponse(HttpStatusCode.NotFound, new Exception("Adhoc notificaiton not found"));
+            }
+
+
+
+
+
+        }
+
+
+
+
+    }
+
+
+
+
+}

@@ -1,0 +1,51 @@
+﻿@model IEnumerable<epicuri.Core.DatabaseModel.RecurringScheduleItem>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Recurring Schedule Items</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create", new { controller = "RecurringScheduleItem", id=ViewBag.ServiceId })
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.InitialDelay) (seconds)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Period)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Comment)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ServiceId)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.InitialDelay)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Period)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Comment)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ServiceId)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id, controller="RecurringScheduleItem" }) |
+            @Html.ActionLink("Notifications", "Notifications", new { id=item.Id, controller="RecurringScheduleItem" }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id, controller="RecurringScheduleItem" })
+        </td>
+    </tr>
+}
+
+</table>

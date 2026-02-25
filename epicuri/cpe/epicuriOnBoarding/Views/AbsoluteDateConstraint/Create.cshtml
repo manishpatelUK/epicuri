@@ -1,0 +1,74 @@
+﻿@model epicuri.Core.DatabaseModel.AbsoluteDateConstraint
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create New Absolute Blackout</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>AbsoluteDateConstraint</legend>
+
+        <input type="hidden" name="RestaurantId" value="@ViewBag.RestaurantId" />
+
+        <div class ="editor-label">
+            Takeaway
+        </div>
+        <div class =" editor-field">
+            @Html.CheckBox("isTakeaway", false)
+            <input type="hidden" name="isTakeaway" value ="false" />
+        </div>
+
+        <div class ="editor-label">
+            Reservation
+        </div>
+        <div class =" editor-field">
+            @Html.CheckBox("isReservation", false)
+            <input type="hidden" name="isReservation" value ="false" />
+        </div>
+    
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Date, " Start Date *")
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Date)
+            @Html.ValidationMessageFor(model => model.Date) DD/MM/YYYY
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.StartTime, "StartTime (local) *")
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.StartTime)
+            @Html.ValidationMessageFor(model => model.StartTime) (HH:MM in 24h format)
+        </div>
+
+        <h4>Blackout Duration:</h4>
+        <br />
+        <div class="editor-field">
+         @Html.DropDownListFor(model => model.BlackoutHours, new SelectList(ViewBag.BlackoutHours as System.Collections.IEnumerable, "Text", "value"))
+            @Html.ValidationMessageFor(model => model.BlackoutHours) Hours
+        </div>
+
+        <div class="editor-field">
+              @Html.DropDownListFor(model => model.BlackoutMinutes, new SelectList(ViewBag.BlackoutMinutes as System.Collections.IEnumerable, "Text", "value"))
+        @Html.ValidationMessageFor(model => model.BlackoutMinutes) Minutes
+        </div>
+        <br />
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Blackouts", new{controller="Restaurant",id=ViewBag.RestaurantId})
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

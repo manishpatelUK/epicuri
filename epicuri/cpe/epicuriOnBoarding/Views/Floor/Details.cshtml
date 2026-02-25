@@ -1,0 +1,43 @@
+﻿@model epicuri.Core.DatabaseModel.Floor
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Floor</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Restaurant.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Restaurant.Name)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ImageURL)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ImageURL)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Capacity)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Capacity)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

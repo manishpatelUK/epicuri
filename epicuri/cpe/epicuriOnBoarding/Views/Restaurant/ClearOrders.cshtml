@@ -1,0 +1,21 @@
+﻿@model epicuri.Core.DatabaseModel.Restaurant
+@{
+    ViewBag.Title = "Restaurant";
+
+}
+
+<h2>Clear orders for @Model.Name</h2>
+
+
+
+<h3>Restaurant Stats</h3>
+<ul>
+
+    <li>Sessions Count: @Model.Sessions.Count()</li>
+    <li>Orders Count: @Model.Sessions.SelectMany(s=>s.Orders).Count()</li>
+    <li>Payments Count: @Model.Sessions.SelectMany(s=>s.Adjustments).Count()</li>
+</ul>
+
+<form method="post">
+    <input type="submit" value="Clear Orders"/>
+</form>

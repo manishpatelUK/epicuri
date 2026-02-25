@@ -1,0 +1,20 @@
+﻿@model epicuri.Core.DatabaseModel.Floor
+
+
+<h2>Change Picture</h2>
+<h3>Current Layout</h3>
+<img src="@Model.Resource.CDNUrl" alt="Current Layout" style="width:500px" />
+<h3>Upload New Picture</h3>
+@using (Html.BeginForm(null, null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <input type="hidden" name="id" value="@Model.Id" />
+    <div class="editor-label">
+        Image
+    </div>
+    <div class="editor-field">
+        <input type="file" name="image" />
+    </div>
+    <p>
+        <input type="submit" value="Upload" />
+    </p>
+}

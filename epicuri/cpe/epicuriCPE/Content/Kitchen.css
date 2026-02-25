@@ -1,0 +1,301 @@
+﻿.session, session-course, session-order
+{
+    -moz-box-shadow: 0 0 5px #888;
+    -webkit-box-shadow: 0 0 5px#888;
+    box-shadow: 0 0 5px #888;
+}
+
+body
+{
+    
+    overflow:hidden;
+    -webkit-touch-callout: none;
+-webkit-user-select: none;
+-khtml-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+}
+
+h1 
+{
+    margin-top: 0;
+    background-color: #eb5b05;
+    font-weight: normal;
+    font-size: 1.4em;
+    line-height: 2em;
+}
+
+.sessions
+{
+    display:block; 
+    width: 100%;
+    height:100%;
+
+    white-space: nowrap;
+    position:absolute;
+    overflow-y:hidden;
+    
+    
+}
+
+.session
+{
+    white-space: normal;
+    background:#fff;
+    
+    width:240px;
+    margin:0.5em;
+    overflow-y:auto;
+    overflow-x:none;
+    display: inline-block; 
+    vertical-align:top;
+    max-height:99%;
+    border: 1px solid #00aeff;
+    margin-bottom:0.8em !important;
+    
+}
+
+
+.session-fixed 
+{
+    padding:0.5em;
+}
+
+.session-name
+{
+
+    font-size:140%;
+    font-weight:bolder;
+    
+}
+
+.session-course
+{   
+    display: block;
+
+}
+
+.session-course:nth-child(1) .course-name
+{
+    margin-top:0px; !important;
+}
+
+.session-course:nth-child(n+2) .course-name
+{
+    padding-top:20px; !important;
+}
+
+.session-course
+{   
+    display: block;
+
+}
+
+
+.session-order
+{
+    padding: 0.5em 0.5em;
+    line-height: 2em;
+}
+
+
+.session-course
+{
+   	margin-bottom:0px;
+}
+
+
+
+
+
+.session-order-modifiers, .session-order-modifiers li
+{
+    margin:0 0 0 10px;
+    padding:0 0 0  5px ;
+}
+
+
+.course-name
+{
+    padding: 0 .5em;
+    font-weight:bold;
+    height:25px;
+    border-bottom: 1px solid #00aeff;
+    background-color: #fff;
+}
+
+
+.sessionalldone .course-name 
+{
+    background-color: #999 !important;
+    color:#eee;
+}
+
+
+.sessionalldone .session-fixed
+{
+    background-color: #999 !important;
+    color:#eee;
+}
+
+.sessionalldone .session-courses 
+{
+    background-color:#999;
+}
+.session-courses 
+{
+    background-color: #eee;
+}
+
+.session-order:nth-child(0)
+{
+    margin-top:0 !important;
+}
+
+.session-set-done 
+{
+    float:right;
+	-moz-box-shadow:inset 0px 1px 0px 0px #fff6af;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #fff6af;
+	box-shadow:inset 0px 1px 0px 0px #fff6af;
+	background-image: url(../Images/btn-done.png);
+	background-color:#ffec64;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+	border:1px solid #ffaa22;
+	display:inline-block;
+	color:#333333;
+	font-family:arial;
+	font-size:12px;
+	font-weight:bold;
+	padding:6px 12px;
+	text-decoration:none;
+	text-shadow:1px 1px 0px #ffee66;
+	border-bottom: solid solid #333;
+}
+
+.session-set-done:hover {
+	background-color:#ffab23;
+}
+
+.session-set-done:active {
+	position:relative;
+	top:1px;
+}
+
+
+.session-order-notes
+{
+    font-style: italic;
+
+}
+
+.session-set-done-all 
+{
+
+	-moz-box-shadow:inset 0px 1px 0px 0px #fff6af;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #fff6af;
+	
+	background-image: url(../Images/btn-done.png);
+background-color:#fff;
+	background-position: 95% center;
+	background-repeat: no-repeat;
+	padding: 0.5em 0.5em;
+    line-height: 2em;
+	
+	display:block;
+
+
+	border-top:3px solid #ffaa22;
+	border-bottom:3px solid #ffaa22;
+
+	color:#ffaa22;
+	
+	font-weight:bold;
+	
+	cursor:pointer;
+}
+
+.session-set-done-all:hover {
+	background-color:#ddd;
+}
+
+.session-set-done-all:active {
+	position:relative;
+	top:1px;
+}
+
+.order-set-done 
+{  
+	background-image: url(../Images/btn-done.png);
+	background-position: 95% center;
+	background-repeat: no-repeat;
+	display:block;
+	text-decoration:none;
+	text-shadow:1px 1px 0px #ccc;
+	border-bottom:1px solid #ccc;
+}
+
+.order-set-done:hover {
+	background-color:#dfdfdf;
+}
+
+.order-set-done:active {
+	position:relative;
+    left:-1px;
+}
+
+
+.button
+{
+    display:inline-block; padding: 0.5em 2em; margin:0.4em;
+    cursor:pointer;
+    border-radius:1px;
+}
+
+
+.button-action 
+{
+    border:1px solid #fff;
+    background:#ffaa22;
+}
+
+.button-action:hover {
+	background-color:#ffab23;
+}
+
+.button-cancel
+{
+    border:1px solid #dfdfdf;
+    background:#dfdfdf;
+    
+}
+
+.button-cancel:hover {
+	background-color:#eee;
+}
+
+.pending
+{
+    background-image:url(ajax-loader.gif);
+}
+
+.session-order-done 
+{
+    
+}
+
+.sessionalldone
+{
+    background-color:#999 !important;
+   
+}
+
+.sessionalldone .session-order
+{
+    color:#eee !important;
+    text-shadow:none;
+    text-decoration:line-through;
+}
