@@ -1,0 +1,32 @@
+@mixin trackbit-statusbar {
+	.statusbar {
+		padding: 6px 6px 6px 10px;
+		border-radius: 0px;
+		background-color: #faf2f2;
+		border-width: 0px 0px 0px 4px;
+		border-style: solid;
+		
+		.v-label {
+			font-size: 14px;
+			color: #434A54;
+		}
+		&.debug {
+			border-color: $info-color;
+			strong {
+				color: $info-color;
+			}
+		}
+		&.warn {
+			border-color: $warning-color;
+			strong {
+				color: $warning-color;
+			}
+		}
+		&.error {
+			border-color: $danger-color;
+			strong {
+				color: $danger-color;
+			}
+		}
+	}
+}

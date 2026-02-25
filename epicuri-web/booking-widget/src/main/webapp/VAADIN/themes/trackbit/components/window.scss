@@ -1,0 +1,103 @@
+@mixin trackbit-window {
+	
+	.v-window {
+		@include fade-in;
+	}
+	
+	.v-window-closebox:before {
+		font-family: arial, sans-serif;
+		content: "\00D7";
+	}
+	
+	.v-window-closebox {
+		background: #343638;
+		color: #ddd;
+		font-size: 16px;
+		font-weight: normal;
+		line-height: 20px;
+		text-align: center;
+		width: 20px;
+		height: 20px;
+		@include border-radius(10px);
+		top: 8px;
+		right: 7px;
+	}
+	
+	.v-window-closebox:hover {
+		color: #fff;
+	}
+	
+	.v-window-closebox:active {
+		color: #ddd;
+		background: #000;
+	}
+	
+	.v-window-maximizebox {
+		width: 20px;
+		height: 20px;
+		font-size: 18px;
+		top: 5px;
+		right: 28px;
+		background: none;
+		@include icon-content('\f106');
+	}
+	
+	.v-window-restorebox {
+		width: 20px;
+		height: 20px;
+		font-size: 18px;
+		top: 5px;
+		right: 28px;
+		background: none;
+		@include icon-content('\f107');
+	}
+	
+	.v-window-modalitycurtain {
+		opacity: 0.7;
+		filter: alpha(opacity=70);
+		
+		background: #353637;
+		
+		/* TODO mixin */
+		background: -moz-radial-gradient(center, ellipse cover, #4c4d4e 0%, #1b1c1c 100%);
+		background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,#4c4d4e), color-stop(100%,#1b1c1c));
+		background: -webkit-radial-gradient(center, ellipse cover, #4c4d4e 0%,#1b1c1c 100%);
+		background: -o-radial-gradient(center, ellipse cover, #4c4d4e 0%,#1b1c1c 100%);
+		background: -ms-radial-gradient(center, ellipse cover, #4c4d4e 0%,#1b1c1c 100%);
+	/* 	background: radial-gradient(ellipse at center, #4c4d4e 0%,#1b1c1c 100%); */
+	}
+	
+	.v-window-outerheader {
+		padding: 0.2em 15px;
+		font-weight: 300;
+		font-size: 20px;
+		background-color: #E5E5E5;
+		border-bottom: 1px solid #C7C7C7;
+	}
+	
+	.v-window-header {
+		font-weight: inherit;
+	}
+	
+	.dialog.v-window {
+		color: #a6a9aa;
+		font-size: 13px;
+		
+		.v-window-header {
+			text-align: center;
+			color: #fff;
+			font-size: 16px;
+			font-weight: 400;
+		}
+	}
+	
+	.v-window-footer {
+		height: 15px;
+		.v-window-resizebox {
+			background: url(data:image/gif;base64,R0lGODlhDwAOAIQbAHuAgnyBg36ChICDhoiMjo6SlJGVlpKWmJSXmpWZm5ibnZmdn5qdn5qdoJueoZufoJufoZ6io6Omqbe6vLm8vbu9v7y+wLy+wb2/wb3Awr7Bw////////////////////yH+EUNyZWF0ZWQgd2l0aCBHSU1QACH5BAEKAB8ALAAAAAAPAA4AAAU94CeOZGmeaAld6dg0rbgs8acodZJ8mpQiiA9mgEEdDp+KoIIyGD6UAOXziJQKhU8GMPkwCCbHyCIS186oEAA7) no-repeat right bottom transparent;
+			width: 15px;
+			height: 15px;
+		}
+	}
+
+}

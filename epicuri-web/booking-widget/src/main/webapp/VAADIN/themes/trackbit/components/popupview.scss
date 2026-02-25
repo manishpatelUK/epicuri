@@ -1,0 +1,12 @@
+@mixin trackbit-popupview {
+	.v-popupview {
+		&:hover {
+			color: #349AFF;
+		}
+	}
+	.v-popupview-popup {
+		.v-textfield {
+			color: #5A6066;
+		}
+	}
+}

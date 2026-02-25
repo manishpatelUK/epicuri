@@ -1,0 +1,87 @@
+@mixin datepicker($primaryStyleName : v-datefield) {
+	.#{$primaryStyleName}-calendarpanel-header {
+		button {
+			border: 1px solid transparent;
+			background: none no-repeat 0 0 transparent;
+			&:hover {
+				border-color: #C7C7C7;
+			}
+		}
+	}
+	.#{$primaryStyleName}-calendarpanel-body {
+		& > table {
+			border-collapse: collapse;
+			
+			.#{$primaryStyleName}-calendarpanel-weekdays > td[role="columnheader"] {
+				padding: 0px;
+				& > strong {
+					background-color: #DEDEDE;
+					font-weight: normal;
+					padding: 0px 3px;
+					margin: 5px 0px;
+					display: block;
+					width: 100%;
+					@include box-sizing(border-box);
+				}
+			}
+			td {
+				.#{$primaryStyleName}-calendarpanel-day {
+					display: block;
+					width: 100%;
+					border-radius: 3px;
+					text-align: center;
+					@include box-sizing(border-box);
+					padding: 2px 3px;
+					
+					&.#{$primaryStyleName}-calendarpanel-day-selected {
+						background-color: #4FA8F7;					
+					}
+				}					
+				padding: 3px;
+			}
+		}
+	}
+}
+
+@mixin trackbit-datefield {
+	.v-datefield {
+		.v-datefield-textfield {
+			border-radius: 2px 0px 0px 2px;
+			line-height: 20px;
+		}
+		.v-datefield-button {
+			border-width: 1px 1px 1px 0px;
+			border-color: #C7C7C7;
+			border-style: solid;
+			border-radius: 0px 2px 2px 0px;
+			background-color: #FFFFFF;
+			
+			font-family: 'trackbit';
+			font-style: normal;
+			font-weight: normal;
+			speak: none;
+			display: inline-block;
+			text-decoration: inherit;
+			text-align: center;
+			line-height: 20px;
+			margin: 0px;
+			padding: 2px 8px;
+			
+			&:hover {
+				background-color: #E3E3E3;
+			}
+			
+			@include icon-content('\e601');
+		}
+	}
+	.v-datefield-popup {
+		border: 1px solid #C7C7C7;
+		border-radius: 4px;
+		padding: 10px;
+		
+		@include datepicker(v-datefield);		
+	}
+	
+	@include datepicker(v-inline-datefield);
+	
+}

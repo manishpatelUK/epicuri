@@ -1,0 +1,8 @@
+{
+  "AppType" : "PUBLIC",
+  "UserAgent": "Epicuri-CDPB2R",
+  "ConsumerKey" : "EFHQN2T2YKINKHJUIW4OJP8QGAHXN7",
+  "ConsumerSecret" : "97OH0VW9QLP59MMCJ1KSG4DIMWKPEX",
+  "CallbackBaseUrl" : "http://api-dev.epicuri.co.uk",
+  "CallbackPath" : "/xero/auth"
+}

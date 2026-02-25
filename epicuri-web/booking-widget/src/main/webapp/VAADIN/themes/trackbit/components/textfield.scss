@@ -1,0 +1,51 @@
+@mixin trackbit-textfield {
+	
+	.v-textfield,
+	.v-filterselect {
+		@include border-radius(2px);
+		border: 1px solid #c7c7c7;
+		
+		background: #fff;
+/* 		box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset; */
+		
+		font: inherit;
+		color: inherit;
+		
+		margin: 0;
+	}
+	
+	input.v-widget.v-textfield {
+		padding: 4px;	
+	}
+	
+/* 	.v-webkit & input.v-textfield { */
+/* 		padding-bottom: .3em;	 */
+/* 	} */
+	
+	.v-textfield:focus {
+		outline: none;
+		border-color: #69a5e4;
+	}
+	
+	input.v-textfield-prompt,
+	.v-filterselect-prompt .v-filterselect-input {
+		font-style: normal;
+	}
+	
+	input.v-widget.v-textfield.small,
+	.v-filterselect.small {
+		padding: .15em .2em;
+		font-size: 12px;
+	}
+	
+	
+	.v-webkit & input.v-textfield.small,
+	.v-webkit & .v-filterselect.small {
+		padding-bottom: .2em;
+	}
+
+	.v-caption .v-captiontext {
+		font-size: 14px;
+		line-height: 1.7;
+	}
+}

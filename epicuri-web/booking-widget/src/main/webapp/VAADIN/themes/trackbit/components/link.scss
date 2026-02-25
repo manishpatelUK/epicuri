@@ -1,0 +1,11 @@
+@mixin trackbit-link {
+	*:link {
+		color: $primary-color;
+	}
+	.v-link {
+		cursor: pointer;
+		&:hover {
+			color: #349AFF;
+		}
+	}
+}

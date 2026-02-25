@@ -1,0 +1,1 @@
+reservationRequests:([] time:`timestamp$(); sym:`symbol$(); restaurantId:`int$(); email:(); name:(); telephone:(); notes:(); reservationTime:`long$(); numberOfPeople:`int$(); leadCustomerId:`int$())

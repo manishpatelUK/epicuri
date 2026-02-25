@@ -1,0 +1,40 @@
+server:
+  applicationContextPath: /
+  adminContextPath: /admin
+#  softNofileLimit: 1000
+#  hardNofileLimit: 1000
+  applicationConnectors:
+    - type: http
+      port: 8085
+
+
+# Logging settings.
+logging:
+  # The default level of all loggers. Can be OFF, ERROR, WARN, INFO, DEBUG, TRACE, or ALL.
+  level: INFO
+
+epicuriAPI:
+  apiEnvironment: STAGING
+  apiVersion: 4
+
+kxtickerplant:
+  reservationtphost: localhost
+  reservationtpport: 7000
+  a: emailstp
+  b: 13ghunda~Varad
+
+kxsecurity:
+  securitydbhost: localhost
+  securitydbport: 12000
+  a: epicurisec
+  b: gelios2~
+
+kxstatics:
+  staticshost: localhost
+  staticsport: 12100
+  a: statics
+  b: 13ghunda~Akoti
+
+kxaurusit:
+  kxaurusithost: localhost
+  kxaurusitport: 11000

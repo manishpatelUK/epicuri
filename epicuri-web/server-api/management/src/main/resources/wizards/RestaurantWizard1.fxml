@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uk.co.epicuri.serverapi.management.controllers.wizards.RestaurantWizardController1">
+   <children>
+      <TextField fx:id="restaurantNameField" layoutX="81.0" layoutY="121.0" prefHeight="25.0" prefWidth="405.0" />
+      <Label layoutX="14.0" layoutY="14.0" prefHeight="35.0" prefWidth="385.0" text="Create a Restaurant">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="81.0" layoutY="97.0" prefHeight="17.0" prefWidth="58.0" text="Name" />
+      <CheckBox fx:id="manualIdCheckBox" layoutX="81.0" layoutY="159.0" mnemonicParsing="false" text="Set waiter-facing ID manually" />
+      <TextField fx:id="manualIdTextField" layoutX="81.0" layoutY="196.0" prefHeight="25.0" prefWidth="70.0" />
+      <Label layoutX="81.0" layoutY="243.0" text="Session ID Generation Strategy" />
+       <ChoiceBox fx:id="sessionIdStrategy" layoutX="270.0" layoutY="239.0" prefWidth="150.0" />
+       <Label layoutX="81.0" layoutY="272.0" text="Start from" />
+       <TextField fx:id="startFromSessionIdField" layoutX="271.0" layoutY="268.0" />
+       <Button fx:id="nextButton" layoutX="522.0" layoutY="354.0" mnemonicParsing="false" text="Next" />
+       <Button fx:id="cancelButton" layoutX="40.0" layoutY="354.0" mnemonicParsing="false" text="Cancel" />
+   </children>
+</Pane>

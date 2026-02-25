@@ -1,0 +1,38 @@
+server:
+  port: 8082
+spring.data:
+  mongodb.uri: mongodb://localhost/epicuri
+logging.level:
+  uk.co.epicuri: TRACE
+  org.springframework.web: TRACE
+  org.springframework.web.filter.CommonsRequestLoggingFilter: DEBUG
+epicuri:
+  version.minimum: 1
+  version.current: 6
+  auth.cachesize.max: 5000
+  booking.limit: 31536000000 # 1 year
+  url: http://localhost:8080
+  paymentsense.pull.enabled: true
+  customer:
+    blackmark.expiry: 2592000000
+  waiter:
+    cashup.window: 31557600000
+    print.window: 60000
+mews:
+  server.url: https://api.mews-demo.com
+  # client.token: E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D
+  client.token: E916C341431C4D28A866AD200152DBD3-A046EB5583FFBE94DE1172237763712
+  # client.token: 2CC71B0660F345019882AD200155B4FE-4A1FC9080A4DD2A404734003674F77E
+  # client.token: 07AB1F14B55C49B8BDD6AD200158423B-273A4497AFF5E20566D7199DB3DC2BA
+google.maps.key: AIzaSyCgNvtSDwckM0Or_g12PBzZ79RqAyg5FWQ
+txtlocal.key: pL0BZmm45g4-bAmuWyRUzK0v2JgdPgNGANsbxiIoJ9
+email:
+  api.key: key-40c450e79f813169a600b6e155e94b5c
+  api.domain: sandboxda8c91c9157d481bbaa6e5bbaf90bcaa.mailgun.org
+stripe:
+  api.key: sk_test_zHXn2vQ7gOHEKVtCoPl8cBhR
+  acceptance.ip: 8.8.8.8
+  connection.timeout: 10000
+  connection.read.timeout: 10000
+getaddress:
+  api.key: abc #not used in tests

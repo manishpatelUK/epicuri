@@ -1,0 +1,45 @@
+endpoints:
+ enabled: false
+ shutdown:
+   enabled: true
+   sensitive: false
+management:
+  port: 8078
+  security.enabled: false
+server:
+  port: 8083
+logging.level:
+  uk.co.epicuri: TRACE
+  org.springframework.web: TRACE
+  org.springframework.web.filter.CommonsRequestLoggingFilter: DEBUG
+spring.data:
+  mongodb.uri: mongodb://localhost:27017/epicuri
+epicuri:
+  url: http://diner-api-dev.epicuri.co.uk
+  portal: http://portal.dev.epicuri.co.uk
+  version.minimum: 1
+  version.current: 6
+  auth.cachesize.max: 5000
+  booking.limit: 31536000000 # 1 year
+  paymentsense.pull.enabled: false
+  customer:
+    blackmark.expiry: 2592000000
+  waiter:
+    cashup.window: 31557600000
+    print.window: 60000
+mews:
+  server.url: https://demo.mews.li
+  client.token: E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D
+google.maps.key: ENC(kggjC6i2nVIJqtcxi9jygjGqu4pOEXb9Khp2OZMJtJPn5rBZ2lbumlXnw/9N4lyU)
+txtlocal.key: ENC(8YUHdHAG28wtlj+0NCcNUaxDR61md5pVr05TesbmHPM7uV/ysx/1lFY4Yg0ENiexmmzTdC2X0M8=)
+email:
+  api.key: ENC(KbwXrEyW0E3AmvO4EZAjdDWaDEwQjHhLf1rgThECZkuy4HCdxu0wX7Rga4OjTNaF)
+  api.domain: sandboxda8c91c9157d481bbaa6e5bbaf90bcaa.mailgun.org
+stripe:
+  api.key: ENC(99NuU7RQREsy3tBr2V43kmdgB2I2U9WqEpwxxbO/zpFQsia4G9LaicMMedsegwcB)
+#sk_test_zHXn2vQ7gOHEKVtCoPl8cBhR
+  acceptance.ip: 8.8.8.8
+  connection.timeout: 10000
+  connection.read.timeout: 10000
+getaddress:
+  api.key: ENC(MuP04JqkQ2ifLuto0G2fYdVb1+7KuExhGD3eJ/8fxvflgt5HfQmfhQ==)

@@ -1,0 +1,5321 @@
+.v-assistive-device-only {
+	position: absolute;
+	top: -2000px;
+	left: -2000px;
+	width: 10px;
+	overflow: hidden;
+}
+
+.v-vaadin-version:after {
+	content: "@version@";
+}
+
+.v-generated-body {
+	width: 100%;
+	height: 100%;
+	border: 0;
+	margin: 0;
+	overflow: hidden;
+}
+
+.v-modal-window-open {
+	overflow: hidden;
+}
+
+.v-debug-console {
+	background: #fff;
+	opacity: 0.9;
+	border: 1px solid #000;
+	font-family: sans-serif;
+}
+
+.v-debug-console-caption {
+	background: #000;
+	border-bottom: 1px solid grey;
+	color: white;
+	font-weight: bold;
+}
+
+.v-debug-console-content {
+	font-size: x-small;
+	overflow: auto;
+	white-space: pre;
+}
+
+.v-debug-console-content input {
+	font-size: xx-small;
+}
+
+.v-app .invalidlayout, .v-app .invalidlayout * {
+	background: #f99 !important;
+}
+
+@font-face {
+	font-family: "vdebugfont";
+	src: url(base/debug/fonts/font.eot);
+	src: url(base/debug/fonts/font.eot?#iefix) format("embedded-opentype"), url(base/debug/fonts/font.woff) format("woff"), url(base/debug/fonts/font.ttf) format("truetype"), url(base/debug/fonts/font.svg#fontawesome) format("svg");
+	font-weight: normal;
+	font-style: normal;
+}
+
+.v-debugwindow [data-icon]:before, .v-debugwindow-menu [data-icon]:before {
+	font-family: "vdebugfont";
+	content: attr(data-icon);
+	speak: none;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+	font-style: normal;
+	vertical-align: text-bottom;
+}
+
+.v-debugwindow {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	-moz-opacity: 0.8;
+	-webkit-opacity: 0.8;
+	opacity: 0.8;
+	color: #666;
+	font-family: Arial, Helvetica, Tahoma, Verdana, sans-serif;
+	font-size: 13px;
+}
+
+.v-debugwindow .v-debugwindow-handle {
+	position: absolute;
+	bottom: 0;
+	background-color: #fff;
+	-moz-opacity: 0;
+	-webkit-opacity: 0;
+	opacity: 0;
+	z-index: 1000;
+}
+
+.v-debugwindow .v-debugwindow-handle-sw {
+	width: 7px;
+	height: 7px;
+}
+
+.v-debugwindow .v-debugwindow-handle-se {
+	right: 0;
+	width: 14px;
+	height: 14px;
+}
+
+.v-debugwindow:hover {
+	-moz-opacity: 1;
+	-webkit-opacity: 1;
+	opacity: 1;
+}
+
+.v-debugwindow * {
+	font-size: inherit !important;
+}
+
+.v-debugwindow-size0, .v-debugwindow-menu .v-debugwindow-button-size0 {
+	font-size: 10px;
+}
+
+.v-debugwindow-size1, .v-debugwindow-menu .v-debugwindow-button-size1 {
+	font-size: 13px;
+}
+
+.v-debugwindow-size2, .v-debugwindow-menu .v-debugwindow-button-size2 {
+	font-size: 16px;
+}
+
+.v-debugwindow-head {
+	text-align: right;
+	background-color: transparent;
+}
+
+.v-debugwindow-tabs {
+	display: inline-block;
+	background-color: #fff;
+}
+
+.v-debugwindow-tab, .v-debugwindow-controls > * {
+	width: 2em;
+	border: none;
+	margin: 0;
+	line-height: 1.5em;
+	background-color: #fff;
+	color: #666;
+}
+
+.v-debugwindow-tab {
+	position: relative;
+	top: 1px;
+	border-width: 1px 0 1px 1px;
+	border-style: solid;
+	border-color: #666;
+	border-radius: 2px 2px 0 0;
+}
+
+.v-debugwindow-tab-selected {
+	color: #666;
+	background-color: #fff;
+	border-bottom: 1px solid #fff;
+}
+
+.v-debugwindow-controls {
+	position: relative;
+	top: 1px;
+	display: inline-block;
+	background-color: #fff;
+	border: 1px solid #666;
+	border-radius: 2px 2px 0 0;
+}
+
+.v-debugwindow-section-head {
+	text-align: left;
+	background-color: #fff;
+	border: 1px solid #666;
+	border-bottom: 1px solid #999;
+	box-shadow: 0px 0px 7px 0 rgba(55, 55, 55, 0.6);
+	min-height: 1.5em;
+	line-height: 1.5em;
+	padding-left: 5px;
+}
+
+.v-debugwindow-button {
+	border: none;
+	background-color: transparent;
+	color: #666;
+}
+
+.v-debugwindow-button:hover {
+	color: #000;
+	text-decoration: underline;
+}
+
+.v-debugwindow-button-active {
+	color: #666;
+	box-shadow: 1px 1px 3px 0 inset;
+}
+
+.v-debugwindow-content {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	box-shadow: 0px 0px 7px 0 rgba(55, 55, 55, 0.6);
+	background-color: #fff;
+	border: 1px solid #666;
+	border-top: none;
+}
+
+.v-debugwindow-menu {
+	background-color: #fff;
+	padding: 4px;
+	border: 1px solid #999;
+	border-top: none;
+	border-radius: 0 0 5px 5px;
+	box-shadow: 0px 0px 7px 0 rgba(55, 55, 55, 0.6);
+}
+
+.v-debugwindow-menu-content {
+	min-width: 100px;
+}
+
+.v-debugwindow-menu-content .v-debugwindow-button {
+	line-height: 22px;
+}
+
+.v-debugwindow-menu-content > div > .v-debugwindow-button {
+	width: 33%;
+}
+
+.v-debugwindow-row {
+	display: table-row;
+}
+
+.v-debugwindow-row:nth-child(odd) {
+	background-color: rgba(0, 61, 255, 0.11);
+}
+
+.v-debugwindow-row > span {
+	display: table-cell;
+	padding: 4px;
+}
+
+.v-debugwindow-row.SEVERE {
+	color: #550000;
+	background-color: #FFC5C5;
+}
+
+.v-debugwindow-row.WARNING {
+	background-color: #FFFF99;
+}
+
+.v-debugwindow-row.FINE {
+	color: #737373;
+}
+
+.v-debugwindow-row.FINER {
+	color: gray;
+}
+
+.v-debugwindow-row.FINEST {
+	color: #8c8c8c;
+}
+
+.v-debugwindow-row > span.caption {
+	color: #999;
+	text-align: right;
+	white-space: nowrap;
+}
+
+.v-debugwindow-row > span.value {
+	width: 100%;
+}
+
+.v-debugwindow-selector > span.value {
+	width: 100%;
+}
+
+.v-debugwindow-selector :hover {
+	background: rgba(255, 32, 32, 0.5);
+}
+
+.v-debugwindow-log {
+	font-family: monospace;
+}
+
+.v-debugwindow-log .v-debugwindow-reset {
+	color: #fff;
+	background-color: #4C92ED;
+	padding: 4px;
+}
+
+.v-debugwindow-log .v-debugwindow-time {
+	text-align: right;
+	color: #999;
+}
+
+.v-debugwindow-log .v-debugwindow-message {
+	white-space: nowrap;
+	width: 100%;
+}
+
+.v-debugwindow-log .v-debugwindow-message:hover {
+	white-space: normal;
+	word-wrap: break-word;
+}
+
+.v-debugwindow-log .v-debugwindow-message em {
+	background-color: #C4E6F8;
+}
+
+.v-debugwindow-hierarchy .v-debugwindow-info {
+	padding: 1em;
+}
+
+.v-debugwindow-network .v-debugwindow-row {
+	display: block !important;
+}
+
+.v-debugwindow-network .v-debugwindow-row > span {
+	display: inline;
+}
+
+@font-face {
+	font-family: FontAwesome;
+	src: url(base/fonts/fontawesome-webfont.eot);
+	src: url(base/fonts/fontawesome-webfont.eot?#iefix) format("embedded-opentype"), url(base/fonts/fontawesome-webfont.woff) format("woff"), url(base/fonts/fontawesome-webfont.ttf) format("truetype"), url(base/fonts/fontawesome-webfont.svg) format("svg");
+	font-weight: normal;
+	font-style: normal;
+}
+
+.FontAwesome {
+	font-family: FontAwesome;
+	font-style: normal;
+	font-weight: normal;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	display: inline-block;
+}
+
+@font-face {
+	font-family: "Open Sans";
+	src: url(fonts/OpenSans-Light-webfont.eot);
+	src: url(fonts/OpenSans-Light-webfont.eot?#iefix) format("embedded-opentype"), url(fonts/OpenSans-Light-webfont.woff) format("woff"), url(fonts/OpenSans-Light-webfont.ttf) format("truetype"), url(fonts/OpenSans-Light-webfont.svg#OpenSansLight) format("svg");
+	font-weight: 300;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "Open Sans";
+	src: url(fonts/OpenSans-Regular-webfont.eot);
+	src: url(fonts/OpenSans-Regular-webfont.eot?#iefix) format("embedded-opentype"), url(fonts/OpenSans-Regular-webfont.woff) format("woff"), url(fonts/OpenSans-Regular-webfont.ttf) format("truetype"), url(fonts/OpenSans-Regular-webfont.svg#OpenSansRegular) format("svg");
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "Open Sans";
+	src: url(fonts/OpenSans-Semibold-webfont.eot);
+	src: url(fonts/OpenSans-Semibold-webfont.eot?#iefix) format("embedded-opentype"), url(fonts/OpenSans-Semibold-webfont.woff) format("woff"), url(fonts/OpenSans-Semibold-webfont.ttf) format("truetype"), url(fonts/OpenSans-Semibold-webfont.svg#OpenSansSemibold) format("svg");
+	font-weight: 600;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "trackbit";
+	src: url(icons/trackbit.eot?kdkqyt);
+	src: url(icons/trackbit.eot?#iefixkdkqyt) format("embedded-opentype"), url(icons/trackbit.woff?kdkqyt) format("woff"), url(icons/trackbit.ttf?kdkqyt) format("truetype"), url(icons/trackbit.svg?kdkqyt#trackbit) format("svg");
+	font-weight: normal;
+	font-style: normal;
+}
+
+[class^="icon-"] > .v-button-wrap:before, [class*=" icon-"] > .v-button-wrap:before, [class^="icon-"].v-nativebutton:before, [class*=" icon-"].v-nativebutton:before, [class^="icon-"].v-label:before, [class*=" icon-"].v-label:before, [class*="-icon-"].v-menubar-menuitem:before {
+	font-family: "trackbit";
+	font-style: normal;
+	font-weight: normal;
+	speak: none;
+	display: inline-block;
+	text-decoration: inherit;
+	text-align: center;
+	line-height: 1;
+	margin-right: 0.4em;
+	vertical-align: 1px;
+}
+
+[class^="icon-"] > .v-button-wrap:before, [class*=" icon-"] > .v-button-wrap:before, [class^="icon-"].v-nativebutton:before, [class*=" icon-"].v-nativebutton:before {
+	margin: 0;
+	margin-left: -0.3em;
+}
+
+[class^="icon-"] > span > .v-button-caption, [class^="icon-"] > .v-nativebutton-caption, [class*=" icon-"] > span > .v-button-caption, [class*=" icon-"] > .v-nativebutton-caption {
+	margin-left: 0.3em;
+}
+
+.icon-components.v-nativebutton:before, .icon-components > .v-button-wrap:before, .icon-components.v-label:before, .v-menubar-menuitem-icon-components:before {
+	content: "\e603";
+}
+
+.icon-tables.v-nativebutton:before, .icon-tables > .v-button-wrap:before, .icon-tables.v-label:before, .v-menubar-menuitem-icon-tables:before {
+	content: "\e605";
+}
+
+.icon-reports.v-nativebutton:before, .icon-reports > .v-button-wrap:before, .icon-reports.v-label:before, .v-menubar-menuitem-icon-reports:before {
+	content: "\e604";
+}
+
+.icon-cog.v-nativebutton:before, .icon-cog > .v-button-wrap:before, .icon-cog.v-label:before, .v-menubar-menuitem-icon-cog:before {
+	content: "\e602";
+}
+
+.icon-admin.v-nativebutton:before, .icon-admin > .v-button-wrap:before, .icon-admin.v-label:before, .v-menubar-menuitem-icon-admin:before {
+	content: "\e609";
+}
+
+.icon-research.v-nativebutton:before, .icon-research > .v-button-wrap:before, .icon-research.v-label:before, .v-menubar-menuitem-icon-research:before {
+	content: "\f089";
+}
+
+.icon-user.v-nativebutton:before, .icon-user > .v-button-wrap:before, .icon-user.v-label:before, .v-menubar-menuitem-icon-user:before {
+	content: "\e606";
+}
+
+.icon-edit.v-nativebutton:before, .icon-edit > .v-button-wrap:before, .icon-edit.v-label:before, .v-menubar-menuitem-icon-edit:before {
+	content: "\f044";
+}
+
+.icon-bell.v-nativebutton:before, .icon-bell > .v-button-wrap:before, .icon-bell.v-label:before, .v-menubar-menuitem-icon-bell:before {
+	content: "\e600";
+}
+
+.icon-cancel.v-nativebutton:before, .icon-cancel > .v-button-wrap:before, .icon-cancel.v-label:before, .v-menubar-menuitem-icon-cancel:before {
+	content: "\f00d";
+}
+
+.icon-calendar.v-nativebutton:before, .icon-calendar > .v-button-wrap:before, .icon-calendar.v-label:before, .v-menubar-menuitem-icon-calendar:before {
+	content: "\e601";
+}
+
+@-webkit-keyframes spinner {
+		0% {
+		background-position: 0 0;
+	}
+		100% {
+		background-position: -528px 0;
+	}
+	}
+
+@-moz-keyframes spinner {
+		0% {
+		background-position: 0 0;
+	}
+		100% {
+		background-position: -528px 0;
+	}
+	}
+
+@-ms-keyframes spinner {
+		0% {
+		background-position: 0 0;
+	}
+		100% {
+		background-position: -528px 0;
+	}
+	}
+
+@-o-keyframes spinner {
+		0% {
+		background-position: 0 0;
+	}
+		100% {
+		background-position: -528px 0;
+	}
+	}
+
+@-webkit-keyframes fade-in {
+		0% {
+		opacity: 0;
+	}
+		100% {
+		opacity: 1;
+	}
+	}
+
+@-moz-keyframes fade-in {
+		0% {
+		opacity: 0;
+	}
+		100% {
+		opacity: 1;
+	}
+	}
+
+@-ms-keyframes fade-in {
+		0% {
+		opacity: 0;
+	}
+		100% {
+		opacity: 1;
+	}
+	}
+
+@-o-keyframes fade-in {
+		0% {
+		opacity: 0;
+	}
+		100% {
+		opacity: 1;
+	}
+	}
+
+@-webkit-keyframes move-up {
+		0% {
+		-webkit-transform: translateX(100%);
+	}
+	}
+
+@-moz-keyframes move-up {
+		0% {
+		-moz-transform: translateX(100%);
+	}
+	}
+
+@-ms-keyframes move-up {
+		0% {
+		-ms-transform: translateX(100%);
+	}
+	}
+
+@-o-keyframes move-up {
+		0% {
+		-o-transform: translateX(100%);
+	}
+	}
+
+@-webkit-keyframes move-right {
+		0% {
+		-webkit-transform: translateX(-100%);
+	}
+	}
+
+@-moz-keyframes move-right {
+		0% {
+		-moz-transform: translateX(-100%);
+	}
+	}
+
+@-ms-keyframes move-right {
+		0% {
+		-ms-transform: translateX(-100%);
+	}
+	}
+
+@-o-keyframes move-right {
+		0% {
+		-o-transform: translateX(-100%);
+	}
+	}
+
+@-webkit-keyframes move-up-100 {
+		0% {
+		-webkit-transform: translateY(100px);
+		opacity: 0;
+	}
+	}
+
+@-moz-keyframes move-up-100 {
+		0% {
+		-moz-transform: translateY(100px);
+		opacity: 0;
+	}
+	}
+
+@-ms-keyframes move-up-100 {
+		0% {
+		-ms-transform: translateY(100px);
+		opacity: 0;
+	}
+	}
+
+@-o-keyframes move-up-100 {
+		0% {
+		-o-transform: translateY(100px);
+		opacity: 0;
+	}
+	}
+
+@-webkit-keyframes pull-down {
+		0% {
+		-webkit-transform: translateY(-50%);
+	}
+	}
+
+@-moz-keyframes pull-down {
+		0% {
+		-moz-transform: translateY(-50%);
+	}
+	}
+
+@-ms-keyframes pull-down {
+		0% {
+		-ms-transform: translateY(-50%);
+	}
+	}
+
+@-o-keyframes pull-down {
+		0% {
+		-o-transform: translateY(-50%);
+	}
+	}
+
+@-webkit-keyframes reveal {
+		0% {
+		height: 0;
+		opacity: 0;
+	}
+	}
+
+@-moz-keyframes reveal {
+		0% {
+		height: 0;
+		opacity: 0;
+	}
+	}
+
+@-ms-keyframes reveal {
+		0% {
+		height: 0;
+		opacity: 0;
+	}
+	}
+
+@-o-keyframes reveal {
+		0% {
+		height: 0;
+		opacity: 0;
+	}
+	}
+
+@-webkit-keyframes hide {
+		0% {
+		opacity: 1;
+	}
+		100% {
+		height: 0;
+		opacity: 0;
+	}
+	}
+
+@-moz-keyframes hide {
+		0% {
+		opacity: 1;
+	}
+		100% {
+		height: 0;
+		opacity: 0;
+	}
+	}
+
+@-ms-keyframes hide {
+		0% {
+		opacity: 1;
+	}
+		100% {
+		height: 0;
+		opacity: 0;
+	}
+	}
+
+@-o-keyframes hide {
+		0% {
+		opacity: 1;
+	}
+		100% {
+		height: 0;
+		opacity: 0;
+	}
+	}
+
+@-webkit-keyframes progress-bar-stripes {
+		from {
+		background-position: 40px 0;
+	}
+		to {
+		background-position: 0 0;
+	}
+	}
+
+@-o-keyframes progress-bar-stripes {
+		from {
+		background-position: 40px 0;
+	}
+		to {
+		background-position: 0 0;
+	}
+	}
+
+@-moz-keyframes progress-bar-stripes {
+		from {
+		background-position: 40px 0;
+	}
+		to {
+		background-position: 0 0;
+	}
+	}
+
+@-ms-keyframes progress-bar-stripes {
+		from {
+		background-position: 40px 0;
+	}
+		to {
+		background-position: 0 0;
+	}
+	}
+
+@keyframes progress-bar-stripes {
+		from {
+		background-position: 40px 0;
+	}
+		to {
+		background-position: 0 0;
+	}
+	}
+
+.trackbit .v-widget {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	text-align: left;
+	display: inline-block;
+	white-space: normal;
+	vertical-align: bottom;
+	font-size: 14px;
+	line-height: normal;
+}
+
+.trackbit .v-accordion {
+	position: relative;
+	outline: none;
+	overflow: visible;
+	text-align: left;
+	font-size: 0;
+	border: none;
+}
+
+.trackbit .v-accordion-item {
+	position: relative;
+	display: inline-block;
+	width: 100%;
+	border: 1px solid #C7C7C7;
+	margin-top: 5px;
+}
+
+.trackbit .v-accordion-item.v-accordion-item-first {
+	margin-top: 0px;
+}
+
+.trackbit .v-accordion-item .v-accordion-item-caption {
+	overflow: visible;
+	white-space: nowrap;
+	background: #eee;
+	padding: 4px 10px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.trackbit .v-accordion-item .v-accordion-item-caption:hover {
+	background-color: #F7F7F7;
+}
+
+.trackbit .v-accordion-item .v-accordion-item-caption:hover .v-caption {
+	color: #5A6066;
+}
+
+.trackbit .v-accordion-item .v-accordion-item-caption .v-caption {
+	cursor: pointer;
+	color: #A0A0A0;
+	font-size: 14px;
+	padding: 0px;
+}
+
+.trackbit .v-accordion-item-open {
+	border-color: #3FA8F7;
+}
+
+.trackbit .v-accordion-item-open .v-accordion-item-caption {
+	background-color: #3FA8F7;
+}
+
+.trackbit .v-accordion-item-open .v-accordion-item-caption:hover {
+	background-color: #3FA8F7;
+}
+
+.trackbit .v-accordion-item-open .v-accordion-item-caption:hover .v-caption {
+	cursor: default;
+	color: #FFF;
+	font-weight: bold;
+}
+
+.trackbit .v-accordion-item-open .v-accordion-item-caption .v-caption {
+	cursor: default;
+	color: #FFF;
+	font-weight: bold;
+}
+
+.trackbit .v-accordion-item-content {
+	position: absolute;
+	width: 100%;
+}
+
+.trackbit .v-button {
+	display: inline-block;
+	zoom: 1;
+	text-align: center !important;
+	text-decoration: none;
+	border: 2px outset #ddd;
+	background: #eee;
+	cursor: pointer;
+	white-space: nowrap;
+	margin: 0;
+	padding: 0.2em 1em;
+	color: inherit;
+	font: inherit;
+	font-size: 14px;
+	line-height: normal;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.trackbit .v-button.v-disabled {
+	cursor: default;
+}
+
+.trackbit .v-button-wrap, .trackbit .v-button-caption {
+	vertical-align: baseline;
+	white-space: nowrap;
+	font: inherit;
+	color: inherit;
+	line-height: normal;
+}
+
+.trackbit .v-button .v-icon {
+	vertical-align: middle;
+	margin-right: 3px;
+	border: none;
+}
+
+.trackbit .v-button .v-errorindicator {
+	display: inline-block;
+	zoom: 1;
+	vertical-align: middle;
+	float: none;
+}
+
+.trackbit .v-button-link {
+	border: none;
+	text-align: left !important;
+	background: transparent;
+	padding: 0;
+	color: inherit;
+	-khtml-user-select: text;
+	-moz-user-select: text;
+	-ie-user-select: text;
+	user-select: text;
+}
+
+.v-sa .trackbit .v-button-link:focus {
+	outline-offset: -3px;
+}
+
+.trackbit .v-button-link .v-button-caption {
+	text-decoration: underline;
+	color: inherit;
+	text-align: left;
+}
+
+.trackbit .v-nativebutton .v-icon {
+	vertical-align: middle;
+	margin-right: 3px;
+	border: none;
+}
+
+.trackbit .v-nativebutton .v-errorindicator {
+	display: inline-block;
+	zoom: 1;
+	vertical-align: middle;
+	float: none;
+}
+
+.trackbit .v-nativebutton-link {
+	border: none;
+	text-align: left !important;
+	background: transparent;
+	padding: 0;
+	color: inherit;
+	-khtml-user-select: text;
+	-moz-user-select: text;
+	-ie-user-select: text;
+	user-select: text;
+}
+
+.trackbit .v-nativebutton-link .v-nativebutton-caption {
+	text-decoration: underline;
+	color: inherit;
+	text-align: left;
+}
+
+.trackbit .v-nativebutton {
+	text-align: center !important;
+	cursor: pointer;
+	white-space: nowrap;
+	margin: 0;
+	color: inherit;
+	font: inherit;
+	line-height: normal;
+}
+
+.trackbit .v-nativebutton .v-nativebutton-caption {
+	vertical-align: middle;
+	white-space: nowrap;
+	font: inherit;
+	color: inherit;
+}
+
+.trackbit .v-nativebutton .v-icon {
+	vertical-align: middle;
+	margin-right: 3px;
+}
+
+.trackbit .v-nativebutton .v-errorindicator {
+	display: inline-block;
+	zoom: 1;
+	float: none;
+}
+
+.v-ie .trackbit .v-nativebutton {
+	overflow: visible;
+	padding-left: 1em;
+	padding-right: 1em;
+}
+
+.v-ie .trackbit .v-nativebutton-link {
+	padding: 0;
+}
+
+.trackbit .v-checkbox {
+	display: block;
+}
+
+.trackbit .v-checkbox, .trackbit .v-checkbox label, .trackbit .v-checkbox input, .trackbit .v-checkbox .v-icon {
+	vertical-align: middle;
+	white-space: nowrap;
+}
+
+.trackbit .v-checkbox .v-icon {
+	margin: 0 2px;
+}
+
+.trackbit .v-checkbox .v-errorindicator {
+	float: none;
+	display: inline;
+	display: inline-block;
+	zoom: 1;
+}
+
+.trackbit .v-caption .v-captiontext {
+	overflow: visible;
+}
+
+.trackbit .v-caption {
+	font-size: 13px;
+	color: #5A6066;
+}
+
+.trackbit .v-caption-on-top .v-caption {
+	padding-bottom: 0.3em;
+}
+
+.trackbit.v-app {
+	height: 100%;
+}
+
+.trackbit.v-app, .trackbit .v-window, .trackbit .v-popupview-popup, .trackbit .v-label, .trackbit .v-caption {
+	cursor: default;
+}
+
+body .trackbit.v-app .v-app-loading {
+	background-image: url(base/common/img/loading-indicator.gif);
+	background-repeat: no-repeat;
+	background-position: 50%;
+	width: 100%;
+	height: 100%;
+}
+
+.trackbit .v-ui {
+	height: 100%;
+	width: 100%;
+	outline: none;
+	position: relative;
+}
+
+.trackbit .v-ui.v-ui-embedded {
+	margin-top: -1px;
+	border-top: 1px solid transparent;
+}
+
+.trackbit .v-ui:active, .trackbit .v-ui:focus {
+	outline: none;
+}
+
+.trackbit.v-app select, .trackbit .v-window select {
+	margin: 0;
+}
+
+.trackbit .v-disabled {
+	opacity: 0.3;
+	filter: alpha(opacity=30);
+	cursor: default;
+}
+
+.trackbit .v-disabled * {
+	cursor: default;
+}
+
+* html .trackbit .v-disabled {
+	zoom: 1;
+}
+
+* + html .trackbit .v-disabled {
+	zoom: 1;
+}
+
+.trackbit .v-disabled .v-disabled {
+	opacity: 1;
+}
+
+.trackbit .v-required-field-indicator {
+	padding-left: 2px;
+	color: red;
+}
+
+.trackbit .v-form fieldset {
+	border: none;
+	padding: 0;
+	margin: 0;
+	height: 100%;
+}
+
+.trackbit .v-form-content {
+	height: 100%;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.trackbit .v-tooltip {
+	cursor: default;
+	background: #fff;
+}
+
+.trackbit .v-tooltip-text {
+	overflow: auto;
+}
+
+.trackbit .v-tooltip .v-errormessage {
+	overflow: auto;
+}
+
+.trackbit .v-contextmenu {
+	background: #fff;
+}
+
+.trackbit .v-contextmenu .gwt-MenuItem {
+	cursor: pointer;
+	vertical-align: middle;
+	padding: 0;
+	border: 0;
+	margin: 0;
+}
+
+.trackbit .v-contextmenu .gwt-MenuItem div {
+	cursor: pointer;
+	vertical-align: middle;
+	white-space: nowrap;
+}
+
+.trackbit .v-contextmenu .gwt-MenuItem-selected div {
+	background: #aaa;
+	color: #fff;
+}
+
+.trackbit .v-contextmenu table {
+	border-collapse: collapse;
+	margin: 0;
+	padding: 0;
+}
+
+.trackbit .v-contextmenu .gwt-MenuItem img {
+	margin-right: 1em;
+	vertical-align: middle;
+}
+
+.trackbit .v-label pre {
+	margin: 0;
+}
+
+.trackbit .v-label-undef-w {
+	white-space: nowrap;
+}
+
+.trackbit .v-label h1, .trackbit .v-label h2, .trackbit .v-label h3, .trackbit .v-label h4, .trackbit .v-label h5, .trackbit .v-label h6 {
+	line-height: normal;
+}
+
+.trackbit .v-loading-indicator, .trackbit .v-loading-indicator-delay, .trackbit .v-loading-indicator-wait {
+	position: absolute;
+	top: 0;
+	right: 0;
+	z-index: 30000;
+	width: 31px;
+	height: 31px;
+	background: transparent url(base/common/img/loading-indicator.gif);
+	margin-right: 5px;
+	margin-top: 5px;
+}
+
+.trackbit .v-loading-indicator-delay {
+	background-image: url(base/common/img/loading-indicator-delay.gif);
+}
+
+.trackbit .v-loading-indicator-wait {
+	background-image: url(base/common/img/loading-indicator-wait.gif);
+}
+
+.trackbit.v-app input[type="text"], .trackbit.v-app input[type="password"], .trackbit.v-app input[type="reset"], .trackbit.v-app select, .trackbit.v-app textarea, .trackbit .v-window input[type="text"], .trackbit .v-window input[type="password"], .trackbit .v-window input[type="reset"], .trackbit .v-window select, .trackbit .v-window textarea {
+	padding: 2px;
+}
+
+.trackbit input::-ms-clear {
+	display: none;
+}
+
+.trackbit .v-drag-element {
+	z-index: 60000;
+	position: absolute !important;
+	opacity: 0.5;
+	filter: alpha(opacity=50);
+	cursor: default;
+}
+
+.trackbit .v-clip {
+	overflow: hidden;
+}
+
+.trackbit .v-scrollable {
+	overflow: auto;
+	font-size: 0;
+	line-height: normal;
+}
+
+.v-ff .trackbit .v-scrollable {
+	font-size: 14px;
+}
+
+.v-ios.v-webkit .trackbit .v-scrollable {
+	-webkit-overflow-scrolling: touch;
+}
+
+.v-ios5.v-webkit .trackbit .v-scrollable {
+	-webkit-overflow-scrolling: none;
+}
+
+.trackbit.v-overlay-container {
+	width: 0;
+	height: 0;
+}
+
+.trackbit .v-vertical.v-margin-top, .trackbit .v-horizontal.v-margin-top {
+	padding-top: 12px;
+}
+
+.trackbit .v-vertical.v-margin-right, .trackbit .v-horizontal.v-margin-right {
+	padding-right: 12px;
+}
+
+.trackbit .v-vertical.v-margin-bottom, .trackbit .v-horizontal.v-margin-bottom {
+	padding-bottom: 12px;
+}
+
+.trackbit .v-vertical.v-margin-left, .trackbit .v-horizontal.v-margin-left {
+	padding-left: 12px;
+}
+
+.trackbit .v-gridlayout.v-layout-margin-top {
+	padding-top: 24px;
+}
+
+.trackbit .v-gridlayout, .trackbit .v-verticallayout, .trackbit .v-horizontallayout {
+	font-size: 0;
+	line-height: normal;
+}
+
+.trackbit .v-gridlayout.v-layout-margin-bottom {
+	padding-bottom: 24px;
+}
+
+.trackbit .v-gridlayout.v-layout-margin-left {
+	padding-left: 24px;
+}
+
+.trackbit .v-gridlayout.v-layout-margin-right {
+	padding-right: 24px;
+}
+
+.trackbit .v-gridlayout .v-layout-spacing-on {
+	padding-left: 12px;
+	padding-top: 12px;
+}
+
+.trackbit .v-spacing {
+	width: 6px;
+	height: 6px;
+}
+
+.trackbit .v-vertical, .trackbit .v-horizontal {
+	display: inline-block;
+}
+
+.trackbit div.v-layout.v-horizontal.v-widget {
+	white-space: nowrap;
+}
+
+.trackbit .v-layout.v-vertical > .v-expand, .trackbit .v-layout.v-horizontal > .v-expand {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	width: 100%;
+	height: 100%;
+}
+
+.trackbit .v-slot, .trackbit .v-spacing {
+	display: inline-block;
+	white-space: normal;
+	vertical-align: top;
+}
+
+.trackbit .v-vertical > .v-slot:after {
+	display: inline-block;
+	clear: both;
+	width: 0;
+	height: 0;
+	overflow: hidden;
+	line-height: 0;
+}
+
+.trackbit .v-vertical > .v-slot, .trackbit .v-vertical > .v-expand > .v-slot {
+	display: block;
+	clear: both;
+}
+
+.trackbit .v-horizontal > .v-slot, .trackbit .v-horizontal > .v-expand > .v-slot {
+	height: 100%;
+}
+
+.trackbit .v-horizontal > .v-expand > .v-slot {
+	position: relative;
+}
+
+.trackbit .v-vertical > .v-spacing, .trackbit .v-vertical > .v-expand > .v-spacing {
+	width: 0;
+	display: block;
+	clear: both;
+}
+
+.trackbit .v-horizontal > .v-spacing, .trackbit .v-horizontal > .v-expand > .v-spacing {
+	height: 0;
+}
+
+.trackbit .v-align-middle:before, .trackbit .v-align-bottom:before, .trackbit .v-expand > .v-align-middle:before, .trackbit .v-expand > .v-align-bottom:before {
+	content: "";
+	display: inline-block;
+	height: 100%;
+	vertical-align: middle;
+	width: 0;
+}
+
+.trackbit .v-align-middle, .trackbit .v-align-bottom {
+	white-space: nowrap;
+}
+
+.trackbit .v-align-middle > .v-widget, .trackbit .v-align-bottom > .v-widget {
+	display: inline-block;
+}
+
+.trackbit .v-align-middle, .trackbit .v-align-middle > .v-widget {
+	vertical-align: middle;
+}
+
+.trackbit .v-align-bottom, .trackbit .v-align-bottom > .v-widget {
+	vertical-align: bottom;
+}
+
+.trackbit .v-align-center {
+	text-align: center;
+}
+
+.trackbit .v-align-center > .v-widget {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.trackbit .v-align-right {
+	text-align: right;
+}
+
+.trackbit .v-align-right > .v-widget {
+	margin-left: auto;
+}
+
+.trackbit .v-has-caption, .trackbit .v-has-caption > .v-caption {
+	display: inline-block;
+}
+
+.trackbit .v-caption {
+	overflow: visible;
+	vertical-align: middle;
+}
+
+.trackbit .v-caption-on-left, .trackbit .v-caption-on-right {
+	white-space: nowrap;
+}
+
+.trackbit .v-caption-on-top > .v-caption, .trackbit .v-caption-on-bottom > .v-caption {
+	display: block;
+}
+
+.trackbit .v-caption-on-left > .v-caption {
+	padding-right: 0.5em;
+}
+
+.trackbit .v-caption-on-right > .v-caption {
+	vertical-align: top;
+}
+
+.trackbit .v-caption-on-left > .v-widget, .trackbit .v-caption-on-right > .v-widget {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.trackbit .v-has-caption.v-has-width > .v-widget {
+	width: 100% !important;
+}
+
+.trackbit .v-has-caption.v-has-height > .v-widget {
+	height: 100% !important;
+}
+
+.trackbit .v-errorindicator {
+	vertical-align: middle;
+}
+
+.trackbit .v-csslayout {
+	overflow: hidden;
+}
+
+.trackbit div.v-csslayout {
+	display: block;
+}
+
+.trackbit .v-csslayout-margin, .trackbit .v-csslayout-container {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.trackbit .v-has-width > .v-csslayout-margin, .trackbit .v-has-width > .v-csslayout-margin > .v-csslayout-container {
+	width: 100%;
+}
+
+.trackbit .v-has-height > .v-csslayout-margin, .trackbit .v-has-height > .v-csslayout-margin > .v-csslayout-container {
+	height: 100%;
+}
+
+.trackbit .v-csslayout-margin-top {
+	padding-top: 12px;
+}
+
+.trackbit .v-csslayout-margin-bottom {
+	padding-bottom: 12px;
+}
+
+.trackbit .v-csslayout-margin-left {
+	padding-left: 12px;
+}
+
+.trackbit .v-csslayout-margin-right {
+	padding-right: 12px;
+}
+
+.trackbit .v-datefield {
+	white-space: nowrap;
+	display: inline-block;
+}
+
+.trackbit .v-datefield-textfield {
+	vertical-align: top;
+}
+
+.v-ie .trackbit .v-datefield-button:after {
+	content: "\200B";
+}
+
+.trackbit .v-datefield-button {
+	cursor: pointer;
+	vertical-align: top;
+}
+
+.trackbit .v-has-width > input.v-datefield-textfield {
+	width: 100%;
+}
+
+.trackbit .v-datefield-prompt .v-datefield-textfield {
+	color: #999;
+	font-style: italic;
+}
+
+.trackbit .v-datefield .v-datefield-button-readonly {
+	display: none;
+}
+
+.trackbit .v-datefield-calendarpanel table {
+	width: 100%;
+}
+
+.trackbit .v-datefield-calendarpanel td {
+	padding: 0;
+	margin: 0;
+}
+
+.trackbit .v-datefield-calendarpanel:focus {
+	outline: none;
+}
+
+.trackbit .v-datefield-calendarpanel-header td {
+	text-align: center;
+}
+
+.trackbit .v-datefield-calendarpanel-month {
+	text-align: center;
+	white-space: nowrap;
+}
+
+.trackbit .v-datefield-calendarpanel-weeknumber {
+	color: #999;
+	border-right: 1px solid #ddd;
+	font-size: 11.7px;
+}
+
+.trackbit .v-datefield-calendarpanel-day, .trackbit .v-datefield-calendarpanel-day-today {
+	cursor: pointer;
+}
+
+.trackbit .v-datefield-calendarpanel-day-today {
+	border: 1px solid #ddd;
+}
+
+.trackbit .v-disabled .v-datefield-calendarpanel-day, .trackbit .v-disabled .v-datefield-calendarpanel-day-today, .trackbit .v-disabled.v-datefield-popupcalendar .v-datefield-button {
+	cursor: default;
+}
+
+.trackbit .v-datefield-calendarpanel-day-disabled, .trackbit .v-datefield-calendarpanel-day-outside-range {
+	cursor: default;
+	opacity: 0.5;
+}
+
+.trackbit .v-datefield-calendarpanel-prevyear button.outside-range, .trackbit .v-datefield-calendarpanel-nextyear button.outside-range, .trackbit .v-datefield-calendarpanel-prevmonth button.outside-range, .trackbit .v-datefield-calendarpanel-nextmonth button.outside-range {
+	opacity: 0.5;
+}
+
+.trackbit .v-datefield-calendarpanel-day-selected {
+	cursor: default;
+	background: #333;
+	color: #fff;
+}
+
+.trackbit .v-datefield-calendarpanel-day-focused {
+	outline: none;
+}
+
+.trackbit .v-datefield-calendarpanel-day-offmonth {
+	color: #666;
+}
+
+.trackbit .v-datefield-time {
+	white-space: nowrap;
+}
+
+.trackbit .v-datefield-time .v-label {
+	display: inline;
+}
+
+.trackbit .v-datefield-popup {
+	background: #fff;
+}
+
+.trackbit .v-datefield-popupcalendar input.v-datefield-textfield {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.trackbit .v-inline-datefield {
+	white-space: nowrap;
+	display: inline-block;
+}
+
+.trackbit .v-inline-datefield-textfield {
+	vertical-align: top;
+}
+
+.v-ie .trackbit .v-inline-datefield-button:after {
+	content: "\200B";
+}
+
+.trackbit .v-inline-datefield-button {
+	cursor: pointer;
+	vertical-align: top;
+}
+
+.trackbit .v-has-width > input.v-inline-datefield-textfield {
+	width: 100%;
+}
+
+.trackbit .v-inline-datefield-prompt .v-inline-datefield-textfield {
+	color: #999;
+	font-style: italic;
+}
+
+.trackbit .v-inline-datefield .v-inline-datefield-button-readonly {
+	display: none;
+}
+
+.trackbit .v-inline-datefield-calendarpanel table {
+	width: 100%;
+}
+
+.trackbit .v-inline-datefield-calendarpanel td {
+	padding: 0;
+	margin: 0;
+}
+
+.trackbit .v-inline-datefield-calendarpanel:focus {
+	outline: none;
+}
+
+.trackbit .v-inline-datefield-calendarpanel-header td {
+	text-align: center;
+}
+
+.trackbit .v-inline-datefield-calendarpanel-month {
+	text-align: center;
+	white-space: nowrap;
+}
+
+.trackbit .v-inline-datefield-calendarpanel-weeknumber {
+	color: #999;
+	border-right: 1px solid #ddd;
+	font-size: 11.7px;
+}
+
+.trackbit .v-inline-datefield-calendarpanel-day, .trackbit .v-inline-datefield-calendarpanel-day-today {
+	cursor: pointer;
+}
+
+.trackbit .v-inline-datefield-calendarpanel-day-today {
+	border: 1px solid #ddd;
+}
+
+.trackbit .v-disabled .v-inline-datefield-calendarpanel-day, .trackbit .v-disabled .v-inline-datefield-calendarpanel-day-today, .trackbit .v-disabled.v-inline-datefield-popupcalendar .v-inline-datefield-button {
+	cursor: default;
+}
+
+.trackbit .v-inline-datefield-calendarpanel-day-disabled, .trackbit .v-inline-datefield-calendarpanel-day-outside-range {
+	cursor: default;
+	opacity: 0.5;
+}
+
+.trackbit .v-inline-datefield-calendarpanel-prevyear button.outside-range, .trackbit .v-inline-datefield-calendarpanel-nextyear button.outside-range, .trackbit .v-inline-datefield-calendarpanel-prevmonth button.outside-range, .trackbit .v-inline-datefield-calendarpanel-nextmonth button.outside-range {
+	opacity: 0.5;
+}
+
+.trackbit .v-inline-datefield-calendarpanel-day-selected {
+	cursor: default;
+	background: #333;
+	color: #fff;
+}
+
+.trackbit .v-inline-datefield-calendarpanel-day-focused {
+	outline: none;
+}
+
+.trackbit .v-inline-datefield-calendarpanel-day-offmonth {
+	color: #666;
+}
+
+.trackbit .v-inline-datefield-time {
+	white-space: nowrap;
+}
+
+.trackbit .v-inline-datefield-time .v-label {
+	display: inline;
+}
+
+.trackbit .v-inline-datefield-popup {
+	background: #fff;
+}
+
+.trackbit .v-inline-datefield-popupcalendar input.v-inline-datefield-textfield {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.trackbit .v-table .v-embedded-image {
+	display: inline-block;
+}
+
+.trackbit .v-formlayout.v-has-width > table {
+	width: 100%;
+}
+
+.trackbit .v-formlayout.v-has-height > table {
+	height: 100%;
+}
+
+.trackbit .v-formlayout-cell .v-errorindicator {
+	display: block;
+}
+
+.trackbit .v-formlayout-error-indicator {
+	width: 12px;
+}
+
+.trackbit .v-formlayout-captioncell {
+	text-align: right;
+	white-space: nowrap;
+}
+
+.trackbit .v-formlayout-errorcell, .trackbit .v-formlayout-captioncell {
+	width: 1px;
+}
+
+.trackbit .v-formlayout-captioncell .v-caption {
+	overflow: visible;
+}
+
+.trackbit .v-formlayout-spacing > tbody > .v-formlayout-row > .v-formlayout-captioncell, .trackbit .v-formlayout-spacing > tbody > .v-formlayout-row > .v-formlayout-contentcell, .trackbit .v-formlayout-spacing > tbody > .v-formlayout-row > .v-formlayout-errorcell {
+	padding-top: 6px;
+}
+
+.trackbit .v-formlayout-spacing > tbody > .v-formlayout-firstrow > .v-formlayout-captioncell, .trackbit .v-formlayout-spacing > tbody > .v-formlayout-firstrow > .v-formlayout-contentcell, .trackbit .v-formlayout-spacing > tbody > .v-formlayout-firstrow > .v-formlayout-errorcell {
+	padding-top: 0;
+}
+
+.trackbit .v-formlayout-margin-top > tbody > .v-formlayout-firstrow > .v-formlayout-captioncell, .trackbit .v-formlayout-margin-top > tbody > .v-formlayout-firstrow > .v-formlayout-contentcell, .trackbit .v-formlayout-margin-top > tbody > .v-formlayout-firstrow > .v-formlayout-errorcell {
+	padding-top: 12px;
+}
+
+.trackbit .v-formlayout-margin-bottom > tbody > .v-formlayout-lastrow > .v-formlayout-captioncell, .trackbit .v-formlayout-margin-bottom > tbody > .v-formlayout-lastrow > .v-formlayout-contentcell, .trackbit .v-formlayout-margin-bottom > tbody > .v-formlayout-lastrow > .v-formlayout-errorcell {
+	padding-bottom: 12px;
+}
+
+.trackbit .v-formlayout-margin-left > tbody > .v-formlayout-row > .v-formlayout-captioncell {
+	padding-left: 12px;
+}
+
+.trackbit .v-formlayout-margin-right > tbody > .v-formlayout-row > .v-formlayout-contentcell {
+	padding-right: 12px;
+}
+
+.trackbit .v-formlayout-captioncell .v-caption .v-required-field-indicator {
+	float: none;
+}
+
+.trackbit .v-gridlayout {
+	position: relative;
+}
+
+.trackbit .v-gridlayout-slot {
+	position: absolute;
+}
+
+.trackbit .v-gridlayout-margin-top {
+	padding-top: 12px;
+}
+
+.trackbit .v-gridlayout-margin-bottom {
+	padding-bottom: 12px;
+}
+
+.trackbit .v-gridlayout-margin-left {
+	padding-left: 12px;
+}
+
+.trackbit .v-gridlayout-margin-right {
+	padding-right: 12px;
+}
+
+.trackbit .v-gridlayout-spacing-on {
+	padding-left: 6px;
+	padding-top: 6px;
+	overflow: hidden;
+}
+
+.trackbit .v-gridlayout-spacing, .trackbit .v-gridlayout-spacing-off {
+	padding-left: 0;
+	padding-top: 0;
+}
+
+.trackbit .v-gridlayout-spacing-off {
+	overflow: hidden;
+}
+
+.trackbit .v-label {
+	overflow: visible;
+}
+
+.trackbit .v-label.h1 {
+	font-size: 36px;
+	line-height: 1;
+	font-weight: 300;
+	-webkit-font-smoothing: antialiased;
+}
+
+.trackbit .v-label.h2 {
+	color: #404346;
+	font-size: 22px;
+	line-height: 1;
+	font-weight: normal;
+	padding: 0.5em 0;
+	-webkit-font-smoothing: antialiased;
+}
+
+.trackbit .v-label.light {
+	color: #979699;
+}
+
+.trackbit .v-label.h4 {
+	font-weight: bold;
+	text-transform: uppercase;
+	color: #349aff;
+}
+
+.trackbit .v-link {
+	white-space: nowrap;
+}
+
+.trackbit .v-link a {
+	vertical-align: middle;
+	text-decoration: none;
+}
+
+.trackbit .v-link span {
+	text-decoration: underline;
+	vertical-align: middle;
+}
+
+.trackbit .v-disabled a {
+	cursor: default;
+}
+
+.trackbit .v-link img {
+	vertical-align: middle;
+	border: none;
+}
+
+.trackbit .v-menubar {
+	display: inline-block;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+.trackbit .v-menubar .v-menubar-menuitem {
+	cursor: default;
+	vertical-align: middle;
+	white-space: nowrap;
+	display: inline;
+	display: inline-block;
+	zoom: 1;
+}
+
+.trackbit .v-menubar .v-menubar-menuitem-caption .v-icon {
+	vertical-align: middle;
+	white-space: nowrap;
+}
+
+.trackbit .v-menubar-submenu {
+	background: #fff;
+}
+
+.trackbit .v-menubar-menuitem-selected {
+	background: #333;
+	color: #fff;
+}
+
+.trackbit .v-menubar-submenu .v-menubar-menuitem {
+	cursor: default;
+	display: block;
+	position: relative;
+	padding-right: 1.5em;
+}
+
+.trackbit .v-menubar-submenu .v-menubar-menuitem-caption {
+	display: block;
+}
+
+.trackbit .v-menubar-submenu .v-menubar-menuitem *, .trackbit .v-menubar-submenu .v-menubar-menuitem-caption * {
+	white-space: nowrap;
+}
+
+.trackbit .v-menubar-submenu-indicator {
+	display: none;
+	font-family: arial, helvetica, sans-serif;
+}
+
+.trackbit .v-menubar-submenu .v-menubar-submenu-indicator {
+	display: block;
+	position: absolute;
+	right: 0;
+	width: 1em;
+	height: 1em;
+	font-size: 11.7px;
+}
+
+.trackbit .v-menubar-menuitem-disabled, .trackbit .v-menubar span.v-menubar-menuitem-disabled:hover, .trackbit .v-menubar span.v-menubar-menuitem-disabled:focus, .trackbit .v-menubar span.v-menubar-menuitem-disabled:active {
+	color: #999;
+}
+
+.trackbit .v-menubar-more-menuitem {
+	font-family: arial, helvetica, sans-serif;
+}
+
+.trackbit .v-menubar-separator {
+	overflow: hidden;
+}
+
+.trackbit .v-menubar-separator span {
+	display: block;
+	text-indent: -9999px;
+	font-size: 1px;
+	line-height: 1px;
+	border-top: 1px solid #ddd;
+	margin: 3px 0 2px;
+	overflow: hidden;
+}
+
+.trackbit .v-menubar .v-icon, .trackbit .v-menubar-submenu .v-icon {
+	margin-right: 3px;
+}
+
+.trackbit .v-menubar:focus, .trackbit .v-menubar-popup:focus, .trackbit .v-menubar-popup .popupContent:focus, .trackbit .v-menubar-popup .popupContent .v-menubar-submenu:focus {
+	outline: none;
+}
+
+.trackbit .v-menubar-submenu-check-column .v-menubar-menuitem {
+	padding-left: 6px;
+}
+
+.trackbit .v-menubar-submenu-check-column .v-menubar-menuitem-caption {
+	padding-left: 18px;
+}
+
+.trackbit .v-menubar-submenu .v-menubar-menuitem-checked .v-menubar-menuitem-caption {
+	background: transparent url(base/menubar/img/check.gif) no-repeat left;
+}
+
+.trackbit .v-Notification {
+	background: #999;
+	color: #fff;
+	cursor: pointer;
+	overflow: hidden;
+	padding: 1em;
+	max-width: 85%;
+}
+
+.trackbit .v-Notification h1, .trackbit .v-Notification p, .trackbit .v-Notification-error h1, .trackbit .v-Notification-error p, .trackbit .v-Notification-warning h1, .trackbit .v-Notification-warning p {
+	display: inline;
+	margin: 0 0.5em 0 0;
+}
+
+.trackbit .v-Notification-warning {
+	background: orange;
+}
+
+.trackbit .v-Notification-error {
+	background: red;
+}
+
+.trackbit .v-Notification-tray h1 {
+	display: block;
+}
+
+.trackbit .v-Notification-tray p {
+	display: block;
+}
+
+.trackbit .v-Notification-system {
+	background-color: red;
+	opacity: 0.7;
+	filter: alpha(opacity=70);
+}
+
+.trackbit .v-Notification-system h1 {
+	display: block;
+	margin: 0;
+}
+
+.trackbit .v-orderedlayout, .trackbit .v-horizontallayout, .trackbit .v-verticallayout {
+	position: relative;
+}
+
+.trackbit .v-orderedlayout-margin-top, .trackbit .v-horizontallayout-margin-top, .trackbit .v-verticallayout-margin-top {
+	padding-top: 12px;
+}
+
+.trackbit .v-orderedlayout-margin-right, .trackbit .v-horizontallayout-margin-right, .trackbit .v-verticallayout-margin-right {
+	padding-right: 12px;
+}
+
+.trackbit .v-orderedlayout-margin-bottom, .trackbit .v-horizontallayout-margin-bottom, .trackbit .v-verticallayout-margin-bottom {
+	padding-bottom: 12px;
+}
+
+.trackbit .v-orderedlayout-margin-left, .trackbit .v-horizontallayout-margin-left, .trackbit .v-verticallayout-margin-left {
+	padding-left: 12px;
+}
+
+.trackbit .v-orderedlayout-spacing-on, .trackbit .v-horizontallayout-spacing-on, .trackbit .v-verticallayout-spacing-on {
+	padding-top: 6px;
+	padding-left: 6px;
+}
+
+.trackbit .v-orderedlayout-spacing-off, .trackbit .v-horizontallayout-spacing-off, .trackbit .v-verticallayout-spacing-off {
+	padding-top: 0;
+	padding-left: 0;
+}
+
+.trackbit .v-horizontallayout-slot, .trackbit .v-verticallayout-slot {
+	position: absolute;
+}
+
+.trackbit .v-panel, .trackbit .v-panel-caption, .trackbit .v-panel-content, .trackbit .v-panel-deco, .trackbit .v-panel-light, .trackbit .v-panel-caption-light, .trackbit .v-panel-content-light, .trackbit .v-panel-deco-light {
+	outline: none;
+	text-align: left;
+}
+
+.trackbit .v-panel-caption .v-errorindicator {
+	float: none;
+	display: inline;
+}
+
+.trackbit .v-panel-caption .v-icon {
+	display: inline;
+	vertical-align: middle;
+}
+
+.trackbit .v-panel-caption span {
+	vertical-align: middle;
+}
+
+.trackbit .v-panel-caption {
+	white-space: nowrap;
+	overflow: hidden;
+	font-weight: bold;
+}
+
+.trackbit .v-panel-nocaption {
+	overflow: hidden;
+}
+
+.trackbit .v-panel-content {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.trackbit .v-panel.v-has-width > .v-panel-content {
+	width: 100%;
+}
+
+.trackbit .v-panel.v-has-height > .v-panel-content {
+	height: 100%;
+}
+
+.trackbit .v-popupview {
+	cursor: pointer;
+	text-decoration: underline;
+	white-space: nowrap;
+}
+
+.trackbit .v-popupview-popup {
+	overflow: auto;
+}
+
+.trackbit .v-popupview-loading {
+	width: 30px;
+	height: 30px;
+	background: transparent url(base/common/img/ajax-loader-medium.gif) no-repeat 50%;
+}
+
+.trackbit .v-progressbar {
+	width: 150px;
+}
+
+.trackbit .v-progressbar-wrapper {
+	height: 7px;
+	border: 1px solid #ddd;
+}
+
+.trackbit .v-progressbar-indicator {
+	height: 7px;
+	background: #ddd;
+}
+
+.trackbit div.v-progressbar-indeterminate {
+	height: 20px;
+	width: 20px;
+	background: #fff url(base/common/img/ajax-loader-medium.gif) no-repeat 50%;
+	border-radius: 4px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+}
+
+.trackbit .v-progressbar-indeterminate .v-progressbar-wrapper, .trackbit .v-progressbar-indeterminate .v-progressbar-indicator, .trackbit .v-progressbar-indeterminate-disabled .v-progressbar-wrapper, .trackbit .v-progressbar-indeterminate-disabled .v-progressbar-indicator {
+	display: none;
+}
+
+.trackbit div.v-progressbar-indeterminate-disabled {
+	height: 20px;
+	width: 20px;
+	background: transparent;
+}
+
+.trackbit .v-progressindicator {
+	width: 150px;
+}
+
+.trackbit .v-progressindicator-wrapper {
+	height: 7px;
+	border: 1px solid #ddd;
+}
+
+.trackbit .v-progressindicator-indicator {
+	height: 7px;
+	background: #ddd;
+}
+
+.trackbit div.v-progressindicator-indeterminate {
+	height: 20px;
+	width: 20px;
+	background: #fff url(base/common/img/ajax-loader-medium.gif) no-repeat 50%;
+	border-radius: 4px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+}
+
+.trackbit .v-progressindicator-indeterminate .v-progressindicator-wrapper, .trackbit .v-progressindicator-indeterminate .v-progressindicator-indicator, .trackbit .v-progressindicator-indeterminate-disabled .v-progressindicator-wrapper, .trackbit .v-progressindicator-indeterminate-disabled .v-progressindicator-indicator {
+	display: none;
+}
+
+.trackbit div.v-progressindicator-indeterminate-disabled {
+	height: 20px;
+	width: 20px;
+	background: transparent;
+}
+
+.trackbit .v-select {
+	text-align: left;
+}
+
+.trackbit .v-select-optiongroup .v-select-option {
+	display: block;
+	white-space: nowrap;
+}
+
+.trackbit .v-select-optiongroup .v-icon {
+	vertical-align: middle;
+	white-space: nowrap;
+	margin: 0 2px;
+}
+
+.v-ie .trackbit .v-select-optiongroup .v-select-option {
+	zoom: 1;
+}
+
+.trackbit .v-select-select {
+	display: block;
+	border: 1px solid #C7C7C7;
+}
+
+.trackbit .v-select-select:focus {
+	outline: none;
+}
+
+.trackbit .v-select-select option:checked {
+	background: url(data:image/gif;base64,R0lGODlhAQAUAIABAE+o9////yH+EUNyZWF0ZWQgd2l0aCBHSU1QACH5BAEKAAEALAAAAAABABQAAAIEhI+ZBQA7) repeat #4FA8F7;
+}
+
+.trackbit .v-select-twincol {
+	white-space: nowrap;
+}
+
+.trackbit .v-select-twincol-options {
+	float: left;
+	border: 1px solid #C7C7C7;
+}
+
+.trackbit .v-select-twincol-options option:checked {
+	background: url(data:image/gif;base64,R0lGODlhAQAUAIABAE+o9////yH+EUNyZWF0ZWQgd2l0aCBHSU1QACH5BAEKAAEALAAAAAABABQAAAIEhI+ZBQA7) repeat #4FA8F7;
+}
+
+.trackbit .v-select-twincol-caption-left {
+	float: left;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	padding-bottom: 0.3em;
+}
+
+.trackbit .v-select-twincol-selections {
+	font-weight: bold;
+	border: 1px solid #C7C7C7;
+}
+
+.trackbit .v-select-twincol-selections option:checked {
+	background: url(data:image/gif;base64,R0lGODlhAQAUAIABAE+o9////yH+EUNyZWF0ZWQgd2l0aCBHSU1QACH5BAEKAAEALAAAAAABABQAAAIEhI+ZBQA7) repeat #4FA8F7;
+}
+
+.trackbit .v-select-twincol-caption-right {
+	float: right;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	padding-bottom: 0.3em;
+}
+
+.trackbit .v-select-twincol-buttons {
+	float: left;
+	text-align: center;
+	padding: 0px 10px;
+}
+
+.trackbit .v-select-twincol-buttons .v-select-twincol-deco {
+	clear: both;
+	padding-top: 7px;
+}
+
+.trackbit .v-select-twincol .v-textfield {
+	display: block;
+	float: left;
+	clear: left;
+}
+
+.trackbit .v-select-twincol .v-button {
+	float: left;
+}
+
+.trackbit .v-select-twincol-buttons .v-button {
+	float: none;
+	padding: 0.2em 1em;
+}
+
+.trackbit .v-filterselect {
+	white-space: nowrap;
+	text-align: left;
+	display: inline-block;
+	padding-right: 25px;
+}
+
+.trackbit .v-filterselect input[type="text"] {
+	border-width: 0px 1px 0px 0px;
+	border-style: solid;
+	border-color: #C7C7C7;
+	padding: 5px 5px 5px 7px;
+}
+
+.trackbit .v-filterselect .v-icon {
+	float: left;
+}
+
+.trackbit.v-app .v-filterselect-input, .trackbit .v-window .v-filterselect-input, .trackbit .v-popupview-popup .v-filterselect-input {
+	margin: 0;
+	float: left;
+	-webkit-border-radius: 0px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.trackbit .v-filterselect-prompt .v-filterselect-input {
+	color: #999;
+	font-style: italic;
+}
+
+.trackbit .v-filterselect-button {
+	display: inline-block;
+	cursor: pointer;
+	width: 25px;
+	margin-right: -25px;
+	height: 1em;
+	background: transparent url(base/common/img/sprites.png) no-repeat -1px -5px;
+}
+
+.trackbit .v-filterselect.v-readonly .v-filterselect-button {
+	display: none;
+}
+
+.trackbit .v-filterselect.v-readonly, .trackbit .v-filterselect.v-readonly .v-filterselect-input {
+	background: transparent;
+}
+
+.trackbit .v-filterselect-suggestpopup {
+	background: #fff;
+	border: 1px solid #C7C7C7;
+	padding: 5px 0px;
+	border-radius: 4px;
+}
+
+.trackbit .v-filterselect-suggestmenu table {
+	border-collapse: collapse;
+	border: none;
+	vertical-align: top;
+}
+
+.trackbit .v-filterselect-suggestmenu .gwt-MenuItem {
+	white-space: nowrap;
+	padding: 3px 10px;
+}
+
+.trackbit .v-filterselect-suggestmenu .gwt-MenuItem .v-icon {
+	margin-right: 3px;
+	vertical-align: middle;
+}
+
+.trackbit .v-filterselect-suggestmenu .gwt-MenuItem span {
+	vertical-align: middle;
+}
+
+.trackbit .v-filterselect-suggestmenu .gwt-MenuItem-selected {
+	background: #F5F5F5;
+}
+
+.trackbit .v-filterselect-nextpage, .trackbit .v-filterselect-nextpage-off, .trackbit .v-filterselect-prevpage-off, .trackbit .v-filterselect-prevpage {
+	width: 100%;
+	background: #aaa;
+	text-align: center;
+	overflow: hidden;
+	cursor: pointer;
+}
+
+.trackbit .v-filterselect-nextpage-off, .trackbit .v-filterselect-prevpage-off {
+	color: #666;
+	opacity: 0.5;
+	filter: alpha(opacity=50);
+	cursor: default;
+}
+
+.trackbit .v-filterselect-nextpage-off span, .trackbit .v-filterselect-prevpage-off span {
+	cursor: default;
+}
+
+.trackbit .v-filterselect-status {
+	white-space: nowrap;
+	text-align: center;
+}
+
+.trackbit .v-filterselect-no-input .v-filterselect-input {
+	cursor: default;
+}
+
+.trackbit .v-shadow {
+	position: absolute;
+}
+
+.trackbit .v-shadow .top-left {
+	position: absolute;
+	overflow: hidden;
+	top: -3px;
+	left: -5px;
+	width: 10px;
+	height: 10px;
+	background: transparent url(base/shadow/img/top-left.png);
+}
+
+.trackbit .v-shadow .top {
+	position: absolute;
+	overflow: hidden;
+	top: -3px;
+	left: 5px;
+	height: 10px;
+	right: 5px;
+	background: transparent url(base/shadow/img/top.png);
+}
+
+.trackbit .v-shadow .top-right {
+	position: absolute;
+	overflow: hidden;
+	top: -3px;
+	right: -5px;
+	width: 10px;
+	height: 10px;
+	background: transparent url(base/shadow/img/top-right.png);
+}
+
+.trackbit .v-shadow .left {
+	position: absolute;
+	overflow: hidden;
+	top: 7px;
+	left: -5px;
+	width: 10px;
+	bottom: 3px;
+	background: transparent url(base/shadow/img/left.png);
+}
+
+.trackbit .v-shadow .center {
+	position: absolute;
+	overflow: hidden;
+	top: 7px;
+	left: 5px;
+	bottom: 3px;
+	right: 5px;
+	background: transparent url(base/shadow/img/center.png);
+}
+
+.trackbit .v-shadow .right {
+	position: absolute;
+	overflow: hidden;
+	top: 7px;
+	right: -5px;
+	width: 10px;
+	bottom: 3px;
+	background: transparent url(base/shadow/img/right.png);
+}
+
+.trackbit .v-shadow .bottom-left {
+	position: absolute;
+	overflow: hidden;
+	bottom: -7px;
+	left: -5px;
+	width: 10px;
+	height: 10px;
+	background: transparent url(base/shadow/img/bottom-left.png);
+}
+
+.trackbit .v-shadow .bottom {
+	position: absolute;
+	overflow: hidden;
+	bottom: -7px;
+	left: 5px;
+	right: 5px;
+	height: 10px;
+	background: transparent url(base/shadow/img/bottom.png);
+}
+
+.trackbit .v-shadow .bottom-right {
+	position: absolute;
+	overflow: hidden;
+	bottom: -7px;
+	right: -5px;
+	width: 10px;
+	height: 10px;
+	background: transparent url(base/shadow/img/bottom-right.png);
+}
+
+.trackbit .v-slider {
+	margin: 5px 0;
+}
+
+.trackbit .v-slider-base {
+	height: 2px;
+	border-top: 1px solid #ddd;
+	border-bottom: 1px solid #ddd;
+	background: #eee;
+	border-left: 1px solid #ddd;
+	border-right: 1px solid #eee;
+}
+
+.trackbit .v-slider-handle {
+	background: #aaa;
+	width: 12px;
+	height: 12px;
+	margin-top: -5px;
+	font-size: 0;
+	-ms-touch-action: none;
+	touch-action: none;
+}
+
+.trackbit .v-slider-vertical {
+	width: 2px;
+	height: auto;
+	margin: 0 5px;
+	border: none;
+}
+
+.trackbit .v-slider-vertical .v-slider-base {
+	width: 2px;
+	border-bottom: 1px solid #eee;
+}
+
+.trackbit .v-slider-vertical .v-slider-handle {
+	width: 12px;
+	height: 12px;
+	font-size: 0;
+	margin-left: -5px;
+}
+
+.trackbit .v-slider-feedback {
+	padding: 2px 5px;
+	background: #444;
+	color: #fff;
+	font-size: 11px;
+	line-height: 13px;
+	font-weight: bold;
+	font-family: Arial, Helvetica, sans-serif;
+	border-radius: 4px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	margin: -2px 0 0 2px;
+	text-shadow: 0 1px 0 #000;
+}
+
+.trackbit .v-splitpanel-horizontal, .trackbit .v-splitpanel-vertical {
+	overflow: hidden;
+}
+
+.trackbit .v-splitpanel-hsplitter {
+	width: 6px;
+}
+
+.trackbit .v-splitpanel-hsplitter div {
+	width: 6px;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	background: #ddd;
+	cursor: e-resize;
+	cursor: col-resize;
+	-ms-touch-action: none;
+	touch-action: none;
+}
+
+.trackbit .v-disabled .v-splitpanel-hsplitter div {
+	cursor: default;
+}
+
+.trackbit .v-splitpanel-vsplitter {
+	height: 6px;
+}
+
+.trackbit .v-splitpanel-vsplitter div {
+	height: 6px;
+	background: #ddd;
+	cursor: s-resize;
+	cursor: row-resize;
+	-ms-touch-action: none;
+	touch-action: none;
+}
+
+.trackbit .v-disabled .v-splitpanel-vsplitter div {
+	cursor: default;
+}
+
+.trackbit .v-table {
+	overflow: hidden;
+	text-align: left;
+}
+
+.trackbit .v-table-header-wrap {
+	overflow: hidden;
+	border: 1px solid #aaa;
+	border-bottom: none;
+	background: #efefef;
+}
+
+.trackbit .v-table-header table, .trackbit .v-table-table {
+	border-spacing: 0;
+	border-collapse: separate;
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+.trackbit .v-table-table {
+	font-size: 14px;
+}
+
+.trackbit .v-table-header td {
+	padding: 0;
+}
+
+.trackbit .v-table-header-cell, .trackbit .v-table-header-cell-asc, .trackbit .v-table-header-cell-desc {
+	cursor: pointer;
+}
+
+.trackbit .v-table.v-disabled .v-table-header-cell, .trackbit .v-table.v-disabled .v-table-header-cell-asc, .trackbit .v-table.v-disabled .v-table-header-cell-desc {
+	cursor: default;
+}
+
+.trackbit .v-table-footer-wrap {
+	overflow: hidden;
+	border: 1px solid #aaa;
+	border-top: none;
+	background: #efefef;
+}
+
+.trackbit .v-table-footer table {
+	border-spacing: 0;
+	border-collapse: collapse;
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+.trackbit .v-table-footer td {
+	padding: 0;
+	border-right: 1px solid #aaa;
+}
+
+.trackbit .v-table-footer-cell {
+	cursor: pointer;
+}
+
+.trackbit .v-table-footer-container {
+	float: right;
+	padding-right: 6px;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+.trackbit .v-table-resizer {
+	display: block;
+	height: 1.2em;
+	float: right;
+	background: #aaa;
+	cursor: e-resize;
+	cursor: col-resize;
+	width: 1px;
+	overflow: hidden;
+}
+
+.trackbit .v-table.v-disabled .v-table-resizer {
+	cursor: default;
+}
+
+.trackbit .v-table-caption-container {
+	overflow: hidden;
+	white-space: nowrap;
+	margin-left: 6px;
+}
+
+.trackbit .v-table-caption-container-align-right {
+	float: right;
+}
+
+.trackbit .v-table-sort-indicator {
+	width: 0px;
+	height: 1.2em;
+	float: right;
+}
+
+.trackbit .v-table-header-cell-asc .v-table-sort-indicator, .trackbit .v-table-header-cell-desc .v-table-sort-indicator {
+	width: 16px;
+	height: 1.2em;
+	float: right;
+}
+
+.trackbit .v-table-header-cell-asc .v-table-sort-indicator {
+	background: transparent url(base/common/img/sprites.png) no-repeat right 6px;
+}
+
+.trackbit .v-table-header-cell-desc .v-table-sort-indicator {
+	background: transparent url(base/common/img/sprites.png) no-repeat right -10px;
+}
+
+.trackbit .v-table-caption-container-align-center {
+	text-align: center;
+}
+
+.trackbit .v-table-caption-container-align-right {
+	text-align: right;
+}
+
+.trackbit .v-table-caption-container .v-icon, .trackbit .v-table-header-drag .v-icon {
+	vertical-align: middle;
+}
+
+.trackbit .v-table-body {
+	border: 1px solid #aaa;
+}
+
+.trackbit .v-table-row-spacer {
+	height: 10px;
+	overflow: hidden;
+}
+
+.trackbit .v-table-row, .trackbit .v-table-row-odd {
+	background: #fff;
+	border: 0;
+	margin: 0;
+	padding: 0;
+	cursor: pointer;
+}
+
+.trackbit .v-table-generated-row {
+	background: #efefef;
+}
+
+.trackbit .v-table-body-noselection .v-table-row, .trackbit .v-table-body-noselection .v-table-row-odd {
+	cursor: default;
+}
+
+.trackbit .v-table .v-selected {
+	background: #999;
+	color: #fff;
+}
+
+.trackbit .v-table-cell-content {
+	white-space: nowrap;
+	overflow: hidden;
+	padding: 0 6px;
+	border-right: 1px solid #aaa;
+}
+
+.trackbit .v-table-cell-wrapper {
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+.trackbit .v-table-cell-wrapper-align-center {
+	text-align: center;
+}
+
+.trackbit .v-table-cell-wrapper-align-right {
+	text-align: right;
+}
+
+.trackbit .v-table-column-selector {
+	float: right;
+	background: transparent url(base/common/img/sprites.png) no-repeat 4px -37px;
+	margin: -1.2em 0 0 0;
+	height: 1.2em;
+	width: 14px;
+	position: relative;
+	cursor: pointer;
+}
+
+.trackbit .v-table.v-disabled .v-table-column-selector {
+	cursor: default;
+}
+
+.trackbit .v-table-focus-slot-left {
+	border-left: 2px solid #999;
+	float: none;
+	margin-bottom: -1.2em;
+	width: auto;
+	background: transparent;
+	border-right: 1px solid #aaa;
+}
+
+.trackbit .v-table-focus-slot-right {
+	border-right: 2px solid #999;
+	margin-left: -2px;
+}
+
+.trackbit .v-table-header-drag {
+	position: absolute;
+	background: #efefef;
+	border: 1px solid #eee;
+	opacity: 0.9;
+	filter: alpha(opacity=90);
+	margin-top: 20px;
+	z-index: 30000;
+}
+
+.trackbit .v-table-header-drag .v-icon {
+	vertical-align: middle;
+}
+
+.trackbit .v-table-scrollposition {
+	width: 160px;
+	background: #eee;
+	border: 1px solid #aaa;
+}
+
+.trackbit .v-table-scrollposition span {
+	display: block;
+	text-align: center;
+}
+
+.trackbit .v-table-body:focus, .trackbit .v-table-body-wrapper:focus {
+	outline: none;
+}
+
+.trackbit .v-table-body.focused {
+	border-color: #388ddd;
+}
+
+.trackbit .v-off {
+	color: #ddd;
+}
+
+.trackbit .v-table-drag .v-table-body {
+	border-color: #1d9dff;
+}
+
+.trackbit .v-table-row-drag-middle .v-table-cell-content {
+	background-color: #bcdcff;
+}
+
+.trackbit .v-table-row-drag-top .v-table-cell-content {
+	border-top: 2px solid #1d9dff;
+}
+
+.trackbit .v-table-row-drag-top .v-table-cell-wrapper {
+	margin-top: -2px;
+}
+
+.trackbit .v-table-row-drag-bottom .v-table-cell-content {
+	border-bottom: 2px solid #1d9dff;
+}
+
+.trackbit .v-table-row-drag-bottom .v-table-cell-wrapper {
+	margin-bottom: -2px;
+}
+
+.trackbit .v-table-row-drag-top .v-table-cell-content:first-child:before, .trackbit .v-table-row-drag-bottom .v-table-cell-content:first-child:after {
+	display: block;
+	position: absolute;
+	width: 6px;
+	height: 6px;
+	margin-top: -4px;
+	margin-left: -6px;
+	background: transparent url(base/common/img/drag-slot-dot.png);
+}
+
+.v-ff .trackbit .v-table-row-drag-bottom .v-table-cell-content:first-child:after, .v-ie .trackbit .v-table-row-drag-bottom .v-table-cell-content:first-child:after {
+	margin-top: -2px;
+}
+
+.trackbit .v-tabsheet, .trackbit .v-tabsheet-content, .trackbit .v-tabsheet-deco {
+	outline: none;
+	text-align: left;
+}
+
+.trackbit .v-tabsheet-tabs {
+	empty-cells: hide;
+	border-collapse: collapse;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	width: 100%;
+	overflow: hidden;
+}
+
+.trackbit .v-tabsheet-tabitemcell:focus {
+	outline: none;
+}
+
+.trackbit .v-tabsheet-tabitemcell, .trackbit .v-tabsheet-spacertd {
+	margin: 0;
+	padding: 0;
+	vertical-align: bottom;
+}
+
+.trackbit .v-tabsheet-spacertd {
+	width: 100%;
+}
+
+.trackbit .v-tabsheet-spacertd div {
+	border-left: 1px solid #aaa;
+	border-bottom: 1px solid #aaa;
+	height: 1em;
+	padding: 0.2em 0;
+}
+
+.trackbit .v-tabsheet-hidetabs > .v-tabsheet-tabcontainer {
+	display: none;
+}
+
+.trackbit .v-tabsheet-scroller {
+	white-space: nowrap;
+	text-align: right;
+	margin-top: -1em;
+}
+
+.trackbit .v-disabled .v-tabsheet-scroller {
+	display: none;
+}
+
+.trackbit .v-tabsheet-scrollerPrev, .trackbit .v-tabsheet-scrollerNext, .trackbit .v-tabsheet-scrollerPrev-disabled, .trackbit .v-tabsheet-scrollerNext-disabled {
+	border: 1px solid #aaa;
+	background: #fff;
+	width: 12px;
+	height: 1em;
+	cursor: pointer;
+}
+
+.trackbit .v-tabsheet-scrollerPrev-disabled, .trackbit .v-tabsheet-scrollerNext-disabled {
+	opacity: 0.5;
+	cursor: default;
+}
+
+.trackbit .v-tabsheet-tabs .v-caption, .trackbit .v-tabsheet-tabs .v-caption span {
+	white-space: nowrap;
+}
+
+.trackbit .v-tabsheet-caption-close {
+	display: inline;
+	display: inline-block;
+	zoom: 1;
+	width: 16px;
+	height: 16px;
+	text-align: center;
+	font-weight: bold;
+	cursor: pointer;
+	vertical-align: middle;
+	user-select: none;
+	-khtml-user-select: none;
+	-ms-user-select: none;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+}
+
+.trackbit .v-tabsheet .v-disabled .v-tabsheet-caption-close {
+	cursor: default;
+	visibility: hidden;
+}
+
+.trackbit .v-tabsheet-tabitem:hover .v-tabsheet-caption-close {
+	visibility: visible;
+}
+
+.trackbit .v-tabsheet-tabitem {
+	border: 1px solid #aaa;
+	border-right: none;
+	cursor: pointer;
+	padding: 0.2em 0.5em;
+}
+
+.trackbit .v-tabsheet-tabitem .v-caption {
+	cursor: inherit;
+}
+
+.trackbit .v-tabsheet.v-disabled .v-tabsheet-tabitem, .trackbit .v-tabsheet-tabitemcell-disabled .v-tabsheet-tabitem {
+	cursor: default;
+}
+
+.trackbit .v-tabsheet-tabitem-selected {
+	cursor: default;
+	border-bottom-color: #fff;
+}
+
+.trackbit .v-tabsheet-tabitem-selected .v-caption {
+	cursor: default;
+}
+
+.trackbit .v-tabsheet-tabitem-focus .v-captiontext {
+	text-decoration: underline;
+}
+
+.trackbit .v-tabsheet-tabitem-selected.v-tabsheet-tabitem-focus .v-captiontext {
+	text-decoration: inherit;
+}
+
+.trackbit .v-tabsheet-content {
+	border: 1px solid #aaa;
+	border-top: none;
+	border-bottom: none;
+	position: relative;
+}
+
+.trackbit .v-tabsheet-deco {
+	height: 1px;
+	background: #aaa;
+	overflow: hidden;
+}
+
+.trackbit .v-tabsheet-hidetabs .v-tabsheet-content {
+	border: none;
+}
+
+.trackbit .v-tabsheet-hidetabs .v-tabsheet-deco {
+	height: 0;
+}
+
+.trackbit .v-textfield {
+	text-align: left;
+}
+
+.trackbit .v-textarea {
+	resize: none;
+	white-space: pre-wrap;
+}
+
+.trackbit input.v-textfield-prompt, .trackbit textarea.v-textarea-prompt {
+	color: #999;
+	font-style: italic;
+}
+
+.trackbit input.v-textfield-readonly, .trackbit textarea.v-textarea-readonly {
+	background: transparent;
+	border: none;
+	resize: none;
+}
+
+.trackbit input.v-disabled, .trackbit textarea.v-disabled {
+	resize: none;
+}
+
+.trackbit input.v-textfield-readonly:focus, .trackbit textarea.v-textarea-readonly:focus {
+	outline: none;
+}
+
+.v-sa .trackbit input:focus, .v-sa .trackbit textarea:focus {
+	outline: none;
+}
+
+.trackbit .v-richtextarea {
+	border: 1px solid #aaa;
+	overflow: hidden;
+}
+
+.trackbit .v-richtextarea .gwt-RichTextArea {
+	background: #fff;
+	border: none;
+}
+
+.trackbit .v-richtextarea .gwt-HTML {
+	height: 100%;
+	font-size: 14px;
+}
+
+.trackbit .v-richtextarea .gwt-RichTextToolbar {
+	white-space: nowrap;
+	background: #C9C9C9 url(base/textfield/img/richtext-toolbar-bg.png) repeat-x 0 -42px;
+	border-bottom: 1px solid #7d7d7d;
+	padding: 2px;
+	overflow: hidden;
+}
+
+.trackbit .v-richtextarea .gwt-RichTextToolbar-top {
+	padding-bottom: 1px;
+	overflow: hidden;
+	white-space: normal;
+}
+
+.trackbit .v-richtextarea .gwt-RichTextToolbar-bottom {
+	clear: left;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+.trackbit .v-richtextarea .gwt-RichTextToolbar .gwt-ToggleButton, .trackbit .v-richtextarea .gwt-RichTextToolbar .gwt-PushButton {
+	float: left;
+	display: inline;
+	width: 22px;
+	height: 21px;
+	overflow: hidden;
+	background: transparent url(base/textfield/img/richtext-toolbar-bg.png) repeat-x;
+	cursor: pointer;
+	margin-right: 2px;
+	text-align: center;
+}
+
+.trackbit .v-richtextarea .gwt-RichTextToolbar .gwt-ToggleButton-down, .trackbit .v-richtextarea .gwt-RichTextToolbar .gwt-PushButton-down, .trackbit .v-richtextarea .gwt-RichTextToolbar .gwt-ToggleButton-down-hovering, .trackbit .v-richtextarea .gwt-RichTextToolbar .gwt-PushButton-down-hovering {
+	background-position: 0 -21px;
+}
+
+.trackbit .v-richtextarea .gwt-RichTextToolbar .gwt-ListBox {
+	width: 24.5%;
+	margin-right: 2px;
+}
+
+.trackbit .v-richtextarea-readonly {
+	border: none;
+}
+
+.trackbit .v-tree {
+	text-align: left;
+	padding: 1px 0;
+	outline: none;
+}
+
+.trackbit .v-tree-node {
+	background: transparent url(base/common/img/sprites.png) no-repeat 5px -37px;
+	padding: 1px 0;
+}
+
+.trackbit .v-tree-node-caption:focus {
+	outline: none;
+}
+
+.trackbit div.v-tree-node-leaf {
+	background: transparent;
+}
+
+.trackbit .v-tree-node-expanded {
+	background: transparent url(base/common/img/sprites.png) no-repeat -5px -10px;
+}
+
+.trackbit .v-tree-node-caption {
+	margin-left: 1em;
+}
+
+.trackbit .v-tree-node span {
+	cursor: pointer;
+}
+
+.trackbit .v-tree-node-caption div {
+	white-space: nowrap;
+}
+
+.trackbit .v-tree-node-caption span, .trackbit .v-tree-node-caption .v-icon {
+	vertical-align: middle;
+}
+
+.trackbit .v-tree-node-selected span {
+	background: #999;
+	color: #fff;
+}
+
+.trackbit .v-tree-node-children {
+	padding-left: 1em;
+}
+
+.trackbit .v-tree .v-tree-node-drag-top {
+	border-top: 2px solid #1d9dff;
+	margin-top: -1px;
+	padding-top: 0;
+}
+
+.trackbit .v-tree .v-tree-node-drag-bottom {
+	border-bottom: 2px solid #1d9dff;
+	margin-bottom: -1px;
+	padding-bottom: 0;
+}
+
+.trackbit .v-tree .v-tree-node-drag-top:before, .trackbit .v-tree .v-tree-node-drag-bottom:after, .trackbit .v-tree .v-tree-node-caption-drag-center:after {
+	display: block;
+	position: absolute;
+	width: 6px;
+	height: 6px;
+	margin-top: -4px;
+	background: transparent url(base/common/img/drag-slot-dot.png);
+}
+
+.trackbit .v-tree .v-tree-node-drag-bottom:after {
+	margin-top: -2px;
+}
+
+.trackbit .v-tree .v-tree-node-caption-drag-center:after {
+	margin-left: 14px;
+}
+
+.v-ff .trackbit .v-tree .v-tree-node-caption-drag-center:after, .v-ie .trackbit .v-tree .v-tree-node-caption-drag-center:after {
+	margin-top: -2px;
+}
+
+.trackbit .v-tree .v-tree-node-drag-top {
+	background-position: 5px -38px;
+}
+
+.trackbit .v-tree .v-tree-node-drag-top.v-tree-node-expanded {
+	background-position: -5px -11px;
+}
+
+.trackbit .v-tree .v-tree-node-caption-drag-center div {
+	border: 2px solid #1d9dff;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
+	margin: -2px 2px -2px -2px;
+	background-color: #bcdcff;
+}
+
+.trackbit .v-tree .v-tree-node-caption-drag-center div {
+	background-color: rgba(169, 209, 255, 0.6);
+}
+
+.trackbit .v-tree .v-tree-node-caption-drag-center div, .trackbit .v-tree .v-tree-node-drag-top, .trackbit .v-tree .v-tree-node-drag-bottom {
+	border-color: rgba(0, 109, 232, 0.6);
+}
+
+.trackbit .v-tree-connectors .v-tree-node-caption {
+	padding-top: 1px;
+}
+
+.trackbit .v-tree-connectors .v-tree-node {
+	background: transparent url(base/tree/img/connector-expand.png) no-repeat 2px -52px;
+}
+
+.trackbit .v-tree-connectors .v-tree-node-expanded {
+	background: transparent url(base/tree/img/connector-collapse.png) no-repeat 2px -52px;
+}
+
+.trackbit .v-tree-connectors .v-tree-node-last {
+	background: transparent url(base/tree/img/connector-expand-last.png) no-repeat 2px -52px;
+}
+
+.trackbit .v-tree-connectors .v-tree-node-expanded.v-tree-node-last {
+	background: transparent url(base/tree/img/connector-collapse-last.png) no-repeat 2px -52px;
+}
+
+.trackbit .v-tree-connectors .v-tree-node-leaf {
+	background: transparent url(base/tree/img/connector-leaf.png) repeat-y 2px 50%;
+}
+
+.trackbit .v-tree-connectors .v-tree-node-leaf-last {
+	background: transparent url(base/tree/img/connector-leaf-last.png) repeat-y 2px 50%;
+}
+
+.trackbit .v-tree-connectors .v-tree-node-children {
+	background: transparent url(base/tree/img/connector.png) repeat-y 2px 0;
+}
+
+.trackbit .v-tree-connectors .v-tree-node-children-last {
+	background: transparent;
+}
+
+.trackbit .v-tree-connectors .v-tree-node-drag-top, .trackbit .v-tree-connectors .v-tree-node-expanded.v-tree-node-drag-top {
+	background-position: 2px -53px;
+}
+
+.trackbit .v-tree-connectors .v-tree-node-drag-top.v-tree-node-leaf {
+	background-position: 2px 50%;
+}
+
+.trackbit .v-upload {
+	white-space: nowrap;
+}
+
+.trackbit .v-upload-immediate {
+	position: relative;
+	margin: 0;
+	overflow: hidden;
+}
+
+.v-ff .trackbit .v-upload-immediate, .v-op .trackbit .v-upload-immediate {
+	display: inline-block;
+}
+
+.trackbit .v-upload-immediate input {
+	opacity: 0;
+	filter: alpha(opacity=0);
+	z-index: 2;
+	position: absolute;
+	right: 0;
+	height: 21px;
+	text-align: right;
+	border: none;
+	background: transparent;
+}
+
+.trackbit .v-upload-immediate button {
+	position: relative;
+	left: 0;
+	top: 0;
+	width: 100%;
+	text-align: left;
+}
+
+.trackbit .v-window {
+	background: #fff;
+}
+
+.trackbit .v-window-contents {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.trackbit .v-window.v-has-width > div.popupContent, .trackbit .v-window.v-has-width .v-window-wrap, .trackbit .v-window.v-has-width .v-window-contents, .trackbit .v-window.v-has-width .v-window-contents > div {
+	width: 100%;
+}
+
+.trackbit .v-window.v-has-height > div.popupContent, .trackbit .v-window.v-has-height .v-window-wrap, .trackbit .v-window.v-has-height .v-window-contents, .trackbit .v-window.v-has-height .v-window-contents > div {
+	height: 100%;
+}
+
+.trackbit .v-window-outerheader {
+	padding: 0.3em 1em;
+	position: relative;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.trackbit .v-window-outerheader, .trackbit .v-window-draggingCurtain {
+	cursor: move;
+}
+
+.trackbit .v-window-header {
+	font-weight: bold;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ie-user-select: none;
+	user-select: none;
+}
+
+.trackbit div.v-window-header {
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	-ms-text-overflow: ellipsis;
+	overflow: hidden;
+	padding: 0;
+}
+
+.trackbit .v-window-header .v-icon {
+	vertical-align: middle;
+}
+
+.trackbit .v-window-contents > div {
+	outline: none;
+}
+
+.trackbit .v-window-footer {
+	overflow: hidden;
+	zoom: 1;
+	height: 10px;
+	position: relative;
+	cursor: move;
+}
+
+.trackbit .v-window-resizebox {
+	width: 10px;
+	height: 10px;
+	background: #ddd;
+	overflow: hidden;
+	position: absolute;
+	right: 0;
+}
+
+.trackbit .v-window-resizebox, .trackbit .v-window-resizingCurtain {
+	cursor: se-resize;
+}
+
+.trackbit .v-window div.v-window-footer-noresize {
+	height: 0;
+}
+
+.trackbit .v-window-resizebox-disabled, .trackbit .v-window-restorebox-disabled, .trackbit .v-window-maximizebox-disabled {
+	cursor: default;
+	display: none;
+}
+
+.trackbit .v-window-closebox, .trackbit .v-window-restorebox, .trackbit .v-window-maximizebox {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 1em;
+	height: 1em;
+	cursor: pointer;
+	overflow: hidden;
+}
+
+.trackbit .v-window-maximizebox, .trackbit .v-window-restorebox {
+	right: 1.1em;
+}
+
+.trackbit .v-window-closebox {
+	background: red;
+}
+
+.trackbit .v-window-maximizebox {
+	background: blue;
+}
+
+.trackbit .v-window-restorebox {
+	background: yellow;
+}
+
+.trackbit .v-window-modalitycurtain {
+	top: 0;
+	left: 0;
+	background: #999;
+	opacity: 0.5;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	filter: alpha(opacity=50);
+}
+
+.trackbit .v-shadow-window {
+	position: absolute;
+}
+
+.trackbit .v-shadow-window .top-left {
+	position: absolute;
+	overflow: hidden;
+	top: -10px;
+	left: -15px;
+	width: 28px;
+	height: 28px;
+	background: transparent url(base/window/img/shadow/top-left.png);
+}
+
+.trackbit .v-shadow-window .top {
+	position: absolute;
+	overflow: hidden;
+	top: -10px;
+	left: 13px;
+	height: 28px;
+	right: 13px;
+	background: transparent url(base/window/img/shadow/top.png);
+}
+
+.trackbit .v-shadow-window .top-right {
+	position: absolute;
+	overflow: hidden;
+	top: -10px;
+	right: -15px;
+	width: 28px;
+	height: 28px;
+	background: transparent url(base/window/img/shadow/top-right.png);
+}
+
+.trackbit .v-shadow-window .left {
+	position: absolute;
+	overflow: hidden;
+	top: 18px;
+	left: -15px;
+	width: 28px;
+	bottom: 10px;
+	background: transparent url(base/window/img/shadow/left.png);
+}
+
+.trackbit .v-shadow-window .center {
+	position: absolute;
+	overflow: hidden;
+	top: 18px;
+	left: 13px;
+	bottom: 10px;
+	right: 13px;
+	background: transparent url(base/window/img/shadow/center.png);
+}
+
+.trackbit .v-shadow-window .right {
+	position: absolute;
+	overflow: hidden;
+	top: 18px;
+	right: -15px;
+	width: 28px;
+	bottom: 10px;
+	background: transparent url(base/window/img/shadow/right.png);
+}
+
+.trackbit .v-shadow-window .bottom-left {
+	position: absolute;
+	overflow: hidden;
+	bottom: -18px;
+	left: -15px;
+	width: 28px;
+	height: 28px;
+	background: transparent url(base/window/img/shadow/bottom-left.png);
+}
+
+.trackbit .v-shadow-window .bottom {
+	position: absolute;
+	overflow: hidden;
+	bottom: -18px;
+	left: 13px;
+	right: 13px;
+	height: 28px;
+	background: transparent url(base/window/img/shadow/bottom.png);
+}
+
+.trackbit .v-shadow-window .bottom-right {
+	position: absolute;
+	overflow: hidden;
+	bottom: -18px;
+	right: -15px;
+	width: 28px;
+	height: 28px;
+	background: transparent url(base/window/img/shadow/bottom-right.png);
+}
+
+.trackbit *:focus, .trackbit *:active {
+	outline: none;
+}
+
+.trackbit .v-widget {
+	color: inherit;
+	font: inherit;
+	font-size: 14px;
+}
+
+.trackbit.v-app, .trackbit .v-drag-element, .trackbit .v-contextmenu, .trackbit .v-menubar-popup, .trackbit .v-filterselect-suggestpopup, .trackbit .v-datefield-popup, .trackbit .v-popupview-popup, .trackbit .v-Notification, .trackbit .v-window, .trackbit .v-tooltip {
+	color: #5a6066;
+	font-family: "Open Sans", Arial, sans-serif;
+	font-size: 14px;
+	line-height: 1.5;
+}
+
+.trackbit .v-spacing {
+	height: 12px;
+	width: 12px;
+}
+
+.trackbit .v-icon, .trackbit .v-embbedded img {
+	-ms-interpolation-mode: bicubic;
+}
+
+.trackbit .v-contextmenu, .trackbit .v-menubar-popup, .trackbit .v-popupview-popup, .trackbit .v-tooltip, .trackbit .v-window.dialog, .trackbit .v-Notification-tray {
+	background: #FFF;
+	color: #333;
+	padding: 0px;
+	-webkit-border-radius: 0.3em;
+	-moz-border-radius: 0.3em;
+	border-radius: 0.3em;
+	border: 1px solid #C7C7C7;
+	min-width: 10em;
+	-webkit-animation: fade-in 160ms ease-out;
+	-moz-animation: fade-in 160ms ease-out;
+	-ms-animation: fade-in 160ms ease-out;
+	-o-animation: fade-in 160ms ease-out;
+	animation: fade-in 160ms ease-out;
+	opacity: 1;
+}
+
+.trackbit .v-tooltip, .trackbit .v-window.dialog {
+	min-width: 0;
+}
+
+.trackbit .v-tooltip {
+	font-size: 12px;
+	padding: 0 4px;
+}
+
+.trackbit .v-contextmenu table, .trackbit .v-menubar-submenu {
+	width: 100%;
+	background: transparent;
+}
+
+.trackbit .v-contextmenu, .trackbit .v-menubar-popup {
+	font-size: 13px;
+}
+
+.trackbit .v-contextmenu .gwt-MenuItem, .trackbit .v-menubar-popup .v-menubar-menuitem {
+	padding: 0.3em 0.6em;
+}
+
+.trackbit .v-contextmenu .gwt-MenuItem-selected, .trackbit .v-menubar-popup .v-menubar-menuitem-selected {
+	text-shadow: 0 0.1em 0.1em rgba(0, 0, 0, 0.3);
+	background: #3FA8F7;
+}
+
+.trackbit .v-contextmenu .gwt-MenuItem-selected div {
+	background: transparent;
+}
+
+.trackbit .v-contextmenu .v-off div:before {
+	opacity: 0.3;
+}
+
+.trackbit .v-contextmenu .v-off div:before, .trackbit .v-contextmenu .v-on div:before {
+	display: inline;
+	content: "\2713";
+	font-family: "fontello";
+	font-style: normal;
+	font-weight: normal;
+	speak: none;
+	margin-right: 0.5em;
+}
+
+.trackbit .v-contextmenu .v-off {
+	color: #fff;
+}
+
+.trackbit .v-contextmenu .gwt-MenuItem-selected .v-off {
+	opacity: 1;
+}
+
+.v-ie8 .trackbit .v-shadow {
+	display: block;
+}
+
+.trackbit .v-menubar-separator span {
+	border-top-color: rgba(255, 255, 255, 0.1);
+}
+
+.trackbit .v-label.style-primary {
+	color: #4FA8F7;
+}
+
+.trackbit .v-label.style-danger {
+	color: #E9573F;
+}
+
+.trackbit .v-label.style-warning {
+	color: #F6BB42;
+}
+
+.trackbit .v-label.style-success {
+	color: #8CC152;
+}
+
+.trackbit .v-label.style-info {
+	color: #3BAFDA;
+}
+
+.trackbit .v-label.style-dark {
+	color: #434A54;
+}
+
+.trackbit .v-button {
+	color: #5a6066;
+	padding: 0.3em 1.4em;
+	line-height: 1;
+	-webkit-border-radius: 0.25em;
+	-moz-border-radius: 0.25em;
+	border-radius: 0.25em;
+	border-width: 1px;
+	border-style: solid;
+	border-color: #CCCCCC;
+	background-color: #EEEEEE;
+}
+
+.trackbit button::-moz-focus-inner {
+	padding: 0;
+	border: 0;
+}
+
+.v-webkit .trackbit .v-button {
+	padding-bottom: 0.35em;
+}
+
+.trackbit .v-has-height.v-button:before {
+	display: inline-block;
+	content: "";
+	vertical-align: middle;
+	height: 100%;
+	width: 0;
+}
+
+.trackbit .v-button:focus {
+	outline: none;
+}
+
+.trackbit .v-button:active, .trackbit .v-pressed.v-button {
+	border-color: #ADADAD;
+	-webkit-box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.125) inset;
+	-moz-box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.125) inset;
+	box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.125) inset;
+	background: #E6E6E6;
+	-webkit-tap-highlight-color: transparent;
+}
+
+.trackbit .wide.v-button {
+	padding-left: 1.8em;
+	padding-right: 1.8em;
+}
+
+.trackbit .style-primary.v-button {
+	color: #fff;
+	font-weight: bold;
+	-webkit-font-smoothing: antialiased;
+	border-color: #4FA8F7;
+	background-color: #4FA8F7;
+}
+
+.trackbit .style-primary.v-button:hover {
+	background-color: #428BCA;
+}
+
+.trackbit .style-success.v-button {
+	color: #fff;
+	font-weight: bold;
+	-webkit-font-smoothing: antialiased;
+	border-color: #8CC152;
+	background-color: #8CC152;
+}
+
+.trackbit .style-success.v-button:hover {
+	background-color: #159077;
+}
+
+.trackbit .style-info.v-button {
+	color: #fff;
+	font-weight: bold;
+	-webkit-font-smoothing: antialiased;
+	border-color: #3BAFDA;
+	background-color: #3BAFDA;
+}
+
+.trackbit .style-info.v-button:hover {
+	background-color: #3498DB;
+}
+
+.trackbit .style-warning.v-button {
+	color: #fff;
+	font-weight: bold;
+	-webkit-font-smoothing: antialiased;
+	border-color: #F6BB42;
+	background-color: #F6BB42;
+}
+
+.trackbit .style-warning.v-button:hover {
+	background-color: #ED9C28;
+}
+
+.trackbit .style-danger.v-button {
+	color: #fff;
+	font-weight: bold;
+	-webkit-font-smoothing: antialiased;
+	border-color: #E9573F;
+	background-color: #E9573F;
+}
+
+.trackbit .style-danger.v-button:hover {
+	background-color: #B32E2A;
+}
+
+.trackbit .style-dark.v-button {
+	color: #fff;
+	font-weight: bold;
+	-webkit-font-smoothing: antialiased;
+	border-color: #434A54;
+	background-color: #434A54;
+}
+
+.trackbit .style-dark.v-button:hover {
+	background-color: #1F2225;
+}
+
+.trackbit .style-primary.v-button:focus {
+	xborder-color: #207ce5;
+}
+
+.trackbit .small.v-button {
+	padding: 0.1em 1.2em;
+	font-size: 13px;
+}
+
+.trackbit .link.v-button, .trackbit .link.v-button:active, .trackbit .link.v-pressed.v-button, .trackbit .link.v-button:focus {
+	background: transparent;
+	border: none;
+	font-weight: inherit;
+	color: #349aff;
+	font-size: inherit;
+	line-height: inherit;
+	letter-spacing: 0;
+	padding: 0;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+	text-shadow: inherit;
+}
+
+.trackbit .icon-only.v-button {
+	padding-left: 0.8em;
+	padding-right: 0.8em;
+}
+
+.trackbit .icon-only.v-button .v-button-wrap:before {
+	margin: 0;
+}
+
+.trackbit .icon-only.v-button .v-button-caption {
+	display: none;
+}
+
+.trackbit .borderless.v-button {
+	border: none !important;
+	background: transparent !important;
+	-webkit-box-shadow: none;
+	-mox-box-shadow: none;
+	box-shadow: none;
+}
+
+.trackbit .v-textfield, .trackbit .v-filterselect {
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+	border: 1px solid #c7c7c7;
+	background: #fff;
+	font: inherit;
+	color: inherit;
+	margin: 0;
+}
+
+.trackbit input.v-widget.v-textfield {
+	padding: 4px;
+}
+
+.trackbit .v-textfield:focus {
+	outline: none;
+	border-color: #69a5e4;
+}
+
+.trackbit input.v-textfield-prompt, .trackbit .v-filterselect-prompt .v-filterselect-input {
+	font-style: normal;
+}
+
+.trackbit input.v-widget.v-textfield.small, .trackbit .v-filterselect.small {
+	padding: 0.15em 0.2em;
+	font-size: 12px;
+}
+
+.v-webkit .trackbit input.v-textfield.small, .v-webkit .trackbit .v-filterselect.small {
+	padding-bottom: 0.2em;
+}
+
+.trackbit .v-caption .v-captiontext {
+	font-size: 14px;
+	line-height: 1.7;
+}
+
+.trackbit .v-datefield .v-datefield-textfield {
+	border-radius: 2px 0px 0px 2px;
+	line-height: 20px;
+}
+
+.trackbit .v-datefield .v-datefield-button {
+	border-width: 1px 1px 1px 0px;
+	border-color: #C7C7C7;
+	border-style: solid;
+	border-radius: 0px 2px 2px 0px;
+	background-color: #FFFFFF;
+	font-family: "trackbit";
+	font-style: normal;
+	font-weight: normal;
+	speak: none;
+	display: inline-block;
+	text-decoration: inherit;
+	text-align: center;
+	line-height: 20px;
+	margin: 0px;
+	padding: 2px 8px;
+}
+
+.trackbit .v-datefield .v-datefield-button:hover {
+	background-color: #E3E3E3;
+}
+
+.trackbit .v-datefield .v-datefield-button:before {
+	font-family: "trackbit";
+	content: "\e601";
+}
+
+.trackbit .v-datefield-popup {
+	border: 1px solid #C7C7C7;
+	border-radius: 4px;
+	padding: 10px;
+}
+
+.trackbit .v-datefield-popup .v-datefield-calendarpanel-header button {
+	border: 1px solid transparent;
+	background: none no-repeat 0 0 transparent;
+}
+
+.trackbit .v-datefield-popup .v-datefield-calendarpanel-header button:hover {
+	border-color: #C7C7C7;
+}
+
+.trackbit .v-datefield-popup .v-datefield-calendarpanel-body > table {
+	border-collapse: collapse;
+}
+
+.trackbit .v-datefield-popup .v-datefield-calendarpanel-body > table .v-datefield-calendarpanel-weekdays > td[role="columnheader"] {
+	padding: 0px;
+}
+
+.trackbit .v-datefield-popup .v-datefield-calendarpanel-body > table .v-datefield-calendarpanel-weekdays > td[role="columnheader"] > strong {
+	background-color: #DEDEDE;
+	font-weight: normal;
+	padding: 0px 3px;
+	margin: 5px 0px;
+	display: block;
+	width: 100%;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.trackbit .v-datefield-popup .v-datefield-calendarpanel-body > table td {
+	padding: 3px;
+}
+
+.trackbit .v-datefield-popup .v-datefield-calendarpanel-body > table td .v-datefield-calendarpanel-day {
+	display: block;
+	width: 100%;
+	border-radius: 3px;
+	text-align: center;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	padding: 2px 3px;
+}
+
+.trackbit .v-datefield-popup .v-datefield-calendarpanel-body > table td .v-datefield-calendarpanel-day.v-datefield-calendarpanel-day-selected {
+	background-color: #4FA8F7;
+}
+
+.trackbit .v-inline-datefield-calendarpanel-header button {
+	border: 1px solid transparent;
+	background: none no-repeat 0 0 transparent;
+}
+
+.trackbit .v-inline-datefield-calendarpanel-header button:hover {
+	border-color: #C7C7C7;
+}
+
+.trackbit .v-inline-datefield-calendarpanel-body > table {
+	border-collapse: collapse;
+}
+
+.trackbit .v-inline-datefield-calendarpanel-body > table .v-inline-datefield-calendarpanel-weekdays > td[role="columnheader"] {
+	padding: 0px;
+}
+
+.trackbit .v-inline-datefield-calendarpanel-body > table .v-inline-datefield-calendarpanel-weekdays > td[role="columnheader"] > strong {
+	background-color: #DEDEDE;
+	font-weight: normal;
+	padding: 0px 3px;
+	margin: 5px 0px;
+	display: block;
+	width: 100%;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.trackbit .v-inline-datefield-calendarpanel-body > table td {
+	padding: 3px;
+}
+
+.trackbit .v-inline-datefield-calendarpanel-body > table td .v-inline-datefield-calendarpanel-day {
+	display: block;
+	width: 100%;
+	border-radius: 3px;
+	text-align: center;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	padding: 2px 3px;
+}
+
+.trackbit .v-inline-datefield-calendarpanel-body > table td .v-inline-datefield-calendarpanel-day.v-inline-datefield-calendarpanel-day-selected {
+	background-color: #4FA8F7;
+}
+
+.trackbit .v-filterselect {
+	position: relative;
+}
+
+.trackbit .v-filterselect .v-filterselect-input {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	background: transparent;
+	border: none;
+	padding: 0 1.5em 0 0;
+	margin: 0;
+	font-size: inherit;
+	width: 100% !important;
+}
+
+.trackbit .v-filterselect .v-filterselect-input:focus {
+	outline: none;
+}
+
+.trackbit .v-filterselect .v-filterselect-button {
+	position: absolute;
+	height: 100%;
+	margin-right: 0px;
+	top: 0px;
+}
+
+.trackbit .v-filterselect .v-filterselect-button:hover {
+	background-color: #E3E3E3;
+}
+
+.trackbit .v-filterselect-suggestpopup {
+	margin-top: 0.4em !important;
+}
+
+.trackbit .v-filterselect-suggestmenu tr {
+	line-height: inherit;
+}
+
+.trackbit .v-filterselect-prevpage-off, .trackbit .v-filterselect-prevpage, .trackbit .v-filterselect-nextpage-off, .trackbit .v-filterselect-nextpage {
+	background: transparent;
+}
+
+.trackbit .v-filterselect-prevpage-off, .trackbit .v-filterselect-prevpage {
+	padding-bottom: 5px;
+}
+
+.trackbit .v-filterselect-nextpage-off, .trackbit .v-filterselect-nextpage {
+	padding-top: 5px;
+}
+
+.trackbit .v-filterselect-prevpage-off span, .trackbit .v-filterselect-prevpage span, .trackbit .v-filterselect-nextpage-off span, .trackbit .v-filterselect-nextpage span {
+	width: 0;
+	height: 0;
+	border: 1px solid;
+	border-width: 0.5em 0.45em;
+	border-color: transparent transparent #aaa;
+	overflow: hidden;
+	display: inline-block;
+}
+
+.trackbit .v-filterselect-nextpage-off span, .trackbit .v-filterselect-nextpage span {
+	border-color: #aaa transparent transparent;
+}
+
+.trackbit .v-filterselect-prevpage:hover span {
+	border-bottom-color: #fff;
+}
+
+.trackbit .v-filterselect-nextpage:hover span {
+	border-top-color: #fff;
+}
+
+.trackbit .v-filterselect-status {
+	color: #999;
+	font-size: 13px;
+}
+
+.trackbit .data-source-field {
+	padding: 5px 0px;
+	border-top: 1px solid #DDD;
+	background-color: #FFECED;
+	color: #7D7264;
+}
+
+.trackbit .data-source-field.checked {
+	background-color: #8CC152;
+	color: #FFF;
+}
+
+.trackbit .data-source-field.v-disabled {
+	background-color: #F5F5F5;
+	opacity: 0.5;
+	color: #222222;
+}
+
+.trackbit .v-progressbar .v-progressbar-wrapper {
+	border-color: #C7C7C7;
+	-webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1) inset;
+	-moz-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1) inset;
+	box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1) inset;
+	border-radius: 4px;
+}
+
+.trackbit .v-progressbar .v-progressbar-wrapper .v-progressbar-indicator {
+	background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+	background-image: -o-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+	background-image: -moz-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+	background-image: -ms-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+	background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+	-webkit-background-size: 40px 40px;
+	background-size: 40px 40px;
+	background-color: #4FA8F7;
+	border-radius: 4px;
+	-webkit-transition: width 0.6s ease;
+	-moz-transition: width 0.6s ease;
+	-ms-transition: width 0.6s ease;
+	-o-transition: width 0.6s ease;
+	transition: width 0.6s ease;
+	-webkit-animation: progress-bar-stripes 2s linear infinite;
+	-moz-animation: progress-bar-stripes 2s linear infinite;
+	-ms-animation: progress-bar-stripes 2s linear infinite;
+	-o-animation: progress-bar-stripes 2s linear infinite;
+	animation: progress-bar-stripes 2s linear infinite;
+}
+
+.trackbit .v-slider .v-slider-base {
+	background-color: #4FA8F7;
+	border-radius: 2px;
+}
+
+.trackbit .v-slider .v-slider-base .v-slider-handle {
+	background-color: #FFFFFF;
+	border-radius: 6px;
+	-webkit-box-shadow: 0px 0px 4px #444;
+	-moz-box-shadow: 0px 0px 4px #444;
+	box-shadow: 0px 0px 4px #444;
+	cursor: pointer;
+}
+
+.trackbit *:link {
+	color: #4FA8F7;
+}
+
+.trackbit .v-link {
+	cursor: pointer;
+}
+
+.trackbit .v-link:hover {
+	color: #349AFF;
+}
+
+.trackbit .v-panel .v-panel-content {
+	background-color: #FFF;
+	border: 1px solid #C7C7C7;
+}
+
+.trackbit .v-popupview:hover {
+	color: #349AFF;
+}
+
+.trackbit .v-popupview-popup .v-textfield {
+	color: #5A6066;
+}
+
+.trackbit .v-Notification {
+	background: #000000;
+	background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.45) 0%, rgba(45, 45, 45, 0.45) 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(0, 0, 0, 0.45)), color-stop(100%, rgba(45, 45, 45, 0.45)));
+	background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.45) 0%, rgba(45, 45, 45, 0.45) 100%);
+	background: -o-linear-gradient(top, rgba(0, 0, 0, 0.45) 0%, rgba(45, 45, 45, 0.45) 100%);
+	background: -ms-linear-gradient(top, rgba(0, 0, 0, 0.45) 0%, rgba(45, 45, 45, 0.45) 100%);
+	color: #555;
+	font-size: 18px;
+	line-height: 1.4;
+	font-weight: normal;
+	padding: 1em 2em;
+	-webkit-box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25);
+	-moz-box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25);
+	box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25);
+}
+
+.trackbit .v-Notification.error {
+	border-left: 4px solid #D24D33;
+	background: #F7E0DB;
+}
+
+.trackbit .v-Notification.error h1 {
+	color: #D24D33;
+}
+
+.trackbit .v-Notification.warning {
+	border-left: 4px solid #ED9C28;
+	background: #FFF4E1;
+}
+
+.trackbit .v-Notification.warning h1 {
+	color: #ED9C28;
+}
+
+.trackbit .v-Notification.humanized {
+	border-left: 4px solid #5BC0DE;
+	background: #DFF3F9;
+}
+
+.trackbit .v-Notification.humanized h1 {
+	color: #5BC0DE;
+}
+
+.trackbit .v-Notification.tray {
+	border-left: 4px solid #5BC0DE;
+	background: #DFF3F9;
+}
+
+.trackbit .v-Notification.tray h1 {
+	color: #5BC0DE;
+}
+
+.trackbit .v-Notification h1 {
+	font-size: inherit;
+	color: #fff;
+	font-weight: normal;
+}
+
+.trackbit .v-Notification h1, .trackbit .v-Notification p {
+	margin: 0;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.trackbit .v-Notification h1 + p {
+	margin-left: 2em;
+	color: #555;
+	max-width: 28em;
+}
+
+.trackbit .v-Notification-system {
+	background: -webkit-linear-gradient(bottom, rgba(76, 76, 76, 0) 0%, rgba(76, 76, 76, 0.9) 60%, #4c4c4c 95%, #343434 100%);
+	width: 100%;
+	max-width: 100%;
+	text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+	font-size: 14px;
+	text-align: center;
+	padding-bottom: 3em;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+	-webkit-animation: pull-down 300ms ease-in-out;
+	-moz-animation: pull-down 300ms ease-in-out;
+	-ms-animation: pull-down 300ms ease-in-out;
+	-o-animation: pull-down 300ms ease-in-out;
+	animation: pull-down 300ms ease-in-out;
+}
+
+.trackbit .v-Notification-system h1 {
+	display: inline-block;
+	font-size: 14px;
+	margin-right: 3em;
+	vertical-align: top;
+	line-height: 1;
+	margin-bottom: 1em;
+	color: #fff;
+}
+
+.trackbit .v-Notification-system h1 + p {
+	display: inline-block;
+	vertical-align: top;
+	text-align: left;
+	line-height: 1.3;
+	color: #ececec;
+}
+
+.trackbit .v-Notification-tray {
+	font-size: 14px;
+	line-height: 18px;
+	margin: 0 14px 14px 0;
+}
+
+.trackbit .v-Notification-tray h1, .trackbit .v-Notification-tray p {
+	display: block;
+	margin: 0;
+}
+
+.trackbit .v-Notification-tray h1 {
+	font-weight: bold;
+}
+
+.trackbit .v-Notification-tray h1 + p {
+	margin: 0.8em 0 0;
+}
+
+.trackbit .report-block .v-label {
+	font-size: 12px;
+}
+
+.trackbit .report-block .widgetbox-header {
+	padding: 10px;
+	border-bottom: 1px solid #DDD;
+}
+
+.trackbit .report-block .title {
+	font-size: 25px;
+	line-height: 1em;
+	text-transform: uppercase;
+	color: #555;
+}
+
+.trackbit .report-block .subtitle {
+	font-size: 13px;
+	color: #AAA;
+	text-transform: uppercase;
+}
+
+.trackbit .report-block .address {
+	color: #555;
+}
+
+.trackbit .report-block .address:before {
+	font-family: "trackbit";
+	content: "\f08d";
+}
+
+.trackbit .report-block .blockquote {
+	padding-left: 15px;
+	border-left: 4px solid #DDD;
+	margin: 10px 0px;
+	color: #888;
+}
+
+.trackbit .report-block .blockquote small {
+	color: #999;
+	font-size: 85%;
+	line-height: 1.5em;
+}
+
+.trackbit .report-block .numeric-box {
+	font-size: 11px;
+	color: #888;
+	text-transform: uppercase;
+}
+
+.trackbit .report-block .numeric-box .number {
+	font-size: 20px;
+	font-weight: 600;
+	line-height: 1em;
+	color: #555;
+}
+
+.trackbit .report-block .rag-style {
+	padding: 5px 5px 5px 15px;
+	border-width: 0px 0px 0px 4px;
+	border-style: solid;
+	margin: 4px 0px;
+	font-weight: bold;
+}
+
+.trackbit .report-block .rag-style.critical-style {
+	background-color: #FFC8C8;
+	border-color: #C00;
+}
+
+.trackbit .report-block .rag-style.medium-style {
+	background-color: #FFEDCF;
+	border-color: #F90;
+}
+
+.trackbit .report-block .rag-style.low-style {
+	background-color: #F0FFE1;
+	border-color: #5BA622;
+}
+
+.trackbit .report-block .rag-style.neutral-style {
+	background-color: #E7E7E7;
+	border-color: #999;
+}
+
+.trackbit .v-splitpanel-horizontal .v-label, .trackbit .v-splitpanel-vertical .v-label {
+	font-size: 14px;
+}
+
+.trackbit .v-splitpanel-hsplitter {
+	border-width: 0px 1px;
+	border-style: solid;
+	border-color: #DDD;
+	cursor: col-resize;
+}
+
+.trackbit .v-splitpanel-hsplitter:hover {
+	background-color: #EEE;
+}
+
+.trackbit .v-splitpanel-hsplitter div {
+	height: 60px;
+	top: 50%;
+	margin-top: -30px;
+	background-color: #4FA8F7;
+}
+
+.trackbit .v-splitpanel-vsplitter {
+	border-width: 1px 0px;
+	border-style: solid;
+	border-color: #DDD;
+	cursor: row-resize;
+}
+
+.trackbit .v-splitpanel-vsplitter:hover {
+	background-color: #EEE;
+}
+
+.trackbit .v-splitpanel-vsplitter div {
+	width: 60px;
+	position: absolute;
+	left: 50%;
+	margin-left: -30px;
+	background-color: #4FA8F7;
+}
+
+.trackbit .statusbar {
+	padding: 6px 6px 6px 10px;
+	border-radius: 0px;
+	background-color: #faf2f2;
+	border-width: 0px 0px 0px 4px;
+	border-style: solid;
+}
+
+.trackbit .statusbar .v-label {
+	font-size: 14px;
+	color: #434A54;
+}
+
+.trackbit .statusbar.debug {
+	border-color: #3BAFDA;
+}
+
+.trackbit .statusbar.debug strong {
+	color: #3BAFDA;
+}
+
+.trackbit .statusbar.warn {
+	border-color: #F6BB42;
+}
+
+.trackbit .statusbar.warn strong {
+	color: #F6BB42;
+}
+
+.trackbit .statusbar.error {
+	border-color: #E9573F;
+}
+
+.trackbit .statusbar.error strong {
+	color: #E9573F;
+}
+
+.trackbit .v-tabsheet {
+	border: 1px solid #d3d6d6;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+}
+
+.trackbit .v-tabsheet-tabcontainer, .trackbit .v-tabsheet-content {
+	border: none;
+}
+
+.trackbit .v-tabsheet-tabcontainer {
+	height: auto !important;
+}
+
+.trackbit .v-tabsheet-deco {
+	height: 0;
+}
+
+.trackbit .v-tabsheet-tabcontainer {
+	background: #EEEEEE;
+}
+
+.trackbit .v-tabsheet-tabs {
+	border-collapse: separate;
+	border-spacing: 0;
+}
+
+.trackbit .v-tabsheet-tabitemcell {
+	color: #2f7cb7;
+	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+	font-size: 13px;
+	line-height: 1;
+	border: 1px solid #d3d6d6;
+	border-width: 0 1px 1px 0;
+	border-bottom-color: #cfd1d1;
+}
+
+.trackbit .v-tabsheet-tabitem {
+	padding: 0;
+}
+
+.trackbit .v-tabsheet-tabitem .v-caption {
+	padding: 10px 1.3em;
+}
+
+.trackbit .v-tabsheet-tabitemcell-selected .v-caption {
+	padding-bottom: 11px;
+}
+
+.trackbit .v-tabsheet-tabitemcell-selected {
+	background: #fff;
+	color: #404346;
+	border-bottom-width: 0;
+}
+
+.trackbit .v-tabsheet-tabitemcell .v-caption {
+	color: inherit;
+}
+
+.trackbit .v-tabsheet-tabitemcell .v-captiontext {
+	vertical-align: middle;
+	display: inline-block;
+}
+
+.trackbit .v-tabsheet-tabitem {
+	border: none;
+}
+
+.trackbit .v-tabsheet-spacertd div {
+	border: none;
+	font-size: 13px;
+	line-height: 1;
+	height: 1.4em;
+	border-bottom: 0.1em solid #cfd1d1;
+}
+
+.trackbit .v-tabsheet-content {
+	background-color: #FFFFFF;
+}
+
+.trackbit .v-tabsheet-content:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 1em;
+	z-index: 10;
+	background: -moz-linear-gradient(top, white 0%, rgba(255, 255, 255, 0) 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, white), color-stop(100%, rgba(255, 255, 255, 0)));
+	background: -webkit-linear-gradient(top, white 0%, rgba(255, 255, 255, 0) 100%);
+	background: -o-linear-gradient(top, white 0%, rgba(255, 255, 255, 0) 100%);
+	background: -ms-linear-gradient(top, white 0%, rgba(255, 255, 255, 0) 100%);
+}
+
+.trackbit .v-tabsheet-borderless {
+	border: none;
+	-webkit-border-radius: 0;
+	-moz-border-radius: 0;
+	border-radius: 0;
+}
+
+.trackbit .v-tabsheet-caption-close {
+	margin: -2px 0 0 5px;
+	font-size: 16px;
+	font-weight: normal;
+	color: #db5020;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+}
+
+.trackbit .v-tabsheet-caption-close:hover {
+	background: #e7e7e7;
+}
+
+.trackbit .v-tabsheet-caption-close:active {
+	background: #999;
+	color: #fff;
+}
+
+.trackbit .v-tabsheet-tabs-small .v-tabsheet-tabitem .v-caption {
+	padding: 0.5em 1.2em;
+	font-size: 12px;
+}
+
+.trackbit .v-tabsheet-content-small::before {
+	display: none;
+}
+
+.trackbit .v-tabsheet-scroller {
+	float: right;
+	height: 45px;
+	width: 51px;
+	margin-top: -45px;
+	position: relative;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	border-width: 0px 0px 1px 1px;
+	border-style: solid;
+	border-color: #d3d6d6 #d3d6d6 #cfd1d1;
+	background-color: #EEEEEE;
+}
+
+.trackbit .v-tabsheet-scroller button[class^="v-tabsheet-scrollerPrev"] {
+	border: none;
+	background: none;
+	font-size: 20px;
+	margin: 13px 0px;
+	padding: 0px 3px;
+	width: 25px;
+}
+
+.trackbit .v-tabsheet-scroller button[class^="v-tabsheet-scrollerPrev"]:before {
+	font-family: "trackbit";
+	content: "\f0a4";
+}
+
+.trackbit .v-tabsheet-scroller button[class^="v-tabsheet-scrollerNext"] {
+	border: none;
+	background: none;
+	font-size: 20px;
+	margin: 13px 0px;
+	padding: 0px 3px;
+	width: 25px;
+}
+
+.trackbit .v-tabsheet-scroller button[class^="v-tabsheet-scrollerNext"]:before {
+	font-family: "trackbit";
+	content: "\f079";
+}
+
+.trackbit .v-table-header-wrap, .trackbit .v-table-footer-wrap {
+	border: 0.1em solid #d4d5d5;
+	background: #F6F8F9;
+}
+
+.trackbit .v-table-header-wrap {
+	border-bottom: none;
+}
+
+.trackbit .v-table-footer-wrap {
+	border-top: none;
+}
+
+.trackbit .v-table-footer td {
+	border: none;
+	border-left: 0.1em solid #e5e8e8;
+}
+
+.trackbit .v-table-footer td:first-child {
+	border: none;
+}
+
+.trackbit .v-table-footer-container {
+	padding: 0.1em 0 0.1em 6px;
+	float: none;
+	font-size: 13px;
+	color: #979699;
+	text-shadow: 0 0.1em rgba(255, 255, 255, 0.7);
+}
+
+.trackbit .v-table-footer td:first-child .v-table-footer-container {
+	padding-left: 14px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.trackbit .v-table-footer td:last-child .v-table-footer-container {
+	padding-right: 6px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.trackbit .v-table-caption-container {
+	font-size: 13px;
+	font-weight: 600;
+	line-height: 1;
+	padding-top: 0.6em;
+	padding-bottom: 0.6em;
+	padding-left: 6px;
+	margin-left: 0;
+	border-left: none;
+}
+
+.trackbit .v-table-caption-container-align-right {
+	float: none;
+}
+
+.trackbit .v-table-header td:first-child .v-table-caption-container {
+	border-left-color: transparent;
+	margin-left: 8px;
+	padding-left: 4px;
+}
+
+.trackbit .v-table-header td:last-child .v-table-caption-container {
+	padding-right: 4px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.trackbit .v-table-resizer {
+	font-size: 13px;
+	height: 1.8em;
+	background: transparent;
+	width: 4px;
+}
+
+.trackbit .v-table-cell-wrapper {
+	font-size: 14px;
+	color: #717171;
+}
+
+.trackbit .v-table-cell-content {
+	border: none;
+	border-bottom: 1px solid #e5e8e8;
+	padding-top: 0.3em;
+	padding-bottom: 0.3em;
+}
+
+.trackbit .v-table-cell-content:first-child {
+	border-left-color: transparent;
+}
+
+.trackbit .v-table-cell-content:first-child .v-table-cell-wrapper {
+	padding-left: 8px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.trackbit .v-table-cell-content:last-child .v-table-cell-wrapper {
+	padding-right: 14px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.trackbit .v-table-body {
+	border: 0.1em solid #d4d5d5;
+}
+
+.trackbit tr[class^="v-table-row"]:hover {
+	background-color: #F5F5F5;
+}
+
+.trackbit tr[class^="v-table-row"]:hover .v-table-cell-wrapper {
+	color: #000;
+}
+
+.trackbit tr[class^="v-table-row"].v-selected:hover {
+	background-color: #428BCA;
+}
+
+.trackbit .v-table-row-odd {
+	background-color: #FFF;
+}
+
+.trackbit .v-table .v-selected {
+	background: #428BCA;
+	outline: none;
+}
+
+.trackbit .v-table .v-selected + .v-selected {
+	background: #5f9de1;
+}
+
+.trackbit .v-table .v-selected .v-table-cell-content {
+	border-left-color: transparent;
+}
+
+.trackbit .v-table .v-selected .v-table-cell-content .v-table-cell-wrapper {
+	color: #FFF;
+}
+
+.trackbit .v-table-header-cell-asc .v-table-sort-indicator, .trackbit .v-table-header-cell-desc .v-table-sort-indicator {
+	background: transparent;
+	width: 0.5em;
+	height: 1.8em;
+	font-size: 13px;
+	line-height: 2;
+	text-shadow: 0 0.1em rgba(255, 255, 255, 0.7);
+}
+
+.trackbit .v-table-header-cell-asc .v-table-sort-indicator:before, .trackbit .v-table-header-cell-desc .v-table-sort-indicator:before {
+	font-family: "fontello";
+	font-style: normal;
+	font-weight: normal;
+	speak: none;
+	display: inline-block;
+}
+
+.trackbit .v-table-header-cell-asc .v-table-sort-indicator:before {
+	content: "\25b4";
+}
+
+.trackbit .v-table-header-cell-desc .v-table-sort-indicator:before {
+	content: "\25be";
+}
+
+.trackbit .v-table.borderless .v-table-header-wrap, .trackbit .v-table.borderless .v-table-body {
+	border: none;
+}
+
+.trackbit .v-table.borderless .v-table-header-wrap {
+	border-bottom: 1px solid #d4d5d5;
+}
+
+.trackbit .v-table.borderless .v-table-footer-wrap {
+	border-top: 1px solid #d4d5d5;
+}
+
+.trackbit .v-table.plain .v-table-header-wrap {
+	background: transparent;
+	border: none;
+}
+
+.trackbit .v-table.plain .v-table-caption-container {
+	padding-top: 0.4em;
+	padding-bottom: 0.8em;
+}
+
+.trackbit .v-table.plain .v-table-row, .trackbit .v-table.plain .v-table-row-odd {
+	background: transparent;
+}
+
+.trackbit .v-table.plain .v-table-cell-content {
+	border-left-color: transparent;
+	border-bottom: 1px solid #eee;
+	padding-top: 0.3em;
+	padding-bottom: 0.3em;
+}
+
+.trackbit .v-table.plain .v-table-caption-container {
+	border-left-color: transparent;
+}
+
+.trackbit .v-table.style-primary .v-table-header-wrap, .trackbit .v-table.style-primary .v-table-footer-wrap {
+	background-color: #4FA8F7;
+	color: #FFF;
+}
+
+.trackbit .v-table.style-danger .v-table-header-wrap, .trackbit .v-table.style-danger .v-table-footer-wrap {
+	background-color: #E9573F;
+	color: #FFF;
+}
+
+.trackbit .v-table.style-success .v-table-header-wrap, .trackbit .v-table.style-success .v-table-footer-wrap {
+	background-color: #8CC152;
+	color: #FFF;
+}
+
+.trackbit .v-table.style-info .v-table-header-wrap, .trackbit .v-table.style-info .v-table-footer-wrap {
+	background-color: #3BAFDA;
+	color: #FFF;
+}
+
+.trackbit .v-table.style-warning .v-table-header-wrap, .trackbit .v-table.style-warning .v-table-footer-wrap {
+	background-color: #F6BB42;
+	color: #FFF;
+}
+
+.trackbit .v-table.style-dark .v-table-header-wrap, .trackbit .v-table.style-dark .v-table-footer-wrap {
+	background-color: #434A54;
+	color: #FFF;
+}
+
+.trackbit .v-tree .v-tree-node {
+	background-position: 5px -34px;
+}
+
+.trackbit .v-tree .v-tree-node-expanded {
+	background-position: -5px -6px;
+}
+
+.trackbit .v-tree .v-tree-node-selected span {
+	background-color: #4FA8F7;
+}
+
+.trackbit .webstyle {
+	background-color: #F7F7F7;
+	font-size: 12px;
+}
+
+.trackbit .webstyle .v-spacing {
+	height: 4px;
+}
+
+.trackbit .webstyle a {
+	text-decoration: none;
+	display: block;
+	width: 100%;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+
+.trackbit .webstyle a:hover {
+	text-decoration: underline;
+	color: #4FA8F7;
+}
+
+.trackbit .webstyle a:visited {
+	color: inherit;
+}
+
+.trackbit .webstyle .webstyle-title {
+	font-size: 16px;
+	cursor: pointer;
+	color: #4FA8F7;
+	line-height: 1.2em;
+}
+
+.trackbit .webstyle .webstyle-title.v-button {
+	background: none;
+	color: #4FA8F7;
+	border: none;
+	padding: 0px;
+	margin: 0px;
+}
+
+.trackbit .webstyle .webstyle-title.v-button .v-button-wrap {
+	padding: 0px;
+	text-align: left;
+}
+
+.trackbit .webstyle .webstyle-url {
+	color: #858585;
+	font-size: 11px;
+}
+
+.trackbit .webstyle .webstyle-url a:link {
+	color: #858585;
+}
+
+.trackbit .webstyle .webstyle-url.v-button {
+	background: none;
+	color: #4FA8F7;
+	border: none;
+	padding: 0px;
+	margin: 0px;
+}
+
+.trackbit .webstyle .webstyle-url.v-button .v-button-wrap {
+	padding: 0px;
+	text-align: left;
+}
+
+.trackbit .webstyle .webstyle-url a:hover {
+	color: #428BCA;
+}
+
+.trackbit .webstyle .webstyle-snippet {
+	color: #595959;
+	font-size: 12px;
+}
+
+.trackbit .widgetbox {
+	border-radius: 3px;
+	background-color: #FFFFFF;
+	border: 1px solid #C7C7C7;
+	overflow: visible;
+}
+
+.trackbit .widgetbox .widgetbox-header {
+	border-radius: 3px 3px 0px 0px;
+	color: #717171;
+}
+
+.trackbit .widgetbox .widgetbox-header .h3 {
+	font-size: 20px;
+	padding: 10px;
+	border-bottom: 1px solid #ddd;
+}
+
+.trackbit .widgetbox .widgetbox-content {
+	background-color: #FFFFFF;
+	overflow: visible;
+}
+
+.trackbit .v-window {
+	-webkit-animation: fade-in 160ms ease-out;
+	-moz-animation: fade-in 160ms ease-out;
+	-ms-animation: fade-in 160ms ease-out;
+	-o-animation: fade-in 160ms ease-out;
+	animation: fade-in 160ms ease-out;
+	opacity: 1;
+}
+
+.trackbit .v-window-closebox:before {
+	font-family: arial, sans-serif;
+	content: "\00D7";
+}
+
+.trackbit .v-window-closebox {
+	background: #343638;
+	color: #ddd;
+	font-size: 16px;
+	font-weight: normal;
+	line-height: 20px;
+	text-align: center;
+	width: 20px;
+	height: 20px;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	top: 8px;
+	right: 7px;
+}
+
+.trackbit .v-window-closebox:hover {
+	color: #fff;
+}
+
+.trackbit .v-window-closebox:active {
+	color: #ddd;
+	background: #000;
+}
+
+.trackbit .v-window-maximizebox {
+	width: 20px;
+	height: 20px;
+	font-size: 18px;
+	top: 5px;
+	right: 28px;
+	background: none;
+}
+
+.trackbit .v-window-maximizebox:before {
+	font-family: "trackbit";
+	content: "\f106";
+}
+
+.trackbit .v-window-restorebox {
+	width: 20px;
+	height: 20px;
+	font-size: 18px;
+	top: 5px;
+	right: 28px;
+	background: none;
+}
+
+.trackbit .v-window-restorebox:before {
+	font-family: "trackbit";
+	content: "\f107";
+}
+
+.trackbit .v-window-modalitycurtain {
+	opacity: 0.7;
+	filter: alpha(opacity=70);
+	background: #353637;
+	background: -moz-radial-gradient(center, ellipse cover, #4c4d4e 0%, #1b1c1c 100%);
+	background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, #4c4d4e), color-stop(100%, #1b1c1c));
+	background: -webkit-radial-gradient(center, ellipse cover, #4c4d4e 0%, #1b1c1c 100%);
+	background: -o-radial-gradient(center, ellipse cover, #4c4d4e 0%, #1b1c1c 100%);
+	background: -ms-radial-gradient(center, ellipse cover, #4c4d4e 0%, #1b1c1c 100%);
+}
+
+.trackbit .v-window-outerheader {
+	padding: 0.2em 15px;
+	font-weight: 300;
+	font-size: 20px;
+	background-color: #E5E5E5;
+	border-bottom: 1px solid #C7C7C7;
+}
+
+.trackbit .v-window-header {
+	font-weight: inherit;
+}
+
+.trackbit .dialog.v-window {
+	color: #a6a9aa;
+	font-size: 13px;
+}
+
+.trackbit .dialog.v-window .v-window-header {
+	text-align: center;
+	color: #fff;
+	font-size: 16px;
+	font-weight: 400;
+}
+
+.trackbit .v-window-footer {
+	height: 15px;
+}
+
+.trackbit .v-window-footer .v-window-resizebox {
+	background: url(data:image/gif;base64,R0lGODlhDwAOAIQbAHuAgnyBg36ChICDhoiMjo6SlJGVlpKWmJSXmpWZm5ibnZmdn5qdn5qdoJueoZufoJufoZ6io6Omqbe6vLm8vbu9v7y+wLy+wb2/wb3Awr7Bw////////////////////yH+EUNyZWF0ZWQgd2l0aCBHSU1QACH5BAEKAB8ALAAAAAAPAA4AAAU94CeOZGmeaAld6dg0rbgs8acodZJ8mpQiiA9mgEEdDp+KoIIyGD6UAOXziJQKhU8GMPkwCCbHyCIS186oEAA7) no-repeat right bottom transparent;
+	width: 15px;
+	height: 15px;
+}
+
+.trackbit.v-app {
+	background: #F5F5F5;
+}
+
+.trackbit .login-bg {
+	content: "";
+	position: absolute;
+	z-index: 1;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: #353637;
+	background: -moz-radial-gradient(center, ellipse cover, #4c4d4e 0%, #303131 100%);
+	background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, #4c4d4e), color-stop(100%, #303131));
+	background: -webkit-radial-gradient(center, ellipse cover, #4c4d4e 0%, #303131 100%);
+	background: -o-radial-gradient(center, ellipse cover, #4c4d4e 0%, #303131 100%);
+	background: -ms-radial-gradient(center, ellipse cover, #4c4d4e 0%, #303131 100%);
+	opacity: 0;
+	-webkit-transition: opacity 300ms linear;
+	-moz-transition: opacity 300ms linear;
+	-ms-transition: opacity 300ms linear;
+	-o-transition: opacity 300ms linear;
+	transition: opacity 300ms linear;
+	-webkit-animation: fade-in 160ms ease-out;
+	-moz-animation: fade-in 160ms ease-out;
+	-ms-animation: fade-in 160ms ease-out;
+	-o-animation: fade-in 160ms ease-out;
+	animation: fade-in 160ms ease-out;
+	opacity: 1;
+}
+
+.trackbit .main-view, .trackbit .login-layout {
+	position: relative;
+	z-index: 2;
+}
+
+.trackbit div.login-panel {
+	-webkit-animation: move-up-100 800ms cubic-bezier(0.165, 0.84, 0.44, 1);
+	-moz-animation: move-up-100 800ms cubic-bezier(0.165, 0.84, 0.44, 1);
+	-o-animation: move-up-100 800ms cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.trackbit .login-panel {
+	background: #fff;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	-webkit-box-shadow: 0 0px 4px #D0D0D0;
+	-moz-box-shadow: 0 0px 4px #D0D0D0;
+	box-shadow: 0 0px 4px #D0D0D0;
+	padding: 1em 1em 2em;
+}
+
+.trackbit .login-panel .labels, .trackbit .login-panel .fields {
+	display: block;
+}
+
+.trackbit .login-panel .v-textfield {
+	width: 150px;
+}
+
+.trackbit .login-panel .h1 {
+	font-size: 20px;
+	text-transform: uppercase;
+	color: #349AFF;
+	font-weight: bold;
+}
+
+.trackbit .login-panel .h2 {
+	padding: 0;
+	font-size: 20px;
+	color: #a0a0a0;
+}
+
+.trackbit .login-panel .error {
+	font-size: 13px;
+}
+
+.trackbit .v-animate-reveal {
+	opacity: 1;
+	-webkit-animation: reveal 100ms ease-in-out;
+	-moz-animation: reveal 100ms ease-in-out;
+	-o-animation: reveal 100ms ease-in-out;
+}
+
+.trackbit .sidebar {
+	background: none repeat-y top right #414243;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+.trackbit .sidebar .branding {
+	border-bottom: 1px solid #353637;
+	position: relative;
+	-webkit-font-smoothing: antialiased;
+}
+
+.trackbit .sidebar .branding .v-label {
+	position: relative;
+	z-index: 2;
+	white-space: normal;
+	font-size: 19px;
+	height: 70px;
+	line-height: 1.1;
+	color: #fff;
+	text-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
+	display: block !important;
+	padding: 0.8em 0.8em 1.2em;
+}
+
+.trackbit .sidebar .branding .v-label span {
+	font-size: 13px;
+	color: #d0d1d3;
+	display: block;
+}
+
+.trackbit .sidebar .branding .v-image {
+	position: absolute;
+	z-index: 1;
+	top: 0;
+	left: 0;
+	width: 100%;
+}
+
+.trackbit .sidebar .menu {
+	overflow: auto;
+	height: 100%;
+}
+
+.trackbit .sidebar .menu .v-ddwrapper {
+	padding: 2px;
+}
+
+.trackbit .sidebar .menu .v-ddwrapper .v-nativebutton {
+	margin: -2px -2px;
+}
+
+.trackbit .sidebar .menu .v-ddwrapper-over {
+	padding: 0;
+	border: 2px solid #2d90f3;
+	background: transparent;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+}
+
+.trackbit .sidebar .menu .v-nativebutton {
+	-webkit-appearance: none;
+	display: block;
+	padding: 10px 14px 10px;
+	width: 100%;
+	border: none;
+	margin: 0;
+	position: relative;
+	background: transparent;
+	color: #888a8c;
+	font-weight: normal;
+	text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
+	text-align: left !important;
+}
+
+.trackbit .sidebar .menu .v-nativebutton-caption {
+	font-size: 12px;
+	font-weight: 600;
+	text-transform: uppercase;
+	display: inline-block;
+	padding-left: 3px;
+	position: relative;
+}
+
+.trackbit .sidebar .menu .v-nativebutton:focus {
+	outline: none;
+}
+
+.trackbit .sidebar .menu .v-nativebutton:hover, .trackbit .sidebar .menu .v-nativebutton:focus {
+	color: #e1e1e1;
+}
+
+.trackbit .sidebar .menu .v-nativebutton:before {
+	font-size: 24px;
+	line-height: 1;
+	margin: 0;
+	vertical-align: middle;
+}
+
+.v-webkit .trackbit .menu .v-nativebutton:before {
+	-webkit-transition: opacity ease-in-out 200ms;
+	-moz-transition: opacity ease-in-out 200ms;
+	-ms-transition: opacity ease-in-out 200ms;
+	-o-transition: opacity ease-in-out 200ms;
+	transition: opacity ease-in-out 200ms;
+}
+
+.v-webkit .trackbit .menu .v-nativebutton:hover:before, .v-webkit .trackbit .menu .v-nativebutton:focus:before {
+	opacity: 1;
+}
+
+.trackbit .sidebar .menu .v-nativebutton:active {
+	background: rgba(0, 0, 0, 0.1);
+}
+
+.trackbit .sidebar .menu .v-nativebutton.selected {
+	color: #FFFFFF;
+	text-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
+	background: #333537;
+	background: -moz-linear-gradient(top, #2d2f30 0%, #333537 10%, #333537 90%, #2d2f30 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #2d2f30), color-stop(10%, #333537), color-stop(90%, #333537), color-stop(100%, #2d2f30));
+	background: -webkit-linear-gradient(top, #2d2f30 0%, #333537 10%, #333537 90%, #2d2f30 100%);
+	background: -o-linear-gradient(top, #2d2f30 0%, #333537 10%, #333537 90%, #2d2f30 100%);
+	background: -ms-linear-gradient(top, #2d2f30 0%, #333537 10%, #333537 90%, #2d2f30 100%);
+	-webkit-transition: none;
+	border-right: 4px solid #4FA8F7;
+}
+
+.v-webkit .trackbit .menu .v-nativebutton.selected:before {
+	text-shadow: none;
+	opacity: 1;
+}
+
+.trackbit .badge, .trackbit .notifications .v-button-caption {
+	display: inline-block;
+	font-size: 11px;
+	line-height: 1;
+	color: #fff;
+	text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+	padding: 0.1em 0.4em 0.2em;
+	background: #ec3120;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+}
+
+.trackbit .menu .v-nativebutton .badge {
+	position: absolute;
+	top: -6px;
+	right: -22px;
+}
+
+.trackbit .sidebar .user {
+	display: block;
+	border-top: 1px solid #303132;
+	background: #3b3c3d;
+	background-color: rgba(0, 0, 0, 0.1);
+	color: #898c8e;
+	text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+	-webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+	-moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.trackbit .sidebar .user > .v-slot {
+	display: inline-block;
+	width: 50%;
+}
+
+.trackbit .sidebar .user > .v-slot:first-child {
+	width: 34px;
+}
+
+.trackbit .sidebar .user .v-image {
+	width: 34px;
+	height: 34px;
+	border-right: 1px solid #313132;
+}
+
+.trackbit .sidebar .user .v-label {
+	white-space: normal;
+	font-size: 12px;
+	line-height: 14px;
+	font-weight: 600;
+	max-width: 50px;
+	overflow: visible;
+	padding: 2px 8px;
+	height: 34px;
+	color: inherit;
+	-webkit-font-smoothing: antialiased;
+}
+
+.trackbit .sidebar .user .v-nativebutton, .trackbit .sidebar .user .v-menubar {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	border: none;
+	border-top: 1px solid #303132;
+	background: transparent;
+	width: 100%;
+	padding: 0;
+	color: inherit;
+}
+
+.trackbit .sidebar .user .v-nativebutton:focus {
+	outline: none;
+}
+
+.trackbit .sidebar .user .v-nativebutton:hover, .trackbit .sidebar .user .v-menubar-menuitem:hover {
+	color: #e1e1e1;
+}
+
+.trackbit .sidebar .user .v-nativebutton-caption {
+	display: none;
+}
+
+.trackbit .sidebar .user .v-nativebutton:before, .trackbit .sidebar .user .v-menubar-menuitem:before {
+	font-size: 16px;
+	margin: 0;
+	display: block;
+	border-top: 1px solid #434445;
+	padding: 0.3em 0 0.4em;
+}
+
+.trackbit .sidebar .user .v-menubar-menuitem {
+	border-right: 1px solid #434445;
+	display: block !important;
+	cursor: pointer;
+}
+
+.trackbit .sidebar .user .icon-cancel {
+	border-left: 1px solid #303132;
+}
+
+.trackbit .layout-panel {
+	background: #fff;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	-webkit-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.14), 0 0 0 1px rgba(0, 0, 0, 0.07);
+	-moz-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.14), 0 0 0 1px rgba(0, 0, 0, 0.07);
+	box-shadow: 0 2px 3px rgba(0, 0, 0, 0.14), 0 0 0 1px rgba(0, 0, 0, 0.07);
+}
+
+.v-ie8 .trackbit .layout-panel {
+	border: 1px solid #d8d9d9;
+}
+
+.trackbit .main-view {
+	-webkit-animation: fade-in 160ms ease-out;
+	-moz-animation: fade-in 160ms ease-out;
+	-ms-animation: fade-in 160ms ease-out;
+	-o-animation: fade-in 160ms ease-out;
+	animation: fade-in 160ms ease-out;
+	opacity: 1;
+	background: #fff;
+}
+
+.trackbit .view-content {
+	overflow: auto;
+	background-color: #DFE5E9;
+}
+
+.trackbit .toolbar {
+	padding: 20px;
+	color: #656D78;
+	background-color: #FFFFFF;
+	border-bottom: 1px solid #DDDDDD;
+}
+
+.trackbit .toolbar .h1 {
+	font-size: 30px;
+	font-weight: bold;
+}
+
+.trackbit .dashboard-view .view-body {
+	padding: 20px;
+}
+
+.trackbit .table-view {
+	padding: 20px;
+}
+
+.trackbit .research-view {
+	padding: 20px;
+}

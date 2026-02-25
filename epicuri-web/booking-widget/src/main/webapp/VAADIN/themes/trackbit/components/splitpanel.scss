@@ -1,0 +1,39 @@
+@mixin trackbit-splitpanel {
+	.v-splitpanel-horizontal, .v-splitpanel-vertical {
+		.v-label {
+			font-size: 14px;
+		}
+	}
+	.v-splitpanel-hsplitter {
+		border-width: 0px 1px;
+		border-style: solid;
+		border-color: #DDD;
+		cursor: col-resize;
+		&:hover {
+			background-color: #EEE;
+		}
+		div {
+			height: 60px;
+			top: 50%;
+			margin-top: -30px;
+			background-color: $primary-color;
+		}
+	}
+	
+	.v-splitpanel-vsplitter {
+		border-width: 1px 0px;
+		border-style: solid;
+		border-color: #DDD;
+		cursor: row-resize;
+		&:hover {
+			background-color: #EEE;
+		}
+		div {
+			width: 60px;
+			position: absolute;
+			left: 50%;
+			margin-left: -30px;
+			background-color: $primary-color;
+		}
+	}
+}
