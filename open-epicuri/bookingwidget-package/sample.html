@@ -1,0 +1,38 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+    <!-- The file libraries that need to be referenced -->
+    <!-- Feel free to write your own css and plug it in to make the widget fit into your website-->
+    <link href="https://epicuri.co.uk/open/bookingwidget/epicuribooking.css" rel="stylesheet"/>
+
+    <!-- Required libraries -->
+    <!-- Feel free to download these and host on your own site, if you like... Be sure to keep up to date with upgrades in that case! -->
+    <script src="https://epicuri.co.uk/open/bookingwidget/jquery.js"></script>
+    <script src="https://epicuri.co.uk/open/bookingwidget/jquery-validation.js"></script>
+    <script src="https://epicuri.co.uk/open/bookingwidget/epicuribooking.js"></script>
+
+    <!-- This will create the plugin on the element with an ID 'restaurant-plugin' (see jQuery queries for more details) -->
+    <script>
+        // You can also use "$(window).load(function() {"
+        $(function () {
+            $("#restaurant-plugin").epicuribooking({
+                <!-- This is the numeric ID you use on the Waiter App. Every restaurant has a unique ID -->
+                apiId: 101,
+
+                <!-- Language setting. See epicuri.freshdesk.com/solution/articles/5000628999-booking-widget for valid language codes -->
+                language : "en",
+
+                <!-- These are the colors that the user can configure -->
+                backgroundColor: "#000",
+                backgroundColorLight: "#202020",
+                highlightColor: "#6A0623",
+                highlightColorLight: "#A6102B",
+                textColor: "white"
+            });
+        });
+    </script>
+</head>
+<body>
+<!-- Here is the element that will change -->
+<div id="restaurant-plugin"></div>
+</body>
+</html>
