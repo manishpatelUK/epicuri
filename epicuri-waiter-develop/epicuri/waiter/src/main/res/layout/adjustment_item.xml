@@ -1,0 +1,6 @@
+<android.support.v7.widget.AppCompatButton xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/text"
+    style="@style/QuickOrderButton"
+    tools:text="@string/app_name" />

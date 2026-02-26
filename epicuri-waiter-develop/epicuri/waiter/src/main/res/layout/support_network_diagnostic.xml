@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="20sp"
+    android:layout_marginRight="20sp"
+    android:layout_marginStart="20sp"
+    android:layout_marginEnd="20sp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Check connectivity to Epicuri servers and the Internet to diagnose networking issues"
+        android:textAlignment="center"
+        android:gravity="center"
+        android:paddingBottom="15sp"
+        android:paddingTop="15sp"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30sp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginLeft="20sp"
+                android:layout_marginRight="20sp"
+                android:weightSum="100">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="WiFi Gateway"
+                    android:textSize="18sp"
+                    android:layout_weight="50"/>
+
+                <TextView
+                    android:id="@+id/wifiGateway"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/working"
+                    android:textSize="18sp"
+                    android:layout_weight="50"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginLeft="20sp"
+                android:layout_marginRight="20sp"
+                android:weightSum="100">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="WiFi Connection Speed"
+                    android:textSize="18sp"
+                    android:layout_weight="50"/>
+
+                <TextView
+                    android:id="@+id/connectionSpeed"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/working"
+                    android:textSize="18sp"
+                    android:layout_weight="50"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginLeft="20sp"
+                android:layout_marginRight="20sp"
+                android:weightSum="100">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="State"
+                    android:textSize="18sp"
+                    android:layout_weight="50"/>
+
+                <TextView
+                    android:id="@+id/networkState"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/working"
+                    android:textSize="18sp"
+                    android:layout_weight="50"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginLeft="20sp"
+                android:layout_marginRight="20sp"
+                android:weightSum="100">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Internet Speed"
+                    android:textSize="18sp"
+                    android:layout_weight="50"/>
+
+                <TextView
+                    android:id="@+id/internetSpeed"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/working"
+                    android:textSize="18sp"
+                    android:layout_weight="50"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginLeft="20sp"
+                android:layout_marginRight="20sp"
+                android:weightSum="100">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Connection to Epicuri Server"
+                    android:textSize="18sp"
+                    android:layout_weight="50"/>
+
+                <TextView
+                    android:id="@+id/epicuriConnection"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/working"
+                    android:textSize="18sp"
+                    android:layout_weight="50"/>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/networkRefreshButton"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginTop="15sp"
+            android:text="refresh"/>
+    </LinearLayout>
+</LinearLayout>

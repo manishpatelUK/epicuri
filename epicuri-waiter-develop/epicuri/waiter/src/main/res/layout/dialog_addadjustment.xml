@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              android:padding="@dimen/abc_dialog_padding_material">
+
+    <TextView
+        android:text="Amount"
+        android:layout_width="match_parent"
+        android:layout_gravity="center_vertical"
+        android:layout_height="wrap_content"
+        style="@style/TextAppearance.Epicuri.FormCaption"
+        />
+
+    <EditText
+        android:hint="Amount"
+        android:id="@+id/amount"
+        android:inputType="numberDecimal"
+        android:selectAllOnFocus="true"
+        android:layout_height="wrap_content"
+        android:minHeight="48dp"
+        android:layout_width="match_parent"/>
+
+    <TextView
+        android:text="Adjustment Type"
+        android:layout_width="match_parent"
+        android:layout_gravity="center_vertical"
+        android:layout_marginTop="@dimen/padding_medium"
+        style="@style/TextAppearance.Epicuri.FormCaption"
+        android:layout_height="wrap_content"/>
+
+    <Spinner
+        android:id="@+id/adjustmentType"
+        android:minHeight="48dp"
+        android:backgroundTint="@color/black"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="100">
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="50">
+
+            <TextView
+                android:text="Discount type"
+                android:layout_width="wrap_content"
+                android:layout_marginTop="@dimen/padding_medium"
+                style="@style/TextAppearance.Epicuri.FormCaption"
+                android:layout_height="wrap_content"/>
+
+            <RadioGroup
+                android:orientation="vertical"
+                android:id="@+id/percentage"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content">
+
+                <RadioButton
+                    android:id="@+id/percentage_yes"
+                    android:text="Percentage"
+                    android:minHeight="48dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"/>
+
+                <RadioButton
+                    android:id="@+id/percentage_no"
+                    android:text="Monetary"
+                    android:minHeight="48dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"/>
+            </RadioGroup>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/food_type_box"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="50"
+            android:layout_gravity="center_horizontal">
+
+            <TextView
+                android:text="@string/food_type_title"
+                android:layout_width="wrap_content"
+                android:layout_marginTop="@dimen/padding_medium"
+                style="@style/TextAppearance.Epicuri.FormCaption"
+                android:layout_height="wrap_content"/>
+
+            <RadioGroup
+                android:orientation="vertical"
+                android:id="@+id/food_type"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content">
+
+                <RadioButton
+                    android:id="@+id/type_all"
+                    android:text="@string/all_type"
+                    android:minHeight="48dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"/>
+
+                <RadioButton
+                    android:id="@+id/type_food"
+                    android:text="@string/food_type"
+                    android:minHeight="48dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"/>
+
+                <RadioButton
+                    android:id="@+id/type_drink"
+                    android:text="@string/drink_type"
+                    android:minHeight="48dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"/>
+
+                <RadioButton
+                    android:id="@+id/type_other"
+                    android:text="@string/other_type"
+                    android:minHeight="48dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"/>
+            </RadioGroup>
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

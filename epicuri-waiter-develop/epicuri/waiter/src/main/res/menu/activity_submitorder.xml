@@ -1,0 +1,30 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/menu_setToASAP"
+        android:orderInCategory="101"
+        app:showAsAction="always"
+        android:icon="@drawable/ic_action_asap"
+        android:title="@string/asap"/>
+
+    <item
+        android:id="@+id/menu_setToDefault"
+        android:orderInCategory="101"
+        app:showAsAction="always"
+        android:visible="false"
+        android:icon="@drawable/ic_action_default"
+        android:title="@string/defaultCourses"/>
+
+    <item
+        android:id="@+id/menu_showDiners"
+        android:orderInCategory="101"
+        app:showAsAction="always"
+        android:title="@string/menu_perGuest"/>
+    <item
+        android:id="@+id/menu_submitOrder"
+        android:orderInCategory="101"
+        app:showAsAction="always"
+        android:title="Submit Order"/>
+
+</menu>

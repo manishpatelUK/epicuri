@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="uk.co.epicuri.waiter">
+
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <!-- for writing image cache -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+
+    <application
+        android:name=".EpicuriApplication"
+        android:allowBackup="false"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:theme="@style/Epicuri"
+        android:usesCleartextTraffic="true"
+
+        tools:ignore="GoogleAppIndexingWarning">
+        <provider
+            android:name="uk.co.epicuri.waiter.contentprovider.EpicuriContent"
+            android:authorities="uk.co.epicuri.waiter.contentprovider.EpicuriContent"
+            android:enabled="true"
+            android:exported="false">
+        </provider>
+
+        <provider
+            android:name="com.activeandroid.content.ContentProvider"
+            android:authorities="uk.co.epicuri.waiter"
+            android:enabled="true"
+            android:exported="false">
+        </provider>
+        <activity
+            android:name=".ui.HubActivity"
+            android:theme="@style/Epicuri.NoActionBar"
+            android:windowSoftInputMode="adjustNothing"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ui.LoginActivity"
+            android:label="Epicuri Login"
+            android:theme="@style/EpicuriOrangeBackground"
+            android:windowSoftInputMode="adjustResize|stateVisible"/>
+        <activity
+            android:name=".ui.QuickOrderActivity"
+            android:label="Quick Order"
+            android:parentActivityName=".ui.HubActivity"/>
+        <activity
+            android:name=".ui.SeatedSessionActivity"
+            android:label="@string/title_activity_table"
+            android:parentActivityName=".ui.HubActivity"/>
+        <activity
+            android:name=".ui.EpicuriPreferenceActivity"
+            android:label="Network Preferences"
+            android:parentActivityName=".ui.LoginActivity"/>
+        <activity
+            android:name=".ui.OrderingActivity"
+            android:label="@string/title_activity_ordering"
+            android:parentActivityName=".ui.SeatedSessionActivity"
+            android:windowSoftInputMode="adjustNothing"/>
+        <activity
+            android:name=".ui.EndOfDayActivity"
+            android:label="End of day"
+            android:parentActivityName=".ui.HubActivity"/>
+        <activity
+            android:name=".ui.CashUpActivity"
+            android:label="Cash Up"
+            android:parentActivityName=".ui.HubActivity"/>
+        <activity
+            android:name=".ui.SessionHistoryActivity"
+            android:label="@string/menu_session_history"
+            android:parentActivityName=".ui.HubActivity"/>
+        <activity
+            android:name=".ui.ReservationsActivity"
+            android:label="@string/title_activity_reservations"
+            android:parentActivityName=".ui.HubActivity"/>
+        <activity
+            android:name=".ui.ReservationEditActivity"
+            android:label="@string/title_activity_reservations"
+            android:parentActivityName=".ui.HubActivity"/>
+        <activity
+            android:name=".ui.TableEditActivity"
+            android:label="@string/title_activity_tableedit"
+            android:parentActivityName=".ui.SeatedSessionActivity"/>
+        <activity
+            android:name=".ui.FloorplanEditActivity"
+            android:label="@string/title_activity_floorplanedit"
+            android:parentActivityName=".ui.HubActivity"/>
+        <activity
+            android:name=".ui.SubmitOrderActivity"
+            android:label="@string/title_activity_submitorder"
+            android:parentActivityName=".ui.OrderingActivity"/>
+        <activity
+            android:name=".ui.FloorplanManagerActivity"
+            android:label="@string/title_activity_floorplanmanager"
+            android:parentActivityName=".ui.HubActivity"/>
+        <activity
+            android:name=".ui.menueditor.EditMenuActivity"
+            android:label="@string/title_activity_menumanager"
+            android:parentActivityName=".ui.HubActivity"
+            android:theme="@style/Epicuri.NoActionBar"/>
+        <activity
+            android:name=".ui.menueditor.MenuItemsActivity"
+            android:label="@string/title_activity_menumanager"
+            android:parentActivityName=".ui.HubActivity"/>
+        <activity
+            android:name=".ui.menueditor.EditMenuItemActivity"
+            android:label="@string/title_activity_menumanager"
+            android:parentActivityName=".ui.menueditor.MenuItemsActivity"/>
+        <activity
+            android:name=".ui.menueditor.EditModifierGroupActivity"
+            android:label="@string/title_activity_menumanager"
+            android:parentActivityName=".ui.menueditor.ModifierGroupsActivity"/>
+        <activity
+            android:name=".ui.menueditor.ModifierGroupsActivity"
+            android:label="@string/title_activity_menumanager"
+            android:parentActivityName=".ui.HubActivity"/>
+        <activity
+            android:name=".ui.WebViewActivity"
+            android:label="Web View"
+            android:parentActivityName=".ui.HubActivity"/>
+        <activity
+            android:name=".ui.LoginManagerActivity"
+            android:label="Login Manager"
+            android:parentActivityName=".ui.HubActivity"/>
+        <activity
+            android:name=".printing.PrintQueueActivity"
+            android:label="Print Queue"
+            android:parentActivityName=".ui.HubActivity"/>
+        <activity
+            android:name=".ui.TakeawaysActivity"
+            android:label="Takeaways"
+            android:parentActivityName=".ui.HubActivity"/>
+        <activity
+            android:name=".ui.TakeawayActivity"
+            android:label="Takeaways"
+            android:parentActivityName=".ui.TakeawaysActivity"/>
+        <activity
+            android:name=".ui.LockActivity"
+            android:label="Lock Screen"
+            android:theme="@style/EpicuriOrangeBackground"
+            android:windowSoftInputMode="adjustResize"/>
+
+        <activity android:name=".ui.SupportActivity"
+            android:label="Support"
+            android:parentActivityName=".ui.HubActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".ui.DeferredSessionsActivity"
+            android:label="Customer Account"
+            android:parentActivityName=".ui.HubActivity"/>
+
+        <service
+            android:name=".LoginSessionService"
+            android:exported="false"/>
+        <service
+            android:name=".loaders.UpdateService"
+            android:exported="false"/>
+        <service
+            android:name=".printing.PrintQueueService"
+            android:exported="false"/>
+
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="8f89d4c87e59ec4719094e28d1efc649c018ee15"/>
+
+        <service
+            android:name=".printing.PrintBitmapService"
+            android:exported="false">
+        </service>
+
+        <provider
+            android:name="com.activeandroid.content.ContentProvider"
+            android:authorities="uk.co.epicuri.waiter"
+            android:enabled="true"
+            android:exported="false">
+        </provider>
+
+        <service android:name=".printing.PrintDirectlyService"
+                 android:exported="false">
+        </service>
+
+        <activity android:name=".ui.PaymentSenseActivity"
+                  android:label="Reports">
+        </activity>
+    </application>
+
+</manifest>

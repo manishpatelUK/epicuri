@@ -1,0 +1,15 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/menu_additems"
+        android:orderInCategory="101"
+        app:showAsAction="always"
+        android:title="Add Items"/>
+    <item
+        android:id="@+id/menu_submitOrder"
+        android:orderInCategory="101"
+        app:showAsAction="always"
+        android:title="Next"/>
+
+</menu>

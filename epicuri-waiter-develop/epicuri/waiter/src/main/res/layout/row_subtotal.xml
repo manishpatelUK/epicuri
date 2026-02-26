@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/row_holder"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/darkgray">
+
+    <TextView
+        android:id="@+id/orderQuantity"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:layout_weight="1"
+        android:textColor="@color/white"
+        android:padding="@dimen/padding_small"
+        android:text="- Dishes Ordered"/>
+
+    <TextView
+        android:id="@+id/orderTotal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:gravity="right"
+        android:textAppearance="@style/TextAppearance.Epicuri.Body2"
+        android:textColor="@color/white"
+        android:padding="@dimen/padding_small"/>
+    <!--
+        android:textAppearance="?android:attr/textAppearanceLarge" -->
+</LinearLayout>

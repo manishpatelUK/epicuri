@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/hub_row"
+                android:paddingBottom="@dimen/padding_small"
+                android:paddingRight="@dimen/padding_medium"
+                android:paddingTop="@dimen/padding_small">
+
+    <!-- <View -->
+    <!-- android:id="@+id/quickStatus" -->
+    <!-- android:layout_width="@dimen/padding_medium" -->
+    <!-- android:layout_height="match_parent" -->
+    <!-- android:layout_alignBottom="@+id/title" -->
+    <!-- android:layout_alignParentTop="true" /> -->
+
+
+    <!-- <ImageView -->
+    <!-- android:id="@+id/action" -->
+    <!-- android:layout_width="wrap_content" -->
+    <!-- android:layout_height="wrap_content" -->
+    <!-- android:layout_centerVertical="true" -->
+    <!-- android:layout_marginLeft="@dimen/padding_medium" -->
+    <!-- android:layout_toRightOf="@+id/quickStatus" /> -->
+
+    <ImageView
+        android:id="@+id/type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_centerVertical="true"
+        android:src="@drawable/adhoc" />
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="72dp"
+        android:layout_alignParentLeft="true"
+        android:layout_toLeftOf="@+id/actionPostpone"
+        tools:text="Request bill"
+        android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+
+    <TextView
+        android:id="@+id/detail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/title"
+        tools:text="Party of 2, seated on table 9"
+        android:layout_below="@+id/title" />
+
+    <LinearLayout
+        android:id="@+id/dates_layout"
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/actionDue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Due 9:36 18-May"
+            android:layout_gravity="right"/>
+
+        <TextView
+            android:id="@+id/actionOverDue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            tools:text="About 2 hours late"
+            android:textColor="@color/redtext" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/actionPostpone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="@dimen/padding_medium"
+        android:layout_toLeftOf="@+id/dates_layout"
+        android:clickable="true"
+        android:src="@drawable/ic_postpone" />
+
+</RelativeLayout>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Check for connectivity issues or set up your printers"
+        android:textAlignment="center"
+        android:gravity="center"
+        android:paddingBottom="15sp"
+        android:paddingTop="15sp"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Configured Printers"
+                android:textSize="18sp"
+                android:background="@color/midgray"/>
+
+            <ProgressBar
+                android:id="@+id/configuredPrintersProgressBar"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:indeterminateOnly="true"
+                android:visibility="invisible" />
+
+            <LinearLayout
+                android:id="@+id/printerRowData"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingBottom="15sp"
+                android:paddingLeft="10sp"
+                android:paddingRight="10sp">
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Printer Discovery"
+                android:textSize="18sp"
+                android:background="@color/midgray"/>
+
+            <ProgressBar
+                android:id="@+id/discoveredPrintersProgressBar"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="invisible"
+                android:indeterminateOnly="true"/>
+
+            <LinearLayout
+                android:id="@+id/discoveredPrinterView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingLeft="10sp"
+                android:paddingRight="10sp">
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/printerSearchButton"
+                android:layout_width="180sp"
+                android:layout_height="wrap_content"
+                android:text="@string/menu_search"
+                android:layout_gravity="center"/>
+        </LinearLayout>
+
+    </ScrollView>
+</LinearLayout>

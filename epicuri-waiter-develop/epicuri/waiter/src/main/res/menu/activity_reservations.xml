@@ -1,0 +1,23 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/menu_pending"
+        app:actionLayout="@layout/actionlayout_delivery"
+        android:icon="@drawable/ic_action_reservations"
+        app:showAsAction="always"
+        android:title="Pending Reservations"/>
+    <item
+        android:id="@+id/menu_add"
+        android:icon="@drawable/ic_action_add_reservation"
+        android:orderInCategory="101"
+        app:showAsAction="ifRoom"
+        android:title="Add Reservation"/>
+    <item
+        android:id="@+id/menu_refresh"
+        android:icon="@drawable/ic_action_refresh"
+        app:showAsAction="always"
+        android:orderInCategory="999"
+        android:title="@string/menu_refresh"/>
+
+</menu>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/menu_add"
+        app:showAsAction="always"
+        android:title="@string/menu_new_item"/>
+    <item
+        android:id="@+id/menu_manage"
+        app:showAsAction="always"
+        android:visible="false"
+        android:title="@string/menu_choose_menuitems"/>
+    <item
+        android:id="@+id/sort_items"
+        app:showAsAction="always"
+        android:visible="false"
+        android:title="@string/sort_menuitems"/>
+</menu>

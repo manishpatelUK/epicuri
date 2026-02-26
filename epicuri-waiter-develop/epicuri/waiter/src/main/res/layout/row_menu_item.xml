@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <TextView
+        android:id="@+id/title"
+        android:textAppearance="?android:attr/textAppearanceLarge" 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Random text to fit g or not we will se if it "
+        android:layout_toLeftOf="@id/price"
+        android:paddingLeft="@dimen/padding_medium"
+        android:layout_marginRight="2dp"/>
+
+    <TextView
+        android:id="@+id/detail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/title"
+        android:layout_below="@+id/title"
+        android:layout_toLeftOf="@+id/price"
+        android:paddingLeft="@dimen/padding_medium" />
+
+    <TextView
+        android:id="@+id/price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/detail"
+        android:layout_alignParentRight="true"
+        android:paddingRight="@dimen/padding_medium"
+        android:textColor="@color/textgray"
+        android:text="432334"/>
+
+</RelativeLayout>

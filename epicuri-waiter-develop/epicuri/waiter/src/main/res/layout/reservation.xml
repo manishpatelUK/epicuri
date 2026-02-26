@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/reservation"
+    android:padding="12dp" >
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="Peter Jones"
+        android:textColor="#ffffffff"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        />
+
+    <TextView
+        android:id="@+id/startTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="12:00"
+        android:textColor="#ffffffff" />
+
+    <ImageView
+        android:id="@+id/epicuri"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/name"
+        android:layout_alignTop="@+id/name"
+        android:layout_toRightOf="@+id/name"
+        android:scaleType="centerInside"
+        android:src="@drawable/epicuri_white" />
+
+    <ImageView
+        android:id="@+id/unsavedChanges"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/name"
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_action_save" />
+
+    <TextView
+        android:id="@+id/numberInParty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/startTime"
+        android:text="7 diners"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="#ffffffff" />
+
+</RelativeLayout>

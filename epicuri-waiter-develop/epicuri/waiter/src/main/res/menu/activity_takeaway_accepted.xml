@@ -1,0 +1,43 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/menu_refresh"
+        android:icon="@drawable/ic_action_refresh"
+        android:orderInCategory="999"
+        app:showAsAction="always"
+        android:title="Refresh"/>
+    <item
+        android:id="@+id/menu_edit"
+        android:icon="@drawable/ic_action_edit"
+        android:orderInCategory="100"
+        app:showAsAction="always"
+        android:title="@string/menu_editTakeaway"/>
+    <item
+        android:id="@+id/menu_cancel"
+        android:orderInCategory="100"
+        app:showAsAction="never"
+        android:title="@string/menu_cancelTakeaway"/>
+    <item
+        android:id="@+id/menu_requestbill"
+        android:icon="@drawable/ic_action_requestbill"
+        app:showAsAction="always"
+        android:title="@string/requestBill"/>
+    <item
+            android:id="@+id/menu_addPayment"
+            android:icon="@drawable/ic_action_add_payment"
+            app:showAsAction="never"
+            android:title="@string/menu_addPayment"/>
+    <item
+            android:id="@+id/menu_addDiscount"
+            android:icon="@drawable/ic_action_add_discount"
+            app:showAsAction="never"
+            android:title="@string/menu_addDiscount"/>
+    <item
+            android:id="@+id/menu_forceCloseSession"
+            android:icon="@drawable/ic_action_closesession"
+            android:orderInCategory="100"
+            app:showAsAction="never"
+            android:title="@string/menu_forceCloseTakeaway"/>
+
+</menu>

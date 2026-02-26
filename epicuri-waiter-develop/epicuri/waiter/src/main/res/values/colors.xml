@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources >
+	<color name="white">#ffff</color>
+	<color name="blue">#ff00c0ff</color>
+	<color name="darkgray">#ff333333</color>
+	<color name="groupGray">#595858</color>
+	<color name="midgray">#ff999999</color>
+	<color name="textgray">#ff9c9c9c</color>
+	<color name="lightgray">#ffcccccc</color>
+	<color name="orange">#ffeb5b05</color>
+    <color name="darkOrange">#a03e03</color>
+	
+	<color name="green">#99CC00</color>
+	<color name="amber">#ffffd060</color>
+	<color name="red">#ffFF4444</color>
+	
+	<color name="redtext">#ffff0000</color>
+	
+	<color name="table_empty">#0000</color>
+	<color name="table_selectable">#2200c0ff</color>
+	<color name="table_busy">#2222</color>
+	<color name="table_busy_border">#4222</color>
+	<color name="table_idle">@color/green</color>
+	<color name="table_soon">@color/amber</color>
+	<color name="table_attention">@color/red</color>
+    <color name="black">#ff000000</color>
+
+	<color name="qo_red">#ef5350</color>
+	<color name="qo_green">#9ccc65</color>
+	<color name="qo_blue">#64b5f6</color>
+
+	<color name="qo_bar_green">#829356</color>
+	<color name="qo_bar_blue">#0d3d56</color>
+</resources>

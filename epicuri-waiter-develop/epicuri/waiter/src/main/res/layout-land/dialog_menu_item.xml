@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minWidth="360dp"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="match_parent"
+            android:layout_height="220dp"
+            android:layout_gravity="center_horizontal"
+            android:maxHeight="220dp"
+            android:scaleType="centerCrop"
+            android:visibility="gone"
+            tools:visibility="visible" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/item_name"
+                style="@style/DetailsText"
+                android:layout_width="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:textSize="24sp"
+                tools:text="@string/app_name" />
+
+
+            <TextView
+                android:id="@+id/item_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:gravity="center"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textSize="18sp"
+                tools:text="@string/app_name" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/description"
+                    style="@style/DetailsText"
+                    android:drawableLeft="@drawable/ic_description"
+                    tools:text="" />
+
+                <TextView
+                    android:id="@+id/allergens"
+                    style="@style/DetailsText"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:visibility="gone"
+                    tools:visibility="visible"
+                    android:drawableLeft="@drawable/ic_ambulance"
+                    android:drawableStart="@drawable/ic_ambulance"
+                    tools:text="" />
+
+                <TextView
+                    android:id="@+id/diet"
+                    style="@style/DetailsText"
+                    android:visibility="gone"
+                    tools:visibility="visible"
+                    android:layout_marginTop="12dp"
+                    android:drawableLeft="@drawable/ic_diet"
+                    android:drawableStart="@drawable/ic_diet"
+                    tools:text="@string/app_name" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/price"
+            style="@style/DetailsText"
+            android:layout_width="wrap_content"
+            android:layout_gravity="end"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            tools:text="@string/app_name" />
+
+    </LinearLayout>
+</ScrollView>

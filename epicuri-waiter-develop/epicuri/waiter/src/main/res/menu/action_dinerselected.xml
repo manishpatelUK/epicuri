@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/menu_send_email"
+        android:icon="@drawable/ic_action_email"
+        app:showAsAction="always"
+        android:title="Send Email"/>
+    <item
+        android:id="@+id/menu_print"
+        android:icon="@drawable/ic_action_print_diner"
+        app:showAsAction="always"
+        android:title="Print Bill"/>
+
+    <item android:id="@+id/menu_confirm"
+          android:title="Assign"
+          android:icon="@drawable/ic_action_confirm"
+          app:showAsAction="always"/>
+
+    <item android:id="@+id/menu_deselectall"
+          android:title="Deselect all"
+          android:icon="@drawable/ic_action_deselectall"
+          app:showAsAction="always"/>
+
+    <item android:id="@+id/menu_pushnewsession"
+          android:icon="@drawable/ic_action_pushnewtab"
+          android:title="Create new tab with these orders"
+          app:showAsAction="always"/>
+
+    <item android:title="@string/menu_edit_party_details"
+          app:showAsAction="always"
+          android:icon="@drawable/ic_action_edit"
+          android:orderInCategory="0"
+          android:id="@+id/action_edit_session" />
+
+    <item
+        android:id="@+id/menu_additems"
+        android:orderInCategory="100"
+        android:title="@string/menu_addItems"
+        app:showAsAction="ifRoom"/>
+
+    <item
+        android:id="@+id/menu_dinerDetail"
+        android:orderInCategory="101"
+        android:title="Guest details"
+        app:showAsAction="ifRoom"/>
+
+    <item
+        android:id="@+id/menu_allocateCustomer"
+        android:orderInCategory="102"
+        android:title="Attach Epicuri Account"
+        app:showAsAction="ifRoom"/>
+
+    <item
+        android:id="@+id/menu_detachCustomer"
+        android:orderInCategory="103"
+        android:title="Detach Epicuri Account"
+        app:showAsAction="ifRoom"/>
+
+</menu>

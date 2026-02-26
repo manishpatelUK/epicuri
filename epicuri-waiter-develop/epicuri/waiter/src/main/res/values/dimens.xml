@@ -1,0 +1,50 @@
+<resources>
+
+    <dimen name="padding_small">8dp</dimen>
+    <dimen name="padding_medium">8dp</dimen>
+    <dimen name="padding_large">16dp</dimen>
+
+    <dimen name="text_size_large">24dp</dimen>
+    <dimen name="text_size_medium">18dp</dimen>
+    
+    <dimen name="reservations_padding">8dp</dimen>
+    <dimen name="reservations_width">160dp</dimen>
+    <dimen name="reservations_time_width">64dp</dimen>
+    <dimen name="reservations_height_per_hour">90dp</dimen>
+    <dimen name="alertPadding">16dp</dimen>
+
+    <dimen name="keyboard_size">44dp</dimen>
+    <dimen name="keyboard_top_padding">10dp</dimen>
+    <dimen name="keyboard_margin_right">30dp</dimen>
+    <dimen name="stars_margin_bottom">20dp</dimen>
+    <dimen name="keyboard_number_size">19sp</dimen>
+    <dimen name="keyboard_text_size">10sp</dimen>
+    <dimen name="stars_margin_right">4dp</dimen>
+    <dimen name="stars_w">30dp</dimen>
+    <dimen name="stars_h">30dp</dimen>
+
+    <dimen name="current_user_txt_size">13sp</dimen>
+    <dimen name="current_user_padding_top">11dp</dimen>
+    <dimen name="current_user_padding_bottom">11dp</dimen>
+
+    <dimen name="epicuri_logo_w">269dp</dimen>
+    <dimen name="epicuri_logo_h">70dp</dimen>
+
+    <dimen name="lock_screen_icon_size">40dp</dimen>
+    <dimen name="lock_screen_icon_margin_top">4dp</dimen>
+    <dimen name="lock_screen_icon_txt_size">19sp</dimen>
+    <dimen name="refresh_icon_size">20dp</dimen>
+
+    <dimen name="quick_order_height">76dp</dimen>
+    <dimen name="session_header_height">240dp</dimen>
+
+    <dimen name="actionBarHeight">56dp</dimen>
+    <dimen name="actionBarIconSizeMin">66dp</dimen>
+    <dimen name="actionBarIconSizeMax">66dp</dimen>
+    <dimen name="cornerRadius">4dp</dimen>
+    <dimen name="category_tab_height">48dp</dimen>
+    <dimen name="tabs_height">40dp</dimen>
+    <dimen name="name_qo_clasification_item">12sp</dimen>
+    <dimen name="amount_btn_text_size">20sp</dimen>
+    <dimen name="amount_btn_height">90dp</dimen>
+</resources>

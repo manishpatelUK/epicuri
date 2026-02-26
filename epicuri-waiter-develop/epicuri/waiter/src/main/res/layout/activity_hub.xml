@@ -1,0 +1,108 @@
+<android.support.v4.app.FragmentTabHost xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/tabhost"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include layout="@layout/toolbar" />
+
+        <android.support.v4.widget.DrawerLayout
+            android:id="@+id/drawer_layout"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@color/lightgray">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/noNetwork"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#ffff0000"
+                    android:padding="8dp"
+                    android:text="No Network Connection"
+                    android:textColor="#ffffffff"
+                    android:visibility="gone"/>
+
+                <TextView
+                    android:id="@+id/upgradeRequired"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#ffff0000"
+                    android:gravity="center_vertical"
+                    android:minHeight="48dp"
+                    android:padding="8dp"
+                    android:text="@string/upgrade_required"
+                    android:textColor="#ffffffff"
+                    android:visibility="gone"/>
+
+                <TextView
+                    android:id="@+id/timezoneMismatch"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#ffff0000"
+                    android:padding="8dp"
+                    android:text="@string/timezone_mismatch_message"
+                    android:textColor="#ffffffff"
+                    android:visibility="gone"/>
+
+                <include layout="@layout/hub_floorplan"/>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <android.support.design.widget.TabLayout
+                            android:id="@+id/tabs"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/tabs_height"
+                            app:tabGravity="fill"
+                            app:tabMaxWidth="1000dp"
+                            app:tabPaddingStart="-1dp"
+                            app:tabPaddingEnd="-1dp"
+                            app:tabMode="fixed" />
+
+                        <android.support.v4.view.ViewPager
+                            android:id="@+id/viewPager"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="2dp"/>
+                    </LinearLayout>
+
+                    <ProgressBar
+                        android:id="@+id/progressBar"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:visibility="gone"/>
+
+                </RelativeLayout>
+            </LinearLayout>
+
+            <ListView
+                android:id="@+id/left_drawer"
+                android:layout_width="240dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="start"
+                android:background="@color/lightgray"
+                android:choiceMode="singleChoice" />
+
+        </android.support.v4.widget.DrawerLayout>
+    </LinearLayout>
+</android.support.v4.app.FragmentTabHost>

@@ -1,0 +1,37 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/menu_refresh"
+        android:icon="@drawable/ic_action_refresh"
+        android:orderInCategory="999"
+        android:title="Refresh"
+        app:showAsAction="always"/>
+    <item
+        android:id="@+id/menu_edit"
+        android:icon="@drawable/ic_action_edit"
+        android:orderInCategory="100"
+        android:title="@string/menu_editTakeaway"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/menu_paybill"
+        android:icon="@drawable/ic_action_paybill"
+        android:title="@string/close_takeaway"
+        app:showAsAction="always"/>
+    <item
+        android:id="@+id/menu_print"
+        android:icon="@drawable/ic_action_print"
+        android:title="Print"
+        app:showAsAction="ifRoom"/>
+    <item
+        android:id="@+id/menu_addPayment"
+        android:icon="@drawable/ic_action_add_payment"
+        android:title="@string/menu_addPayment"
+        app:showAsAction="ifRoom"/>
+    <item
+        android:id="@+id/menu_addDiscount"
+        android:icon="@drawable/ic_action_add_discount"
+        android:title="@string/menu_addDiscount"
+        app:showAsAction="ifRoom"/>
+
+</menu>
