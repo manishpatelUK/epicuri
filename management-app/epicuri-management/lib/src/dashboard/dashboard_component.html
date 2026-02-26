@@ -1,0 +1,43 @@
+<div class="material-content">
+    <header class="material-header shadow">
+        <div class="material-header-row">
+            <span class="material-header-title">Management Portal</span>
+        </div>
+    </header>
+    <div >
+        <material-tab-panel>
+            <material-tab label="Restaurants">
+                <restaurants-component *deferredContent>
+                </restaurants-component>
+            </material-tab>
+            <material-tab label="Cuisines">
+                <cuisines-component *deferredContent>
+                </cuisines-component>
+            </material-tab>
+            <material-tab label="Countries">
+                <countries-component *deferredContent>
+                </countries-component>
+            </material-tab>
+            <material-tab label="Defaults">
+                <defaults-component *deferredContent>
+                </defaults-component>
+            </material-tab>
+            <material-tab label="Taxes">
+                <taxes-component *deferredContent>
+                </taxes-component>
+            </material-tab>
+            <material-tab label="Adjustments">
+                <adjustments-component *deferredContent>
+                </adjustments-component>
+            </material-tab>
+            <material-tab label="Preferences">
+                <preferences-component *deferredContent>
+                </preferences-component>
+            </material-tab>
+            <material-tab label="Booking Statics">
+                <bookingstatics-component *deferredContent>
+                </bookingstatics-component>
+            </material-tab>
+        </material-tab-panel>
+    </div>
+</div>

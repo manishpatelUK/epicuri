@@ -1,0 +1,13 @@
+.dash-screen {
+    display: flex;
+    flex-direction: row;
+}
+
+.left-list-component {
+    flex-grow: 2;
+    overflow-y: auto;
+}
+
+.right-list-component {
+    flex-grow: 5;
+}

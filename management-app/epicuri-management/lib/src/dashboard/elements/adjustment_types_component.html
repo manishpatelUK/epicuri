@@ -1,0 +1,13 @@
+<!--<h1>other stuff</h1> PUT A SEARCH BOX HERE-->
+<div class = "dash-screen">
+    <div class = "left-list-component">
+        <material-list size="medium" *ngFor="let adjustmentType of adjustmentTypes">
+            <material-list-item>{{adjustmentType.name}}</material-list-item>
+        </material-list>
+    </div>
+    <div class = "right-list-component">
+        <div *ngIf="adjustmentSelected()">
+            <h1>stuff</h1>
+        </div>
+    </div>
+</div>

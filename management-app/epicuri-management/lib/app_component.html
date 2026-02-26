@@ -1,0 +1,6 @@
+<div *ngIf="getToken() == null">
+    <login-component></login-component>
+</div>
+<div *ngIf="getToken() != null">
+    <dashboard-component></dashboard-component>
+</div>

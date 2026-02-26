@@ -1,0 +1,34 @@
+<div *ngIf="showSpinner">
+    <material-spinner></material-spinner>
+</div>
+<div *ngIf="showSpinner == false && showErrorPopup==false">
+    <modal [visible]="true">
+        <material-dialog>
+            <div header>
+                <h1>Log in</h1>
+                <h3>EPICURI MANAGEMENT ONLY. UNAUTHORIZED USE IS PROHIBITED</h3>
+            </div>
+
+            <form>
+                <material-input required label="User Name" [(ngModel)]="userName"></material-input>
+                <material-input required label="Password" type="password" [(ngModel)]="password"></material-input>
+                <div footer>
+                    <material-button type="submit" (click)="login($event)">
+                        SUBMIT
+                    </material-button >
+                </div>
+            </form>
+        </material-dialog>
+    </modal>
+</div>
+<div *ngIf="showErrorPopup">
+    <material-dialog>
+        <div header>
+            <h1>Error logging in</h1>
+        </div>
+        <p>{{errorString}}</p>
+    </material-dialog>
+    <material-button dense (click)="reset($event)">
+        Go back
+    </material-button>
+</div>
