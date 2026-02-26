@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.layout.BorderPane?>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/null" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uk.co.epicuri.serverapi.management.controllers.MainController">
+    <top>
+        <FlowPane BorderPane.alignment="CENTER">
+            <children>
+                <ComboBox fx:id="environmentBox" onAction="#environmentBoxChanged" prefWidth="150.0" />
+                <Label fx:id="environmentLabel" minWidth="80.0" textAlignment="RIGHT" textFill="RED">
+                    <opaqueInsets>
+                        <Insets left="10.0" />
+                    </opaqueInsets>
+                </Label>
+            </children>
+        </FlowPane>
+    </top>
+    <center>
+        <TabPane fx:id="tabView" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER"/>
+    </center>
+</BorderPane>

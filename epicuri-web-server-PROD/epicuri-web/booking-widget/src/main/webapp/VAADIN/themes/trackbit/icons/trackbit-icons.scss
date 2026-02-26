@@ -1,0 +1,60 @@
+@mixin icons-trackbit {
+
+	@font-face {
+	  	font-family: 'trackbit';
+		src:url('trackbit.eot?kdkqyt');
+		src:url('trackbit.eot?#iefixkdkqyt') format('embedded-opentype'),
+			url('trackbit.woff?kdkqyt') format('woff'),
+			url('trackbit.ttf?kdkqyt') format('truetype'),
+			url('trackbit.svg?kdkqyt#trackbit') format('svg');
+		font-weight: normal;
+		font-style: normal;
+	}
+	
+	[class^="icon-"] > .v-button-wrap:before,
+	[class*=" icon-"] > .v-button-wrap:before,
+	[class^="icon-"].v-nativebutton:before,
+	[class*=" icon-"].v-nativebutton:before,
+	[class^="icon-"].v-label:before,
+	[class*=" icon-"].v-label:before,
+	[class*="-icon-"].v-menubar-menuitem:before {
+		font-family: 'trackbit';
+		font-style: normal;
+		font-weight: normal;
+		speak: none;
+		display: inline-block;
+		text-decoration: inherit;
+		text-align: center;
+		line-height: 1;
+		margin-right: .4em;
+		vertical-align: 1px;
+	}
+	
+	[class^="icon-"] > .v-button-wrap:before,
+	[class*=" icon-"] > .v-button-wrap:before,
+	[class^="icon-"].v-nativebutton:before,
+	[class*=" icon-"].v-nativebutton:before {
+		margin: 0;
+		margin-left: -.3em;
+	}
+	
+	[class^="icon-"] > span > .v-button-caption,
+	[class^="icon-"] > .v-nativebutton-caption,
+	[class*=" icon-"] > span > .v-button-caption,
+	[class*=" icon-"] > .v-nativebutton-caption {
+		margin-left: .3em;
+	}
+	
+	@include icon(components, '\e603');
+	@include icon(tables, '\e605');
+	@include icon(reports, '\e604');
+	@include icon(cog, '\e602');
+	@include icon(admin, '\e609');
+	@include icon(research, '\f089');
+	@include icon(user, '\e606');
+	@include icon(edit, '\f044');
+	@include icon(bell, '\e600');
+	@include icon(cancel, '\f00d');
+	@include icon(calendar, '\e601');
+	
+}

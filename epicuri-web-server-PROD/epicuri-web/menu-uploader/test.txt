@@ -1,0 +1,9 @@
+Name|Price|Description|Tax Type|Printer|Item Type|Unavailable|Menu Group
+Test food 1|1.05|Something awesome|UK VAT 20%|Kitchen|food|false|Soups
+Test food 2|1.15|Something awesome|UK VAT 20%|Kitchen|food|false|Salads
+Test food 3|1.25|Something awesome|UK VAT 20%|Kitchen|food|false|BAD CATEGORY
+Test drink 1|1.35|Something awesome|UK VAT 20%|Bar / Receipt|drink|false|Salads
+Test other 1|1.45|Something awesome|UK VAT 20%|Bar / Receipt|some other item type|false|Salads
+Test unavailable food 1|2.05|Something awesome|UK VAT 20%|Bar / Receipt|food|true|Soups
+this is a | badly formatted line.
+Test bad printer food 1|3.05|Something awesome|UK VAT 20%|Bar/Receipt|food|true|Soups

@@ -1,0 +1,83 @@
+$rag-critical-bg: #FFC8C8;
+$rag-critical-border: #C00; 
+$rag-medium-bg: #FFEDCF;
+$rag-medium-border: #F90; 
+$rag-low-bg: #F0FFE1;
+$rag-low-border: #5BA622; 
+$rag-neutral-bg: #E7E7E7;
+$rag-neutral-border: #999; 
+
+@mixin trackbit-report {
+	.report-block {
+		.v-label {
+			font-size: 12px;
+		}
+		.widgetbox-header {
+			padding: 10px;
+			border-bottom: 1px solid #DDD;
+		}
+		.title {
+			font-size: 25px;
+			line-height: 1em;
+			text-transform: uppercase;
+			color: #555;
+			
+		}
+		.subtitle {
+			font-size: 13px;
+			color: #AAA;
+			text-transform: uppercase;
+		}
+		.address {
+			color: #555;
+			@include icon-content('\f08d');
+		}
+		.blockquote {
+			padding-left: 15px;
+			border-left: 4px solid #DDD;
+			margin: 10px 0px;
+			color: #888;
+			small {
+				color: #999;
+				font-size: 85%;
+				line-height: 1.5em;
+			}
+		}
+		
+		.numeric-box {
+			font-size: 11px;
+			color: #888;
+			text-transform: uppercase;
+			.number {
+				font-size: 20px;
+				font-weight: 600;
+				line-height: 1em;
+				color: #555;
+			}
+		}
+		
+		.rag-style {
+			padding: 5px 5px 5px 15px;
+			border-width: 0px 0px 0px 4px;
+			border-style: solid;
+			margin: 4px 0px;
+			font-weight: bold;
+			&.critical-style {
+				background-color: $rag-critical-bg;
+				border-color: $rag-critical-border;
+			}
+			&.medium-style {
+				background-color: $rag-medium-bg;
+				border-color: $rag-medium-border;
+			}
+			&.low-style {
+				background-color: $rag-low-bg;
+				border-color: $rag-low-border;
+			}
+			&.neutral-style {
+				background-color: $rag-neutral-bg;
+				border-color: $rag-neutral-border;
+			}
+		}
+	}
+}

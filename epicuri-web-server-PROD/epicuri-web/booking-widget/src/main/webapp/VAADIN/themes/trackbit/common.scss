@@ -1,0 +1,134 @@
+$text-color: #5a6066;
+$font-size: 14px;
+
+@mixin trackbit-common {
+	
+	*:focus, *:active {
+		outline: none;
+	}
+	
+	.v-widget {
+		color: inherit;
+		font: inherit;
+		font-size: 14px;
+	}
+	
+	&.v-app,
+	.v-drag-element,
+	.v-contextmenu,
+	.v-menubar-popup,
+	.v-filterselect-suggestpopup,
+	.v-datefield-popup,
+	.v-popupview-popup,
+	.v-Notification,
+	.v-window,
+	.v-tooltip {
+		color: $text-color;
+		//font: $font;
+		font-family: "Open Sans", Arial, sans-serif;
+		font-size: $font-size;
+		line-height: 1.5;
+	}
+	
+	.v-spacing {
+	    height: 12px;
+	    width: 12px;
+	}
+	
+	.v-icon,
+	.v-embbedded img {
+		-ms-interpolation-mode: bicubic;
+	}
+	
+	
+	
+	/* Transient overlay elements */
+	.v-contextmenu,
+	.v-menubar-popup,
+	.v-popupview-popup,
+	.v-tooltip,
+	.v-window.dialog,
+	.v-Notification-tray {
+		background: #FFF;
+		
+		color: #333;
+		
+		padding: 0px;
+		
+		@include border-radius(.3em);
+		border: 1px solid #C7C7C7;
+		
+		min-width: 10em;
+		
+		@include fade-in;
+	}
+	
+	.v-tooltip,
+	.v-window.dialog {
+		min-width: 0;
+	}
+	
+	.v-tooltip {
+		font-size: 12px;
+		padding: 0 4px;
+	}
+	
+	.v-contextmenu table,
+	.v-menubar-submenu {
+		width: 100%;
+		background: transparent;
+	}
+	
+	.v-contextmenu,
+	.v-menubar-popup {
+		font-size: 13px;
+	}
+	
+	.v-contextmenu .gwt-MenuItem,
+	.v-menubar-popup .v-menubar-menuitem {
+		padding: .3em .6em;
+	}
+	
+	.v-contextmenu .gwt-MenuItem-selected,
+	.v-menubar-popup .v-menubar-menuitem-selected {
+		text-shadow: 0 .1em .1em rgba(0,0,0,.3);
+		
+		background: #3FA8F7;
+	}
+	
+	.v-contextmenu .gwt-MenuItem-selected div {
+		background: transparent;
+	}
+	
+	.v-contextmenu .v-off div:before {
+		opacity: .3;
+	}
+	
+	.v-contextmenu .v-off div:before,
+	.v-contextmenu .v-on div:before {
+		display: inline;
+		content: '\2713';
+		font-family: 'fontello';
+		font-style: normal;
+		font-weight: normal;
+		speak: none;
+		margin-right: .5em;
+	}
+	
+	.v-contextmenu .v-off {
+		color: #fff;
+	}
+	
+	.v-contextmenu .gwt-MenuItem-selected .v-off {
+		opacity: 1;
+	}
+	
+	.v-ie8 & .v-shadow {
+		display: block;
+	}
+	
+	.v-menubar-separator span {
+		border-top-color: rgba(255,255,255,.1);
+	}
+
+}

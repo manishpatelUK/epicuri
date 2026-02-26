@@ -1,0 +1,75 @@
+@mixin base-accordion {
+
+.v-accordion {
+	position: relative;
+	outline: none;
+	overflow: visible;
+	text-align: left; /* Force default alignment */
+	font-size: 0;
+/* 	border-width: 0px 1px 1px; */
+/* 	border-style: solid; */
+/* 	border-color: #C7C7C7; */
+/* 	border-radius: 2px; */
+	border: none;
+}
+.v-accordion-item {
+	position: relative;
+	display: inline-block;
+ 	width: 100%;
+ 	border: 1px solid #C7C7C7;
+ 	margin-top: 5px;
+ 	
+ 	&.v-accordion-item-first {
+ 		margin-top: 0px;
+ 	}
+ 	
+	.v-accordion-item-caption {
+		overflow: visible;
+		white-space: nowrap;
+		background: #eee;
+		
+		padding: 4px 10px;
+		
+		@include box-sizing(border-box);
+		
+		&:hover {
+			background-color: #F7F7F7;
+			.v-caption {
+				color: #5A6066;
+			}
+		}
+		
+		.v-caption {
+			cursor: pointer;
+			color: #A0A0A0;
+			font-size: $font-size;
+			padding: 0px;
+		}
+	}
+}
+.v-accordion-item-open {
+	border-color: #3FA8F7;
+	.v-accordion-item-caption {
+		background-color: #3FA8F7;
+		&:hover {
+			background-color: #3FA8F7;
+			.v-caption {
+				cursor: default;
+				color: #FFF;
+				font-weight: bold;
+			}
+		}
+		
+		.v-caption {
+			cursor: default;
+			color: #FFF;
+			font-weight: bold;
+		}
+	}
+} 
+.v-accordion-item-content {
+	position: absolute;
+	width: 100%;
+}
+
+}

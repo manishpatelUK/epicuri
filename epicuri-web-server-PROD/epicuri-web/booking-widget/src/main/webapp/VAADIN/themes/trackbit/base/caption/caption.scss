@@ -1,0 +1,16 @@
+@mixin base-caption() {
+
+	.v-caption .v-captiontext {
+		overflow: visible;
+	}
+	
+	.v-caption {
+		font-size: 13px;
+		color: #5A6066;
+	}
+	
+	.v-caption-on-top .v-caption {
+		padding-bottom: .3em;
+	}
+
+}

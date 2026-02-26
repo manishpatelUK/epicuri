@@ -1,0 +1,68 @@
+@mixin trackbit-webstyle {
+    .webstyle {
+        background-color: #F7F7F7;
+        font-size: 12px;
+        .v-spacing {
+            height: 4px;
+        }
+        a {
+            text-decoration: none;
+            display: block;
+            width: 100%;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+
+            &:hover {
+                text-decoration: underline;
+                color: $primary-color;
+            }
+            &:visited {
+                color: inherit;
+            }
+        }
+        .webstyle-title {
+            font-size: 16px;
+            cursor: pointer;
+            color: $primary-color;
+            line-height: 1.2em;
+
+            &.v-button {
+                background: none;
+                color: $primary-color;
+                border: none;
+                padding: 0px;
+                margin: 0px;
+                .v-button-wrap {
+                    padding: 0px;
+                    text-align: left;
+                }
+            }
+        }
+        .webstyle-url {
+        	a:link {
+        		color: #858585;
+        	}
+            color: #858585;
+            font-size: 11px;
+            &.v-button {
+                background: none;
+                color: $primary-color;
+                border: none;
+                padding: 0px;
+                margin: 0px;
+                .v-button-wrap {
+                    padding: 0px;
+                    text-align: left;
+                }
+            }
+            a:hover {
+                color: $primary-hover-color;
+            }
+        }
+        .webstyle-snippet {
+            color: #595959;
+            font-size: 12px;
+        }
+    }
+}

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="129.0" prefWidth="420.0" xmlns="http://javafx.com/javafx/null" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uk.co.epicuri.serverapi.management.controllers.AreYouSurePopupController">
+   <top>
+      <Label prefHeight="17.0" prefWidth="341.0" text="Are you sure you want to do this?" BorderPane.alignment="CENTER" />
+   </top>
+   <center>
+      <Label BorderPane.alignment="CENTER" fx:id="messageLabel"/>
+   </center>
+   <bottom>
+      <ButtonBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+        <buttons>
+            <Button mnemonicParsing="false" onAction="#onCancelButtonPressed" text="No, Cancel this crazy behaviour" textFill="RED" />
+          <Button mnemonicParsing="false" onAction="#onYesButtonPressed" text="Yes" textFill="#00ff90" />
+            
+        </buttons>
+      </ButtonBar>
+   </bottom>
+</BorderPane>

@@ -1,0 +1,44 @@
+endpoints:
+ enabled: false
+ shutdown:
+   enabled: true
+   sensitive: false
+management:
+  port: 8078
+  security.enabled: false
+server:
+  port: 8083
+logging.level:
+  uk.co.epicuri: DEBUG
+  org.springframework.web: INFO
+  org.springframework.web.filter.CommonsRequestLoggingFilter: INFO
+spring.data:
+  mongodb.uri: mongodb://mongodbUser:7W4k02Tr1g%5EC@172.26.124.148:27017,172.26.124.149:27017/epicuri?replicaSet=epicuri-rs&authSource=admin
+epicuri:
+  url: http://diner-api-prod.epicuri.co.uk
+  portal: http://portal.epicuri.co.uk
+  version.minimum: 1
+  version.current: 6
+  auth.cachesize.max: 5000
+  booking.limit: 31536000000 # 1 year
+  paymentsense.pull.enabled: false
+  customer:
+    blackmark.expiry: 2592000000
+  waiter:
+    cashup.window: 31557600000
+    print.window: 60000
+mews:
+  server.url: https://www.mews.li
+  client.token: E0D439EE522F44368DC78E1BFB03710C-D24FB11DBE31D4621C4817E028D9E1D
+google.maps.key: ENC(igWE5SK8tobENbeZ2FRxsuhb4vN6zLnUl5mGWjGdKmUqKKHnwWLuoF+p9z+As444)
+txtlocal.key: ENC(D/NkKY6kB+Crdd+X46ZfQ0CZxZGoJsnAVEPfbhvjcbE9/LHk+1rS3gsmKlUpUwds7g5GGGKlz3E=)
+email:
+  api.key: ENC(to0FbZH5Q0RgAYEoYoCWax8cHMW+Cwvj4llcp6fCYXq3SdfwPxZpCG+ug3GrdUDV)
+  api.domain: epicuri.email
+stripe:
+  api.key: ENC(6xyxK8DEN3yd7Mgp/plStMDssBRLN+xZtLfZHWDjKVp1UtxRmidqYlVDsB2HURsJ)
+  acceptance.ip: 77.232.75.230
+  connection.timeout: 10000
+  connection.read.timeout: 10000
+getaddress:
+  api.key: ENC(mCo0F+7zUMC+zl9jfmClbNwvQo3oM4HNWzByT+XWbTbuRQFs5TelJw==)

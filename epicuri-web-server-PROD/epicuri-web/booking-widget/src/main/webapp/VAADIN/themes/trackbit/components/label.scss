@@ -1,0 +1,22 @@
+@mixin trackbit-label {
+	.v-label {
+		&.style-primary {
+			color: $primary-color;
+		}
+		&.style-danger {
+			color: $danger-color;
+		}
+		&.style-warning {
+			color: $warning-color;
+		}
+		&.style-success {
+			color: $success-color;
+		}
+		&.style-info {
+			color: $info-color;
+		}
+		&.style-dark {
+			color: $dark-color;
+		}
+	}
+}

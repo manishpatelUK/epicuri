@@ -1,0 +1,18 @@
+@mixin trackbit-datasource {
+    .data-source-field {
+        padding: 5px 0px;
+        border-top: 1px solid #DDD;
+        background-color: #FFECED;
+        color: #7D7264;
+
+        &.checked {
+            background-color: $success-color;
+            color: #FFF;
+        }
+        &.v-disabled {
+            background-color: #F5F5F5;
+            opacity: 0.5;
+            color: #222222;
+        }
+    }
+}

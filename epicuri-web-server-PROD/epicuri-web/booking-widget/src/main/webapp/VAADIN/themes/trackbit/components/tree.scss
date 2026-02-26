@@ -1,0 +1,13 @@
+@mixin trackbit-tree {
+	.v-tree {
+		.v-tree-node {
+			background-position: 5px -34px;
+		}
+		.v-tree-node-expanded {
+			background-position: -5px -6px;
+		}
+		.v-tree-node-selected span {
+			background-color: $primary-color;
+		}
+	}
+}
