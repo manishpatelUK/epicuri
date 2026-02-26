@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:id="@+id/menu_detailsParty"
+          android:title="Party details"
+          android:orderInCategory="100"
+          app:showAsAction="ifRoom" />
+    <item android:id="@+id/menu_seatParty"
+        android:title="@string/menu_seatParty"
+        android:orderInCategory="100"
+        app:showAsAction="ifRoom" />
+    <item android:id="@+id/menu_viewSession"
+        android:title="@string/menu_viewSessionForParty"
+        android:orderInCategory="100"
+        app:showAsAction="ifRoom" />
+    <item android:id="@+id/menu_createSession"
+        android:title="@string/menu_createSessionForParty"
+        android:orderInCategory="100"
+        app:showAsAction="ifRoom" />
+    <item android:id="@+id/menu_partyLeft"
+        android:title="@string/menu_partyLeft"
+        android:orderInCategory="100"
+        app:showAsAction="never" />
+    <item android:id="@+id/menu_edit"
+        android:title="@string/menu_edit"
+        android:orderInCategory="100"
+        app:showAsAction="never" />
+</menu>

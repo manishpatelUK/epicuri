@@ -1,0 +1,30 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <FrameLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0"/>
+
+    <android.support.design.widget.TabLayout
+        android:id="@+id/tabs"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/tabs_height"
+        app:tabMode="fixed"
+        app:tabMaxWidth="1000dp"
+        app:tabGravity="fill" />
+
+    <uk.co.epicuri.waiter.ui.CustomViewPager
+        android:id="@+id/session_view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.SeatedSessionActivity">
+
+    </uk.co.epicuri.waiter.ui.CustomViewPager>
+</LinearLayout>

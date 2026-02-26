@@ -1,0 +1,136 @@
+def getVersionName = { ->
+    try {
+        def stdout = new ByteArrayOutputStream()
+        exec {
+            commandLine 'git', 'describe', '--tags'
+            standardOutput = stdout
+        }
+        String[] parts = stdout.toString().split("/")
+        String vString = parts[parts.size() - 1].trim();
+
+        return vString
+    }
+    catch (ignored) {
+        return null;
+    }
+}
+
+buildscript {
+    repositories {
+        jcenter()
+        maven { url 'https://maven.fabric.io/public' }
+        google()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.1.1'
+        classpath 'io.fabric.tools:gradle:1.+'
+    }
+}
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'io.fabric'
+apply plugin: 'kotlin-android-extensions'
+repositories {
+    jcenter()
+    maven { url 'https://maven.fabric.io/public' }
+    mavenCentral()
+    maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
+    google()
+}
+
+android {
+    compileSdkVersion 28
+    buildToolsVersion '28.0.3'
+    flavorDimensions 'default'
+
+    defaultConfig {
+        minSdkVersion 16
+        targetSdkVersion 28
+        versionCode 20191010
+        versionName '1.8.24'
+        buildConfigField "boolean", "USE_CRASHLYTICS", "true"
+    }
+
+    signingConfigs {
+        release {
+            storeFile file("../my-release-key.keystore")
+            storePassword "foodgloriousfood"
+            keyAlias "release"
+            keyPassword "foodgloriousfood"
+        }
+    }
+
+    buildTypes {
+        release {
+            debuggable false
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+            signingConfig signingConfigs.release
+        }
+    }
+    productFlavors {
+        defaultFlavor {
+            ext.enableCrashlytics = true
+            buildConfigField "boolean", "USE_CRASHLYTICS", "true"
+            buildConfigField "boolean", "NETWORK_SWITCH", "true"
+        }
+        googlePlay {
+            versionName '1.8.24'
+            versionCode 82
+            buildConfigField "boolean", "NETWORK_SWITCH", "false"
+        }
+
+        amazon {
+            versionName '1.8.5'
+            versionCode 20180706
+            buildConfigField "boolean", "NETWORK_SWITCH", "false"
+        }
+
+        local {
+            versionName 'Local Debug Release ' + versionCode
+            buildConfigField "boolean", "NETWORK_SWITCH", "true"
+        }
+        crashlytics {
+            // versionName getVersionName()
+            buildConfigField "boolean", "NETWORK_SWITCH", "true"
+            ext.betaDistributionGroupAliases = "po-approval"
+            ext.betaDistributionNotifications = true
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'com.android.support:support-v4:28.0.0'
+    annotationProcessor 'com.jakewharton:butterknife:6.1.0'
+    implementation 'com.jakewharton:butterknife:6.1.0'
+    implementation 'org.joda:joda-money:0.8@jar'
+    implementation project(':libraries:DragSortListview')
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation 'com.android.support:recyclerview-v7:28.0.0'
+    implementation 'com.android.support:design:28.0.0'
+    implementation 'com.android.support:animated-vector-drawable:28.0.0'
+    implementation 'com.android.support:exifinterface:28.0.0'
+    implementation('com.crashlytics.sdk.android:crashlytics:2.6.5@aar') {
+        transitive = true;
+    }
+    implementation('com.crashlytics.sdk.android:crashlytics-ndk:1.1.2@aar') {
+        transitive = true;
+    }
+    implementation 'com.github.reinaldoarrosi:maskededittext:1.1.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.2'
+    implementation 'com.daimajia.swipelayout:library:1.2.0@aar'
+    implementation('com.wefika:flowlayout:0.4.1') {
+        exclude group: 'com.intellij', module: 'annotations'
+    }
+    implementation 'com.michaelpardo:activeandroid:3.1.0-SNAPSHOT'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'com.squareup.picasso:picasso:2.71828'
+    testImplementation 'junit:junit:4.12'
+    testImplementation 'org.mockito:mockito-core:1.10.19'
+}
+crashlytics {
+    enableNdk true
+    androidNdkOut 'src/main/obj'
+    androidNdkLibsOut 'src/main/libs'
+}

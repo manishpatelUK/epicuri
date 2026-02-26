@@ -1,0 +1,25 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto">
+
+        <item
+            android:id="@id/menu_accept"
+            app:showAsAction="always"
+            android:title="@string/takeaway_menu_accept"/>
+        <item
+            android:id="@id/menu_reject"
+            app:showAsAction="always"
+            android:title="@string/takeaway_menu_reject"/>
+        <item
+            android:id="@+id/menu_refresh"
+            android:icon="@drawable/ic_action_refresh"
+            android:orderInCategory="999"
+            app:showAsAction="always"
+            android:title="Refresh"/>
+        <item
+            android:id="@+id/menu_edit"
+            android:icon="@drawable/ic_action_edit"
+            android:orderInCategory="100"
+            app:showAsAction="always"
+            android:title="@string/menu_editTakeaway"/>
+
+</menu>

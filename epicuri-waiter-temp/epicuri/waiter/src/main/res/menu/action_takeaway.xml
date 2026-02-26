@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <group android:id="@+id/menugroup_accepted" >
+        <item
+            android:id="@+id/menu_edit"
+            app:showAsAction="always"
+            android:title="Edit"/>
+        <item
+            android:id="@+id/menu_requestbill"
+            app:showAsAction="always"
+            android:title="Request Bill"/>
+        <item
+            android:id="@+id/menu_delete"
+            app:showAsAction="always"
+            android:title="Cancel"/>
+    </group>
+    <group android:id="@+id/menugroup_notaccepted" >
+        <item
+            android:id="@+id/menu_approve"
+            app:showAsAction="always"
+            android:title="@string/takeaway_menu_accept"/>
+        <item
+            android:id="@+id/menu_reject"
+            app:showAsAction="always"
+            android:title="@string/takeaway_menu_reject"/>
+        <item
+            android:id="@+id/menu_viewDetails_notaccepted"
+            app:showAsAction="always"
+            android:title="View Details"/>
+    </group>
+    <group android:id="@+id/menugroup_closed" >
+        <item
+            android:id="@+id/menu_viewDetails"
+            app:showAsAction="always"
+            android:title="View Details"/>
+    </group>
+</menu>

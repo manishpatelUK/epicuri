@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_weight="1"
+    android:background="@color/darkgray"
+    android:paddingBottom="56dp"
+    android:paddingLeft="18dp"
+    android:paddingRight="18dp"
+    android:paddingTop="12dp" >
+
+    <TextView
+        android:id="@+id/sessionName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="-"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textColor="#ffffffff" />
+
+    <TextView
+        android:id="@+id/partySizeAndTable"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/sessionName"
+        android:paddingBottom="21dp"
+        android:text="-"
+        android:textColor="#ffffffff" />
+
+    <ImageView
+        android:id="@+id/ic_seated"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/partySizeAndTable"
+        android:src="@drawable/number_in_party" />
+
+    <TextView
+        android:id="@+id/seated"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/ic_seated"
+        android:layout_alignTop="@+id/ic_seated"
+        android:layout_marginLeft="@dimen/padding_small"
+        android:layout_toRightOf="@+id/ic_seated"
+        android:gravity="center_vertical|left"
+        android:singleLine="true"
+        android:text="-"
+        android:textColor="#ffffffff" />
+
+    <ImageView
+        android:id="@+id/ic_service"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ic_seated"
+        android:src="@drawable/ic_course" />
+
+    <TextView
+        android:id="@+id/service"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/ic_service"
+        android:layout_alignTop="@+id/ic_service"
+        android:layout_marginLeft="@dimen/padding_small"
+        android:layout_toRightOf="@+id/ic_service"
+        android:gravity="center_vertical|left"
+        android:singleLine="true"
+        android:text="-"
+        android:textColor="#ffffffff" />
+
+    <ImageView
+        android:id="@+id/ic_actiondue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ic_service"
+        android:src="@drawable/ic_actiondue" />
+
+    <TextView
+        android:id="@+id/actionDue"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/ic_actiondue"
+        android:layout_alignTop="@+id/ic_actiondue"
+        android:layout_marginLeft="@dimen/padding_small"
+        android:layout_toRightOf="@+id/ic_actiondue"
+        android:gravity="center_vertical|left"
+        android:text="-"
+        android:textColor="#ffffffff" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_birthday"
+        android:id="@+id/ic_birthday"
+        android:layout_below="@+id/actionDue"
+        android:contentDescription="Icon for has Birthday"/>
+
+    <TextView
+        android:id="@+id/birthday"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/ic_birthday"
+        android:layout_alignTop="@+id/ic_birthday"
+        android:layout_marginLeft="@dimen/padding_small"
+        android:layout_toRightOf="@+id/ic_birthday"
+        android:gravity="center_vertical|left"
+        android:text="@string/birthday_specialOccasion"
+        android:visibility="invisible"
+        android:textColor="#ffffffff"/>
+
+</RelativeLayout>

@@ -1,0 +1,491 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="576px"
+              android:layout_height="wrap_content"
+
+              android:layout_gravity="center_horizontal"
+              android:background="@color/white"
+              android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/receiptLogo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"/>
+
+    <TextView
+        android:id="@+id/restaurantAddress"
+        style="@style/ReceiptText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="Address 1\nAddress 2\n01904 444888"/>
+    <TextView
+        android:id="@+id/restaurantEmail"
+        style="@style/ReceiptText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="peterocks@petesrestaurant.com"/>
+    <TextView
+        android:id="@+id/restaurantWeb"
+        style="@style/ReceiptText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="www.petesrestaurant.com"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="16dp">
+
+        <TextView
+            android:id="@+id/servedBy"
+            style="@style/ReceiptText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Served by John"/>
+
+        <TextView
+            android:id="@+id/dueDate"
+            style="@style/ReceiptText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="12/12/2013"/>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tableName"
+            style="@style/ReceiptText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Table: foobar"/>
+
+        <TextView
+            android:id="@+id/dueTime"
+            style="@style/ReceiptText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="12/12/2013"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/guestCount"
+            style="@style/ReceiptText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/receipt_guests"/>
+        <TextView
+            android:id="@+id/sessionId"
+            style="@style/ReceiptText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/receipt_session_id"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/takeawayDetail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingTop="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/name_label"
+                style="@style/ReceiptText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Name:"/>
+
+            <TextView
+                android:id="@+id/partyName"
+                style="@style/ReceiptText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Jo Guest"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/contact_label"
+                style="@style/ReceiptText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Contact:"/>
+
+            <TextView
+                android:id="@+id/phoneNumber"
+                style="@style/ReceiptText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="01904 445566"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/deliveryAddressRow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/address_label"
+                style="@style/ReceiptText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Address:"/>
+
+            <TextView
+                android:id="@+id/deliveryAddress"
+                style="@style/ReceiptText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:text="For Delivery To:\n15 North Street\nYO20 1AA"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2px"
+        android:layout_marginBottom="24px"
+        android:layout_marginTop="4px"
+        android:background="#ff000000"/>
+
+    <TableLayout
+        android:id="@+id/itemsContainer_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </TableLayout>
+
+    <TextView
+        android:id="@+id/numberOfItems"
+        style="@style/ReceiptText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36px"
+        android:text="You ordered 3 items today"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2px"
+        android:layout_marginBottom="24px"
+        android:layout_marginTop="4px"
+        android:background="#ff000000"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/subtotal_label"
+            style="@style/ReceiptText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Subtotal:"/>
+
+        <TextView
+            android:id="@+id/subtotal"
+            style="@style/ReceiptText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/adjustmentsRow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/adj_label"
+            style="@style/ReceiptText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Adjustments:"/>
+
+        <TextView
+            android:id="@+id/adjustments"
+            style="@style/ReceiptText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="-10%"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/vatBlock"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2px"
+            android:layout_marginBottom="24px"
+            android:layout_marginTop="4px"
+            android:background="#ff000000"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/vatLabel"
+                style="@style/ReceiptText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="(VAT:"/>
+
+            <TextView
+                android:id="@+id/vatTotal"
+                style="@style/ReceiptText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/vatNumberLabel"
+                style="@style/ReceiptText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Our VAT Number:"/>
+
+            <TextView
+                android:id="@+id/vatNumber"
+                style="@style/ReceiptText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="52175289"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2px"
+        android:layout_marginBottom="24px"
+        android:layout_marginTop="4px"
+        android:background="#ff000000"/>
+
+    <LinearLayout
+        android:id="@+id/deliveryRow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/delivery_label"
+            style="@style/ReceiptText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Delivery:"/>
+
+        <TextView
+            android:id="@+id/deliveryCost"
+            style="@style/ReceiptText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="free"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/tipRow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tipLabel"
+            style="@style/ReceiptText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Gratuity:"/>
+
+        <TextView
+            android:id="@+id/tip"
+            style="@style/ReceiptText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="10%"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/total_label"
+            style="@style/ReceiptText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textStyle="bold"
+            android:text="Total:"/>
+
+        <TextView
+            android:id="@+id/total"
+            style="@style/ReceiptText"
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+    <TableLayout
+        android:layout_marginTop="24dp"
+        android:id="@+id/paymentsContainer_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </TableLayout>
+
+    <LinearLayout
+        android:visibility="gone"
+        android:id="@+id/dueAndChangeSection"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2px"
+            android:layout_marginTop="24px"
+            android:layout_marginBottom="4px"
+            android:background="#ff000000"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/outstanding_label"
+                style="@style/ReceiptText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Total Outstanding:"/>
+
+            <TextView
+                android:id="@+id/outstanding"
+                style="@style/ReceiptText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/changeRow"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/change_label"
+                style="@style/ReceiptText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Change due:"/>
+
+            <TextView
+                android:id="@+id/change"
+                style="@style/ReceiptText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2px"
+            android:layout_marginBottom="24px"
+            android:layout_marginTop="4px"
+            android:background="#ff000000"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:visibility="gone"
+        android:id="@+id/hotelSection"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/hotel_name_label"
+            style="@style/ReceiptText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="120px"
+            android:text="Name"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2px"
+            android:layout_marginBottom="24px"
+            android:background="#ff000000"/>
+        <TextView
+            android:id="@+id/room_label"
+            style="@style/ReceiptText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="120px"
+            android:text="Room Number"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2px"
+            android:layout_marginBottom="24px"
+            android:background="#ff000000"/>
+        <TextView
+            android:id="@+id/signature_label"
+            style="@style/ReceiptText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="120px"
+            android:text="Signature"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2px"
+            android:layout_marginBottom="24px"
+            android:background="#ff000000"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/serviceChargeText"
+        style="@style/ReceiptText"
+        android:gravity="center_horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:paddingTop="10sp"/>
+
+    <TextView
+        android:id="@+id/receiptFooter"
+        style="@style/ReceiptText"
+        android:gravity="center_horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Some text customised by the restaurant"
+        android:paddingTop="10sp"/>
+</LinearLayout>

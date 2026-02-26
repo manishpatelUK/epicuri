@@ -1,0 +1,423 @@
+<resources>
+
+    <string name="app_name">Epicuri POS</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_settings">Settings</string>
+    <string name="menu_save">Save</string>
+    <string name="menu_edit">Edit</string>
+    <string name="menu_clear">Reset</string>
+    <string name="menu_edittablelayout">Edit Table Layout</string>
+    <string name="menu_editfloorplanlayout">Edit Floorplan Layout</string>
+    <string name="menu_reservations">Reservations</string>
+    <string name="menu_kitchen">On-Screen Display</string>
+    <string name="menu_businessintelligence">Business Intelligence</string>
+    <string name="menu_news">News</string>
+    <string name="menu_loginmanager">Login Manager</string>
+    <string name="menu_seatParty">Seat Party</string>
+    <string name="menu_viewSessionForParty">View Tab</string>
+    <string name="menu_createSessionForParty">Start Tab</string>
+    <string name="menu_partyLeft">Remove Party</string>
+    <string name="menu_nonArrival">Not Arrived</string>
+    <string name="menu_closeSession">Close Session</string>
+    <string name="menu_cancelTakeaway">Cancel Takeaway</string>
+    <string name="menu_forceCloseSession">Force Close</string>
+    <string name="menu_submitCollectionOrder">Submit order</string>
+    <string name="menu_editTakeaway">Edit Takeaway Details</string>
+    <string name="menu_closeTakeaway">Close Takeaway</string>
+    <string name="menu_forceCloseTakeaway">Force Close Takeaway</string>
+    <string name="menu_edit_party_details">Edit Party Details</string>
+    <string name="title_activity_hub">Epicuri Waiter</string>
+    <string name="title_activity_feedback">Feedback</string>
+    <string name="title_activity_table">Table Detail</string>
+    <string name="title_activity_ordering">Ordering</string>
+    <string name="title_activity_takeaway">Takeaway Detail</string>
+    <string name="title_activity_orders">Orders Received</string>
+    <string name="title_activity_tableedit">Edit Table Layout</string>
+    <string name="title_activity_menumanager">Menu Manager</string>
+    <string name="title_activity_floorplanedit">Edit Floorplan Layout</string>
+    <string name="title_activity_reservations">Reservations</string>
+    <string name="title_activity_submitorder">Submit Orders</string>
+    <string name="tab_orders">Orders</string>
+    <string name="tab_payments">Payments</string>
+    <string name="orderQuantity">%1$d dishes ordered</string>
+    <string name="orderQuantityBillSplit">%1$d items ordered</string>
+
+    <string name="newParty_nameHint">Name of the party</string>
+    <string name="newParty_title">Receive a new party</string>
+    <string name="newParty_numberInParty">Number in party</string>
+    <string name="newParty_epicuriId">Epicuri ID</string>
+    <string name="newParty_add">Add party</string>
+    <string name="newParty_cancel">Cancel</string>
+
+    <string name="deleteReservation">Delete</string>
+    <string name="saveReservation">Save changes</string>
+    <string name="discardReservation">Discard changes</string>
+
+    <string name="requestBill">Request Bill</string>
+    <string name="payBill">Mark Bill Paid</string>
+
+    <string name="login">Log In</string>
+    <string name="logout">Log Out</string>
+    <string name="logout_title">Log Out?</string>
+    <string name="logout_prompt">This will sign this device out and require a username and password to log back in.  Are you sure?</string>
+    <string name="logout_positive">Log Out</string>
+    <string name="logout_negative">Stay Logged In</string>
+
+    <string name="lockscreen_loggedInAs">CURRENTLY LOGGED IN AS %s</string>
+
+    <string name="address_title">Address</string>
+    <string name="address1_hint">Street</string>
+    <string name="address2_hint">Area</string>
+    <string name="address3_hint">City</string>
+    <string name="address4_hint">Postcode</string>
+
+
+    <string name="closeSession_title">Close Session?</string>
+    <string name="closeSession_message">This will close the table and make it available for the next guest</string>
+    <string name="closeSession_close">Close session</string>
+    <string name="closeSession_leave">Leave session open</string>
+    <string name="forceCloseSession_close">Force close session</string>
+
+    <string name="forceCloseSession_message">This will force close the table and mark the Epicuri users as not having paid</string>
+
+    <string name="closeTab_title">Close Tab?</string>
+    <string name="closeTab_message">This will close the tab</string>
+    <string name="closeTab_close">Force Close</string>
+    <string name="closeTab_forceClose">Force Close</string>
+    <string name="closeTab_leave">Leave Open</string>
+    <string name="forceCloseTab_message">This will force close the table and mark the Epicuri users as not having paid</string>
+
+    <string name="forceCloseTakeaway_title">Close takeaway</string>
+    <string name="forceCloseTakeaway_message">This will close the takeaway</string>
+    <string name="forceCloseTakeaway_leave">Leave takeaway open</string>
+    <string name="forceCloseTakeaway_close">Close takeaway</string>
+    <string name="forceCloseTakeaway_closeUnfulfilled">Close (unfulfilled)</string>
+
+    <string name="partyLeft_title">Remove Party</string>
+    <string name="partyLeft_prompt">This will mark the party as having left the restaurant</string>
+    <string name="partyLeft_positive">Remove Party</string>
+    <string name="partyLeft_negative">Cancel</string>
+    <string name="layoutChoice_cancel">Cancel</string>
+    <string name="layoutChoice_useLayout">Use Layout</string>
+    <string name="layoutChoice_editLayout">Edit Layout</string>
+    <string name="title_activity_floorplanmanager">Floorplan Manager</string>
+    <string name="newtablename_title">Table Name</string>
+    <string name="newtableshape_title">Table Shape</string>
+    <string name="menu_applyToFloor">Apply To Floor</string>
+    <string name="delete">Delete</string>
+    <string name="edit">Edit</string>
+    <string name="save_as_new_layout">Save As New Layout</string>
+
+    <string name="savelayout_create">This will save the layout.  Please enter a name for this layout</string>
+    <string name="savelayout_overwrite">This will save the layout.  Do you want to overwrite the existing layout or create a new one?</string>
+    <string name="savecurrentlayout_overwrite">This will save the active layout.  Do you want to overwrite the active layout or create a new template?</string>
+
+    <string name="collectionNotes_hint">Enter any notes here</string>
+    <string name="collectionNotes_title">Notes</string>
+    <string name="collectionTime_title">Delivery/Collection Time</string>
+    <string name="collectionRadioDelivery_title">Delivery</string>
+    <string name="collectionRadioCollection_title">Collection</string>
+    <string name="collectionPhoneNumber_title">Phone Number</string>
+    <string name="collectionCustomerName_title">Customer Name</string>
+    <string name="menu_addItems">Add Items</string>
+    <string name="menu_search">Search</string>
+    <string name="discard">Discard</string>
+    <string name="done">Done</string>
+
+    <string name="twitteraddress">https://mobile.twitter.com/EpicuriNews</string>
+
+    <string name="menuitemedit_name_hint">Name as it appears on menu</string>
+
+    <string name="menuitem_edit_warning">N.B. Editing this menuitem will edit it for ALL menus in which it is placed</string>
+
+    <string name="aboutLibraries">This app uses the following libraries:\n\n * ViewPageIndicator (http://viewpagerindicator.com/)\n * ButterKnife (http://jakewharton.github.io/butterknife/)\n * Drag-sort-listview (https://github.com/bauerca/drag-sort-listview)\n * Volley (https://android.googlesource.com/platform/frameworks/volley)\n * Joda Money (http://www.joda.org/joda-money/)</string>
+    <string name="menu_refresh">Refresh</string>
+    <string name="webservicetask_alertbody">Saving changes</string>
+    <string name="webservicetask_alerttitle">Please wait</string>
+    <string name="menu_new_item">New Item</string>
+    <string name="menu_choose_menuitems">Assign Menu Items</string>
+    <string name="sort_menuitems">Sort A-Z</string>
+    <string name="cancel">Cancel</string>
+    <string name="takeaway_additems">Add Items</string>
+    <string name="takeaway_save">Save Details</string>
+    <string name="takeaway_date_cannot_be_in_the_past">Date cannot be in the past</string>
+    <string name="takeaway_lookupcustomer">Lookup</string>
+    <string name="takeaway_noepicuriaccount">No Epicuri Account Set</string>
+    <string name="acceptTakeaway_title">Approve Takeaway</string>
+    <string name="acceptTakeaway_message">Warnings exist! Approve the booking by \"%1$s\" on %2$s anyway?</string>
+
+    <string name="deleteMenuMessage">Warning: This will permanently delete the menu. You can archive it instead by making it inactive. Are you sure you want to delete?</string>
+    <string name="delete_menuitem_prompt">Delete %s from this restaurant and ALL menus?</string>
+
+    <string name="defaultcourses">Please choose the default course to apply (per service)</string>
+
+    <string name="submitWarnings">The following warnings were found. Continue anyway?</string>
+
+    <string name="takeawaylockedit_title">Takeaway edited within lock window</string>
+    <string name="takeawaylockedit_message">Order is due within %d minutes, please notify the kitchen of this change.</string>
+    <string name="takeawaylockcancel_title">Takeaway cancelled within lock window</string>
+    <string name="takeawaylockcancel_message">Order was due within %d minutes, please notify the kitchen of this cancellation</string>
+    <string name="failedJobs">%d failed jobs</string>
+    <string name="endofday_warning">NOTE!\n\nThis should only be used once service is finished for the day, use it to tidy these unfinished sessions ready for the next service.\n - Unpaid sessions will be marked as a noshow / unpaid and a black mark will be applied to the guests involved.\n - All past bookings pending approval will be marked as rejected</string>
+    <string name="cancel_reservation">Are you sure you want to cancel the reservation for \"%1$s\" for %2$s?</string>
+    <string name="noshow_title">Mark Reservation As A No-Show</string>
+    <string name="noshow_body">Are you sure you want to mark \"%s\" as a no-show?</string>
+    <string name="noshow_action">Mark as no-show</string>
+    <string name="noshow_cancel">Cancel</string>
+    <string name="menu_menueditor_edit">Edit</string>
+    <string name="menu_menueditor_manage_items">Manage Categories</string>
+    <string name="menu_menueditor_delete">Delete</string>
+    <string name="menu_menueditor_remove">Remove</string>
+    <string name="menu_menueditor_set_as_takeaway_menu">Mark As Takeaway</string>
+    <string name="menu_menumanager_new_menu">New Menu</string>
+    <string name="menu_menumanager_manage_items">Manage Items</string>
+    <string name="menu_menumanager_manage_modifiers">Manage Modifiers</string>
+    <string name="menuedit_empty">No menu items found\nUse the menu to add new menu items</string>
+    <string name="menuedit_loading">Loading&#8230;</string>
+    <string name="orphaned_label">Only show items not assigned to a menu</string>
+
+    <string name="acceptReservation_title">Accept Reservation</string>
+    <string name="acceptReservation_message">Warnings exist! Accept the booking by \"%1$s\" on %2$s anyway?</string>
+
+    <string name="takeaway_collection">For collection</string>
+    <string name="takeaway_delivery">For delivery to:</string>
+
+    <string name="cancelTakeaway_title">Cancel takeaway</string>
+    <string name="cancelTakeaway_message">This action cannot be undone, are you sure you want to cancel this takeaway?</string>
+    <string name="toast_markAsPaid">Takeaway paid &amp; closed</string>
+    <string name="toast_billRequested">Bill requested, touch total to adjust then print</string>
+
+    <string name="toast_tabClosed">Tab Closed. Create a new party for more orders.</string>
+    <string name="toast_sessionClosed">Table turned, ready for next guest.</string>
+    <string name="toast_sessionForceClosed">Table force closed, ready for next guest.</string>
+    <string name="toast_force_close_stock_alert">Please alert the relevant staff to adjust stock control where appropriate.</string>
+    <string name="toast_sessionPaid">Marked as paid, clear table for next guest</string>
+    <string name="toast_sessionPaidAndClosed">Table turned, please prepare for next guest</string>
+    <string name="toast_takeawayPaidAndClosed">Takeaway closed</string>
+    <string name="toast_sessionTabPaidAndClosed">Tab paid &amp; closed</string>
+    <string name="takeaway_menu_accept">Approve</string>
+    <string name="takeaway_menu_reject">Reject</string>
+    <string name="menu_cash_up">Close Service &amp; Cash Up</string>
+    <string name="menu_printqueue">Print Queue</string>
+    <string name="takeaway_orderChanged">Order is due within %d minutes, please notify the kitchen of this change ASAP</string>
+    <string name="session_orderChangedTitle">Order modified</string>
+    <string name="session_orderChanged">Order has already been submitted. Please alert the relevant staff of this change.</string>
+    <string name="session_orderChanged_stockControl">Order has already been submitted. Please alert the relevant staff of this change and adjust stock control where appropriate.</string>
+    <string name="toast_orderSubmitted">Order submitted</string>
+    <string name="toast_itemAdded">Added to order, select recent item to modify</string>
+    <string name="toast_itemUpdated">Pending item updated </string>
+    <string name="toast_reviewOrders">Review order, touch items to modify</string>
+
+    <string name="menu_allItems">All Items</string>
+    <string name="menu_perGuest">Per Guest</string>
+    <string name="removeItem_title">Remove Item</string>
+    <string name="removeItem_remove">Remove</string>
+    <string name="removeItem_cancel">Cancel</string>
+
+    <string name="modifiers_atMost">"Choose at most %d "</string>
+    <string name="modifiers_atLeast">"Choose at least %d "</string>
+    <string name="modifiers_exactly">"Choose %d "</string>
+    <string name="modifiers_between">"Choose between %1$d and %2$d "</string>
+    <string name="birthday_specialOccasion">Special Occasion!</string>
+    <string name="empty_pendingTakeaways">No Pending Takeaways Found</string>
+    <string name="empty_pendingReservations">No Pending Reservations Found</string>
+    <string name="empty_reservations">No Reservations Found</string>
+    <string name="empty_sessions">No Sessions Found</string>
+    <string name="dismiss">Dismiss</string>
+    <string name="button_print">Print</string>
+    <string name="findOutMoreLink">http://epicuri.co.uk/contact-us.html</string>
+    <string name="findOutMoreText">Find out more</string>
+    <string name="menu_addPayment">Add Payment</string>
+    <string name="menu_addDiscount">Add Adjustment</string>
+    <string name="detach_diner">This will detach %s from this table and cancel their check-in at this restaurant.</string>
+    <string name="cannot_cashup">Cannot cash up as open sessions exist. Please close service before doing cash up, alternatively simulate the cash up to ignore open sessions.</string>
+    <string name="cashup_are_you_sure">This will confirm the service closed and cashed up according to your chosen settings. Are you sure? This cannot be undone.</string>
+    <string name="invalid_money_amount">Please add a payment amount and try again</string>
+    <string name="invalid_adjustment_amount">The amount did not conform to the required format. Please try again</string>
+    <string name="button_cash_up">Cash Up &amp; Dismiss</string>
+    <string name="endofday_close_sessions_message">This will close all the sessions below and will mark as \"unfulfilled\" where the session was not paid.</string>
+    <string name="endofday_close_takeaways_message">This will close all the reservations below and will mark as \"unfulfilled\" where the session was not paid.</string>
+    <string name="cashup_title">Cash Up Summary</string>
+    <string name="timezone_mismatch_message">Your device must be set to a timezone which matches the restaurant.\nRestaurant is set to %s\n\nClick to open date/time settings</string>
+    <string name="mewsError_cannot_pay_before_bill_requested">Payment to MEWS can only be made at the end of the meal. Request bill and send payment to MEWS to close the session</string>
+    <string name="mewsError_payments_exist">Payment to MEWS can not be made when other payments exist. Please remove any payments or monetary adjustments before continuing</string>
+    <string name="mewsError_cannot_pay_with_tip">Payment to MEWS can not be made with tips. Please remove tip before continuing</string>
+    <string name="mews_looking_up_customer">Looking up customer</string>
+    <string name="receipt_session_id">ID: %s</string>
+    <string name="receipt_guests">Guests: %d</string>
+    <string name="upgrade_required">Your app is out of date. Click to upgrade.</string>
+    <string name="newParty_title_with_tables">Seat party for tables: %1s</string>
+    <string name="newParty_service">Service</string>
+    <string name="mewserror_title">Error submitting to Mews</string>
+    <string name="mewserror_body">An error occurred when submitting payment to Mews. Please contact Epicuri</string>
+    <string name="drawer_open">Epicuri</string>
+    <string name="drawer_close">Epicuri</string>
+    <string name="menu_about">About</string>
+    <string name="menu_session_history">Session History</string>
+    <string name="session_history_blurb">This is a list of closed sessions which are yet to be cashed up</string>
+    <string name="menu_reopen">Reopen</string>
+    <string name="toast_sessionReopened">Session Reopened</string>
+    <string name="menu_void">Void Session</string>
+    <string name="menu_unvoid">Unvoid session</string>
+    <string name="void_blurb">This will cause the session to be excluded from all reports and should only be used for sessions which were created in error.  Normal behavior is to close the session with an appropriate adjustment</string>
+    <string name="toast_sessionVoided">Session has been voided</string>
+    <string name="toast_sessionUnVoided">Session has been un-voided</string>
+    <string name="printCountdown">Printing in %d\nClick to stop countdown</string>
+    <string name="menu_quickorder">Quick Order</string>
+    <string name="toast_quickorderDiscarded">Quick order discarded</string>
+    <string name="create_new_modifier_group">Create new modifier group</string>
+    <string name="error_loading_data">Error loading data</string>
+    <string name="editing">"Editing "</string>
+    <string name="choose_menu_items">Choose menu items</string>
+    <string name="save">Save</string>
+    <string name="add">Add</string>
+    <string name="update">Update</string>
+    <string name="create">Create</string>
+    <string name="name_of_midifier_group">Name of modifier group</string>
+    <string name="simulate">Simulate</string>
+    <string name="create_new_cash_up">Create new Cash Up</string>
+    <string name="cash_up">Cash Up</string>
+    <string name="close_service">Close Service</string>
+    <string name="choose_checked_in_customer">Choose a checked in customer</string>
+    <string name="none_specified">None specified</string>
+    <string name="tabs_tables_takeaways">Tabs/Tables/Takeaways</string>
+    <string name="reservations">Reservations</string>
+    <string name="pending_takeaways">Pending Takeaways</string>
+    <string name="pending_reservations">Pending Reservations</string>
+    <string name="terminal_busy">The card machine is busy.</string>
+    <string name="terminal_unavailable">Unavailable terminal or no data available for
+        terminal.
+    </string>
+    <string name="internal_terminal_error">An error occurred whilst communicating with the
+        PDQ
+    </string>
+    <string name="paymentsense_authorization">The provided PaymentSense authorization credentials
+        are not correct.
+    </string>
+    <string name="custom">Custom</string>
+    <string name="no_internet">No internet connection.</string>
+    <string name="aborted_payment">Payment aborted by terminal.</string>
+    <string name="save_layout">Save Layout</string>
+    <string name="create_layout">Create Layout</string>
+    <string name="no_menu_selected">No menu selected?</string>
+    <string name="all_type">ALL</string>
+    <string name="food_type">FOOD</string>
+    <string name="drink_type">DRINK</string>
+    <string name="other_type">OTHER</string>
+    <string name="food_type_title">Apply to Item Type</string>
+    <string name="close_takeaway">Close takeaway</string>
+    <string name="billsplit_mode">Bill Split</string>
+    <string name="exit_billsplit_mode">Exit Bill Split</string>
+    <string name="bill_total">Bill Total</string>
+    <string name="remaining">Remaining</string>
+    <string name="vat">VAT</string>
+    <string name="payments_discounts">Payments/Discounts</string>
+    <string name="payments_discounts_pattern"><![CDATA[<font color=#0ba425>%s</font>/<font color=#FF4444>%s</font>]]></string>
+    <string name="default_party_name">Guest</string>
+    <string name="quick_switch">Switch User</string>
+    <string name="allow_quick_switch">Allow quick switch</string>
+    <string name="checking_payment">Payment in progress.</string>
+    <string name="reversing_transaction">Reversal of transaction, please wait.</string>
+    <string name="no_payment_taken">The transaction has not been successful and no payment has been taken. </string>
+    <string name="pdq_cancelled">The transaction has been cancelled and no payment has been taken. </string>
+    <string name="pdq_timeout">Communication with the PDQ has failed and payment may or may not have been taken. Please manually check if the transaction was successful on the PDQ. </string>
+    <string name="unable_signature_verification">Unable to action the signature check. When required, signatures must be verified within 80 seconds.</string>
+    <string name="payment_sense">PaymentSense</string>
+    <string name="terminals_detected">Select terminal:</string>
+    <string name="connection_details">Connection Details:</string>
+    <string name="host_address">Host:</string>
+    <string name="ps_key">API Key:</string>
+    <string name="print_report">Printing report, please wait.</string>
+    <string name="report_success">Selected PDQ will print a report.</string>
+    <string name="print_reports">Print Reports</string>
+    <string name="select_terminal">Select terminal:</string>
+    <string name="no_terminals">No terminals online - cannot refund. Ensure that terminals are properly connected and try again.</string>
+    <string name="refund_progress">Refund in progress.</string>
+    <string name="canceling_transaction">Cancelling transaction, please wait.</string>
+    <string name="show_not_available_items">Show unavailable items</string>
+    <string name="search_in_descriptions">Search in descriptions</string>
+    <string name="search_in_sku">Search in SKU</string>
+    <string name="force_close_info_1">This can only be force closed if there are no payments logged. Partial payment(s) exist so force closing the session will remove the following payments from your sales value.</string>
+    <string name="force_close_info_remove_payments"><![CDATA[You can report on session voids from the \'On-premise & Takeaway Revenue\' report.]]></string>
+    <string name="force_close_info_remove_payments_2">Click \'<b>Remove payments</b>\' below to continue on that basis.</string>
+    <string name="force_close_info_apply_discount">Alternatively you can apply a discount with type \'Unpaid amount\' to cover the difference and close the session naturally (recommended). You can then report on these discounts due to non-payment from the Payments and Discounts detailed report.</string>
+    <string name="force_close_info_apply_discount_2">Click \'<b>Apply Discount</b>\' to proceed on that basis.</string>
+    <string name="dietary_text_empty">Click to select dietary requirements</string>
+    <string name="allergies_text_empty">Click to select allergies</string>
+    <string name="allergens">Allergens</string>
+    <string name="diets">Diets</string>
+    <string name="send_via_email">Send via Email</string>
+    <string name="kick_drawer">Drawer Kick</string>
+    <string name="course_away">Course Away</string>
+    <string name="course_name">%s AWAY</string>
+    <string name="menu_support">Support</string>
+    <string name="support_phone_number">(+44) 0203 962 1289</string>
+    <string name="support_email_address">support@epicuri.co.uk</string>
+    <string name="working">Working…</string>
+    <string name="network_error">ERROR</string>
+    <plurals name="options">
+        <item quantity="one">option</item>
+        <item quantity="other">options</item>
+    </plurals>
+
+    <string-array name="environments">
+        <item>Prod 1</item>
+        <item>Prod 2</item>
+        <item>Development</item>
+    </string-array>
+
+    <string-array name="environmentPrefixes">
+        <item>https://api-prod.epicuri.co.uk</item>
+        <item>https://api-prod.epicuri.co.uk</item>
+        <item>http://api-dev.epicuri.co.uk</item>
+    </string-array>
+    <string-array name="environmentWebPrefixes">
+        <item>https://api-prod.epicuri.co.uk</item>
+        <item>https://api-prod.epicuri.co.uk</item>
+        <item>http://api-dev.epicuri.co.uk</item>
+    </string-array>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="lock">Lock</string>
+    <string name="lock_screen">Lock screen</string>
+    <string name="switch_floor_tabs">Switch floor/tabs</string>
+    <string name="new_takeaway_order">New Takeaway Order</string>
+    <string name="new_guest">New Guest</string>
+    <string name="quick_order">Quick Order</string>
+    <string name="name_username_format">%s (%s)</string>
+    <string name="quick_switch_error_message">Only 1 user logged in</string>
+    <string name="send">Send</string>
+    <string name="send_log_files_to_epicuri_support">Send log files to Epicuri Support</string>
+    <string name="select_user_to_switch">Select user to switch</string>
+    <string name="print_receipt">Print Receipt</string>
+    <string name="print_orderslip">Print Orderslip</string>
+    <string name="receipt_prints_on">Receipt prints ON</string>
+    <string name="receipt_prints_off">Receipt prints OFF</string>
+    <string name="order_prints_on">Order prints ON</string>
+    <string name="order_prints_off">Order prints OFF</string>
+    <string name="receipt_prints">Receipt Prints</string>
+    <string name="order_prints">Order Prints</string>
+    <string name="equal_split">Equal split +%s%s</string>
+    <string name="cashup_x">X REPORT</string>
+    <string name="cashup_z">Z REPORT</string>
+    <string name="asap">All together</string>
+    <string name="defaultCourses">Default courses</string>
+    <string name="asap_orders_toast">All order items set to come out ASAP</string>
+    <string name="default_orders_toast">All order items sent to their default courses</string>
+    <string name="omit_from_checks">Omit from checks</string>
+    <string name="print_prefs">Bill Print</string>
+    <string name="incorrect_configuration_for_PS">Configuration for PaymentSense is incorrect\nPlease check Host/API Key</string>
+    <string name="incorrect_API_KEY_configuration_for_PS">Configuration for PaymentSense is incorrect\nPlease check API Key</string>
+    <string name="incorrect_Host_configuration_for_PS">Configuration for PaymentSense is incorrect\nPlease check host name</string>
+    <string name="table_location">ORDER ID:</string>
+
+    <string name="toolTipSkuCount">This will change the stock count of all items with the same SKU</string>
+    <string name="skuCountDisabled">Enable via Portal</string>
+    <!--<string name="generic_menu_item_error">Please correct errors before continuing</string>-->
+    <string name="menu_item_validation_price">Negative or non-numeric prices cannot be applied to menu items.</string>
+    <string name="menu_item_validation_printer">A printer selection is required. If this item is not to be printed, create a "NoPrint" printer in your configuration and set this item to point to that.</string>
+    <string name="menu_item_validation_name">Menu items must have a name.</string>
+    <string name="menu_item_validation_empty_sku">Please add an SKU code and save before setting stock level.</string>
+    <string name="add_items_first">Add some items first</string>
+</resources>

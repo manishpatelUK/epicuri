@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/name_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_toLeftOf="@+id/staff_role"
+        android:paddingLeft="@dimen/padding_medium"
+        android:text="John Smith"
+        android:textAppearance="?android:attr/textAppearanceLarge"/>
+
+    <TextView
+        android:id="@+id/username_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/name_text"
+        android:layout_below="@+id/name_text"
+        android:layout_toLeftOf="@+id/staff_role"
+        android:text="jon1"
+        android:paddingLeft="@dimen/padding_medium"/>
+
+    <TextView
+        android:id="@+id/staff_role"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:padding="@dimen/padding_medium"
+        android:textAppearance="@style/TextAppearance.Epicuri.Body2"
+        android:text="Manager"/>
+
+</RelativeLayout>

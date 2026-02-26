@@ -1,0 +1,4 @@
+<resources>
+    <dimen name="category_tab_height">60dp</dimen>
+    <dimen name="name_qo_clasification_item">22sp</dimen>
+</resources>

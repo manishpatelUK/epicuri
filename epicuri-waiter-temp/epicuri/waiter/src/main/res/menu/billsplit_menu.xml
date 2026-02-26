@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/menu_enter_billsplit"
+        app:showAsAction="never"
+        android:icon="@drawable/ic_action_billsplit"
+        android:title="@string/billsplit_mode"/>
+
+    <item
+        android:id="@+id/menu_exit_billsplit"
+        app:showAsAction="never"
+        android:icon="@drawable/ic_action_billsplit"
+        android:title="@string/exit_billsplit_mode"/>
+</menu>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              android:padding="8dp">
+
+    <!--     <CheckBox -->
+    <!--         android:id="@+id/groupByDiner_check" -->
+    <!--         android:layout_width="match_parent" -->
+    <!--         android:layout_height="wrap_content" -->
+    <!--         android:text="Group orders by diner" /> -->
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@android:color/white"
+        android:layout_weight="1">
+
+        <include
+            android:id="@+id/cashup"
+            android:layout_gravity="center_horizontal"
+            layout="@layout/cashup"/>
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="?android:buttonBarStyle">
+
+        <Button
+            android:id="@+id/dismiss_button"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            style="?android:buttonBarButtonStyle"
+            android:text="@string/dismiss"/>
+
+        <Button
+            android:id="@+id/cashup_button"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            style="?android:buttonBarButtonStyle"
+            android:text="@string/button_cash_up"/>
+
+        <Button
+            android:id="@+id/send_email"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            style="?android:buttonBarButtonStyle"
+            android:text="@string/send_via_email"/>
+
+        <Button
+            android:id="@+id/print_button"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            style="?android:buttonBarButtonStyle"
+            android:text="@string/button_print"/>
+
+    </LinearLayout>
+
+</LinearLayout>

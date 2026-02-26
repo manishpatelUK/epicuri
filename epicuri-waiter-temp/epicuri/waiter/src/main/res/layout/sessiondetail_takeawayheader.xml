@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/darkgray"
+                android:paddingBottom="12dp"
+                android:paddingLeft="18dp"
+                android:paddingRight="18dp"
+                android:paddingTop="12dp">
+
+    <LinearLayout
+        android:id="@+id/layout_partydetails"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/epicuriCustomer_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:padding="8dp"
+                android:src="@drawable/epicuri_orange"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/name_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Joe Bloggs"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="#ffffffff"/>
+
+                <TextView
+                    android:id="@+id/phoneNumber_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="01904 466777"
+                    android:textColor="#ffffffff"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/takeawayType_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="8dp"
+            android:text="For delivery to:"
+            android:textColor="#ffffffff"/>
+
+        <TextView
+            android:id="@+id/address_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="8dp"
+            android:text="23 Acacia Avenue\nWindow\nYO11 1AA"
+            android:textColor="#ffffffff"/>
+
+        <TextView
+            android:id="@+id/notes_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="8dp"
+            android:text="Some Notes, could potentially be long and have one line\nOr maybe a lkine break"
+            android:textColor="#ffffffff"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/topRightBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/time_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Due: 13:00 on 6 Dec"
+            android:textColor="#ffffffff"/>
+
+        <TextView
+            android:id="@+id/status_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pending"
+            android:textColor="#ffffffff"/>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/notAccepted_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/layout_partydetails"
+        android:orientation="vertical"
+        android:paddingTop="8dp"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Takeaway pending:"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="#ffffffff"/>
+
+        <TextView
+            android:id="@+id/notAcceptedReason_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="- Example reason\n- another possible reason"
+            android:textColor="#ffffffff"/>
+
+    </LinearLayout>
+</RelativeLayout>

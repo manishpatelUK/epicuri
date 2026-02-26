@@ -1,0 +1,31 @@
+<resources>
+
+    <dimen name="padding_small">8dp</dimen>
+    <dimen name="padding_medium">16dp</dimen>
+    <dimen name="padding_large">16dp</dimen>
+
+    <dimen name="keyboard_size">65dp</dimen>
+    <dimen name="keyboard_top_padding">20dp</dimen>
+    <dimen name="keyboard_margin_right">63dp</dimen>
+    <dimen name="stars_margin_bottom">40dp</dimen>
+    <dimen name="keyboard_number_size">40sp</dimen>
+    <dimen name="keyboard_text_size">13sp</dimen>
+
+    <dimen name="stars_margin_right">2dp</dimen>
+    <dimen name="stars_w">30dp</dimen>
+    <dimen name="stars_h">30dp</dimen>
+
+    <dimen name="current_user_txt_size">18sp</dimen>
+    <dimen name="current_user_padding_top">18dp</dimen>
+    <dimen name="current_user_padding_bottom">18dp</dimen>
+
+    <dimen name="epicuri_logo_w">461dp</dimen>
+    <dimen name="epicuri_logo_h">120dp</dimen>
+
+    <dimen name="lock_screen_icon_size">70dp</dimen>
+    <dimen name="lock_screen_icon_txt_size">25sp</dimen>
+    <dimen name="lock_screen_icon_margin_top">7dp</dimen>
+    <dimen name="refresh_icon_size">30dp</dimen>
+
+    <dimen name="actionBarHeight">90dp</dimen>
+</resources>

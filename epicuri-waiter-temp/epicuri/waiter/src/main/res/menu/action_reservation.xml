@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/menu_viewsession"
+        app:showAsAction="always"
+        android:title="Go To Session"/>
+
+    <group android:id="@+id/menugroup_notinsession" >
+        <item
+            android:id="@+id/menu_edit"
+            app:showAsAction="always"
+            android:title="Edit"/>
+        <item
+            android:id="@+id/menu_delete"
+            app:showAsAction="always"
+            android:title="Cancel"/>
+    </group>
+    <group android:id="@+id/menugroup_notarrived" >
+        <item
+            android:id="@+id/menu_arrived"
+            app:showAsAction="always"
+            android:title="Mark As Arrived"/>
+        <item
+            android:id="@+id/menu_notarrived"
+            app:showAsAction="always"
+            android:title="Not Arrived"/>
+    </group>
+    <group android:id="@+id/menugroup_notaccepted" >
+        <item
+            android:id="@+id/menu_accept"
+            app:showAsAction="always"
+            android:title="Accept"/>
+        <item
+            android:id="@+id/menu_reject"
+            app:showAsAction="always"
+            android:title="Reject"/>
+    </group>
+
+</menu>

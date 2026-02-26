@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/darkgray">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@id/buttonPanel"
+        android:orientation="horizontal">
+
+        <ViewAnimator
+            android:id="@+id/sessionOrDiner"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <include
+                android:id="@+id/session"
+                layout="@layout/sessiondetail_session"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <include
+                android:id="@+id/diner"
+                layout="@layout/sessiondetail_diner"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </ViewAnimator>
+
+        <uk.co.epicuri.waiter.ui.TableSeatingView
+            android:id="@+id/tableClicker"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/buttonPanel"
+        android:layout_width="140dp"
+        android:layout_height="230dp"
+        android:orientation="vertical"
+        android:paddingTop="10dp"
+        android:paddingRight="10dp"
+        android:layout_alignParentRight="true"
+
+        android:layout_alignParentEnd="true"
+        tools:ignore="RtlSymmetry">
+
+        <Button
+            android:id="@+id/courseAway"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="@string/course_away" />
+    </LinearLayout>
+
+</RelativeLayout>

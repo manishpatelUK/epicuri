@@ -1,0 +1,56 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/menu_quick"
+        android:icon="@drawable/ic_action_quickorder"
+        android:visible="false"
+        app:showAsAction="always"
+        android:title="@string/quick_order"/>
+
+    <item
+        android:id="@+id/menu_addDiner"
+        android:icon="@drawable/ic_action_addparty"
+        app:showAsAction="always"
+        android:title="@string/new_guest"/>
+
+    <item
+        android:id="@+id/menu_addTakeaway"
+        app:actionLayout="@layout/actionlayout_delivery"
+        android:icon="@drawable/ic_action_takeaways"
+        app:showAsAction="always"
+        android:title="@string/new_takeaway_order"/>
+
+    <item
+        android:id="@+id/menu_reservations"
+        app:actionLayout="@layout/actionlayout_delivery"
+        android:icon="@drawable/ic_action_reservations"
+        app:showAsAction="always"
+        android:title="@string/menu_reservations"/>
+
+    <item
+        android:id="@+id/floor_toggle"
+        android:icon="@drawable/ic_action_floor_toggle"
+        android:visible="true"
+        app:showAsAction="always"
+        android:title="@string/switch_floor_tabs"/>
+
+    <item
+        android:id="@+id/lock_screen"
+        android:icon="@drawable/ic_padlock"
+        android:visible="true"
+        app:showAsAction="always"
+        android:title="@string/lock_screen"/>
+
+    <item
+        android:id="@+id/menu_refresh"
+        android:icon="@drawable/ic_action_refresh"
+        android:orderInCategory="999"
+        app:showAsAction="never"
+        android:title="@string/menu_refresh"/>
+
+    <item
+        android:id="@+id/kick_drawer"
+        app:showAsAction="never"
+        android:title="@string/kick_drawer"/>
+</menu>

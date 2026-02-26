@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/Widget.Epicuri.Tab"
+    android:layout_width="230dp"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:id="@+id/badge_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="3dp"
+        android:layout_toLeftOf="@+id/title"
+        android:visibility="visible">
+
+        <ImageView
+            android:id="@+id/icon"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/badge_new" />
+
+        <TextView
+            android:id="@+id/seat_number"
+            android:layout_width="17dp"
+            android:layout_height="17dp"
+            android:layout_alignBottom="@+id/icon"
+            android:layout_alignRight="@+id/icon"
+            android:background="@drawable/orange_circle_bg"
+            android:gravity="center"
+            android:text="1"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/title"
+        style="@style/Widget.Epicuri.TabText"
+        android:layout_width="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_height="wrap_content"
+
+        android:text="Unseated guests" />
+
+    <View
+        android:layout_width="1dp"
+        android:layout_height="25dp"
+        android:layout_marginRight="1dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:background="#ffaaaaaa" />
+
+</RelativeLayout>

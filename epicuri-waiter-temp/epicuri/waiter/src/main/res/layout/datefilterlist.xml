@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="76dp"
+        android:background="@color/darkgray" >
+
+        <Button
+            android:id="@+id/today"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_margin="8dp"
+            android:background="@drawable/btn_blue"
+            android:padding="@dimen/padding_large"
+            android:text="Today" />
+
+        <Button
+            android:id="@+id/date_now"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:background="@android:color/transparent"
+            android:padding="@dimen/padding_large"
+            android:text="Tuesday 14th July"
+            android:textAppearance="@style/TextAppearance.AppCompat.Title"
+            android:textColor="@color/white" />
+
+        <ImageButton
+            android:id="@+id/date_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/date_now"
+            android:background="@android:color/transparent"
+            android:padding="@dimen/padding_large"
+            android:src="@drawable/arr_left_unpressed" />
+
+        <ImageButton
+            android:id="@+id/date_forward"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/date_now"
+            android:background="@android:color/transparent"
+            android:padding="@dimen/padding_large"
+            android:src="@drawable/arr_right_unpressed" />
+    </RelativeLayout>
+
+    <ListView
+        android:id="@android:id/list"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/lightgray" />
+
+    <TextView
+        android:id="@android:id/empty"
+        style="@style/EmptyText"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="No items found"
+        android:visibility="gone" />
+
+</LinearLayout>
